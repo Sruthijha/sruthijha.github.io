@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sruthijha Pagolu · Portfolio</title>
+  <meta name="description" content="Portfolio of Sruthijha Pagolu — MS in Data Science at CU Boulder. Projects, experience, education, and contact." />
+  <meta name="theme-color" content="#2563eb" />
+  <style>
+    :root{
+      --bg:#ffffff; --text:#0f172a; --muted:#64748b; --line:#e5e7eb; --accent:#2563eb; --accent-2:#1e40af;
+      --shadow:0 6px 20px rgba(15,23,42,.08);
+    }
+    html{scroll-behavior:smooth}
+    body{margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; color:var(--text); background:var(--bg);}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width: 1000px; margin: 0 auto; padding: 0 1rem}
+
+    /* Header / Nav */
+    header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.85); backdrop-filter: saturate(180%) blur(8px); border-bottom:1px solid var(--line)}
+    .nav-wrap{display:flex; align-items:center; justify-content:space-between; height:64px}
+    .brand{display:flex; align-items:center; gap:.5rem; font-weight:700}
+    .brand .dot{width:10px; height:10px; border-radius:999px; background:var(--accent)}
+    nav ul{list-style:none; margin:0; padding:0; display:flex; gap:1rem}
+    nav a{display:inline-block; padding:.5rem .4rem; border-radius:8px; color:var(--text); font-weight:500}
+    nav a.active{color:var(--accent); background:rgba(37,99,235,.08)}
+    #nav-toggle{display:none}
+
+    /* Mobile nav */
+    @media (max-width: 820px){
+      #nav-toggle{display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border:1px solid var(--line); background:#fff; border-radius:10px}
+      nav{position:absolute; top:64px; left:0; right:0; background:#fff; border-bottom:1px solid var(--line); box-shadow: var(--shadow); display:none}
+      nav.open{display:block}
+      nav ul{flex-direction:column; padding: .5rem}
+      nav a{padding:.75rem}
+    }
+
+    /* Hero */
+    .hero{padding: 64px 0 24px}
+    .hero h1{font-size: clamp(28px, 4vw, 40px); margin: 0 0 .5rem}
+    .hero p{color:var(--muted); margin:.25rem 0}
+    .cta{display:flex; gap:.75rem; margin-top:1rem; flex-wrap:wrap}
+    .btn{display:inline-block; padding:.7rem 1rem; border-radius:12px; border:1px solid var(--line); font-weight:600}
+    .btn.primary{background:var(--accent); color:#fff; border-color:var(--accent)}
+    .btn.primary:hover{background:var(--accent-2); border-color:var(--accent-2)}
+
+    /* Sections */
+    section{padding: 72px 0; scroll-margin-top: 84px; border-top:1px solid var(--line)}
+    section:first-of-type{border-top:none}
+    h2{font-size: clamp(22px, 3vw, 28px); margin:0 0 .75rem}
+    .lead{color:var(--muted)}
+
+    /* Simple grids */
+    .grid{display:grid; gap:1rem}
+    @media (min-width: 760px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+
+    /* Cards */
+    .card{border:1px solid var(--line); border-radius:14px; padding:1rem; background:#fff; box-shadow: var(--shadow)}
+    .tags{display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.5rem}
+    .tag{border:1px solid var(--line); border-radius:999px; padding:.2rem .6rem; font-size:.85rem; color:var(--muted)}
+
+    footer{border-top:1px solid var(--line); padding: 28px 0; color:var(--muted)}
+    .foot-links{display:flex; gap:1rem; flex-wrap:wrap}
+
+    /* Accessibility helpers */
+    .skip{position:absolute; left:-9999px}
+    .skip:focus{left:1rem; top:1rem; background:#fff; padding:.5rem .75rem; border-radius:10px; border:1px solid var(--line); z-index:100}
+  </style>
+</head>
+<body>
+  <a href="#about" class="skip">Skip to content</a>
+  <header>
+    <div class="container nav-wrap">
+      <div class="brand" aria-label="Home">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Sruthijha Pagolu</span>
+      </div>
+      <button id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">≡</button>
+      <nav id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="container hero">
+      <h1>Data Science @ CU Boulder — turning data into clear decisions</h1>
+      <p class="lead">I’m a graduate student focusing on ML, analytics, and NLP with project experience across risk analytics and predictive modeling.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View Projects</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
+    </section>
+
+    <section id="education" class="container">
+      <h2>Education</h2>
+      <p class="lead">Keep it concise with highlights and relevant coursework.</p>
+      <div class="card">
+        <strong>University of Colorado Boulder</strong> — MS in Data Science (2024–2026)<br/>
+        Coursework: Machine Learning, Statistical Methods, Data Viz, NLP, Databases
+      </div>
+    </section>
+
+    <section id="experience" class="container">
+      <h2>Experience</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>Role @ Company</strong> — Dates<br/>
+          <ul>
+            <li>Action + Tool → Outcome (metric). Example: Built XGBoost model in Python that increased F1 to 0.84.</li>
+            <li>Automated data pipeline in SQL; reduced reporting time by 40%.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">scikit-learn</span>
+          </div>
+        </div>
+        <div class="card">
+          <strong>Another Role @ Org</strong> — Dates<br/>
+          <ul>
+            <li>Designed dashboards used by leadership for weekly decisions.</li>
+            <li>Partnered with stakeholders; shipped features on time.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Pandas</span><span class="tag">Power BI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="container">
+      <h2>Projects</h2>
+      <div class="grid cols-2">
+        <article class="card">
+          <h3 style="margin:.25rem 0 .5rem">Project Title</h3>
+          <p class="lead">1–2 line TL;DR: what it does and the impact.</p>
+          <ul>
+            <li><strong>Problem:</strong> Why it mattered</li>
+            <li><strong>Approach:</strong> How you solved it</li>
+            <li><strong>Outcome:</strong> Result/metric</li>
+          </ul>
+          <p><a href="#">GitHub</a> · <a href="#">Demo</a> · <a href="#">Write-up</a></p>
+          <div class="tags"><span class="tag">NLP</span><span class="tag">scikit-learn</span><span class="tag">FastAPI</span></div>
+        </article>
+        <article class="card">
+          <h3 style="margin:.25rem 0 .5rem">Another Project</h3>
+          <p class="lead">Short description and value. Add an image later.</p>
+          <ul>
+            <li><strong>Problem:</strong> …</li>
+            <li><strong>Approach:</strong> …</li>
+            <li><strong>Outcome:</strong> …</li>
+          </ul>
+          <p><a href="#">GitHub</a> · <a href="#">Demo</a></p>
+          <div class="tags"><span class="tag">Time Series</span><span class="tag">Python</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="resume" class="container">
+      <h2>Resume</h2>
+      <p class="lead">Keep a single, current PDF. Also mirror the content on this page.</p>
+      <a class="btn primary" href="assets/Sruthijha_Pagolu_Resume.pdf" target="_blank" rel="noopener">Download PDF</a>
+      <p style="margin-top:.5rem; color:var(--muted)">Last updated: Aug 2025 • 1 page</p>
+    </section>
+
+    <section id="contact" class="container">
+      <h2>Contact</h2>
+      <p class="lead">Quickest way to reach me:</p>
+      <div class="card">
+        <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin.com/in/your-handle</a></p>
+        <p>GitHub: <a href="https://github.com/jayywiz" target="_blank" rel="noopener">github.com/jayywiz</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot-links">
+        <span>© <span id="year"></span> Sruthijha Pagolu</span>
+        <a href="#about" title="Back to top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('site-nav');
+    toggle?.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+
+    // Active link on scroll
+    const links = document.querySelectorAll('nav a[href^="#"]');
+    const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const setActive = (id) => {
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){ setActive(entry.target.id); }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+    sections.forEach(sec => io.observe(sec));
+
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
