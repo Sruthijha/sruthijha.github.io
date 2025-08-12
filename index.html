@@ -66,7 +66,11 @@
     /* Accessibility helpers */
     .skip{position:absolute; left:-9999px}
     .skip:focus{left:1rem; top:1rem; background:#fff; padding:.5rem .75rem; border-radius:10px; border:1px solid var(--line); z-index:100}
-  </style>
+  </style><style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
 </head>
 <body>
   <a href="#about" class="skip">Skip to content</a>
