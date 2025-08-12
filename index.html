@@ -163,108 +163,93 @@
   </div>
 </section>
 
-   <section id="experience" class="container" style="padding:2rem 0;">
+<section id="experience" class="container" style="padding: 2rem 0;">
   <h2>Experience</h2>
 
-  <!-- Experience Card -->
-  <div class="exp-card">
-    <div class="exp-header">
-      <div>
-        <strong class="exp-role">Data Analyst Intern</strong>
-        <span class="exp-company"> @ Intech Insurance Surveyors & Loss Assessors Pvt. Ltd</span>
-      </div>
-      <div class="exp-date">Jan – Jun 2023</div>
+  <!-- Data Analyst Intern -->
+  <div class="experience-card">
+    <img src="assets/intech_logo.png" alt="Intech Logo" class="company-logo">
+    <div>
+      <h3><span class="role">Data Analyst Intern</span> @ <span class="company">Intech Insurance Surveyors & Loss Assessors Pvt. Ltd</span></h3>
+      <span class="date">Jan – Jun 2023</span>
+      <ul>
+        <li>Processed and transformed large volumes of raw insurance claims data (Excel/CSV) into clean, analysis-ready datasets for internal reporting.</li>
+        <li>Automated repetitive reporting workflows in Python + Excel, cutting manual effort by 90% and saving 20+ hours/month under senior mentorship.</li>
+        <li>Contributed to the development of a predictive fraud-detection framework, improving claim review accuracy across 15 branches.</li>
+      </ul>
     </div>
-    <ul>
-      <li>Processed and transformed large volumes of raw insurance claims data (Excel/CSV) into clean, analysis-ready datasets.</li>
-      <li>Automated reporting in Python + Excel, cutting manual effort by 90% and saving 20+ hours/month under senior mentorship.</li>
-      <li>Supported a predictive fraud-detection framework, improving claim review accuracy across 15 branches.</li>
-    </ul>
   </div>
 
-  <!-- Experience Card -->
-  <div class="exp-card">
-    <div class="exp-header">
-      <div>
-        <strong class="exp-role">Placement Cell Student Coordinator</strong>
-        <span class="exp-company"> @ Mahindra University</span>
-      </div>
-      <div class="exp-date">Apr 2022 – May 2023</div>
+  <!-- Placement Cell -->
+  <div class="experience-card">
+    <img src="assets/mahindra_university_logo.png" alt="Mahindra University Logo" class="company-logo">
+    <div>
+      <h3><span class="role">Placement Cell Student Coordinator</span> @ <span class="company">Mahindra University</span></h3>
+      <span class="date">Apr 2022 – May 2023</span>
+      <ul>
+        <li>Compiled a centralized database of placement activity through web research, manual verification, and data cleaning to support strategic decisions.</li>
+        <li>Built Excel-based dashboards and visuals highlighting hiring trends, top recruiters, and seasonal placement patterns.</li>
+        <li>Collaborated with recruiters and campus stakeholders to align outreach strategies with student profiles, improving hiring outcomes.</li>
+      </ul>
     </div>
-    <ul>
-      <li>Compiled a centralized database of placement activity via web research, manual verification, and data cleaning.</li>
-      <li>Built Excel reports/visuals for hiring trends, top recruiters, and seasonal placement patterns.</li>
-      <li>Partnered with recruiters and campus stakeholders to align outreach with student profiles and improve hiring outcomes.</li>
-    </ul>
   </div>
 
-  <!-- Experience Card -->
-  <div class="exp-card">
-    <div class="exp-header">
-      <div>
-        <strong class="exp-role">Project Intern</strong>
-        <span class="exp-company"> @ Mahindra & Mahindra Ltd</span>
-      </div>
-      <div class="exp-date">Jul – Aug 2022</div>
+  <!-- Project Intern -->
+  <div class="experience-card">
+    <img src="assets/mahindra_logo.png" alt="Mahindra Logo" class="company-logo">
+    <div>
+      <h3><span class="role">Project Intern</span> @ <span class="company">Mahindra & Mahindra Ltd</span></h3>
+      <span class="date">Jul – Aug 2022</span>
+      <ul>
+        <li>Collected and analyzed sensor data to pinpoint performance bottlenecks in manufacturing systems, implementing improvements that reduced MTTR by 60%.</li>
+        <li>Researched, tested, and optimized water scaling mitigation techniques, enhancing system reliability and efficiency across production lines.</li>
+      </ul>
     </div>
-    <ul>
-      <li>Collected and analyzed sensor data to identify performance bottlenecks, implementing improvements that reduced MTTR by 60%.</li>
-      <li>Researched, tested, and optimized water scaling mitigation techniques, enhancing system reliability and efficiency across production lines.</li>
-    </ul>
   </div>
 </section>
 
-<!-- CSS -->
 <style>
-  #experience h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
+  #experience {
+    max-width: 900px;
+    margin: auto;
   }
-
-  .exp-card {
-    background: #fff;
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-  }
-
-  .exp-header {
+  .experience-card {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.75rem;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 1rem;
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
   }
-
-  .exp-role {
-    color: var(--accent, #0056D2);
-    font-size: 1.1rem;
+  .company-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 8px;
   }
-
-  .exp-company {
-    color: var(--muted, #666);
-    font-weight: 400;
-    font-size: 1.05rem;
+  .role {
+    font-weight: 600;
+    color: #0073e6;
   }
-
-  .exp-date {
-    color: var(--muted, #777);
-    font-size: 0.9rem;
-    white-space: nowrap;
+  .company {
+    font-weight: 500;
+    color: #555;
   }
-
-  .exp-card ul {
-    margin: 0;
-    padding-left: 1.2rem;
+  .date {
+    display: block;
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 0.2rem;
   }
-
-  .exp-card li {
+  ul {
+    margin: 0.5rem 0 0 1.2rem;
+    padding: 0;
+  }
+  li {
     margin-bottom: 0.5rem;
-    color: #333;
-    line-height: 1.5;
+    line-height: 1.4;
   }
 </style>
 
