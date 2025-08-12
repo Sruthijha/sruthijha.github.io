@@ -100,63 +100,106 @@
       </div>
     </section>
 
-<section id="education" class="container">
-  <h2>Education</h2>
-  <p class="lead">Academic background with focus on relevant coursework and achievements.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Education Section Preview</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f8f9fa; padding: 20px; }
+  h2 { border-bottom: 2px solid #ddd; padding-bottom: 5px; }
+  .card {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.25rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+    margin-bottom: 1.5rem;
+  }
+  .card img {
+    width: 110px;
+    height: 90px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #fff;
+    padding: 5px;
+  }
+  .divider {
+    width: 1px;
+    background: #ddd;
+    align-self: stretch;
+  }
+  .content {
+    flex: 1;
+    min-width: 250px;
+    padding-left: 1rem;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .header strong { font-size: 1.2rem; color: #2563eb; }
+  .location { color: #64748b; }
+  .dates { color: #64748b; white-space: nowrap; }
+  ul { margin: .25rem 0 0 1.25rem; }
+</style>
+</head>
+<body>
 
-  <!-- CU Boulder -->
-  <div class="card" style="margin-bottom:2rem; display:flex; gap:1.5rem; align-items:center; padding:1.25rem">
-    <img src="assets/buffs.png" alt="CU Boulder Logo"
-         style="width:110px;height:90px;object-fit:contain;flex-shrink:0;border-radius:8px"/>
-    <div style="width:1px;background:var(--line);align-self:stretch"></div>
-    <div style="flex:1;min-width:250px;padding-left:1rem">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
-        <div>
-          <strong style="font-size:1.2rem;color:var(--accent)">University of Colorado Boulder</strong><br/>
-          <span style="color:var(--muted)">📍 Boulder, CO, USA</span>
-        </div>
-        <div style="color:var(--muted);white-space:nowrap">May 2023 – Dec 2025</div>
+<h2>Education</h2>
+
+<!-- CU Boulder -->
+<div class="card">
+  <img src="https://upload.wikimedia.org/wikipedia/en/6/63/Colorado_Buffaloes_wordmark.svg" alt="CU Boulder Logo">
+  <div class="divider"></div>
+  <div class="content">
+    <div class="header">
+      <div>
+        <strong>University of Colorado Boulder</strong><br/>
+        <span class="location">Boulder, CO, USA</span>
       </div>
-      <p style="margin:.5rem 0 0">Master of Science in Data Science · GPA: 3.96 / 4.0</p>
-
-      <p style="margin:.75rem 0 0"><strong>Relevant Coursework:</strong></p>
-      <ul style="margin:.25rem 0 0 1.25rem">
-        <li>Machine Learning</li>
-        <li>Statistical Methods</li>
-        <li>Data Mining</li>
-      </ul>
+      <div class="dates">May 2023 – Dec 2025</div>
     </div>
+    <p style="margin:.5rem 0 0">Master of Science in Data Science</p>
+    <p style="margin:.25rem 0 0">CGPA: 3.96 / 4.0</p>
+    <p style="margin:.75rem 0 0"><strong>Relevant Coursework:</strong></p>
+    <ul>
+      <li>Machine Learning</li>
+      <li>Statistical Methods</li>
+      <li>Data Mining</li>
+    </ul>
   </div>
+</div>
 
-  <!-- Mahindra University -->
-  <div class="card" style="display:flex;gap:1.5rem;align-items:center;padding:1.25rem">
-    <img src="assets/MU.png" alt="Mahindra University Logo"
-         style="width:110px;height:90px;object-fit:contain;flex-shrink:0;border-radius:8px"/>
-    <div style="width:1px;background:var(--line);align-self:stretch"></div>
-    <div style="flex:1;min-width:250px;padding-left:1rem">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
-        <div>
-          <strong style="font-size:1.2rem;color:var(--accent)">Mahindra University</strong><br/>
-          <span style="color:var(--muted)">📍 Hyderabad, Telangana, India</span>
-        </div>
-        <div style="color:var(--muted);white-space:nowrap">Aug 2019 – May 2023</div>
+<!-- Mahindra University -->
+<div class="card">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Mahindra_University_Logo.png" alt="Mahindra University Logo">
+  <div class="divider"></div>
+  <div class="content">
+    <div class="header">
+      <div>
+        <strong>Mahindra University</strong><br/>
+        <span class="location">Hyderabad, Telangana, India</span>
       </div>
-      <p style="margin:.5rem 0 0">Bachelor of Technology in Electrical and Electronics Engineering · GPA: 3.54 / 4.0</p>
-
-      <p style="margin:.75rem 0 0"><strong>Relevant Coursework:</strong></p>
-      <ul style="margin:.25rem 0 0 1.25rem">
-        <li>Data Structures & Algorithms</li>
-        <li>Computer Architecture & Design</li>
-        <li>Computer & Communication Networks</li>
-      </ul>
-
-      <p style="margin:.75rem 0 0"><strong>Achievements:</strong></p>
-      <ul style="margin:.25rem 0 0 1.25rem">
-        <li>Institute Merit Scholarship (2019, 2021, 2022)</li>
-      </ul>
+      <div class="dates">Aug 2019 – May 2023</div>
     </div>
+    <p style="margin:.5rem 0 0">Bachelor of Technology in Electrical and Electronics Engineering</p>
+    <p style="margin:.25rem 0 0">CGPA: 3.54 / 4.0</p>
+    <p style="margin:.75rem 0 0"><strong>Relevant Coursework:</strong></p>
+    <ul>
+      <li>Data Structures & Algorithms</li>
+      <li>Computer Architecture & Design</li>
+      <li>Computer & Communication Networks</li>
+    </ul>
   </div>
-</section>
+</div>
+
+</body>
+</html>
 
     </section>
     <section id="experience" class="container">
