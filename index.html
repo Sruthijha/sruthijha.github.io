@@ -169,10 +169,15 @@
   <!-- Data Analyst Intern -->
   <div class="experience-card">
     <img src="assets/intech.png" alt="Intech Logo" class="company-logo">
-    <div>
-      <h3><span class="role">Data Analyst Intern</span> @ <span class="company">Intech Insurance Surveyors & Loss Assessors Pvt. Ltd</span></h3>
-      <span class="date">Jan – Jun 2023</span>
-      <ul>
+    <div class="exp-body">
+      <div class="exp-header">
+        <h3 class="exp-title">
+          <span class="role">Data Analyst Intern</span>
+          <span class="company"> @ Intech Insurance Surveyors & Loss Assessors Pvt. Ltd</span>
+        </h3>
+        <span class="date">Jan – Jun 2023</span>
+      </div>
+      <ul class="exp-points">
         <li>Processed and transformed large volumes of raw insurance claims data (Excel/CSV) into clean, analysis-ready datasets for internal reporting.</li>
         <li>Automated repetitive reporting workflows in Python + Excel, cutting manual effort by 90% and saving 20+ hours/month under senior mentorship.</li>
         <li>Contributed to the development of a predictive fraud-detection framework, improving claim review accuracy across 15 branches.</li>
@@ -183,10 +188,15 @@
   <!-- Placement Cell -->
   <div class="experience-card">
     <img src="assets/MU.png" alt="Mahindra University Logo" class="company-logo">
-    <div>
-      <h3><span class="role">Placement Cell Student Coordinator</span> @ <span class="company">Mahindra University</span></h3>
-      <span class="date">Apr 2022 – May 2023</span>
-      <ul>
+    <div class="exp-body">
+      <div class="exp-header">
+        <h3 class="exp-title">
+          <span class="role">Placement Cell Student Coordinator</span>
+          <span class="company"> @ Mahindra University</span>
+        </h3>
+        <span class="date">Apr 2022 – May 2023</span>
+      </div>
+      <ul class="exp-points">
         <li>Compiled a centralized database of placement activity through web research, manual verification, and data cleaning to support strategic decisions.</li>
         <li>Built Excel-based dashboards and visuals highlighting hiring trends, top recruiters, and seasonal placement patterns.</li>
         <li>Collaborated with recruiters and campus stakeholders to align outreach strategies with student profiles, improving hiring outcomes.</li>
@@ -197,59 +207,54 @@
   <!-- Project Intern -->
   <div class="experience-card">
     <img src="assets/M&M.png" alt="Mahindra Logo" class="company-logo">
-    <div>
-      <h3><span class="role">Project Intern</span> @ <span class="company">Mahindra & Mahindra Ltd</span></h3>
-      <span class="date">Jul – Aug 2022</span>
-      <ul>
+    <div class="exp-body">
+      <div class="exp-header">
+        <h3 class="exp-title">
+          <span class="role">Project Intern</span>
+          <span class="company"> @ Mahindra & Mahindra Ltd</span>
+        </h3>
+        <span class="date">Jul – Aug 2022</span>
+      </div>
+      <ul class="exp-points">
         <li>Collected and analyzed sensor data to pinpoint performance bottlenecks in manufacturing systems, implementing improvements that reduced MTTR by 60%.</li>
-        <li>Researched, tested, and optimized water scaling mitigation techniques, enhancing system reliability and efficiency across production lines.</li>
+        <li>Researched, tested, and optimized water-scaling mitigation techniques, enhancing system reliability and efficiency across production lines.</li>
       </ul>
     </div>
   </div>
 </section>
 
 <style>
-  #experience {
-    max-width: 900px;
-    margin: auto;
+  /* container */
+  #experience { max-width: 980px; margin: auto; }
+
+  /* cards */
+  .experience-card{
+    display:flex; gap:1rem; align-items:flex-start;
+    background:#fff; border-radius:12px; padding:1.25rem 1.5rem;
+    box-shadow:0 2px 6px rgba(0,0,0,.05); margin-bottom:1.25rem;
+    transition: box-shadow .2s ease, transform .2s ease;
   }
-  .experience-card {
-    display: flex;
-    gap: 1rem;
-    background: #fff;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    margin-bottom: 1.5rem;
-    align-items: flex-start;
+  .experience-card:hover{ box-shadow:0 6px 18px rgba(0,0,0,.08); transform: translateY(-2px); }
+
+  .company-logo{ width:48px; height:48px; object-fit:contain; border-radius:8px; flex-shrink:0; }
+  .exp-body{ flex:1; min-width:250px; }
+
+  /* header row (role/company + date) */
+  .exp-header{
+    display:flex; justify-content:space-between; align-items:baseline; gap:.75rem; flex-wrap:wrap;
+    margin-bottom:.5rem;
   }
-  .company-logo {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    border-radius: 8px;
-  }
-  .role {
-    font-weight: 600;
-    color: #0073e6;
-  }
-  .company {
-    font-weight: 500;
-    color: #555;
-  }
-  .date {
-    display: block;
-    font-size: 0.85rem;
-    color: #888;
-    margin-top: 0.2rem;
-  }
-  ul {
-    margin: 0.5rem 0 0 1.2rem;
-    padding: 0;
-  }
-  li {
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
+  .exp-title{ margin:0; font-size:1.1rem; line-height:1.2; }
+  .role{ font-weight:700; color:var(--accent, #0a66ff); }
+  .company{ color:var(--muted, #5d6679); font-weight:500; }
+  .date{ color:var(--muted, #7a8499); font-size:.95rem; white-space:nowrap; }
+
+  /* bullets */
+  .exp-points{ margin:.25rem 0 0 1.15rem; padding:0; }
+  .exp-points li{
+    margin:0 0 .6em 0;
+    line-height:1.55;
+    color:#1f2937; /* slate-800 vibe */
   }
 </style>
 
