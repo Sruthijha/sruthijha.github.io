@@ -267,27 +267,27 @@
   }
   .skills-category:hover{ transform: translateY(-2px); box-shadow: var(--shadow-hov); }
 
-  .skills-title{
-    margin:0 0 .8rem;
-    color: var(--title);
-    font-weight: 800;
+.skills-title {
+    margin: 0 0 0.75rem;
+    font-weight: 600;
     font-size: 1rem;
-    letter-spacing: .1px;
-  }
+    color: #0f172a;
+}
 
   /* -------- Tags -------- */
   .tags{ display:flex; flex-wrap:wrap; gap: var(--pill-gap); }
-  .skill-tag{
-    display:inline-flex; align-items:center;
-    padding: var(--pill-py) var(--pill-px);
+ .skill-tag{
+    display:inline-flex;
+    align-items:center;
+    padding: 0.55rem 1.1rem;   /* increased from 0.45rem 0.9rem */
     border-radius: var(--pill-radius);
     background:#fff;
     border:1px solid var(--border);
-    font-weight: 600;
-    font-size:.92rem;
+    font-weight: 600;          /* you can change to 700 for even bolder */
+    font-size: 1.05rem;        /* increased from 0.92rem */
     white-space: nowrap;
     transition: background-color .2s ease, box-shadow .2s ease;
-  }
+}
   .skill-tag:hover{ background:#f3f4f6; box-shadow: 0 2px 6px rgba(0,0,0,.06); }
 </style>
 
