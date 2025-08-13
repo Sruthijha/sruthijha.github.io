@@ -7,6 +7,7 @@
   <meta name="description" content="Portfolio of Sruthijha Pagolu — MS in Data Science at CU Boulder. Projects, experience, education, and contact." />
   <meta name="theme-color" content="#2563eb" />
   <style>
+    <style>
   :root{
     --bg:#ffffff; --text:#0f172a; --muted:#64748b; --line:#e5e7eb;
     --accent:#2563eb; --accent-2:#1e40af;
@@ -48,32 +49,26 @@
     nav a{padding:.75rem}
   }
 
-/* Consistent vertical spacing for all sections */
-section {
-  padding-top: 72px;
-  padding-bottom: 72px;
-  scroll-margin-top: 84px;
-}
+  /* Sections (top-level) */
+  section{
+    padding: 72px 0;
+    scroll-margin-top: 84px;
+    /* ensure no automatic line at the top of each section */
+    border-top: 0;
+  }
+  section:first-of-type{border-top:none}
+  h2{font-size: clamp(22px, 3vw, 28px); margin:0 0 .75rem}
+  .lead{color:var(--muted)}
 
-/* Remove extra spacing from first section */
-section:first-of-type {
-  padding-top: 72px; /* same as others */
-}
-
-/* Remove unwanted margins from section headings */
-section h2 {
-  margin-top: 0;
-  margin-bottom: 1.5rem; /* consistent heading spacing */
-}
-
-/* Ensure cards don't add extra space below sections */
-.card {
-  margin-bottom: 1.5rem;
-}
-section .card:last-child {
-  margin-bottom: 0;
-}
-
+  /* Cards — single shared rule used everywhere */
+  .card{
+    background:#ffffff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:1.25rem 1.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom:1.25rem;
+  }
 
   /* Simple grids */
   .grid{display:grid; gap:1rem}
