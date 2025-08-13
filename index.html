@@ -257,22 +257,21 @@
      } */
 
   /* -------- Category box -------- */
-  .skills-category{
-    background: var(--box-bg);
-    border:1px solid var(--border);
-    border-radius: 14px;
-    padding: 1rem 1.2rem;
-    box-shadow: var(--shadow);
-    transition: transform .18s ease, box-shadow .2s ease;
-  }
+ .skills-category h4 {
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #374151;
+}
   .skills-category:hover{ transform: translateY(-2px); box-shadow: var(--shadow-hov); }
 
-.skills-title {
-    margin: 0 0 0.75rem;
+  .skills-title{
+    margin:0 0 .8rem;
+    color: var(--title);
     font-weight: 600;
     font-size: 1rem;
-    color: #0f172a;
-}
+    letter-spacing: .1px;
+  }
 
   /* -------- Tags -------- */
   .tags{ display:flex; flex-wrap:wrap; gap: var(--pill-gap); }
