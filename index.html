@@ -120,125 +120,131 @@
 
   <main>
 
-   <section id="about">
+<section id="about" class="container" style="padding-top:1rem; padding-bottom:2rem;">
   <h2>About Me</h2>
 
-  <!-- Intro Card -->
-  <div class="card">
+  <!-- Intro card -->
+  <div class="card about-card">
     <p>
-      I am a graduate student pursuing a Master’s in Data Science at the University of Colorado Boulder, with a strong background in data analysis, machine learning, and statistical modeling. I have hands-on experience working with real-world datasets, building predictive models, and creating data-driven insights to support business decisions.
+      I’m a graduate student pursuing an M.S. in Data Science at the University of Colorado Boulder.
+      I enjoy turning raw data into meaningful stories—building predictive models, running
+      statistical analyses, and shipping insights that help decisions.
     </p>
     <p>
-      My experience spans across Python, SQL, R, and visualization tools, along with internships in analytics and research-oriented roles. I enjoy turning raw data into meaningful stories and actionable strategies.
+      My toolkit spans Python, SQL, and R with a focus on practical ML, data pipelines, and clear
+      visual communication.
     </p>
   </div>
 
-  <!-- Skills Card -->
-  <div class="card">
-    <h3>Skills</h3>
+  <!-- Skills card -->
+  <div class="card about-card">
+    <h3 class="about-subhead">Skills</h3>
+
     <div class="skills-grid">
       <div class="skills-category">
         <h4>Languages</h4>
         <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">SQL</span>
-          <span class="tag">R</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">R</span>
         </div>
       </div>
 
       <div class="skills-category">
         <h4>Core DS / ML</h4>
         <div class="tags">
-          <span class="tag">Pandas</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">scikit-learn</span>
-          <span class="tag">XGBoost</span>
-          <span class="tag">Feature Engineering</span>
-          <span class="tag">Model Evaluation</span>
-          <span class="tag">Statistics</span>
-          <span class="tag">EDA</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">NumPy</span>
+          <span class="skill-tag">scikit-learn</span>
+          <span class="skill-tag">XGBoost</span>
+          <span class="skill-tag">Feature Engineering</span>
+          <span class="skill-tag">Model Evaluation</span>
+          <span class="skill-tag">Statistics</span>
+          <span class="skill-tag">EDA</span>
         </div>
       </div>
 
       <div class="skills-category">
         <h4>Visualization / BI</h4>
         <div class="tags">
-          <span class="tag">Tableau</span>
-          <span class="tag">Power BI</span>
-          <span class="tag">Matplotlib</span>
-          <span class="tag">Plotly</span>
+          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Matplotlib</span>
+          <span class="skill-tag">Plotly</span>
         </div>
       </div>
 
       <div class="skills-category">
         <h4>Tools</h4>
         <div class="tags">
-          <span class="tag">Jupyter</span>
-          <span class="tag">Git / GitHub</span>
-          <span class="tag">Excel</span>
+          <span class="skill-tag">Jupyter</span>
+          <span class="skill-tag">Git / GitHub</span>
+          <span class="skill-tag">Excel</span>
         </div>
       </div>
 
       <div class="skills-category">
         <h4>Data Workflows</h4>
         <div class="tags">
-          <span class="tag">Data Cleaning</span>
-          <span class="tag">SQL Joins</span>
-          <span class="tag">APIs</span>
+          <span class="skill-tag">Data Cleaning</span>
+          <span class="skill-tag">SQL Joins</span>
+          <span class="skill-tag">APIs</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+
 <style>
-.skills-wrap {
-  display: grid;
-  gap: 1.25rem 2rem; /* more breathing space between categories */
-  grid-template-columns: 1fr;
+/* ABOUT */
+#about h2{ margin:.5rem 0 1rem; }
+.about-card{ margin-bottom:1rem; }
+
+.about-subhead{
+  margin:.25rem 0 1rem;
+  font-size:1.1rem;
+  color:var(--accent);
 }
 
-@media (min-width: 760px) {
-  .skills-wrap {
-    grid-template-columns: 1fr 1fr; /* balanced two-column layout on desktop */
-  }
+/* Two even columns on desktop; stack on mobile */
+.skills-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.5rem 2rem; /* row / column */
+}
+@media (max-width:760px){
+  .skills-grid{ grid-template-columns:1fr; }
 }
 
-.skill-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem; /* gap between chips inside each category */
-  align-items: flex-start;
+.skills-category h4{
+  color:var(--muted);
+  font-size:1rem;
+  font-weight:600;
+  margin:0 0 .5rem;
 }
 
-.skill-head {
-  width: 100%;
-  font-weight: 600;
-  color: var(--muted);
-  margin: 0 0 .5rem;
-  font-size: .95rem;
-}
+.tags{ display:flex; flex-wrap:wrap; gap:.5rem; }
 
-.skill-tag {
-  display: inline-block;
-  background: #f8fafc;
-  color: #0f172a;
-  border: 1px solid var(--line);
-  border-radius: 999px; /* fully rounded for clean pill look */
-  padding: .4rem .8rem;
-  font-size: .85rem;
-  font-weight: 500;
-  white-space: nowrap;
-  line-height: 1;
-  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+/* Cohesive pill chips */
+.skill-tag{
+  display:inline-block;
+  background:#f8fafc;
+  color:#0f172a;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:.4rem .8rem;
+  font-size:.85rem;
+  font-weight:500;
+  line-height:1;         /* consistent height */
+  white-space:nowrap;
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
-
-.skill-tag:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(15, 23, 42, .06);
-  background: #f1f5f9;
+.skill-tag:hover{
+  transform:translateY(-1px);
+  box-shadow:0 4px 10px rgba(15,23,42,.06);
+  background:#f1f5f9;
 }
-
 </style>
 
 
