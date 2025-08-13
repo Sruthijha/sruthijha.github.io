@@ -267,6 +267,23 @@
 }
 </style>
 
+<style>
+  /* 1) Tighten the space before the Skills card */
+  #skills-section {
+    margin-top: 0 !important;                 /* kill unexpected section margin */
+  }
+  #skills-section .card.about-card {
+    padding-top: .75rem !important;           /* was 1.75rem; reduce inner top space */
+  }
+  #skills-section .about-subhead {
+    margin-top: 0 !important;                 /* avoid extra h3 top margin */
+    color: var(--accent) !important;          /* keep the Skills heading blue */
+  }
+
+  /* 2) (Safety) Ensure our fixes don’t change the About Me text styles */
+  /* These are scoped to Skills only, so your intro <p> won't be touched. */
+  /* No rules here target .about-p outside #skills-section. */
+</style>
 
 
 <section id="education" class="container" style="padding-top: 1rem; padding-bottom: 2rem;">
