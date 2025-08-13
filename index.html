@@ -288,6 +288,34 @@
   background: #f3f4f6 !important;
   box-shadow: 0 2px 6px rgba(0,0,0,0.06) !important;
 }
+
+  #skills-section{ margin-top:0 !important; }                  /* kill space above skills */
+#about .about-card{ margin-bottom:.75rem !important; }       /* smaller gap below About */
+
+#skills-section .card.about-card{
+  overflow:visible !important; isolation:isolate !important; /* keeps box top crisp */
+  padding:1rem 1.25rem !important;                           /* compact, matches vibe */
+  margin-bottom:1.25rem !important;
+}
+
+#skills-section .about-subhead{
+  color:var(--accent) !important;                            /* keep it blue */
+  margin:0 0 .75rem !important;
+  font-weight:600 !important;
+}
+
+/* compact internals so it feels tighter */
+#skills-section .skills-columns{ gap:.9rem !important; }
+#skills-section .skills-col{ gap:.9rem !important; }
+#skills-section .skills-category{ padding:.85rem 1rem !important; }
+#skills-section .skills-title{ margin:0 0 .6rem !important; }
+#skills-section .tags{ gap:.45rem !important; }
+#skills-section .skill-tag{
+  padding:.48rem .95rem !important;
+  font-size:.95rem !important;
+  font-weight:500 !important;
+}
+
 </style>
 
 
