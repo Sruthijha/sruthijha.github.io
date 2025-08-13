@@ -141,66 +141,49 @@
 <div class="card about-card">
   <h3 class="about-subhead">Skills</h3>
 
-  <div class="skills-grid balanced">
-    <!-- 1) Languages -->
-    <div class="skills-category skill-box">
-      <h4>Languages</h4>
+  <div class="skills-grid">
+
+    <div class="skills-category">
+      <h4>Programming Languages</h4>
       <div class="tags">
-        <span class="skill-tag skill-tag--primary">Python</span>
-        <span class="skill-tag skill-tag--primary">SQL</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
         <span class="skill-tag">R</span>
       </div>
     </div>
 
-    <!-- 2) Core DS / ML -->
-    <div class="skills-category skill-box">
-      <h4>Core DS / ML</h4>
+    <div class="skills-category">
+      <h4>Data Science & Machine Learning</h4>
       <div class="tags">
-        <span class="skill-tag skill-tag--primary">Pandas</span>
-        <span class="skill-tag skill-tag--primary">NumPy</span>
-        <span class="skill-tag">scikit-learn</span>
+        <span class="skill-tag">Scikit-learn</span>
+        <span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">PyTorch</span>
+        <span class="skill-tag">XGBoost / LightGBM</span>
       </div>
     </div>
 
-    <!-- 3) Visualization / BI -->
-    <div class="skills-category skill-box">
-      <h4>Visualization / BI</h4>
+    <div class="skills-category">
+      <h4>Data Analysis & Visualization</h4>
       <div class="tags">
-        <span class="skill-tag skill-tag--primary">Tableau</span>
-        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">NumPy</span>
         <span class="skill-tag">Matplotlib</span>
+        <span class="skill-tag">Seaborn</span>
+        <span class="skill-tag">Plotly</span>
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">Power BI</span>
       </div>
     </div>
 
-    <!-- 4) Data Ops -->
-    <div class="skills-category skill-box">
-      <h4>Data Ops</h4>
+    <div class="skills-category">
+      <h4>MLOps & Tools</h4>
       <div class="tags">
-        <span class="skill-tag skill-tag--primary">Git / GitHub</span>
-        <span class="skill-tag">Jupyter</span>
-        <span class="skill-tag">Excel</span>
+        <span class="skill-tag">Git / GitHub</span>
+        <span class="skill-tag">OpenCV</span>
+        <span class="skill-tag">Transformers (BERT, GPT, CLIP)</span>
       </div>
     </div>
 
-    <!-- 5) Data Workflows -->
-    <div class="skills-category skill-box">
-      <h4>Data Workflows</h4>
-      <div class="tags">
-        <span class="skill-tag skill-tag--primary">Data Cleaning</span>
-        <span class="skill-tag">SQL Joins</span>
-        <span class="skill-tag">APIs</span>
-      </div>
-    </div>
-
-    <!-- 6) Advanced Techniques -->
-    <div class="skills-category skill-box">
-      <h4>Advanced Techniques</h4>
-      <div class="tags">
-        <span class="skill-tag">Feature Engineering</span>
-        <span class="skill-tag">Model Evaluation</span>
-        <span class="skill-tag">EDA</span>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -219,74 +202,38 @@
     color:var(--accent);
   }
 
- /* Skills grid: 3 cards per row on desktop, 2 on tablets, 1 on mobile */
-.skills-grid.balanced {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-@media (min-width: 640px) {
-  .skills-grid.balanced {
-    grid-template-columns: 1fr 1fr;
+ <style>
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
   }
-}
-@media (min-width: 1024px) {
-  .skills-grid.balanced {
-    grid-template-columns: 1fr 1fr 1fr;
+
+  .skills-category h4 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
   }
-}
 
-/* Each category in its own card */
-.skill-box {
-  background: #fcfdff;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 1rem;
-  min-height: 140px;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-}
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
 
-.skills-category h4 {
-  color: #475569;
-  font-size: .95rem;
-  font-weight: 600;
-  margin: 0;
-}
+  .skill-tag {
+    display: inline-block;
+    background-color: #f1f1f1;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap; /* Prevents breaking long words */
+    transition: background-color 0.3s ease;
+  }
 
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem;
-}
-
-/* Chips */
-.skill-tag {
-  display: inline-block;
-  background: #f8fafc;
-  color: #0f172a;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: .34rem .72rem;
-  font-size: .86rem;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: .2px;
-  white-space: nowrap;
-  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
-}
-.skill-tag:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(15, 23, 42, .06);
-  background: #f1f5f9;
-}
-
-/* Highlight important skills */
-.skill-tag--primary {
-  background: rgba(37, 99, 235, .08);
-  border-color: rgba(37, 99, 235, .25);
-}
+  .skill-tag:hover {
+    background-color: #e0e0e0;
+  }
 </style>
 
 <section id="education" class="container" style="padding-top: 1rem; padding-bottom: 2rem;">
