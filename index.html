@@ -120,116 +120,123 @@
 
   <main>
 
-    <section id="about" class="container" style="padding-top: 1rem; padding-bottom: 2rem;">
-  <h2 style="margin: .5rem 0 1rem;">About Me</h2>
+   <section id="about">
+  <h2>About Me</h2>
 
-  <div class="card" style="display: flex; flex-direction: column; gap: 1rem; padding: 1.25rem;">
-    <p style="margin: 0; line-height: 1.6;">
-      I am a graduate student pursuing a Master’s in Data Science at the University of Colorado Boulder,
-      with a strong background in data analysis, machine learning, and statistical modeling.
-      I have hands-on experience working with real-world datasets, building predictive models,
-      and creating data-driven insights to support business decisions.
+  <!-- Intro Card -->
+  <div class="card">
+    <p>
+      I am a graduate student pursuing a Master’s in Data Science at the University of Colorado Boulder, with a strong background in data analysis, machine learning, and statistical modeling. I have hands-on experience working with real-world datasets, building predictive models, and creating data-driven insights to support business decisions.
     </p>
-    <p style="margin: 0; line-height: 1.6;">
-      My experience spans across Python, SQL, R, and visualization tools, along with internships
-      in analytics and research-oriented roles. I enjoy turning raw data into meaningful stories
-      and actionable strategies.
+    <p>
+      My experience spans across Python, SQL, R, and visualization tools, along with internships in analytics and research-oriented roles. I enjoy turning raw data into meaningful stories and actionable strategies.
     </p>
-
-    <!-- Skills Section -->
-    <!-- Skills (grouped) -->
-<h3 style="margin-top: 1rem; font-size: 1.1rem; color: var(--accent)">Skills</h3>
-
-<div class="skills-wrap">
-  <div class="skill-group">
-    <div class="skill-head">Languages</div>
-    <span class="skill-tag">Python</span>
-    <span class="skill-tag">SQL</span>
-    <span class="skill-tag">R</span>
   </div>
 
-  <div class="skill-group">
-    <div class="skill-head">Core DS / ML</div>
-    <span class="skill-tag">Pandas</span>
-    <span class="skill-tag">NumPy</span>
-    <span class="skill-tag">scikit-learn</span>
-    <span class="skill-tag">XGBoost</span>
-    <span class="skill-tag">Feature Engineering</span>
-    <span class="skill-tag">Model Evaluation</span>
-    <span class="skill-tag">Statistics</span>
-    <span class="skill-tag">EDA</span>
-  </div>
+  <!-- Skills Card -->
+  <div class="card">
+    <h3>Skills</h3>
+    <div class="skills-grid">
+      <div class="skills-category">
+        <h4>Languages</h4>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">R</span>
+        </div>
+      </div>
 
-  <div class="skill-group">
-    <div class="skill-head">Visualization / BI</div>
-    <span class="skill-tag">Tableau</span>
-    <span class="skill-tag">Power BI</span>
-    <span class="skill-tag">Matplotlib</span>
-    <span class="skill-tag">Plotly</span>
-  </div>
+      <div class="skills-category">
+        <h4>Core DS / ML</h4>
+        <div class="tags">
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">scikit-learn</span>
+          <span class="tag">XGBoost</span>
+          <span class="tag">Feature Engineering</span>
+          <span class="tag">Model Evaluation</span>
+          <span class="tag">Statistics</span>
+          <span class="tag">EDA</span>
+        </div>
+      </div>
 
-  <div class="skill-group">
-    <div class="skill-head">Data Workflows</div>
-    <span class="skill-tag">Data Cleaning</span>
-    <span class="skill-tag">SQL Joins</span>
-    <span class="skill-tag">APIs</span>
-  </div>
+      <div class="skills-category">
+        <h4>Visualization / BI</h4>
+        <div class="tags">
+          <span class="tag">Tableau</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Matplotlib</span>
+          <span class="tag">Plotly</span>
+        </div>
+      </div>
 
-  <div class="skill-group">
-    <div class="skill-head">Tools</div>
-    <span class="skill-tag">Jupyter</span>
-    <span class="skill-tag">Git / GitHub</span>
-    <span class="skill-tag">Excel</span>
-  </div>
-</div>
+      <div class="skills-category">
+        <h4>Tools</h4>
+        <div class="tags">
+          <span class="tag">Jupyter</span>
+          <span class="tag">Git / GitHub</span>
+          <span class="tag">Excel</span>
+        </div>
+      </div>
 
+      <div class="skills-category">
+        <h4>Data Workflows</h4>
+        <div class="tags">
+          <span class="tag">Data Cleaning</span>
+          <span class="tag">SQL Joins</span>
+          <span class="tag">APIs</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <style>
-  .skill-tag {
-    display: inline-block;
-    background: #f1f5f9;
-    color: #0f172a;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: .35rem .65rem;
-    font-size: .85rem;
-    font-weight: 500;
-    white-space: nowrap;
-  }
-
-  .skills-wrap{
-  display:grid;
-  gap: .75rem 1rem;
+.skills-wrap {
+  display: grid;
+  gap: 1.25rem 2rem; /* more breathing space between categories */
   grid-template-columns: 1fr;
 }
-@media (min-width: 760px){
-  .skills-wrap{ grid-template-columns: 1fr 1fr; }
+
+@media (min-width: 760px) {
+  .skills-wrap {
+    grid-template-columns: 1fr 1fr; /* balanced two-column layout on desktop */
+  }
 }
-.skill-group{ display:flex; flex-wrap:wrap; gap:.5rem; align-items:flex-start }
-.skill-head{
-  width:100%;
-  font-weight:600;
+
+.skill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem; /* gap between chips inside each category */
+  align-items: flex-start;
+}
+
+.skill-head {
+  width: 100%;
+  font-weight: 600;
   color: var(--muted);
-  margin: .25rem 0 .25rem;
+  margin: 0 0 .5rem;
   font-size: .95rem;
 }
-.skill-tag{
-  display:inline-block;
-  background:#f8fafc;
-  color:#0f172a;
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:.35rem .65rem;
-  font-size:.85rem;
-  font-weight:500;
-  white-space:nowrap;
-  transition: transform .15s ease, box-shadow .15s ease;
+
+.skill-tag {
+  display: inline-block;
+  background: #f8fafc;
+  color: #0f172a;
+  border: 1px solid var(--line);
+  border-radius: 999px; /* fully rounded for clean pill look */
+  padding: .4rem .8rem;
+  font-size: .85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  line-height: 1;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
-.skill-tag:hover{
+
+.skill-tag:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(15,23,42,.06);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, .06);
+  background: #f1f5f9;
 }
 
 </style>
