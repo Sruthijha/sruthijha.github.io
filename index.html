@@ -193,97 +193,95 @@
   </section>
 </section>
 
-
 <style>
-/* ---------- OVERRIDES (scoped to #skills-section) ---------- */
-#skills-section .card.about-card{
-  overflow: visible !important;     /* fix “faded top” */
+/* ---------- About paragraph fixes ---------- */
+#about .about-card .about-p {
+  line-height: 1.7 !important;
+  margin: 0.4rem 0 1rem !important;
+  max-width: 78ch;
+}
+#about .about-card {
+  margin-bottom: 1.25rem !important; /* reduce gap below About */
+}
+
+/* ---------- Skills section layout ---------- */
+#skills-section {
+  margin-top: 0.75rem !important; /* shrink big gap above Skills */
+}
+#skills-section .card.about-card {
+  overflow: visible !important;
   isolation: isolate !important;
-  padding-top: 1.75rem !important;
+  padding: 1rem 1.2rem !important; /* smaller inner padding */
 }
 
-/* kill any old grid/columns rules that might still apply */
-#skills-section .skills-grid{ display:block !important; }
-
-/* 3-column stable layout via flex */
-#skills-section .skills-columns{
-  display:flex !important;
-  gap:1.5rem !important;
-  align-items:flex-start !important;
+/* Flex columns */
+#skills-section .skills-columns {
+  display: flex !important;
+  gap: 1rem !important;
+  align-items: flex-start !important;
 }
-#skills-section .skills-col{
-  flex:1 1 0 !important;
-  display:flex !important;
-  flex-direction:column !important;
-  gap:1.5rem !important;
+#skills-section .skills-col {
+  flex: 1 1 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem !important;
 }
-@media (max-width:1024px){
-  #skills-section .skills-columns{ flex-wrap:wrap !important; }
-  #skills-section .skills-col{ flex:1 1 calc(50% - .75rem) !important; }
+@media (max-width: 1024px) {
+  #skills-section .skills-columns { flex-wrap: wrap !important; }
+  #skills-section .skills-col { flex: 1 1 calc(50% - 0.5rem) !important; }
 }
-@media (max-width:640px){
-  #skills-section .skills-col{ flex:1 1 100% !important; }
+@media (max-width: 640px) {
+  #skills-section .skills-col { flex: 1 1 100% !important; }
 }
 
-/* category boxes */
-#skills-section .skills-category{
-  background:#f9fafb !important;
-  border:1px solid #e5e7eb !important;
-  border-radius:14px !important;
-  padding:1rem 1.2rem !important;
-  box-shadow:0 1px 3px rgba(0,0,0,.05) !important;
-  position:relative !important; z-index:1 !important;
-  transition:transform .18s ease, box-shadow .2s ease !important;
+/* Category boxes */
+#skills-section .skills-category {
+  background: #f9fafb !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 14px !important;
+  padding: 0.9rem 1rem !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05) !important;
+  position: relative !important;
+  z-index: 1 !important;
+  transition: transform 0.18s ease, box-shadow 0.2s ease !important;
 }
-#skills-section .skills-category:hover{
-  transform:translateY(-2px) !important;
-  box-shadow:0 6px 16px rgba(0,0,0,.08) !important;
-}
-
-/* subheadings – soft, clear */
-#skills-section .skills-title{
-  margin:0 0 .75rem !important;
-  font-weight:600 !important;
-  font-size:1rem !important;
-  color:#374151 !important;
+#skills-section .skills-category:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08) !important;
 }
 
-/* pill tags – lighter than subheadings */
-#skills-section .tags{ display:flex !important; flex-wrap:wrap !important; gap:.6rem !important; }
-#skills-section .skill-tag{
-  display:inline-flex !important; align-items:center !important;
-  padding:.55rem 1.1rem !important;
-  border-radius:999px !important;
-  background:#fff !important;
-  border:1px solid #e5e7eb !important;
-  font-weight:500 !important;             /* lighter than h4 */
-  font-size:.95rem !important;            /* smaller than h4 */
-  white-space:nowrap !important;
-  transition:background-color .2s, box-shadow .2s !important;
+/* Subheadings */
+#skills-section .skills-title {
+  margin: 0 0 0.6rem !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: #374151 !important;
 }
-#skills-section .skill-tag:hover{
-  background:#f3f4f6 !important;
-  box-shadow:0 2px 6px rgba(0,0,0,.06) !important;
+
+/* Tags */
+#skills-section .tags {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.5rem !important;
+}
+#skills-section .skill-tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 0.5rem 0.95rem !important;
+  border-radius: 999px !important;
+  background: #fff !important;
+  border: 1px solid #e5e7eb !important;
+  font-weight: 500 !important;  /* lighter than subheading */
+  font-size: 0.95rem !important;
+  white-space: nowrap !important;
+  transition: background-color 0.2s, box-shadow 0.2s !important;
+}
+#skills-section .skill-tag:hover {
+  background: #f3f4f6 !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06) !important;
 }
 </style>
 
-<style>
-  /* 1) Tighten the space before the Skills card */
-  #skills-section {
-    margin-top: 0 !important;                 /* kill unexpected section margin */
-  }
-  #skills-section .card.about-card {
-    padding-top: .75rem !important;           /* was 1.75rem; reduce inner top space */
-  }
-  #skills-section .about-subhead {
-    margin-top: 0 !important;                 /* avoid extra h3 top margin */
-    color: var(--accent) !important;          /* keep the Skills heading blue */
-  }
-
-  /* 2) (Safety) Ensure our fixes don’t change the About Me text styles */
-  /* These are scoped to Skills only, so your intro <p> won't be touched. */
-  /* No rules here target .about-p outside #skills-section. */
-</style>
 
 
 <section id="education" class="container" style="padding-top: 1rem; padding-bottom: 2rem;">
