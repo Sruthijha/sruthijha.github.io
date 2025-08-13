@@ -8,7 +8,8 @@
   <meta name="theme-color" content="#2563eb" />
   <style>
     :root{
-      --bg:#ffffff; --text:#0f172a; --muted:#64748b; --line:#e5e7eb; --accent:#2563eb; --accent-2:#1e40af;
+      --bg:#ffffff; --text:#0f172a; --muted:#64748b; --line:#e5e7eb;
+      --accent:#2563eb; --accent-2:#1e40af;
       --shadow:0 6px 20px rgba(15,23,42,.08);
     }
     html{scroll-behavior:smooth}
@@ -36,7 +37,7 @@
       nav a{padding:.75rem}
     }
 
-    /* Hero */
+    /* Hero (unused here, but keeping for consistency) */
     .hero{padding: 64px 0 24px}
     .hero h1{font-size: clamp(28px, 4vw, 40px); margin: 0 0 .5rem}
     .hero p{color:var(--muted); margin:.25rem 0}
@@ -45,20 +46,25 @@
     .btn.primary{background:var(--accent); color:#fff; border-color:var(--accent)}
     .btn.primary:hover{background:var(--accent-2); border-color:var(--accent-2)}
 
-    /* Sections */
+    /* Sections (top-level) */
     section{padding: 72px 0; scroll-margin-top: 84px; border-top:1px solid var(--line)}
     section:first-of-type{border-top:none}
     h2{font-size: clamp(22px, 3vw, 28px); margin:0 0 .75rem}
     .lead{color:var(--muted)}
 
+    /* Cards — single shared rule used everywhere */
+    .card{
+      background:#ffffff;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:1.25rem 1.5rem;
+      box-shadow: var(--shadow);
+      margin-bottom:1.25rem;
+    }
+
     /* Simple grids */
     .grid{display:grid; gap:1rem}
     @media (min-width: 760px){.grid.cols-2{grid-template-columns:1fr 1fr}}
-
-    /* Cards */
-    .card{border:1px solid var(--line); border-radius:14px; padding:1rem; background:#fff; box-shadow: var(--shadow)}
-    .tags{display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.5rem}
-    .tag{border:1px solid var(--line); border-radius:999px; padding:.2rem .6rem; font-size:.85rem; color:var(--muted)}
 
     footer{border-top:1px solid var(--line); padding: 28px 0; color:var(--muted)}
     .foot-links{display:flex; gap:1rem; flex-wrap:wrap}
@@ -66,386 +72,283 @@
     /* Accessibility helpers */
     .skip{position:absolute; left:-9999px}
     .skip:focus{left:1rem; top:1rem; background:#fff; padding:.5rem .75rem; border-radius:10px; border:1px solid var(--line); z-index:100}
-  </style><style>
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
+  </style>
+
+  <!-- Header mini patch -->
+  <style>
+    .nav-wrap{display:flex; justify-content:center; align-items:center; height:64px;}
+    nav ul{list-style:none; margin:0; padding:0; display:flex; justify-content:center; gap:1rem;}
+    @media (max-width: 820px){ .nav-wrap{justify-content:space-between;} }
+  </style>
 </head>
 <body>
   <a href="#about" class="skip">Skip to content</a>
 
   <header>
-  <style>
-
-    /* Center nav links in desktop view */
-    .nav-wrap {
-      display: flex;
-      justify-content: center; /* centers nav horizontally */
-      align-items: center;
-      height: 64px;
-    }
-
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    /* Adjust for mobile so toggle button still works */
-    @media (max-width: 820px) {
-      .nav-wrap {
-        justify-content: space-between; /* restores toggle position on mobile */
-      }
-    }
-  </style>
-
-  <div class="container nav-wrap">
-    <!-- Removed brand section to eliminate dot -->
-    <button id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">≡</button>
-    <nav id="site-nav" aria-label="Primary">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <div class="container nav-wrap">
+      <button id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">≡</button>
+      <nav id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <main>
 
+    <!-- =========== ABOUT =========== -->
+    <section id="about" class="container">
+      <h2>About Me</h2>
 
-<section id="about" class="container">
-  <h2>About Me</h2>
+      <div class="card about-card">
+        <p class="about-p">
+          I’m a graduate student pursuing an M.S. in Data Science at CU Boulder with a strong background in
+          data analysis, machine learning, and statistical modeling. I’ve worked with real-world datasets,
+          built predictive models, and turned data into insights that support business decisions.
+        </p>
+        <p class="about-p">
+          My experience spans Python, SQL, R, and modern visualization tools, along with internships in
+          analytics and research-oriented roles. I enjoy turning raw data into meaningful stories and
+          actionable strategies.
+        </p>
+      </div>
 
-  <div class="card about-card">
-    <p class="about-p">
-      I’m a graduate student pursuing an M.S. in Data Science at CU Boulder with a strong background in
-      data analysis, machine learning, and statistical modeling. I’ve worked with real-world datasets,
-      built predictive models, and turned data into insights that support business decisions.
-    </p>
-    <p class="about-p">
-      My experience spans Python, SQL, R, and modern visualization tools, along with internships in
-      analytics and research-oriented roles. I enjoy turning raw data into meaningful stories and
-      actionable strategies.
-    </p>
-  </div>
+      <!-- =========== SKILLS (nested section) =========== -->
+      <!-- IMPORTANT: this nested section cancels the global section padding/border -->
+      <section id="skills-section">
+        <div class="card about-card skills-card">
+          <h3 class="about-subhead">Skills</h3>
 
-  <section id="skills-section">
-    <div class="card about-card skills-card">
-      <h3 class="about-subhead">Skills</h3>
+          <div class="skills-columns">
+            <!-- Column 1 -->
+            <div class="skills-col">
+              <section class="skills-category">
+                <h4 class="skills-title">Programming Languages</h4>
+                <div class="tags">
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">SQL</span>
+                  <span class="skill-tag">R</span>
+                </div>
+              </section>
 
-      <div class="skills-columns">
-        <div class="skills-col">
-          <section class="skills-category">
-            <h4 class="skills-title">Programming Languages</h4>
-            <div class="tags">
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">SQL</span>
-              <span class="skill-tag">R</span>
+              <section class="skills-category">
+                <h4 class="skills-title">MLOps &amp; Tools</h4>
+                <div class="tags">
+                  <span class="skill-tag">Git / GitHub</span>
+                  <span class="skill-tag">OpenCV</span>
+                  <span class="skill-tag">Transformers (BERT, GPT, CLIP)</span>
+                </div>
+              </section>
             </div>
-          </section>
 
-          <section class="skills-category">
-            <h4 class="skills-title">MLOps &amp; Tools</h4>
-            <div class="tags">
-              <span class="skill-tag">Git / GitHub</span>
-              <span class="skill-tag">OpenCV</span>
-              <span class="skill-tag">Transformers (BERT, GPT, CLIP)</span>
+            <!-- Column 2 -->
+            <div class="skills-col">
+              <section class="skills-category">
+                <h4 class="skills-title">Data Science &amp; Machine Learning</h4>
+                <div class="tags">
+                  <span class="skill-tag">Scikit-learn</span>
+                  <span class="skill-tag">TensorFlow</span>
+                  <span class="skill-tag">PyTorch</span>
+                  <span class="skill-tag">XGBoost / LightGBM</span>
+                </div>
+              </section>
             </div>
-          </section>
-        </div>
 
-        <div class="skills-col">
-          <section class="skills-category">
-            <h4 class="skills-title">Data Science &amp; Machine Learning</h4>
-            <div class="tags">
-              <span class="skill-tag">Scikit-learn</span>
-              <span class="skill-tag">TensorFlow</span>
-              <span class="skill-tag">PyTorch</span>
-              <span class="skill-tag">XGBoost / LightGBM</span>
+            <!-- Column 3 -->
+            <div class="skills-col">
+              <section class="skills-category">
+                <h4 class="skills-title">Data Analysis &amp; Visualization</h4>
+                <div class="tags">
+                  <span class="skill-tag">Pandas</span>
+                  <span class="skill-tag">NumPy</span>
+                  <span class="skill-tag">Matplotlib</span>
+                  <span class="skill-tag">Seaborn</span>
+                  <span class="skill-tag">Plotly</span>
+                  <span class="skill-tag">Tableau</span>
+                  <span class="skill-tag">Power BI</span>
+                </div>
+              </section>
             </div>
-          </section>
+          </div>
         </div>
+      </section>
+    </section>
 
-        <div class="skills-col">
-          <section class="skills-category">
-            <h4 class="skills-title">Data Analysis &amp; Visualization</h4>
-            <div class="tags">
-              <span class="skill-tag">Pandas</span>
-              <span class="skill-tag">NumPy</span>
-              <span class="skill-tag">Matplotlib</span>
-              <span class="skill-tag">Seaborn</span>
-              <span class="skill-tag">Plotly</span>
-              <span class="skill-tag">Tableau</span>
-              <span class="skill-tag">Power BI</span>
+    <!-- ===== Styles local to About/Skills ===== -->
+    <style>
+      /* About text readability */
+      #about .about-card .about-p{ line-height:1.7; margin:.4rem 0 1rem; max-width:78ch; }
+
+      /* CANCEL the global section padding/border for the nested Skills section */
+      #skills-section{ padding:0; border-top:none; margin-top:16px; }
+
+      /* Skills card uses same spacing as other cards; ensure shadows/borders render clean */
+      #skills-section .card.about-card{ padding:1.25rem 1.5rem; overflow:visible; isolation:isolate; }
+
+      /* Blue Skills heading */
+      #skills-section .about-subhead{ color:var(--accent); margin:0 0 1rem; font-weight:600; }
+
+      /* Columns */
+      #skills-section .skills-columns{ display:flex; gap:1rem; align-items:flex-start; }
+      #skills-section .skills-col{ flex:1 1 0; display:flex; flex-direction:column; gap:1rem; }
+      @media (max-width:1024px){ #skills-section .skills-columns{ flex-wrap:wrap; } #skills-section .skills-col{ flex:1 1 calc(50% - .5rem);} }
+      @media (max-width:640px){ #skills-section .skills-col{ flex:1 1 100%; } }
+
+      /* Category boxes */
+      #skills-section .skills-category{
+        background:#f9fafb; border:1px solid #e5e7eb; border-radius:14px;
+        padding:.9rem 1rem; box-shadow:0 1px 3px rgba(0,0,0,.05);
+        transition:transform .18s, box-shadow .2s;
+      }
+      #skills-section .skills-category:hover{ transform:translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,.08); }
+
+      /* Subheadings inside boxes */
+      #skills-section .skills-title{ margin:0 0 .6rem; font-weight:600; font-size:1rem; color:#374151; }
+
+      /* Skill tags */
+      #skills-section .tags{ display:flex; flex-wrap:wrap; gap:.5rem; }
+      #skills-section .skill-tag{
+        display:inline-flex; align-items:center; padding:.5rem .95rem;
+        border-radius:999px; background:#fff; border:1px solid #e5e7eb;
+        font-weight:500; font-size:.95rem; white-space:nowrap;
+        transition:background-color .2s, box-shadow .2s;
+      }
+      #skills-section .skill-tag:hover{ background:#f3f4f6; box-shadow:0 2px 6px rgba(0,0,0,.06); }
+    </style>
+
+    <!-- =========== EDUCATION =========== -->
+    <section id="education" class="container" style="padding-top: 1rem; padding-bottom: 2rem;">
+      <h2 style="margin: .5rem 0 1rem;">Education</h2>
+
+      <!-- CU Boulder -->
+      <div class="card" style="display:flex; gap:1.5rem; align-items:center;">
+        <img src="assets/buffs.png" alt="CU Boulder Logo"
+             style="width:120px;height:95px;object-fit:contain;flex-shrink:0;border-radius:8px"/>
+        <div style="width:1px;background:var(--line);align-self:stretch"></div>
+        <div style="flex:1;min-width:250px;padding-left:1rem">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
+            <div>
+              <strong style="font-size:1.2rem;color:var(--accent)">University of Colorado Boulder</strong><br/>
             </div>
-          </section>
+            <div style="color:rgba(0,0,0,0.45);font-size:0.95rem;font-weight:400;white-space:nowrap">Aug 2023 – Dec 2025</div>
+          </div>
+          <p style="margin:.35rem 0 0; line-height:1.5"><strong>Degree:</strong> Master of Science in Data Science</p>
+          <p style="margin:.35rem 0 0; line-height:1.5"><strong>CGPA:</strong> 3.96 / 4.0</p>
+
+          <p style="margin:.35rem 0 0; line-height:1.5"><strong>Relevant Coursework:</strong></p>
+          <ul style="margin:.25rem 0 0 1rem; line-height:1.6">
+            <li>Data Mining</li>
+            <li>Statistical Methods and Applications</li>
+            <li>Machine Learning</li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
-</section>
 
-<style>
-/* ---------- Shared Card Style (applies globally) ---------- */
-.card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 1.25rem 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  margin-bottom: 1.25rem;
-}
+      <!-- Mahindra University -->
+      <div class="card" style="display:flex; gap:1.5rem; align-items:center;">
+        <img src="assets/MU.png" alt="Mahindra University Logo"
+             style="width:120px;height:95px;object-fit:contain;flex-shrink:0;border-radius:8px"/>
+        <div style="width:1px;background:var(--line);align-self:stretch"></div>
+        <div style="flex:1;min-width:250px;padding-left:1rem">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
+            <div>
+              <strong style="font-size:1.2rem;color:var(--accent)">Mahindra University</strong><br/>
+            </div>
+            <div style="color:rgba(0,0,0,0.45);font-size:0.95rem;font-weight:400;white-space:nowrap">Aug 2019 – May 2023</div>
+          </div>
+          <p style="margin:.35rem 0 0; line-height:1.5"><strong>Degree:</strong> Bachelor of Technology in Electrical and Electronics Engineering</p>
+          <p style="margin:.35rem 0 0; line-height:1.5"><strong>CGPA:</strong> 3.54 / 4.0</p>
 
-/* ---------- About paragraph ---------- */
-#about .about-card .about-p {
-  line-height: 1.7;
-  margin: 0.4rem 0 1rem;
-  max-width: 78ch;
-}
-#about .about-card {
-  margin-bottom: 1.25rem; /* tighter gap below About */
-}
-
-/* ---------- Skills section ---------- */
-#skills-section {
-  margin-top: 0.75rem; /* reduce gap above Skills */
-}
-#skills-section .card.about-card {
-  padding: 1.25rem 1.5rem; /* match global card padding */
-}
-
-/* Skills heading color */
-#skills-section h3 {
-  color: #2563eb; /* same blue as Education & Experience */
-}
-
-/* Flex columns layout */
-#skills-section .skills-columns {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-}
-#skills-section .skills-col {
-  flex: 1 1 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-@media (max-width: 1024px) {
-  #skills-section .skills-columns { flex-wrap: wrap; }
-  #skills-section .skills-col { flex: 1 1 calc(50% - 0.5rem); }
-}
-@media (max-width: 640px) {
-  #skills-section .skills-col { flex: 1 1 100%; }
-}
-
-/* Category boxes */
-#skills-section .skills-category {
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  padding: 0.9rem 1rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,.05);
-  transition: transform 0.18s ease, box-shadow 0.2s ease;
-}
-#skills-section .skills-category:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,.08);
-}
-
-/* Subheadings inside category */
-#skills-section .skills-title {
-  margin: 0 0 0.6rem;
-  font-weight: 600;
-  font-size: 1rem;
-  color: #374151;
-}
-
-/* Skill tags */
-#skills-section .tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-#skills-section .skill-tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.5rem 0.95rem;
-  border-radius: 999px;
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  font-weight: 500;
-  font-size: 0.95rem;
-  white-space: nowrap;
-  transition: background-color 0.2s, box-shadow 0.2s;
-}
-#skills-section .skill-tag:hover {
-  background: #f3f4f6;
-  box-shadow: 0 2px 6px rgba(0,0,0,.06);
-}
-</style>
-
-
-<section id="education" class="container" style="padding-top: 1rem; padding-bottom: 2rem;">
-  <h2 style="margin: .5rem 0 1rem;">Education</h2>
-
-  <!-- CU Boulder -->
-  <div class="card" style="display:flex; gap:1.5rem; align-items:center;">
-    <img src="assets/buffs.png" alt="CU Boulder Logo"
-         style="width:120px;height:95px;object-fit:contain;flex-shrink:0;border-radius:8px"/>
-    <div style="width:1px;background:var(--line);align-self:stretch"></div>
-    <div style="flex:1;min-width:250px;padding-left:1rem">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
-        <div>
-          <strong style="font-size:1.2rem;color:var(--accent)">University of Colorado Boulder</strong><br/>
+          <p style="margin:.35rem 0 0; line-height:1.5"><strong>Relevant Coursework:</strong></p>
+          <ul style="margin:.25rem 0 0 1rem; line-height:1.6">
+            <li>Data Structures & Algorithms</li>
+            <li>Computer Architecture & Design</li>
+            <li>Computer & Communication Networks</li>
+          </ul>
         </div>
-        <div style="color:rgba(0,0,0,0.45);font-size:0.95rem;font-weight:400;white-space:nowrap">Aug 2023 – Dec 2025</div>
       </div>
-      <p style="margin:.35rem 0 0; line-height:1.5"><strong>Degree:</strong> Master of Science in Data Science</p>
-      <p style="margin:.35rem 0 0; line-height:1.5"><strong>CGPA:</strong> 3.96 / 4.0</p>
+    </section>
 
-      <p style="margin:.35rem 0 0; line-height:1.5"><strong>Relevant Coursework:</strong></p>
-      <ul style="margin:.25rem 0 0 1rem; line-height:1.6">
-        <li>Data Mining</li>
-        <li>Statistical Methods and Applications</li>
-        <li>Machine Learning</li>
-      </ul>
-    </div>
-  </div>
+    <!-- =========== EXPERIENCE =========== -->
+    <section id="experience" class="container" style="padding-top: 1rem; padding-bottom: 2rem;">
+      <h2>Experience</h2>
 
-  <!-- Mahindra University -->
-  <div class="card" style="display:flex; gap:1.5rem; align-items:center;">
-    <img src="assets/MU.png" alt="Mahindra University Logo"
-         style="width:120px;height:95px;object-fit:contain;flex-shrink:0;border-radius:8px"/>
-    <div style="width:1px;background:var(--line);align-self:stretch"></div>
-    <div style="flex:1;min-width:250px;padding-left:1rem">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
-        <div>
-          <strong style="font-size:1.2rem;color:var(--accent)">Mahindra University</strong><br/>
+      <div class="experience-card card">
+        <img src="assets/intech.png" alt="Intech Logo" class="company-logo">
+        <div class="exp-body">
+          <div class="exp-header">
+            <h3 class="exp-title">
+              <span class="role">Data Analyst Intern</span>
+              <span class="company"> @ Intech Insurance Surveyors & Loss Assessors Pvt. Ltd</span>
+            </h3>
+            <span class="date">Jan – Jun 2023</span>
+          </div>
+          <ul class="exp-points">
+            <li>Processed and transformed large volumes of raw insurance claims data (Excel/CSV) into clean, analysis-ready datasets for internal reporting.</li>
+            <li>Automated repetitive reporting workflows in Python + Excel, cutting manual effort by 90% and saving 20+ hours/month under senior mentorship.</li>
+            <li>Contributed to the development of a predictive fraud-detection framework, improving claim review accuracy across 15 branches.</li>
+          </ul>
         </div>
-        <div style="color:rgba(0,0,0,0.45);font-size:0.95rem;font-weight:400;white-space:nowrap">Aug 2019 – May 2023</div>
       </div>
-      <p style="margin:.35rem 0 0; line-height:1.5"><strong>Degree:</strong> Bachelor of Technology in Electrical and Electronics Engineering</p>
-      <p style="margin:.35rem 0 0; line-height:1.5"><strong>CGPA:</strong> 3.54 / 4.0</p>
 
-      <p style="margin:.35rem 0 0; line-height:1.5"><strong>Relevant Coursework:</strong></p>
-      <ul style="margin:.25rem 0 0 1rem; line-height:1.6">
-        <li>Data Structures & Algorithms</li>
-        <li>Computer Architecture & Design</li>
-        <li>Computer & Communication Networks</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="experience" class="container" style="padding-top: 1rem; padding-bottom: 2rem;">
-  <h2>Experience</h2>
-
-  <!-- Data Analyst Intern -->
-  <div class="experience-card card">
-    <img src="assets/intech.png" alt="Intech Logo" class="company-logo">
-    <div class="exp-body">
-      <div class="exp-header">
-        <h3 class="exp-title">
-          <span class="role">Data Analyst Intern</span>
-          <span class="company"> @ Intech Insurance Surveyors & Loss Assessors Pvt. Ltd</span>
-        </h3>
-        <span class="date">Jan – Jun 2023</span>
+      <div class="experience-card card">
+        <img src="assets/MU.png" alt="Mahindra University Logo" class="company-logo">
+        <div class="exp-body">
+          <div class="exp-header">
+            <h3 class="exp-title">
+              <span class="role">Placement Cell Student Coordinator</span>
+              <span class="company"> @ Mahindra University</span>
+            </h3>
+            <span class="date">Apr 2022 – May 2023</span>
+          </div>
+          <ul class="exp-points">
+            <li>Compiled a centralized database of placement activity through web research, manual verification, and data cleaning to support strategic decisions.</li>
+            <li>Built Excel-based dashboards and visuals highlighting hiring trends, top recruiters, and seasonal placement patterns.</li>
+            <li>Collaborated with recruiters and campus stakeholders to align outreach strategies with student profiles, improving hiring outcomes.</li>
+          </ul>
+        </div>
       </div>
-      <ul class="exp-points">
-        <li>Processed and transformed large volumes of raw insurance claims data (Excel/CSV) into clean, analysis-ready datasets for internal reporting.</li>
-        <li>Automated repetitive reporting workflows in Python + Excel, cutting manual effort by 90% and saving 20+ hours/month under senior mentorship.</li>
-        <li>Contributed to the development of a predictive fraud-detection framework, improving claim review accuracy across 15 branches.</li>
-      </ul>
-    </div>
-  </div>
 
-  <!-- Placement Cell -->
-  <div class="experience-card card">
-    <img src="assets/MU.png" alt="Mahindra University Logo" class="company-logo">
-    <div class="exp-body">
-      <div class="exp-header">
-        <h3 class="exp-title">
-          <span class="role">Placement Cell Student Coordinator</span>
-          <span class="company"> @ Mahindra University</span>
-        </h3>
-        <span class="date">Apr 2022 – May 2023</span>
+      <div class="experience-card card">
+        <img src="assets/M&M.png" alt="Mahindra Logo" class="company-logo">
+        <div class="exp-body">
+          <div class="exp-header">
+            <h3 class="exp-title">
+              <span class="role">Project Intern</span>
+              <span class="company"> @ Mahindra & Mahindra Ltd</span>
+            </h3>
+            <span class="date">Jul – Aug 2022</span>
+          </div>
+          <ul class="exp-points">
+            <li>Collected and analyzed sensor data to pinpoint performance bottlenecks in manufacturing systems, implementing improvements that reduced MTTR by 60%.</li>
+            <li>Researched, tested, and optimized water-scaling mitigation techniques, enhancing system reliability and efficiency across production lines.</li>
+          </ul>
+        </div>
       </div>
-      <ul class="exp-points">
-        <li>Compiled a centralized database of placement activity through web research, manual verification, and data cleaning to support strategic decisions.</li>
-        <li>Built Excel-based dashboards and visuals highlighting hiring trends, top recruiters, and seasonal placement patterns.</li>
-        <li>Collaborated with recruiters and campus stakeholders to align outreach strategies with student profiles, improving hiring outcomes.</li>
-      </ul>
-    </div>
-  </div>
+    </section>
 
-  <!-- Project Intern -->
-  <div class="experience-card card">
-    <img src="assets/M&M.png" alt="Mahindra Logo" class="company-logo">
-    <div class="exp-body">
-      <div class="exp-header">
-        <h3 class="exp-title">
-          <span class="role">Project Intern</span>
-          <span class="company"> @ Mahindra & Mahindra Ltd</span>
-        </h3>
-        <span class="date">Jul – Aug 2022</span>
-      </div>
-      <ul class="exp-points">
-        <li>Collected and analyzed sensor data to pinpoint performance bottlenecks in manufacturing systems, implementing improvements that reduced MTTR by 60%.</li>
-        <li>Researched, tested, and optimized water-scaling mitigation techniques, enhancing system reliability and efficiency across production lines.</li>
-      </ul>
-    </div>
-  </div>
-</section>
+    <!-- Experience styles -->
+    <style>
+      #experience{ max-width:980px; margin:auto; }
+      .experience-card{ display:flex; gap:1rem; align-items:flex-start; transition: box-shadow .2s, transform .2s; }
+      .experience-card:hover{ box-shadow:0 8px 20px rgba(0,0,0,.08); transform: translateY(-2px); }
+      .company-logo{ width:48px; height:48px; object-fit:contain; border-radius:8px; flex-shrink:0; }
+      .exp-body{ flex:1; min-width:250px; }
+      .exp-header{ display:flex; justify-content:space-between; align-items:baseline; gap:.75rem; flex-wrap:wrap; margin-bottom:.5rem; }
+      .exp-title{ margin:0; font-size:1.1rem; line-height:1.2; }
+      .role{ font-weight:700; color: var(--accent); }
+      .company{ font-weight:550; color: rgba(0,0,0,0.70); }
+      .date{ color:rgba(0,0,0,0.45); font-size:.95rem; white-space:nowrap; }
+      .exp-points{ margin:.25rem 0 0 1.15rem; padding:0; }
+      .exp-points li{ margin:0 0 .6em 0; line-height:1.55; color:#1f2937; }
+    </style>
 
-<style>
-  /* shared card style (applies to Education + Experience) */
-  .card{
-    background:#ffffff;
-    border-radius:12px;
-    padding:1.25rem 1.5rem;
-    box-shadow:0 4px 12px rgba(0,0,0,.06);
-    margin-bottom:1.25rem;
-  }
-
-  /* experience layout specifics */
-  #experience{ max-width:980px; margin:auto; }
-
-  .experience-card{
-    display:flex; gap:1rem; align-items:flex-start;
-    transition: box-shadow .2s ease, transform .2s ease;
-  }
-  .experience-card:hover{ box-shadow:0 8px 20px rgba(0,0,0,.08); transform: translateY(-2px); }
-
-  .company-logo{ width:48px; height:48px; object-fit:contain; border-radius:8px; flex-shrink:0; }
-  .exp-body{ flex:1; min-width:250px; }
-
-  .exp-header{
-    display:flex; justify-content:space-between; align-items:baseline; gap:.75rem; flex-wrap:wrap;
-    margin-bottom:.5rem;
-  }
-  .exp-title{ margin:0; font-size:1.1rem; line-height:1.2; }
-
-  .role{ font-weight:700; color: var(--accent, #0a66ff); }
-  .company{ font-weight:550; color: rgba(0,0,0,0.70); }
-
-  .date{ color:rgba(0,0,0,0.45); font-size:.95rem; white-space:nowrap; }
-
-  .exp-points{ margin:.25rem 0 0 1.15rem; padding:0; }
-  .exp-points li{
-    margin:0 0 .6em 0;
-    line-height:1.55;
-    color:#1f2937; /* slate-800 */
-  }
-</style>
-
+    <!-- =========== PROJECTS =========== -->
     <section id="projects" class="container">
       <h2>Projects</h2>
       <div class="grid cols-2">
@@ -474,115 +377,79 @@
       </div>
     </section>
 
+    <!-- =========== CONTACT =========== -->
+    <section id="contact" class="container" style="text-align:center; padding:2rem 0;">
+      <h2>Contact</h2>
+      <p class="lead" style="margin:.25rem 0 1rem; color:var(--muted);">You can reach me directly via email or LinkedIn.</p>
+      <div style="display:flex; justify-content:center; gap:2rem; align-items:center; margin-bottom:1rem;">
+        <a href="mailto:sruthipagolu@gmail.com" title="Email Me"><img src="assets/gmail.png" alt="Gmail"></a>
+        <a href="https://www.linkedin.com/in/sruthijha" target="_blank" rel="noopener noreferrer" title="LinkedIn"><img src="assets/linkedin.png" alt="LinkedIn"></a>
+      </div>
+      <hr style="max-width:300px; margin:1rem auto; border:0; border-top:1px solid var(--line);">
+      <p class="lead" style="margin:.25rem 0 1rem; color:var(--muted);">Explore my work and writing here.</p>
+      <div style="display:flex; justify-content:center; gap:2rem; align-items:center;">
+        <a href="https://github.com/jayywiz" target="_blank" rel="noopener noreferrer" title="GitHub"><img src="assets/github.svg" alt="GitHub"></a>
+        <a href="https://medium.com/@sruthijha" target="_blank" rel="noopener noreferrer" title="Medium"><img src="assets/medium.png" alt="Medium"></a>
+      </div>
+    </section>
 
-<section id="contact" class="container" style="text-align:center; padding:2rem 0;">
-  <h2>Contact</h2>
+    <!-- Hover + equal sizing -->
+    <style>
+      #contact a img { width:32px; height:32px; object-fit:contain; transition: transform .2s, opacity .2s; vertical-align: middle; }
+      #contact a img:hover { transform: scale(1.08); opacity: .9; }
+    </style>
 
-  <!-- Direct Contact -->
-  <p class="lead" style="margin:.25rem 0 1rem; color:var(--muted);">
-    You can reach me directly via email or LinkedIn.
-  </p>
-  <div style="display:flex; justify-content:center; gap:2rem; align-items:center; margin-bottom:1rem;">
-    <!-- Gmail -->
-    <a href="mailto:sruthipagolu@gmail.com" title="Email Me">
-      <img src="assets/gmail.png" alt="Gmail">
-    </a>
-    <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/in/sruthijha" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-      <img src="assets/linkedin.png" alt="LinkedIn">
-    </a>
-  </div>
+  </main>
 
-  <!-- Divider -->
-  <hr style="max-width:300px; margin:1rem auto; border:0; border-top:1px solid var(--line);">
-
-  <!-- Other Profiles -->
-  <p class="lead" style="margin:.25rem 0 1rem; color:var(--muted);">
-    Explore my work and writing here.
-  </p>
-  <div style="display:flex; justify-content:center; gap:2rem; align-items:center;">
-    <!-- GitHub -->
-    <a href="https://github.com/jayywiz" target="_blank" rel="noopener noreferrer" title="GitHub">
-      <img src="assets/github.svg" alt="GitHub">
-    </a>
-    <!-- Medium -->
-    <a href="https://medium.com/@sruthijha" target="_blank" rel="noopener noreferrer" title="Medium">
-      <img src="assets/medium.png" alt="Medium">
-    </a>
-  </div>
-</section>
-
-<!-- Hover + equal sizing -->
-<style>
-  #contact a img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    transition: transform .2s, opacity .2s;
-    vertical-align: middle;
-  }
-  #contact a img:hover {
-    transform: scale(1.08);
-    opacity: 0.9;
-  }
-</style>
-
-</main>
-
-<footer>
-  <div class="container">
-    <div class="foot-links">
-      <span>© <span id="year"></span> Sruthijha Pagolu</span>
-      <a href="#about" title="Back to top">Back to top ↑</a>
+  <footer>
+    <div class="container">
+      <div class="foot-links">
+        <span>© <span id="year"></span> Sruthijha Pagolu</span>
+        <a href="#about" title="Back to top">Back to top ↑</a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-
- <script>
-  // Mobile nav toggle
-  const toggle = document.getElementById('nav-toggle');
-  const nav = document.getElementById('site-nav');
-  toggle?.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(open));
-  });
-
-  // Active link on scroll
-  const links = document.querySelectorAll('nav a[href^="#"]');
-  const sections = Array.from(links)
-    .map(a => document.querySelector(a.getAttribute('href')))
-    .filter(Boolean);
-
-  const setActive = (id) => {
-    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
-  };
-
-  // Ensure click highlights immediately (and close mobile nav)
-  links.forEach(a => {
-    a.addEventListener('click', () => {
-      links.forEach(l => l.classList.remove('active'));
-      a.classList.add('active');
-      if (nav.classList.contains('open')) {
-        nav.classList.remove('open');
-        toggle?.setAttribute('aria-expanded', 'false');
-      }
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('site-nav');
+    toggle?.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
     });
-  });
 
-  // IntersectionObserver to keep nav state in sync while scrolling
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) setActive(entry.target.id);
+    // Active link on scroll
+    const links = document.querySelectorAll('nav a[href^="#"]');
+    const sections = Array.from(links)
+      .map(a => document.querySelector(a.getAttribute('href')))
+      .filter(Boolean);
+
+    const setActive = (id) => {
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+    };
+
+    // Click highlight + close mobile nav
+    links.forEach(a => {
+      a.addEventListener('click', () => {
+        links.forEach(l => l.classList.remove('active'));
+        a.classList.add('active');
+        if (nav.classList.contains('open')) {
+          nav.classList.remove('open');
+          toggle?.setAttribute('aria-expanded', 'false');
+        }
+      });
     });
-  }, {
-    rootMargin: '-30% 0px -20% 0px',
-    threshold: 0.1
-  });
 
-  sections.forEach(sec => io.observe(sec));
+    // Observer to sync nav state
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) setActive(entry.target.id); });
+    }, { rootMargin: '-30% 0px -20% 0px', threshold: 0.1 });
 
-  // Year in footer
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+    sections.forEach(sec => io.observe(sec));
 
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
