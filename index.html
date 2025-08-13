@@ -138,7 +138,6 @@
   </div>
 
   <!-- Skills card -->
-  <!-- Skills card -->
 <div class="card about-card">
   <h3 class="about-subhead">Skills</h3>
 
@@ -159,12 +158,7 @@
       <div class="tags">
         <span class="skill-tag skill-tag--primary">Pandas</span>
         <span class="skill-tag skill-tag--primary">NumPy</span>
-        <span class="skill-tag skill-tag--primary">scikit-learn</span>
-        <span class="skill-tag">XGBoost</span>
-        <span class="skill-tag">Feature Engineering</span>
-        <span class="skill-tag">Model Evaluation</span>
-        <span class="skill-tag">EDA</span>
-        <span class="skill-tag">Statistics</span>
+        <span class="skill-tag">scikit-learn</span>
       </div>
     </div>
 
@@ -175,23 +169,41 @@
         <span class="skill-tag skill-tag--primary">Tableau</span>
         <span class="skill-tag">Power BI</span>
         <span class="skill-tag">Matplotlib</span>
-        <span class="skill-tag">Plotly</span>
       </div>
     </div>
 
-    <!-- 4) Data Ops & Tools -->
+    <!-- 4) Data Ops -->
     <div class="skills-category skill-box">
-      <h4>Data Ops & Tools</h4>
+      <h4>Data Ops</h4>
       <div class="tags">
         <span class="skill-tag skill-tag--primary">Git / GitHub</span>
         <span class="skill-tag">Jupyter</span>
-        <span class="skill-tag">APIs</span>
-        <span class="skill-tag">SQL Joins</span>
-        <span class="skill-tag">Data Cleaning</span>
         <span class="skill-tag">Excel</span>
       </div>
     </div>
+
+    <!-- 5) Data Workflows -->
+    <div class="skills-category skill-box">
+      <h4>Data Workflows</h4>
+      <div class="tags">
+        <span class="skill-tag skill-tag--primary">Data Cleaning</span>
+        <span class="skill-tag">SQL Joins</span>
+        <span class="skill-tag">APIs</span>
+      </div>
+    </div>
+
+    <!-- 6) Advanced Techniques -->
+    <div class="skills-category skill-box">
+      <h4>Advanced Techniques</h4>
+      <div class="tags">
+        <span class="skill-tag">Feature Engineering</span>
+        <span class="skill-tag">Model Evaluation</span>
+        <span class="skill-tag">EDA</span>
+      </div>
+    </div>
   </div>
+</div>
+
 </div>
 </section>
 
@@ -207,46 +219,54 @@
     color:var(--accent);
   }
 
-  /* Skills grid -> two tidy columns on desktop; single column on mobile */
-.skills-grid.balanced{
-  display:grid;
+ /* Skills grid: 3 cards per row on desktop, 2 on tablets, 1 on mobile */
+.skills-grid.balanced {
+  display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
 }
-@media (min-width: 820px){
-  .skills-grid.balanced{
+@media (min-width: 640px) {
+  .skills-grid.balanced {
     grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .skills-grid.balanced {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-/* Each category becomes a neat mini card */
-.skill-box{
+/* Each category in its own card */
+.skill-box {
   background: #fcfdff;
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 1rem;
-  min-height: 170px;                /* helps rows align visually */
+  min-height: 140px;
   display: flex;
   flex-direction: column;
   gap: .5rem;
 }
 
-.skills-category h4{
-  color:#475569;                    /* slate-600 */
+.skills-category h4 {
+  color: #475569;
   font-size: .95rem;
   font-weight: 600;
   margin: 0;
 }
 
-.tags{ display:flex; flex-wrap:wrap; gap:.5rem; }
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
 
 /* Chips */
-.skill-tag{
-  display:inline-block;
-  background:#f8fafc;
-  color:#0f172a;
-  border:1px solid var(--line);
+.skill-tag {
+  display: inline-block;
+  background: #f8fafc;
+  color: #0f172a;
+  border: 1px solid var(--line);
   border-radius: 999px;
   padding: .34rem .72rem;
   font-size: .86rem;
@@ -256,16 +276,16 @@
   white-space: nowrap;
   transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
-.skill-tag:hover{
+.skill-tag:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(15,23,42,.06);
-  background:#f1f5f9;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, .06);
+  background: #f1f5f9;
 }
 
-/* Subtle highlight for the core stack */
-.skill-tag--primary{
-  background: rgba(37,99,235,.08);
-  border-color: rgba(37,99,235,.25);
+/* Highlight important skills */
+.skill-tag--primary {
+  background: rgba(37, 99, 235, .08);
+  border-color: rgba(37, 99, 235, .25);
 }
 </style>
 
