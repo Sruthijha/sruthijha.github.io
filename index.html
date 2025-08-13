@@ -120,6 +120,7 @@
 
   <main>
 
+
 <section id="about" class="container">
   <h2>About Me</h2>
 
@@ -137,62 +138,73 @@
     </p>
   </div>
 
-<!-- ===== Skills Card (boxed + explicit desktop placement) ===== -->
+
+
+<!-- ===== Skills (stable 3-column layout) ===== -->
 <div class="card about-card skills-card">
   <h3 class="about-subhead">Skills</h3>
 
-  <div class="skills-grid">
+  <div class="skills-columns"><!-- FLEX COLUMNS -->
 
-    <!-- Programming -->
-    <section class="skills-category" data-key="prog">
-      <h4 class="skills-title">Programming Languages</h4>
-      <div class="tags">
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">SQL</span>
-        <span class="skill-tag">R</span>
-      </div>
-    </section>
+    <!-- Column 1: Languages + MLOps -->
+    <div class="skills-col">
+      <section class="skills-category">
+        <h4 class="skills-title">Programming Languages</h4>
+        <div class="tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">R</span>
+        </div>
+      </section>
 
-    <!-- DS / ML -->
-    <section class="skills-category" data-key="ml">
-      <h4 class="skills-title">Data Science &amp; Machine Learning</h4>
-      <div class="tags">
-        <span class="skill-tag">Scikit-learn</span>
-        <span class="skill-tag">TensorFlow</span>
-        <span class="skill-tag">PyTorch</span>
-        <span class="skill-tag">XGBoost / LightGBM</span>
-      </div>
-    </section>
+      <section class="skills-category">
+        <h4 class="skills-title">MLOps &amp; Tools</h4>
+        <div class="tags">
+          <span class="skill-tag">Git / GitHub</span>
+          <span class="skill-tag">OpenCV</span>
+          <span class="skill-tag">Transformers (BERT, GPT, CLIP)</span>
+        </div>
+      </section>
+    </div>
 
-    <!-- Viz -->
-    <section class="skills-category" data-key="viz">
-      <h4 class="skills-title">Data Analysis &amp; Visualization</h4>
-      <div class="tags">
-        <span class="skill-tag">Pandas</span>
-        <span class="skill-tag">NumPy</span>
-        <span class="skill-tag">Matplotlib</span>
-        <span class="skill-tag">Seaborn</span>
-        <span class="skill-tag">Plotly</span>
-        <span class="skill-tag">Tableau</span>
-        <span class="skill-tag">Power BI</span>
-      </div>
-    </section>
+    <!-- Column 2: DS/ML -->
+    <div class="skills-col">
+      <section class="skills-category">
+        <h4 class="skills-title">Data Science &amp; Machine Learning</h4>
+        <div class="tags">
+          <span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">XGBoost / LightGBM</span>
+        </div>
+      </section>
+    </div>
 
-    <!-- MLOps -->
-    <section class="skills-category" data-key="ops">
-      <h4 class="skills-title">MLOps &amp; Tools</h4>
-      <div class="tags">
-        <span class="skill-tag">Git / GitHub</span>
-        <span class="skill-tag">OpenCV</span>
-        <span class="skill-tag">Transformers (BERT, GPT, CLIP)</span>
-      </div>
-    </section>
+    <!-- Column 3: Viz -->
+    <div class="skills-col">
+      <section class="skills-category">
+        <h4 class="skills-title">Data Analysis &amp; Visualization</h4>
+        <div class="tags">
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">NumPy</span>
+          <span class="skill-tag">Matplotlib</span>
+          <span class="skill-tag">Seaborn</span>
+          <span class="skill-tag">Plotly</span>
+          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag">Power BI</span>
+        </div>
+      </section>
+    </div>
 
   </div>
 </div>
 
+
+
 </div>
 </section>
+
+
 
 <style>
   /* About section spacing */
@@ -206,89 +218,77 @@
     color:var(--accent);
   }
 
-  /* Theme colors */
-  :root{
-    --accent: #2563eb;
-    --title: #0f172a;  --muted: #475569;  --border:#e5e7eb;
+   :root{
+    --accent:#2563eb;
+    --title:#0f172a; --muted:#475569; --border:#e5e7eb;
     --box-bg:#f9fafb;
-    --shadow: 0 1px 3px rgba(0,0,0,.05);
-    --shadow-hov: 0 6px 16px rgba(0,0,0,.08);
-
-    --pill-radius: 999px;
-    --pill-py:.45rem; --pill-px:.9rem;
-    --pill-gap:.6rem;
-
-    --grid-gap:1.5rem;
+    --shadow:0 1px 3px rgba(0,0,0,.05);
+    --shadow-hov:0 6px 16px rgba(0,0,0,.08);
+    --pill-radius:999px;
   }
 
-  .skills-card{ padding-top:1.2rem; }
   .about-subhead{ color:var(--accent); margin:0 0 1rem; }
 
-  /* -------- Grid layout -------- */
-  /* Mobile-first: single column */
-  .skills-grid{
-    display:grid;
-    grid-template-columns: 1fr;
-    gap: var(--grid-gap);
+  /* ---- columns (no CSS Grid, no masonry) ---- */
+  .skills-columns{
+    display:flex;
+    gap:1.5rem;
+    align-items:flex-start;
+  }
+  .skills-col{ flex:1; display:flex; flex-direction:column; gap:1.5rem; }
+
+  /* responsive: 2 cols tablet, 1 col mobile */
+  @media (max-width:1024px){
+    .skills-columns{ flex-wrap:wrap; }
+    .skills-col{ flex:1 1 calc(50% - 0.75rem); }
+  }
+  @media (max-width:640px){
+    .skills-col{ flex:1 1 100%; }
   }
 
-  /* Tablet: two columns */
-  @media (min-width: 640px) and (max-width: 999px){
-    .skills-grid{ grid-template-columns: repeat(2, 1fr); }
+  /* ---- category box ---- */
+  .skills-category{
+    background:var(--box-bg);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:1rem 1.2rem;
+    box-shadow:var(--shadow);
+    transition:transform .18s, box-shadow .2s;
   }
+  .skills-category:hover{ transform:translateY(-2px); box-shadow:var(--shadow-hov); }
 
-  /* Desktop: three columns with explicit placement
-     (MLOps under Programming) */
-  @media (min-width: 1000px){
-    .skills-grid{ grid-template-columns: repeat(3, 1fr); }
-
-    /* Row 1 */
-    .skills-category[data-key="prog"]{ grid-column:1; grid-row:1; }
-    .skills-category[data-key="ml"]  { grid-column:2; grid-row:1; }
-    .skills-category[data-key="viz"] { grid-column:3; grid-row:1; }
-
-    /* Row 2 */
-    .skills-category[data-key="ops"] { grid-column:1; grid-row:2; }
-  }
-
-  /* Optional: even row heights if you want stricter alignment on desktop */
-  /* @media (min-width: 1000px){
-      .skills-category{ min-height: 260px; }
-     } */
-
-  /* -------- Category box -------- */
- .skills-category h4 {
-    margin-bottom: 0.75rem;
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: #374151;
-}
-  .skills-category:hover{ transform: translateY(-2px); box-shadow: var(--shadow-hov); }
-
+  /* softer subheadings (as you liked before) */
   .skills-title{
-    margin:0 0 .8rem;
-    color: var(--title);
-    font-weight: 600;
-    font-size: 1rem;
-    letter-spacing: .1px;
+    margin:0 0 .75rem;
+    font-weight:600;
+    font-size:.95rem;
+    color:#374151;
   }
 
-  /* -------- Tags -------- */
-  .tags{ display:flex; flex-wrap:wrap; gap: var(--pill-gap); }
- .skill-tag{
-    display:inline-flex;
-    align-items:center;
-    padding: 0.55rem 1.1rem;   /* increased from 0.45rem 0.9rem */
-    border-radius: var(--pill-radius);
+  /* ---- tags ---- */
+  .tags{ display:flex; flex-wrap:wrap; gap:.6rem; }
+  .skill-tag{
+    display:inline-flex; align-items:center;
+    padding:.55rem 1.1rem;
+    border-radius:var(--pill-radius);
     background:#fff;
     border:1px solid var(--border);
-    font-weight: 600;          /* you can change to 700 for even bolder */
-    font-size: 1.05rem;        /* increased from 0.92rem */
-    white-space: nowrap;
-    transition: background-color .2s ease, box-shadow .2s ease;
-}
-  .skill-tag:hover{ background:#f3f4f6; box-shadow: 0 2px 6px rgba(0,0,0,.06); }
+    font-size:1.02rem;       /* slightly larger */
+    font-weight:600;
+    white-space:nowrap;
+    transition:background-color .2s, box-shadow .2s;
+  }
+  .skill-tag:hover{ background:#f3f4f6; box-shadow:0 2px 6px rgba(0,0,0,.06); }
 </style>
+
+
+
+
+
+
+
+
+
 
 <section id="education" class="container" style="padding-top: 1rem; padding-bottom: 2rem;">
   <h2 style="margin: .5rem 0 1rem;">Education</h2>
