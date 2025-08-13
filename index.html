@@ -222,14 +222,13 @@
   .skills-card { padding-top: 1.2rem; }
   .about-subhead { color: var(--accent); margin: 0 0 1rem; }
 
-  /* Grid layout */
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--grid-gap);
+    grid-auto-flow: dense; /* allows stacking to fill empty space */
+    gap: 1.5rem;
   }
 
-  /* Category box */
   .skills-category {
     background: var(--bg-light);
     border: 1px solid var(--border);
