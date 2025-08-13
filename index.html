@@ -137,21 +137,52 @@
     </p>
 
     <!-- Skills Section -->
-    <h3 style="margin-top: 1rem; font-size: 1.1rem; color: var(--accent)">Skills</h3>
-    <div style="display: flex; flex-wrap: wrap; gap: .5rem;">
-      <span class="skill-tag">Python</span>
-      <span class="skill-tag">SQL</span>
-      <span class="skill-tag">R</span>
-      <span class="skill-tag">Excel</span>
-      <span class="skill-tag">Power BI</span>
-      <span class="skill-tag">Tableau</span>
-      <span class="skill-tag">Machine Learning</span>
-      <span class="skill-tag">Data Visualization</span>
-      <span class="skill-tag">Pandas</span>
-      <span class="skill-tag">NumPy</span>
-      <span class="skill-tag">Statistics</span>
-      <span class="skill-tag">Data Cleaning</span>
-    </div>
+    <!-- Skills (grouped) -->
+<h3 style="margin-top: 1rem; font-size: 1.1rem; color: var(--accent)">Skills</h3>
+
+<div class="skills-wrap">
+  <div class="skill-group">
+    <div class="skill-head">Languages</div>
+    <span class="skill-tag">Python</span>
+    <span class="skill-tag">SQL</span>
+    <span class="skill-tag">R</span>
+  </div>
+
+  <div class="skill-group">
+    <div class="skill-head">Core DS / ML</div>
+    <span class="skill-tag">Pandas</span>
+    <span class="skill-tag">NumPy</span>
+    <span class="skill-tag">scikit-learn</span>
+    <span class="skill-tag">XGBoost</span>
+    <span class="skill-tag">Feature Engineering</span>
+    <span class="skill-tag">Model Evaluation</span>
+    <span class="skill-tag">Statistics</span>
+    <span class="skill-tag">EDA</span>
+  </div>
+
+  <div class="skill-group">
+    <div class="skill-head">Visualization / BI</div>
+    <span class="skill-tag">Tableau</span>
+    <span class="skill-tag">Power BI</span>
+    <span class="skill-tag">Matplotlib</span>
+    <span class="skill-tag">Plotly</span>
+  </div>
+
+  <div class="skill-group">
+    <div class="skill-head">Data Workflows</div>
+    <span class="skill-tag">Data Cleaning</span>
+    <span class="skill-tag">SQL Joins</span>
+    <span class="skill-tag">APIs</span>
+  </div>
+
+  <div class="skill-group">
+    <div class="skill-head">Tools</div>
+    <span class="skill-tag">Jupyter</span>
+    <span class="skill-tag">Git / GitHub</span>
+    <span class="skill-tag">Excel</span>
+  </div>
+</div>
+
   </div>
 </section>
 
@@ -167,13 +198,43 @@
     font-weight: 500;
     white-space: nowrap;
   }
+
+  .skills-wrap{
+  display:grid;
+  gap: .75rem 1rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 760px){
+  .skills-wrap{ grid-template-columns: 1fr 1fr; }
+}
+.skill-group{ display:flex; flex-wrap:wrap; gap:.5rem; align-items:flex-start }
+.skill-head{
+  width:100%;
+  font-weight:600;
+  color: var(--muted);
+  margin: .25rem 0 .25rem;
+  font-size: .95rem;
+}
+.skill-tag{
+  display:inline-block;
+  background:#f8fafc;
+  color:#0f172a;
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:.35rem .65rem;
+  font-size:.85rem;
+  font-weight:500;
+  white-space:nowrap;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.skill-tag:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(15,23,42,.06);
+}
+
 </style>
 
-        <section id="resume" class="container">
-      <h2>Resume</h2>
-      <a class="btn primary" href="assets/Resume.pdf" target="_blank" rel="noopener">Download PDF</a>
-      <p style="margin-top:.5rem; color:var(--muted)">Last updated: Aug 2025 </p>
-    </section>
+
 
 <section id="education" class="container" style="padding-top: 1rem; padding-bottom: 2rem;">
   <h2 style="margin: .5rem 0 1rem;">Education</h2>
