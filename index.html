@@ -181,44 +181,110 @@
 
     <!-- ===== Styles local to About/Skills ===== -->
     <style>
-      /* About text readability */
-      #about .about-card .about-p{ line-height:1.7; margin:.4rem 0 1rem; max-width:78ch; }
+      /* Shared card style for all sections (About, Skills, Education, Experience) */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  margin-bottom: 1.25rem; /* same bottom gap for all cards */
+}
 
-      /* CANCEL the global section padding/border for the nested Skills section */
-      #skills-section{ padding:0; border-top:none; margin-top:16px; }
+/* About paragraph styling */
+#about .about-card .about-p {
+  line-height: 1.7;
+  margin: 0.4rem 0 1rem;
+  max-width: 78ch;
+}
 
-      /* Skills card uses same spacing as other cards; ensure shadows/borders render clean */
-      #skills-section .card.about-card{ padding:1.25rem 1.5rem; overflow:visible; isolation:isolate; }
+/* Make Skills heading blue */
+#skills-section h3 {
+  color: #2563eb; /* blue like Education & Experience headings */
+}
 
-      /* Blue Skills heading */
-      #skills-section .about-subhead{ color:var(--accent); margin:0 0 1rem; font-weight:600; }
+/* Remove any custom top/bottom margins for Skills so it matches other sections */
+#skills-section {
+  margin-top: 0;   /* no extra top gap */
+  margin-bottom: 0; /* no extra bottom gap — relies on .card spacing */
+}
 
-      /* Columns */
-      #skills-section .skills-columns{ display:flex; gap:1rem; align-items:flex-start; }
-      #skills-section .skills-col{ flex:1 1 0; display:flex; flex-direction:column; gap:1rem; }
-      @media (max-width:1024px){ #skills-section .skills-columns{ flex-wrap:wrap; } #skills-section .skills-col{ flex:1 1 calc(50% - .5rem);} }
-      @media (max-width:640px){ #skills-section .skills-col{ flex:1 1 100%; } }
+/* Skills layout */
+#skills-section .skills-columns {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
 
-      /* Category boxes */
-      #skills-section .skills-category{
-        background:#f9fafb; border:1px solid #e5e7eb; border-radius:14px;
-        padding:.9rem 1rem; box-shadow:0 1px 3px rgba(0,0,0,.05);
-        transition:transform .18s, box-shadow .2s;
-      }
-      #skills-section .skills-category:hover{ transform:translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,.08); }
+#skills-section .skills-col {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
-      /* Subheadings inside boxes */
-      #skills-section .skills-title{ margin:0 0 .6rem; font-weight:600; font-size:1rem; color:#374151; }
+/* Responsive */
+@media (max-width: 1024px) {
+  #skills-section .skills-columns {
+    flex-wrap: wrap;
+  }
+  #skills-section .skills-col {
+    flex: 1 1 calc(50% - 0.5rem);
+  }
+}
+@media (max-width: 640px) {
+  #skills-section .skills-col {
+    flex: 1 1 100%;
+  }
+}
 
-      /* Skill tags */
-      #skills-section .tags{ display:flex; flex-wrap:wrap; gap:.5rem; }
-      #skills-section .skill-tag{
-        display:inline-flex; align-items:center; padding:.5rem .95rem;
-        border-radius:999px; background:#fff; border:1px solid #e5e7eb;
-        font-weight:500; font-size:.95rem; white-space:nowrap;
-        transition:background-color .2s, box-shadow .2s;
-      }
-      #skills-section .skill-tag:hover{ background:#f3f4f6; box-shadow:0 2px 6px rgba(0,0,0,.06); }
+/* Skills category box */
+#skills-section .skills-category {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: transform 0.18s ease, box-shadow 0.2s ease;
+}
+
+#skills-section .skills-category:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* Category titles */
+#skills-section .skills-title {
+  margin: 0 0 0.6rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #374151;
+}
+
+/* Skill tags */
+#skills-section .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+#skills-section .skill-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  font-weight: 500;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+#skills-section .skill-tag:hover {
+  background: #f3f4f6;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
     </style>
 
     <!-- =========== EDUCATION =========== -->
