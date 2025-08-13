@@ -140,13 +140,13 @@
 
 
 
-<!-- ===== Skills (stable 3-column layout) ===== -->
+<!-- ===== Skills Card ===== -->
 <div class="card about-card skills-card">
   <h3 class="about-subhead">Skills</h3>
 
-  <div class="skills-columns"><!-- FLEX COLUMNS -->
+  <div class="skills-columns">
 
-    <!-- Column 1: Languages + MLOps -->
+    <!-- Column 1: Programming + MLOps -->
     <div class="skills-col">
       <section class="skills-category">
         <h4 class="skills-title">Programming Languages</h4>
@@ -180,7 +180,7 @@
       </section>
     </div>
 
-    <!-- Column 3: Viz -->
+    <!-- Column 3: Data Viz -->
     <div class="skills-col">
       <section class="skills-category">
         <h4 class="skills-title">Data Analysis &amp; Visualization</h4>
@@ -218,68 +218,94 @@
     color:var(--accent);
   }
 
-   :root{
+    :root {
     --accent:#2563eb;
-    --title:#0f172a; --muted:#475569; --border:#e5e7eb;
+    --title:#0f172a;
+    --muted:#475569;
+    --border:#e5e7eb;
     --box-bg:#f9fafb;
     --shadow:0 1px 3px rgba(0,0,0,.05);
     --shadow-hov:0 6px 16px rgba(0,0,0,.08);
     --pill-radius:999px;
   }
 
-  .about-subhead{ color:var(--accent); margin:0 0 1rem; }
-
-  /* ---- columns (no CSS Grid, no masonry) ---- */
-  .skills-columns{
-    display:flex;
-    gap:1.5rem;
-    align-items:flex-start;
+  /* ===== Card Fixes ===== */
+  .card.about-card {
+    overflow: visible; /* Prevent top fade/clipping */
+    isolation: isolate; /* Ensure child shadows draw above background */
   }
-  .skills-col{ flex:1; display:flex; flex-direction:column; gap:1.5rem; }
-
-  /* responsive: 2 cols tablet, 1 col mobile */
-  @media (max-width:1024px){
-    .skills-columns{ flex-wrap:wrap; }
-    .skills-col{ flex:1 1 calc(50% - 0.75rem); }
-  }
-  @media (max-width:640px){
-    .skills-col{ flex:1 1 100%; }
+  .skills-card {
+    padding-top: 1.75rem; /* Extra space at top */
   }
 
-  /* ---- category box ---- */
-  .skills-category{
-    background:var(--box-bg);
-    border:1px solid var(--border);
-    border-radius:14px;
-    padding:1rem 1.2rem;
-    box-shadow:var(--shadow);
-    transition:transform .18s, box-shadow .2s;
+  /* ===== Columns ===== */
+  .skills-columns {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
   }
-  .skills-category:hover{ transform:translateY(-2px); box-shadow:var(--shadow-hov); }
+  .skills-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
-  /* softer subheadings (as you liked before) */
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .skills-columns { flex-wrap: wrap; }
+    .skills-col { flex: 1 1 calc(50% - 0.75rem); }
+  }
+  @media (max-width: 640px) {
+    .skills-col { flex: 1 1 100%; }
+  }
+
+  /* ===== Category Box ===== */
+  .skills-category {
+    background: var(--box-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    box-shadow: var(--shadow);
+    transition: transform .18s ease, box-shadow .2s ease;
+    position: relative;
+    z-index: 1; /* Renders above any background overlay */
+  }
+  .skills-category:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hov);
+  }
+
+  /* ===== Subheading ===== */
   .skills-title {
     margin: 0 0 0.75rem;
     font-weight: 600;
-    font-size: 1rem;           /* larger than skill tags */
+    font-size: 1rem;
     color: #374151;
-}
+  }
 
-  /* ---- tags ---- */
-  .tags{ display:flex; flex-wrap:wrap; gap:.6rem; }
- .skill-tag {
+  /* ===== Skill Tags ===== */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .skill-tag {
     display: inline-flex;
     align-items: center;
     padding: 0.55rem 1.1rem;
     border-radius: var(--pill-radius);
     background: #fff;
     border: 1px solid var(--border);
-    font-weight: 500;          /* lighter so headings stand out */
-    font-size: 0.95rem;        /* smaller than subheadings */
+    font-weight: 500;       /* Lighter than headings */
+    font-size: 0.95rem;     /* Slightly smaller than subheadings */
     white-space: nowrap;
     transition: background-color 0.2s ease, box-shadow 0.2s ease;
-}
-  .skill-tag:hover{ background:#f3f4f6; box-shadow:0 2px 6px rgba(0,0,0,.06); }
+  }
+  .skill-tag:hover {
+    background: #f3f4f6;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  }
 </style>
 
 
