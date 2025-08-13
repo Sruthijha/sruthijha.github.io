@@ -137,33 +137,45 @@
     </p>
   </div>
 
-  <!-- Skills card -->
-<div class="card about-card">
+  <!-- ===== Skills Card ===== -->
+<div class="card about-card skills-card">
   <h3 class="about-subhead">Skills</h3>
 
   <div class="skills-grid">
 
-    <div class="skills-category">
-      <h4>Programming Languages</h4>
+    <!-- Programming -->
+    <section class="skills-category" data-theme="prog">
+      <h4 class="skills-title">
+        <span class="skills-icon" aria-hidden="true">🖥️</span>
+        Programming Languages
+      </h4>
       <div class="tags">
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">SQL</span>
-        <span class="skill-tag">R</span>
+        <span class="skill-tag" title="Python">Python</span>
+        <span class="skill-tag" title="SQL">SQL</span>
+        <span class="skill-tag" title="R">R</span>
       </div>
-    </div>
+    </section>
 
-    <div class="skills-category">
-      <h4>Data Science & Machine Learning</h4>
+    <!-- DS / ML -->
+    <section class="skills-category" data-theme="ml">
+      <h4 class="skills-title">
+        <span class="skills-icon" aria-hidden="true">🤖</span>
+        Data Science &amp; Machine Learning
+      </h4>
       <div class="tags">
         <span class="skill-tag">Scikit-learn</span>
         <span class="skill-tag">TensorFlow</span>
         <span class="skill-tag">PyTorch</span>
         <span class="skill-tag">XGBoost / LightGBM</span>
       </div>
-    </div>
+    </section>
 
-    <div class="skills-category">
-      <h4>Data Analysis & Visualization</h4>
+    <!-- Viz / Analysis -->
+    <section class="skills-category" data-theme="viz">
+      <h4 class="skills-title">
+        <span class="skills-icon" aria-hidden="true">📊</span>
+        Data Analysis &amp; Visualization
+      </h4>
       <div class="tags">
         <span class="skill-tag">Pandas</span>
         <span class="skill-tag">NumPy</span>
@@ -173,16 +185,20 @@
         <span class="skill-tag">Tableau</span>
         <span class="skill-tag">Power BI</span>
       </div>
-    </div>
+    </section>
 
-    <div class="skills-category">
-      <h4>MLOps & Tools</h4>
+    <!-- MLOps & Tools -->
+    <section class="skills-category" data-theme="ops">
+      <h4 class="skills-title">
+        <span class="skills-icon" aria-hidden="true">🛠️</span>
+        MLOps &amp; Tools
+      </h4>
       <div class="tags">
         <span class="skill-tag">Git / GitHub</span>
         <span class="skill-tag">OpenCV</span>
         <span class="skill-tag">Transformers (BERT, GPT, CLIP)</span>
       </div>
-    </div>
+    </section>
 
   </div>
 </div>
@@ -202,37 +218,111 @@
     color:var(--accent);
   }
 
- <style>
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+   :root {
+    --skill-radius: 999px;
+    --skill-pad-y: .42rem;
+    --skill-pad-x: .8rem;
+    --skill-gap: .6rem;
+    --cat-gap: 1.1rem;
+    --grid-gap: 1.6rem;
+
+    /* Category tints (light + darker for hover) */
+    --prog-bg: #eef4ff;  --prog-hov: #e0ebff;
+    --ml-bg:   #eefaf3;  --ml-hov:   #dff3e8;
+    --viz-bg:  #f6f2ff;  --viz-hov:  #ece6ff;
+    --ops-bg:  #fff4ef;  --ops-hov:  #ffe9df;
+
+    --tag-shadow: 0 1px 0 rgba(0,0,0,.04);
+    --tag-shadow-hov: 0 6px 14px rgba(0,0,0,.08);
+    --title-color: #0f172a;
+    --muted: #475569;
+    --border: #e5e7eb;
   }
 
-  .skills-category h4 {
-    margin-bottom: 0.5rem;
-    font-weight: 600;
+  @media (prefers-color-scheme: dark) {
+    :root{
+      --title-color:#e5e7eb; --muted:#cbd5e1; --border:#2a2f37;
+      --prog-bg:#20304a; --prog-hov:#2b3f62;
+      --ml-bg:#19392b;   --ml-hov:#1f4a36;
+      --viz-bg:#2b2241;  --viz-hov:#372c53;
+      --ops-bg:#3b2620;  --ops-hov:#4a3028;
+      --tag-shadow: 0 0 0 rgba(0,0,0,0);
+      --tag-shadow-hov: 0 8px 18px rgba(0,0,0,.25);
+    }
   }
+
+  /* ----- Layout ----- */
+  .skills-card { padding-top: 1.2rem; }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--grid-gap);
+  }
+
+  .skills-category {
+    display: flex;
+    flex-direction: column;
+    gap: var(--cat-gap);
+  }
+
+  .skills-title {
+    margin: 0;
+    font-weight: 700;
+    color: var(--title-color);
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    letter-spacing: .1px;
+  }
+
+  .skills-icon { font-size: 1.15rem; line-height: 1; }
 
   .tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: var(--skill-gap);
+    align-items: flex-start; /* keeps rows tidy */
   }
 
+  /* ----- Pill tags ----- */
   .skill-tag {
-    display: inline-block;
-    background-color: #f1f1f1;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    white-space: nowrap; /* Prevents breaking long words */
-    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    padding: var(--skill-pad-y) var(--skill-pad-x);
+    border-radius: var(--skill-radius);
+    font-size: .92rem;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    box-shadow: var(--tag-shadow);
+    transition: transform .18s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease;
+    /* Let long labels fit without ugly breaks on tiny screens */
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
+  /* Category color tints */
+  .skills-category[data-theme="prog"] .skill-tag { background: var(--prog-bg); }
+  .skills-category[data-theme="ml"]   .skill-tag { background: var(--ml-bg); }
+  .skills-category[data-theme="viz"]  .skill-tag { background: var(--viz-bg); }
+  .skills-category[data-theme="ops"]  .skill-tag { background: var(--ops-bg); }
+
+  /* Hover “lift” */
   .skill-tag:hover {
-    background-color: #e0e0e0;
+    transform: translateY(-2px);
+    box-shadow: var(--tag-shadow-hov);
+  }
+  .skills-category[data-theme="prog"] .skill-tag:hover { background: var(--prog-hov); }
+  .skills-category[data-theme="ml"]   .skill-tag:hover { background: var(--ml-hov); }
+  .skills-category[data-theme="viz"]  .skill-tag:hover { background: var(--viz-hov); }
+  .skills-category[data-theme="ops"]  .skill-tag:hover { background: var(--ops-hov); }
+
+  /* Tighten vertical rhythm on very small screens */
+  @media (max-width: 420px) {
+    :root { --skill-gap: .5rem; --cat-gap: .8rem; }
+    .skill-tag { font-size: .88rem; }
   }
 </style>
 
