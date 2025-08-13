@@ -48,42 +48,32 @@
     nav a{padding:.75rem}
   }
 
-  /* Sections (top-level) */
-  section{
-    padding: 72px 0;
-    scroll-margin-top: 84px;
-    border-top:1px solid var(--line)}
-  }
-  section:first-of-type{border-top:none}
-  section h2 {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 0.5rem;
-  margin-bottom: 2rem;
+/* Consistent vertical spacing for all sections */
+section {
+  padding-top: 72px;
+  padding-bottom: 72px;
+  scroll-margin-top: 84px;
 }
 
-section h2::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 0;
-  width: 60px; /* divider length */
-  height: 2px; /* thickness */
-  background-color: var(--line); /* faint color */
-  border-radius: 2px;
+/* Remove extra spacing from first section */
+section:first-of-type {
+  padding-top: 72px; /* same as others */
 }
 
+/* Remove unwanted margins from section headings */
+section h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem; /* consistent heading spacing */
+}
 
-  /* Cards — single shared rule used everywhere */
-  .card{
-    background:#ffffff;
-    border:1px solid var(--line);
-    border-radius:14px;
-    padding:1.25rem 1.5rem;
-    box-shadow: var(--shadow);
-    margin-bottom:1.25rem;
-  }
+/* Ensure cards don't add extra space below sections */
+.card {
+  margin-bottom: 1.5rem;
+}
+section .card:last-child {
+  margin-bottom: 0;
+}
+
 
   /* Simple grids */
   .grid{display:grid; gap:1rem}
