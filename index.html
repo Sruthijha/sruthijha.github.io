@@ -22,11 +22,14 @@
     .container{max-width: 1000px; margin: 0 auto; padding: 0 1rem}
 
     /* Header / Nav */
-    header{
-      position:sticky; top:0; z-index:50;
-      background:rgba(255,255,255,.85);
-      backdrop-filter: saturate(180%) blur(8px);
-    }
+    /* Solid header to prevent washout under it */
+header{
+  position: sticky; top: 0; z-index: 50;
+  background: #fff;            /* was rgba(255,255,255,.85) */
+  backdrop-filter: none;       /* remove the blur */
+  -webkit-backdrop-filter: none;
+}
+
     .nav-wrap{display:flex; justify-content:center; align-items:center; height:var(--header-h);}
     nav ul{list-style:none; margin:0; padding:0; display:flex; justify-content:center; gap:1rem;}
     nav a{display:inline-block; padding:.5rem .6rem; border-radius:8px; color:var(--text); font-weight:500}
