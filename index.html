@@ -113,7 +113,7 @@
   <h2 style="margin: .5rem 0 1rem;">Education</h2>
 
   <!-- CU Boulder -->
-  <div class="card" style="margin-bottom:2rem; display:flex; gap:1.5rem; align-items:center; padding:1.25rem">
+  <div class="card" style="display:flex; gap:1.5rem; align-items:center;">
     <img src="assets/buffs.png" alt="CU Boulder Logo"
          style="width:120px;height:95px;object-fit:contain;flex-shrink:0;border-radius:8px"/>
     <div style="width:1px;background:var(--line);align-self:stretch"></div>
@@ -137,7 +137,7 @@
   </div>
 
   <!-- Mahindra University -->
-  <div class="card" style="display:flex;gap:1.5rem;align-items:center;padding:1.25rem">
+  <div class="card" style="display:flex; gap:1.5rem; align-items:center;">
     <img src="assets/MU.png" alt="Mahindra University Logo"
          style="width:120px;height:95px;object-fit:contain;flex-shrink:0;border-radius:8px"/>
     <div style="width:1px;background:var(--line);align-self:stretch"></div>
@@ -161,11 +161,11 @@
   </div>
 </section>
 
-<<section id="experience" class="container" style="padding-top: 1rem; padding-bottom: 2rem;">
+<section id="experience" class="container" style="padding-top: 1rem; padding-bottom: 2rem;">
   <h2>Experience</h2>
 
   <!-- Data Analyst Intern -->
-  <div class="experience-card">
+  <div class="experience-card card">
     <img src="assets/intech.png" alt="Intech Logo" class="company-logo">
     <div class="exp-body">
       <div class="exp-header">
@@ -184,7 +184,7 @@
   </div>
 
   <!-- Placement Cell -->
-  <div class="experience-card">
+  <div class="experience-card card">
     <img src="assets/MU.png" alt="Mahindra University Logo" class="company-logo">
     <div class="exp-body">
       <div class="exp-header">
@@ -203,7 +203,7 @@
   </div>
 
   <!-- Project Intern -->
-  <div class="experience-card">
+  <div class="experience-card card">
     <img src="assets/M&M.png" alt="Mahindra Logo" class="company-logo">
     <div class="exp-body">
       <div class="exp-header">
@@ -222,44 +222,43 @@
 </section>
 
 <style>
-  /* container */
-  #experience { max-width: 980px; margin: auto; }
+  /* shared card style (applies to Education + Experience) */
+  .card{
+    background:#ffffff;
+    border-radius:12px;
+    padding:1.25rem 1.5rem;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+    margin-bottom:1.25rem;
+  }
 
-  /* cards */
+  /* experience layout specifics */
+  #experience{ max-width:980px; margin:auto; }
+
   .experience-card{
     display:flex; gap:1rem; align-items:flex-start;
-    background:#fff; border-radius:12px; padding:1.25rem 1.5rem;
-    box-shadow:0 2px 6px rgba(0,0,0,.05); margin-bottom:1.25rem;
     transition: box-shadow .2s ease, transform .2s ease;
   }
-  .experience-card:hover{ box-shadow:0 6px 18px rgba(0,0,0,.08); transform: translateY(-2px); }
+  .experience-card:hover{ box-shadow:0 8px 20px rgba(0,0,0,.08); transform: translateY(-2px); }
 
   .company-logo{ width:48px; height:48px; object-fit:contain; border-radius:8px; flex-shrink:0; }
   .exp-body{ flex:1; min-width:250px; }
 
-  /* header row (role/company + date) */
   .exp-header{
     display:flex; justify-content:space-between; align-items:baseline; gap:.75rem; flex-wrap:wrap;
     margin-bottom:.5rem;
   }
   .exp-title{ margin:0; font-size:1.1rem; line-height:1.2; }
- .role {
-  font-weight: 700;
-  color: var(--accent, #0a66ff);
-}
 
-.company {
-  font-weight: 550;
-  color: rgba(0,0,0,0.70);
-}
+  .role{ font-weight:700; color: var(--accent, #0a66ff); }
+  .company{ font-weight:550; color: rgba(0,0,0,0.70); }
+
   .date{ color:rgba(0,0,0,0.45); font-size:.95rem; white-space:nowrap; }
 
-  /* bullets */
   .exp-points{ margin:.25rem 0 0 1.15rem; padding:0; }
   .exp-points li{
     margin:0 0 .6em 0;
     line-height:1.55;
-    color:#1f2937; /* slate-800 vibe */
+    color:#1f2937; /* slate-800 */
   }
 </style>
 
