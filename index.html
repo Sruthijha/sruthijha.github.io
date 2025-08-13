@@ -138,67 +138,61 @@
   </div>
 
   <!-- Skills card -->
-  <div class="card about-card">
-    <h3 class="about-subhead">Skills</h3>
+  <!-- Skills card -->
+<div class="card about-card">
+  <h3 class="about-subhead">Skills</h3>
 
-    <div class="skills-grid">
-      <!-- Languages -->
-      <div class="skills-category">
-        <h4>Languages</h4>
-        <div class="tags">
-          <span class="skill-tag skill-tag--primary">Python</span>
-          <span class="skill-tag skill-tag--primary">SQL</span>
-          <span class="skill-tag">R</span>
-        </div>
+  <div class="skills-grid balanced">
+    <!-- 1) Languages -->
+    <div class="skills-category skill-box">
+      <h4>Languages</h4>
+      <div class="tags">
+        <span class="skill-tag skill-tag--primary">Python</span>
+        <span class="skill-tag skill-tag--primary">SQL</span>
+        <span class="skill-tag">R</span>
       </div>
+    </div>
 
-      <!-- Core DS / ML -->
-      <div class="skills-category">
-        <h4>Core DS / ML</h4>
-        <div class="tags">
-          <span class="skill-tag skill-tag--primary">Pandas</span>
-          <span class="skill-tag skill-tag--primary">NumPy</span>
-          <span class="skill-tag skill-tag--primary">scikit-learn</span>
-          <span class="skill-tag">XGBoost</span>
-          <span class="skill-tag">Feature Engineering</span>
-          <span class="skill-tag">Model Evaluation</span>
-          <span class="skill-tag">Statistics</span>
-          <span class="skill-tag">EDA</span>
-        </div>
+    <!-- 2) Core DS / ML -->
+    <div class="skills-category skill-box">
+      <h4>Core DS / ML</h4>
+      <div class="tags">
+        <span class="skill-tag skill-tag--primary">Pandas</span>
+        <span class="skill-tag skill-tag--primary">NumPy</span>
+        <span class="skill-tag skill-tag--primary">scikit-learn</span>
+        <span class="skill-tag">XGBoost</span>
+        <span class="skill-tag">Feature Engineering</span>
+        <span class="skill-tag">Model Evaluation</span>
+        <span class="skill-tag">EDA</span>
+        <span class="skill-tag">Statistics</span>
       </div>
+    </div>
 
-      <!-- Visualization / BI -->
-      <div class="skills-category">
-        <h4>Visualization / BI</h4>
-        <div class="tags">
-          <span class="skill-tag skill-tag--primary">Tableau</span>
-          <span class="skill-tag">Power BI</span>
-          <span class="skill-tag">Matplotlib</span>
-          <span class="skill-tag">Plotly</span>
-        </div>
+    <!-- 3) Visualization / BI -->
+    <div class="skills-category skill-box">
+      <h4>Visualization / BI</h4>
+      <div class="tags">
+        <span class="skill-tag skill-tag--primary">Tableau</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Matplotlib</span>
+        <span class="skill-tag">Plotly</span>
       </div>
+    </div>
 
-      <!-- Tools -->
-      <div class="skills-category">
-        <h4>Tools</h4>
-        <div class="tags">
-          <span class="skill-tag skill-tag--primary">Git / GitHub</span>
-          <span class="skill-tag">Jupyter</span>
-          <span class="skill-tag">Excel</span>
-        </div>
-      </div>
-
-      <!-- Data Workflows -->
-      <div class="skills-category">
-        <h4>Data Workflows</h4>
-        <div class="tags">
-          <span class="skill-tag">Data Cleaning</span>
-          <span class="skill-tag">SQL Joins</span>
-          <span class="skill-tag">APIs</span>
-        </div>
+    <!-- 4) Data Ops & Tools -->
+    <div class="skills-category skill-box">
+      <h4>Data Ops & Tools</h4>
+      <div class="tags">
+        <span class="skill-tag skill-tag--primary">Git / GitHub</span>
+        <span class="skill-tag">Jupyter</span>
+        <span class="skill-tag">APIs</span>
+        <span class="skill-tag">SQL Joins</span>
+        <span class="skill-tag">Data Cleaning</span>
+        <span class="skill-tag">Excel</span>
       </div>
     </div>
   </div>
+</div>
 </section>
 
 <style>
@@ -213,54 +207,66 @@
     color:var(--accent);
   }
 
-  /* Skills grid: 1 → 2 → 3 columns */
-  .skills-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:1rem 1.25rem;    /* row / column */
+  /* Skills grid -> two tidy columns on desktop; single column on mobile */
+.skills-grid.balanced{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 820px){
+  .skills-grid.balanced{
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
   }
-  @media (min-width:760px){
-    .skills-grid{ grid-template-columns:1fr 1fr; }
-  }
-  @media (min-width:960px){
-    .skills-grid{ grid-template-columns:1fr 1fr 1fr; }
-  }
+}
 
-  .skills-category h4{
-    color:#475569;       /* slate-600 */
-    font-size:.95rem;
-    font-weight:600;
-    margin:0 0 .5rem;
-  }
-  .tags{ display:flex; flex-wrap:wrap; gap:.5rem; }
+/* Each category becomes a neat mini card */
+.skill-box{
+  background: #fcfdff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem;
+  min-height: 170px;                /* helps rows align visually */
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
 
-  /* Chips */
-  .skill-tag{
-    display:inline-block;
-    background:#f8fafc;
-    color:#0f172a;
-    border:1px solid var(--line);
-    border-radius:999px;
-    padding:.32rem .7rem;
-    font-size:.86rem;
-    font-weight:500;
-    line-height:1;
-    letter-spacing:.2px;
-    white-space:nowrap;
-    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
-  }
-  .skill-tag:hover{
-    transform:translateY(-1px);
-    box-shadow:0 4px 10px rgba(15,23,42,.06);
-    background:#f1f5f9;
-  }
+.skills-category h4{
+  color:#475569;                    /* slate-600 */
+  font-size: .95rem;
+  font-weight: 600;
+  margin: 0;
+}
 
-  /* Soft accent for core stack */
-  .skill-tag--primary{
-    background:rgba(37,99,235,.08);         /* soft blue wash */
-    border-color:rgba(37,99,235,.25);
-    color:#0b1a36;
-  }
+.tags{ display:flex; flex-wrap:wrap; gap:.5rem; }
+
+/* Chips */
+.skill-tag{
+  display:inline-block;
+  background:#f8fafc;
+  color:#0f172a;
+  border:1px solid var(--line);
+  border-radius: 999px;
+  padding: .34rem .72rem;
+  font-size: .86rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: .2px;
+  white-space: nowrap;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.skill-tag:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(15,23,42,.06);
+  background:#f1f5f9;
+}
+
+/* Subtle highlight for the core stack */
+.skill-tag--primary{
+  background: rgba(37,99,235,.08);
+  border-color: rgba(37,99,235,.25);
+}
 </style>
 
 <section id="education" class="container" style="padding-top: 1rem; padding-bottom: 2rem;">
