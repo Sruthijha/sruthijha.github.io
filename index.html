@@ -124,7 +124,6 @@
 <section id="about" class="container">
   <h2>About Me</h2>
 
-  <!-- Intro card -->
   <div class="card about-card">
     <p class="about-p">
       I’m a graduate student pursuing an M.S. in Data Science at CU Boulder with a strong background in
@@ -138,174 +137,134 @@
     </p>
   </div>
 
+  <section id="skills-section">
+    <div class="card about-card skills-card">
+      <h3 class="about-subhead">Skills</h3>
 
+      <div class="skills-columns">
+        <div class="skills-col">
+          <section class="skills-category">
+            <h4 class="skills-title">Programming Languages</h4>
+            <div class="tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">R</span>
+            </div>
+          </section>
 
-<!-- ===== Skills Card ===== -->
-<div class="card about-card skills-card">
-  <h3 class="about-subhead">Skills</h3>
-
-  <div class="skills-columns">
-
-    <!-- Column 1: Programming + MLOps -->
-    <div class="skills-col">
-      <section class="skills-category">
-        <h4 class="skills-title">Programming Languages</h4>
-        <div class="tags">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">SQL</span>
-          <span class="skill-tag">R</span>
+          <section class="skills-category">
+            <h4 class="skills-title">MLOps &amp; Tools</h4>
+            <div class="tags">
+              <span class="skill-tag">Git / GitHub</span>
+              <span class="skill-tag">OpenCV</span>
+              <span class="skill-tag">Transformers (BERT, GPT, CLIP)</span>
+            </div>
+          </section>
         </div>
-      </section>
 
-      <section class="skills-category">
-        <h4 class="skills-title">MLOps &amp; Tools</h4>
-        <div class="tags">
-          <span class="skill-tag">Git / GitHub</span>
-          <span class="skill-tag">OpenCV</span>
-          <span class="skill-tag">Transformers (BERT, GPT, CLIP)</span>
+        <div class="skills-col">
+          <section class="skills-category">
+            <h4 class="skills-title">Data Science &amp; Machine Learning</h4>
+            <div class="tags">
+              <span class="skill-tag">Scikit-learn</span>
+              <span class="skill-tag">TensorFlow</span>
+              <span class="skill-tag">PyTorch</span>
+              <span class="skill-tag">XGBoost / LightGBM</span>
+            </div>
+          </section>
         </div>
-      </section>
+
+        <div class="skills-col">
+          <section class="skills-category">
+            <h4 class="skills-title">Data Analysis &amp; Visualization</h4>
+            <div class="tags">
+              <span class="skill-tag">Pandas</span>
+              <span class="skill-tag">NumPy</span>
+              <span class="skill-tag">Matplotlib</span>
+              <span class="skill-tag">Seaborn</span>
+              <span class="skill-tag">Plotly</span>
+              <span class="skill-tag">Tableau</span>
+              <span class="skill-tag">Power BI</span>
+            </div>
+          </section>
+        </div>
+      </div>
     </div>
-
-    <!-- Column 2: DS/ML -->
-    <div class="skills-col">
-      <section class="skills-category">
-        <h4 class="skills-title">Data Science &amp; Machine Learning</h4>
-        <div class="tags">
-          <span class="skill-tag">Scikit-learn</span>
-          <span class="skill-tag">TensorFlow</span>
-          <span class="skill-tag">PyTorch</span>
-          <span class="skill-tag">XGBoost / LightGBM</span>
-        </div>
-      </section>
-    </div>
-
-    <!-- Column 3: Data Viz -->
-    <div class="skills-col">
-      <section class="skills-category">
-        <h4 class="skills-title">Data Analysis &amp; Visualization</h4>
-        <div class="tags">
-          <span class="skill-tag">Pandas</span>
-          <span class="skill-tag">NumPy</span>
-          <span class="skill-tag">Matplotlib</span>
-          <span class="skill-tag">Seaborn</span>
-          <span class="skill-tag">Plotly</span>
-          <span class="skill-tag">Tableau</span>
-          <span class="skill-tag">Power BI</span>
-        </div>
-      </section>
-    </div>
-
-  </div>
-</div>
-
-
-
-</div>
+  </section>
 </section>
 
 
-
 <style>
-  /* About section spacing */
-  #about h2{ margin:.5rem 0 1rem; }
-  .about-card{ margin-bottom:1rem; }
-  .about-p{ margin:.25rem 0 .75rem; line-height:1.6; color:#0f172a; }
+/* ---------- OVERRIDES (scoped to #skills-section) ---------- */
+#skills-section .card.about-card{
+  overflow: visible !important;     /* fix “faded top” */
+  isolation: isolate !important;
+  padding-top: 1.75rem !important;
+}
 
-  .about-subhead{
-    margin:.25rem 0 1rem;
-    font-size:1.4rem;
-    color:var(--accent);
-  }
+/* kill any old grid/columns rules that might still apply */
+#skills-section .skills-grid{ display:block !important; }
 
-    :root {
-    --accent:#2563eb;
-    --title:#0f172a;
-    --muted:#475569;
-    --border:#e5e7eb;
-    --box-bg:#f9fafb;
-    --shadow:0 1px 3px rgba(0,0,0,.05);
-    --shadow-hov:0 6px 16px rgba(0,0,0,.08);
-    --pill-radius:999px;
-  }
+/* 3-column stable layout via flex */
+#skills-section .skills-columns{
+  display:flex !important;
+  gap:1.5rem !important;
+  align-items:flex-start !important;
+}
+#skills-section .skills-col{
+  flex:1 1 0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:1.5rem !important;
+}
+@media (max-width:1024px){
+  #skills-section .skills-columns{ flex-wrap:wrap !important; }
+  #skills-section .skills-col{ flex:1 1 calc(50% - .75rem) !important; }
+}
+@media (max-width:640px){
+  #skills-section .skills-col{ flex:1 1 100% !important; }
+}
 
-  /* ===== Card Fixes ===== */
-  .card.about-card {
-    overflow: visible; /* Prevent top fade/clipping */
-    isolation: isolate; /* Ensure child shadows draw above background */
-  }
-  .skills-card {
-    padding-top: 1.75rem; /* Extra space at top */
-  }
+/* category boxes */
+#skills-section .skills-category{
+  background:#f9fafb !important;
+  border:1px solid #e5e7eb !important;
+  border-radius:14px !important;
+  padding:1rem 1.2rem !important;
+  box-shadow:0 1px 3px rgba(0,0,0,.05) !important;
+  position:relative !important; z-index:1 !important;
+  transition:transform .18s ease, box-shadow .2s ease !important;
+}
+#skills-section .skills-category:hover{
+  transform:translateY(-2px) !important;
+  box-shadow:0 6px 16px rgba(0,0,0,.08) !important;
+}
 
-  /* ===== Columns ===== */
-  .skills-columns {
-    display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
-  }
-  .skills-col {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
+/* subheadings – soft, clear */
+#skills-section .skills-title{
+  margin:0 0 .75rem !important;
+  font-weight:600 !important;
+  font-size:1rem !important;
+  color:#374151 !important;
+}
 
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .skills-columns { flex-wrap: wrap; }
-    .skills-col { flex: 1 1 calc(50% - 0.75rem); }
-  }
-  @media (max-width: 640px) {
-    .skills-col { flex: 1 1 100%; }
-  }
-
-  /* ===== Category Box ===== */
-  .skills-category {
-    background: var(--box-bg);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1rem 1.2rem;
-    box-shadow: var(--shadow);
-    transition: transform .18s ease, box-shadow .2s ease;
-    position: relative;
-    z-index: 1; /* Renders above any background overlay */
-  }
-  .skills-category:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hov);
-  }
-
-  /* ===== Subheading ===== */
-  .skills-title {
-    margin: 0 0 0.75rem;
-    font-weight: 600;
-    font-size: 1rem;
-    color: #374151;
-  }
-
-  /* ===== Skill Tags ===== */
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-  }
-  .skill-tag {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.55rem 1.1rem;
-    border-radius: var(--pill-radius);
-    background: #fff;
-    border: 1px solid var(--border);
-    font-weight: 500;       /* Lighter than headings */
-    font-size: 0.95rem;     /* Slightly smaller than subheadings */
-    white-space: nowrap;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
-  }
-  .skill-tag:hover {
-    background: #f3f4f6;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-  }
+/* pill tags – lighter than subheadings */
+#skills-section .tags{ display:flex !important; flex-wrap:wrap !important; gap:.6rem !important; }
+#skills-section .skill-tag{
+  display:inline-flex !important; align-items:center !important;
+  padding:.55rem 1.1rem !important;
+  border-radius:999px !important;
+  background:#fff !important;
+  border:1px solid #e5e7eb !important;
+  font-weight:500 !important;             /* lighter than h4 */
+  font-size:.95rem !important;            /* smaller than h4 */
+  white-space:nowrap !important;
+  transition:background-color .2s, box-shadow .2s !important;
+}
+#skills-section .skill-tag:hover{
+  background:#f3f4f6 !important;
+  box-shadow:0 2px 6px rgba(0,0,0,.06) !important;
+}
 </style>
 
 
