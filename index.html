@@ -120,19 +120,20 @@
 
   <main>
 
-<section id="about" class="container" style="padding-top:1rem; padding-bottom:2rem;">
+<section id="about" class="container">
   <h2>About Me</h2>
 
   <!-- Intro card -->
   <div class="card about-card">
-    <p>
-      I’m a graduate student pursuing an M.S. in Data Science at the University of Colorado Boulder.
-      I enjoy turning raw data into meaningful stories—building predictive models, running
-      statistical analyses, and shipping insights that help decisions.
+    <p class="about-p">
+      I’m a graduate student pursuing an M.S. in Data Science at CU Boulder with a strong background in
+      data analysis, machine learning, and statistical modeling. I’ve worked with real-world datasets,
+      built predictive models, and turned data into insights that support business decisions.
     </p>
-    <p>
-      My toolkit spans Python, SQL, and R with a focus on practical ML, data pipelines, and clear
-      visual communication.
+    <p class="about-p">
+      My experience spans Python, SQL, R, and modern visualization tools, along with internships in
+      analytics and research-oriented roles. I enjoy turning raw data into meaningful stories and
+      actionable strategies.
     </p>
   </div>
 
@@ -141,21 +142,23 @@
     <h3 class="about-subhead">Skills</h3>
 
     <div class="skills-grid">
+      <!-- Languages -->
       <div class="skills-category">
         <h4>Languages</h4>
         <div class="tags">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">SQL</span>
+          <span class="skill-tag skill-tag--primary">Python</span>
+          <span class="skill-tag skill-tag--primary">SQL</span>
           <span class="skill-tag">R</span>
         </div>
       </div>
 
+      <!-- Core DS / ML -->
       <div class="skills-category">
         <h4>Core DS / ML</h4>
         <div class="tags">
-          <span class="skill-tag">Pandas</span>
-          <span class="skill-tag">NumPy</span>
-          <span class="skill-tag">scikit-learn</span>
+          <span class="skill-tag skill-tag--primary">Pandas</span>
+          <span class="skill-tag skill-tag--primary">NumPy</span>
+          <span class="skill-tag skill-tag--primary">scikit-learn</span>
           <span class="skill-tag">XGBoost</span>
           <span class="skill-tag">Feature Engineering</span>
           <span class="skill-tag">Model Evaluation</span>
@@ -164,25 +167,28 @@
         </div>
       </div>
 
+      <!-- Visualization / BI -->
       <div class="skills-category">
         <h4>Visualization / BI</h4>
         <div class="tags">
-          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag skill-tag--primary">Tableau</span>
           <span class="skill-tag">Power BI</span>
           <span class="skill-tag">Matplotlib</span>
           <span class="skill-tag">Plotly</span>
         </div>
       </div>
 
+      <!-- Tools -->
       <div class="skills-category">
         <h4>Tools</h4>
         <div class="tags">
+          <span class="skill-tag skill-tag--primary">Git / GitHub</span>
           <span class="skill-tag">Jupyter</span>
-          <span class="skill-tag">Git / GitHub</span>
           <span class="skill-tag">Excel</span>
         </div>
       </div>
 
+      <!-- Data Workflows -->
       <div class="skills-category">
         <h4>Data Workflows</h4>
         <div class="tags">
@@ -195,59 +201,67 @@
   </div>
 </section>
 
-
 <style>
-/* ABOUT */
-#about h2{ margin:.5rem 0 1rem; }
-.about-card{ margin-bottom:1rem; }
+  /* About section spacing */
+  #about h2{ margin:.5rem 0 1rem; }
+  .about-card{ margin-bottom:1rem; }
+  .about-p{ margin:.25rem 0 .75rem; line-height:1.6; color:#0f172a; }
 
-.about-subhead{
-  margin:.25rem 0 1rem;
-  font-size:1.1rem;
-  color:var(--accent);
-}
+  .about-subhead{
+    margin:.25rem 0 1rem;
+    font-size:1.1rem;
+    color:var(--accent);
+  }
 
-/* Two even columns on desktop; stack on mobile */
-.skills-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:1.5rem 2rem; /* row / column */
-}
-@media (max-width:760px){
-  .skills-grid{ grid-template-columns:1fr; }
-}
+  /* Skills grid: 1 → 2 → 3 columns */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1rem 1.25rem;    /* row / column */
+  }
+  @media (min-width:760px){
+    .skills-grid{ grid-template-columns:1fr 1fr; }
+  }
+  @media (min-width:960px){
+    .skills-grid{ grid-template-columns:1fr 1fr 1fr; }
+  }
 
-.skills-category h4{
-  color:var(--muted);
-  font-size:1rem;
-  font-weight:600;
-  margin:0 0 .5rem;
-}
+  .skills-category h4{
+    color:#475569;       /* slate-600 */
+    font-size:.95rem;
+    font-weight:600;
+    margin:0 0 .5rem;
+  }
+  .tags{ display:flex; flex-wrap:wrap; gap:.5rem; }
 
-.tags{ display:flex; flex-wrap:wrap; gap:.5rem; }
+  /* Chips */
+  .skill-tag{
+    display:inline-block;
+    background:#f8fafc;
+    color:#0f172a;
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:.32rem .7rem;
+    font-size:.86rem;
+    font-weight:500;
+    line-height:1;
+    letter-spacing:.2px;
+    white-space:nowrap;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .skill-tag:hover{
+    transform:translateY(-1px);
+    box-shadow:0 4px 10px rgba(15,23,42,.06);
+    background:#f1f5f9;
+  }
 
-/* Cohesive pill chips */
-.skill-tag{
-  display:inline-block;
-  background:#f8fafc;
-  color:#0f172a;
-  border:1px solid var(--line);
-  border-radius:999px;
-  padding:.4rem .8rem;
-  font-size:.85rem;
-  font-weight:500;
-  line-height:1;         /* consistent height */
-  white-space:nowrap;
-  transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
-}
-.skill-tag:hover{
-  transform:translateY(-1px);
-  box-shadow:0 4px 10px rgba(15,23,42,.06);
-  background:#f1f5f9;
-}
+  /* Soft accent for core stack */
+  .skill-tag--primary{
+    background:rgba(37,99,235,.08);         /* soft blue wash */
+    border-color:rgba(37,99,235,.25);
+    color:#0b1a36;
+  }
 </style>
-
-
 
 <section id="education" class="container" style="padding-top: 1rem; padding-bottom: 2rem;">
   <h2 style="margin: .5rem 0 1rem;">Education</h2>
