@@ -148,6 +148,19 @@ header{
       transition:background-color .2s, box-shadow .2s;
     }
     #skills-section .skill-tag:hover{ background:#f3f4f6; box-shadow:0 2px 6px rgba(0,0,0,.06); }
+    /* Give the first row in Skills a little breathing room below the header */
+#skills-section .skills-columns{ padding-top: 18px; }
+
+/* Make sure each skills box sits above any parent effects */
+#skills-section .skills-category{
+  position: relative;
+  z-index: 1;
+  background: #fff;            /* explicit so it’s not tinted by anything behind */
+}
+
+/* Slightly larger anchor offset so sections settle lower on the viewport */
+section{ scroll-margin-top: calc(var(--header-h) + 24px); }
+
 
     /* Experience styles */
     #experience{ max-width:980px; margin:auto; }
