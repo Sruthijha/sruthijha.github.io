@@ -51,14 +51,24 @@
     .btn.primary:hover{background:var(--accent-2); border-color:var(--accent-2)}
 
     /* Sections (top-level) */
-    section{
-  padding: 72px 0;
+    /* Sections (top-level) */
+section {
+  padding: 60px 0; /* same vertical spacing everywhere */
   scroll-margin-top: 84px;
-  border-top: 0; /* remove the auto full-width line */
+  border-top: 1px solid var(--line); /* line before each section */
 }
-    section:first-of-type{border-top:none}
-    h2{font-size: clamp(22px, 3vw, 28px); margin:0 0 .75rem}
-    .lead{color:var(--muted)}
+
+section:first-of-type {
+  border-top: none; /* no line before the very first section */
+}
+
+/* For nested sections like skills inside about */
+#skills-section {
+  padding: 0;
+  margin-top: 24px;
+  border-top: none;
+}
+c
 
     /* Cards — single shared rule used everywhere */
     .card{
