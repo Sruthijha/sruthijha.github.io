@@ -45,11 +45,19 @@ header{
     }
 
     /* Sections (top-level) */
-    section{
-      padding: 72px 0;
-      scroll-margin-top: calc(var(--header-h) + 12px); /* anchor offset */
-      border-top: none !important;                     /* remove separators */
-    }
+/* Sections (top-level) — uniform spacing and anchor offset */
+:root{ --section-pad: 64px; }            /* adjust this one value to change all gaps */
+
+section{
+  padding: var(--section-pad) 0;         /* same top/bottom for every section */
+  scroll-margin-top: calc(var(--header-h) + 12px);
+  border-top: none !important;           /* no divider line */
+}
+
+/* kill inconsistent heading bumps */
+section h2:first-child,
+section h3:first-child{ margin-top: 0; padding-top: 0; }
+
     h2{font-size: clamp(22px, 3vw, 28px); margin:0 0 .75rem}
     .lead{color:var(--muted)}
 
