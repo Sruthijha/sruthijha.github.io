@@ -107,6 +107,27 @@
       letter-spacing: .08em; text-transform: uppercase; font-weight:700;
       color: var(--accent); margin: 0 0 .35rem; font-size: .9rem;
     }
+    /* Waving hand next to HELLO */
+.wave{
+  display:inline-block;
+  margin-left:.35rem;
+  transform-origin:70% 70%;
+  animation:wave-hand 2s ease-in-out infinite;
+}
+@keyframes wave-hand{
+  0%,100%{ transform:rotate(0deg);}
+  10%{ transform:rotate(14deg);}
+  20%{ transform:rotate(-8deg);}
+  30%{ transform:rotate(14deg);}
+  40%{ transform:rotate(-4deg);}
+  50%{ transform:rotate(10deg);}
+  60%{ transform:rotate(0deg);}
+}
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .wave{ animation:none; }
+}
+
     .hero-title { margin:0 0 .5rem; font-size: clamp(32px, 5.5vw, 56px); line-height:1.05; color:var(--text); }
     .text-accent{ color:var(--accent); }
     .hero-subtitle{ margin:.35rem auto 1.25rem; color:var(--muted); line-height:1.6; max-width:60ch; }
@@ -160,18 +181,36 @@
     #skills-section .skill-tag:hover{ background:#f3f4f6; box-shadow:0 2px 6px rgba(0,0,0,.06); }
 
     /* Experience styles */
-    #experience{ max-width:980px; margin:auto; }
-    .experience-card{ display:flex; gap:1rem; align-items:flex-start; transition: box-shadow .2s, transform .2s; }
-    .experience-card:hover{ box-shadow:0 8px 20px rgba(0,0,0,.08); transform: translateY(-2px); }
-    .company-logo{ width:48px; height:48px; object-fit:contain; border-radius:8px; flex-shrink:0; }
-    .exp-body{ flex:1; min-width:250px; }
-    .exp-header{ display:flex; justify-content:space-between; align-items:baseline; gap:.75rem; flex-wrap:wrap; margin-bottom:.5rem; }
-    .exp-title{ margin:0; font-size:1.1rem; line-height:1.2; }
-    .role{ font-weight:700; color: var(--accent); }
-    .company{ font-weight:550; color: rgba(0,0,0,0.70); }
-    .date{ color:rgba(0,0,0,0.45); font-size:.95rem; white-space:nowrap; }
-    .exp-points{ margin:.25rem 0 0 1.15rem; padding:0; }
-    .exp-points li{ margin:0 0 .6em 0; line-height:1.55; color:#1f2937; }
+/* Experience styles */
+#experience{ max-width:980px; margin:auto; }
+.experience-card{ display:flex; gap:1rem; align-items:flex-start; } /* no transition here */
+
+/* Apply the same hover/active interaction to BOTH Education and Experience cards */
+#education .card,
+#experience .card{
+  transition: box-shadow .2s, transform .2s;
+  will-change: transform;
+}
+#education .card:hover,
+#experience .card:hover{
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  transform: translateY(-2px);
+}
+#education .card:active,
+#experience .card:active{
+  transform: translateY(-1px) scale(0.997);
+}
+
+.company-logo{ width:48px; height:48px; object-fit:contain; border-radius:8px; flex-shrink:0; }
+.exp-body{ flex:1; min-width:250px; }
+.exp-header{ display:flex; justify-content:space-between; align-items:baseline; gap:.75rem; flex-wrap:wrap; margin-bottom:.5rem; }
+.exp-title{ margin:0; font-size:1.1rem; line-height:1.2; }
+.role{ font-weight:700; color: var(--accent); }
+.company{ font-weight:550; color: rgba(0,0,0,0.70); }
+.date{ color:rgba(0,0,0,0.45); font-size:.95rem; white-space:nowrap; }
+.exp-points{ margin:.25rem 0 0 1.15rem; padding:0; }
+.exp-points li{ margin:0 0 .6em 0; line-height:1.55; color:#1f2937; }
+
   </style>
 </head>
 <body>
@@ -198,7 +237,7 @@
     <section id="hero" class="hero">
       <div class="hero-card">
         <div class="hero-copy">
-          <p class="eyebrow">HELLO, I’M</p>
+          <p class="eyebrow">HELLO, I’M <span class="wave" aria-hidden="true">👋</span></p>
           <h1 class="hero-title">
             Sruthijha <span class="text-accent">Pagolu</span>
           </h1>
