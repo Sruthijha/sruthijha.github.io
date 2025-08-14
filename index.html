@@ -131,7 +131,12 @@
     .hero-title { margin:0 0 .5rem; font-size: clamp(32px, 5.5vw, 56px); line-height:1.05; color:var(--text); }
     .text-accent{ color:var(--accent); }
     .hero-subtitle{ margin:.35rem auto 1.25rem; color:var(--muted); line-height:1.6; max-width:60ch; }
-    .hero-actions{ display:flex; gap:.75rem; flex-wrap:wrap; justify-content:center; }
+    .hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start; /* align buttons to the left */
+}
+
     .btn{display:inline-block; padding:.7rem 1rem; border-radius:12px; border:1px solid var(--line); font-weight:600}
     .btn.primary{background:var(--accent); color:#fff; border-color:var(--accent)}
     .btn.primary:hover{background:var(--accent-2); border-color:var(--accent-2)}
