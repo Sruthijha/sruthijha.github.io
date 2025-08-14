@@ -13,6 +13,8 @@
       --accent:#2563eb; --accent-2:#1e40af;
       --shadow:0 6px 20px rgba(15,23,42,.08);
       --header-h:64px;
+      --section-pad:64px;        /* global section spacing */
+      --title-gap:16px;          /* space between section title and first block */
     }
 
     html{scroll-behavior:smooth}
@@ -22,14 +24,12 @@
     .container{max-width: 1000px; margin: 0 auto; padding: 0 1rem}
 
     /* Header / Nav */
-    /* Solid header to prevent washout under it */
-header{
-  position: sticky; top: 0; z-index: 50;
-  background: #fff;            /* was rgba(255,255,255,.85) */
-  backdrop-filter: none;       /* remove the blur */
-  -webkit-backdrop-filter: none;
-}
-
+    header{
+      position: sticky; top: 0; z-index: 50;
+      background: #fff;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
     .nav-wrap{display:flex; justify-content:center; align-items:center; height:var(--header-h);}
     nav ul{list-style:none; margin:0; padding:0; display:flex; justify-content:center; gap:1rem;}
     nav a{display:inline-block; padding:.5rem .6rem; border-radius:8px; color:var(--text); font-weight:500}
@@ -44,21 +44,15 @@ header{
       nav a{padding:.75rem}
     }
 
-    /* Sections (top-level) */
-/* Sections (top-level) — uniform spacing and anchor offset */
-:root{ --section-pad: 64px; }            /* adjust this one value to change all gaps */
-
-section{
-  padding: var(--section-pad) 0;         /* same top/bottom for every section */
-  scroll-margin-top: calc(var(--header-h) + 12px);
-  border-top: none !important;           /* no divider line */
-}
-
-/* kill inconsistent heading bumps */
-section h2:first-child,
-section h3:first-child{ margin-top: 0; padding-top: 0; }
-
-    h2{font-size: clamp(22px, 3vw, 28px); margin:0 0 .75rem}
+    /* Sections (top-level) — spacing + anchor offset */
+    section{
+      padding: var(--section-pad) 0;
+      scroll-margin-top: calc(var(--header-h) + 24px); /* anchors land cleanly below header */
+      border-top: none; /* no divider line */
+    }
+    h2{font-size: clamp(22px, 3vw, 28px); margin:0;}
+    /* uniform gap from title to first content block */
+    section > h2{ margin: 0 0 var(--title-gap) !important; }
     .lead{color:var(--muted)}
 
     /* Cards — single shared rule used everywhere */
@@ -82,14 +76,13 @@ section h3:first-child{ margin-top: 0; padding-top: 0; }
     .skip{position:absolute; left:-9999px}
     .skip:focus{left:1rem; top:1rem; background:#fff; padding:.5rem .75rem; border-radius:10px; border:1px solid var(--line); z-index:100}
 
-    /* ======= HERO (perfectly centered below sticky header) ======= */
+    /* ======= HERO (centered below sticky header) ======= */
     .hero {
-      /* Fill the viewport MINUS the sticky header height so the card truly centers */
       min-height: calc(100svh - var(--header-h));
       display: flex;
-      align-items: center;   /* vertical center */
-      justify-content: center; /* horizontal center */
-      padding: 0;            /* remove extra vertical space */
+      align-items: center;
+      justify-content: center;
+      padding: 0;
       border-top: 0;
       background:
         radial-gradient(900px 420px at 50% 0%, rgba(37,99,235,.06), transparent 60%),
@@ -107,7 +100,7 @@ section h3:first-child{ margin-top: 0; padding-top: 0; }
       grid-template-columns: 1.2fr 1fr;
       gap: clamp(1.25rem, 4vw, 3rem);
       align-items: center;
-      justify-items: center;        /* center grid content */
+      justify-items: center;
     }
     .hero-copy{ text-align:center; }
     .eyebrow {
@@ -137,17 +130,26 @@ section h3:first-child{ margin-top: 0; padding-top: 0; }
     #skills-section{ padding:0; border-top:none; margin-top:16px; }
     #skills-section .card.about-card{ padding:1.25rem 1.5rem; overflow:visible; isolation:isolate; }
     #skills-section .about-subhead{ color:var(--accent); margin:0 0 1rem; font-weight:600; }
-    #skills-section .skills-columns{ display:flex; gap:1rem; align-items:flex-start; }
+
+    /* Columns */
+    #skills-section .skills-columns{ display:flex; gap:1rem; align-items:flex-start; padding-top:28px; } /* was 18px → 28px to avoid “cut off” feel */
     #skills-section .skills-col{ flex:1 1 0; display:flex; flex-direction:column; gap:1rem; }
     @media (max-width:1024px){ #skills-section .skills-columns{ flex-wrap:wrap; } #skills-section .skills-col{ flex:1 1 calc(50% - .5rem);} }
     @media (max-width:640px){ #skills-section .skills-col{ flex:1 1 100%; } }
+
+    /* Category boxes */
     #skills-section .skills-category{
       background:#f9fafb; border:1px solid #e5e7eb; border-radius:14px;
       padding:.9rem 1rem; box-shadow:0 1px 3px rgba(0,0,0,.05);
       transition:transform .18s, box-shadow .2s;
+      position:relative; z-index:1; background:#fff; /* ensure clean top edges */
     }
     #skills-section .skills-category:hover{ transform:translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,.08); }
+
+    /* Subheadings inside boxes */
     #skills-section .skills-title{ margin:0 0 .6rem; font-weight:600; font-size:1rem; color:#374151; }
+
+    /* Skill tags */
     #skills-section .tags{ display:flex; flex-wrap:wrap; gap:.5rem; }
     #skills-section .skill-tag{
       display:inline-flex; align-items:center; padding:.5rem .95rem;
@@ -156,19 +158,6 @@ section h3:first-child{ margin-top: 0; padding-top: 0; }
       transition:background-color .2s, box-shadow .2s;
     }
     #skills-section .skill-tag:hover{ background:#f3f4f6; box-shadow:0 2px 6px rgba(0,0,0,.06); }
-    /* Give the first row in Skills a little breathing room below the header */
-#skills-section .skills-columns{ padding-top: 18px; }
-
-/* Make sure each skills box sits above any parent effects */
-#skills-section .skills-category{
-  position: relative;
-  z-index: 1;
-  background: #fff;            /* explicit so it’s not tinted by anything behind */
-}
-
-/* Slightly larger anchor offset so sections settle lower on the viewport */
-section{ scroll-margin-top: calc(var(--header-h) + 24px); }
-
 
     /* Experience styles */
     #experience{ max-width:980px; margin:auto; }
@@ -224,7 +213,6 @@ section{ scroll-margin-top: calc(var(--header-h) + 24px); }
         </div>
 
         <div class="hero-photo">
-          <!-- replace src with your portrait path -->
           <img src="assets/me.png" alt="Sruthijha Pagolu portrait" />
         </div>
       </div>
@@ -301,7 +289,7 @@ section{ scroll-margin-top: calc(var(--header-h) + 24px); }
     </section>
 
     <!-- =========== EDUCATION =========== -->
-    <section id="education" class="container" >
+    <section id="education" class="container">
       <h2>Education</h2>
 
       <!-- CU Boulder -->
@@ -354,7 +342,7 @@ section{ scroll-margin-top: calc(var(--header-h) + 24px); }
     </section>
 
     <!-- =========== EXPERIENCE =========== -->
-    <section id="experience" class="container" >
+    <section id="experience" class="container">
       <h2>Experience</h2>
 
       <div class="experience-card card">
@@ -468,103 +456,102 @@ section{ scroll-margin-top: calc(var(--header-h) + 24px); }
   </footer>
 
   <script>
-  // ===== Mobile nav toggle (same behavior you had) =====
-  const toggle = document.getElementById('nav-toggle');
-  const nav = document.getElementById('site-nav');
-  toggle?.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(open));
-  });
-
-  // ===== Smooth anchor scroll (optional: works even without CSS smooth) =====
-  document.querySelectorAll('nav a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const id = a.getAttribute('href');
-      const el = document.querySelector(id);
-      if (!el) return;
-      e.preventDefault();
-
-      // Close mobile menu on click
-      if (nav?.classList.contains('open')) {
-        nav.classList.remove('open');
-        toggle?.setAttribute('aria-expanded', 'false');
-      }
-
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      history.pushState(null, '', id);
+    // ===== Mobile nav toggle =====
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('site-nav');
+    toggle?.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
     });
-  });
 
-  // ===== Robust scroll spy (center-based, consistent) =====
-  // Rule: highlight the section whose CENTER is closest to the viewport CENTER
-  // (below the sticky header). While the hero is ≥50% visible, highlight nothing.
-  const HEADER_H = parseInt(
-    getComputedStyle(document.documentElement).getPropertyValue('--header-h')
-  ) || 64;
+    // ===== Smooth anchor scroll =====
+    document.querySelectorAll('nav a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
 
-  const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
-  const sections = [...document.querySelectorAll('main section[id]')];
-  const hero = document.getElementById('hero');
+        if (nav?.classList.contains('open')) {
+          nav.classList.remove('open');
+          toggle?.setAttribute('aria-expanded', 'false');
+        }
 
-  const linkFor = id => navLinks.find(a => a.getAttribute('href') === `#${id}`);
-  const clearActive = () => navLinks.forEach(a => a.classList.remove('active'));
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, '', id);
+      });
+    });
 
-  function visibleRatio(rect) {
-    const vh = window.innerHeight;
-    const visible = Math.max(0, Math.min(rect.bottom, vh) - Math.max(rect.top, 0));
-    return visible / Math.min(vh, Math.max(1, rect.height));
-  }
+    // ===== Robust scroll spy (center-based) — consider ONLY nav-linked sections =====
+    const HEADER_H = parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue('--header-h')
+    ) || 64;
 
-  function chooseActiveSection() {
-    // If hero still dominates the viewport, clear highlights
-    if (hero) {
-      const r = hero.getBoundingClientRect();
-      if (visibleRatio(r) >= 0.5) {
-        clearActive();
-        return;
+    const navLinksArr = [...document.querySelectorAll('nav a[href^="#"]')];
+    const sectionIds = navLinksArr
+      .map(a => a.getAttribute('href'))
+      .filter(h => h && h.startsWith('#'))
+      .map(h => h.slice(1));
+    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+    const hero = document.getElementById('hero');
+
+    const linkFor = id => navLinksArr.find(a => a.getAttribute('href') === `#${id}`);
+    const clearActive = () => navLinksArr.forEach(a => a.classList.remove('active'));
+
+    function visibleRatio(rect) {
+      const vh = window.innerHeight;
+      const visible = Math.max(0, Math.min(rect.bottom, vh) - Math.max(rect.top, 0));
+      return visible / Math.min(vh, Math.max(1, rect.height));
+    }
+
+    function chooseActiveSection() {
+      // If hero still dominates the viewport, clear highlights
+      if (hero) {
+        const r = hero.getBoundingClientRect();
+        if (visibleRatio(r) >= 0.5) {
+          clearActive();
+          return;
+        }
+      }
+
+      // Visual center below sticky header
+      const targetY = HEADER_H + (window.innerHeight - HEADER_H) / 2;
+
+      let best = null;
+      let bestDist = Infinity;
+
+      for (const sec of sections) {
+        const rect = sec.getBoundingClientRect();
+        const center = rect.top + rect.height / 2;
+        const dist = Math.abs(center - targetY);
+        if (dist < bestDist) {
+          best = sec; bestDist = dist;
+        }
+      }
+
+      clearActive();
+      if (best) {
+        const link = linkFor(best.id);
+        if (link) link.classList.add('active');
       }
     }
 
-    // Visual center (account for sticky header)
-    const targetY = HEADER_H + (window.innerHeight - HEADER_H) / 2;
-
-    let best = null;
-    let bestDist = Infinity;
-
-    for (const sec of sections) {
-      if (sec.id === 'hero') continue; // never highlight hero
-      const rect = sec.getBoundingClientRect();
-      const center = rect.top + rect.height / 2;
-      const dist = Math.abs(center - targetY);
-      if (dist < bestDist) {
-        best = sec; bestDist = dist;
+    // rAF throttling for scroll
+    let ticking = false;
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(() => { chooseActiveSection(); ticking = false; });
+        ticking = true;
       }
     }
 
-    clearActive();
-    if (best) {
-      const link = linkFor(best.id);
-      if (link) link.classList.add('active');
-    }
-  }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', chooseActiveSection);
+    window.addEventListener('hashchange', chooseActiveSection);
+    document.addEventListener('DOMContentLoaded', chooseActiveSection);
 
-  // rAF throttling for scroll
-  let ticking = false;
-  function onScroll() {
-    if (!ticking) {
-      requestAnimationFrame(() => { chooseActiveSection(); ticking = false; });
-      ticking = true;
-    }
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', chooseActiveSection);
-  window.addEventListener('hashchange', chooseActiveSection);
-  document.addEventListener('DOMContentLoaded', chooseActiveSection);
-
-  // ===== Footer year =====
-  document.getElementById('year').textContent = new Date().getFullYear();
-
+    // ===== Footer year =====
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
