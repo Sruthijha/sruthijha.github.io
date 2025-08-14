@@ -460,61 +460,103 @@ section{ scroll-margin-top: calc(var(--header-h) + 24px); }
   </footer>
 
   <script>
-    // Mobile nav toggle
-    const toggle = document.getElementById('nav-toggle');
-    const nav = document.getElementById('site-nav');
-    toggle?.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(open));
+  // ===== Mobile nav toggle (same behavior you had) =====
+  const toggle = document.getElementById('nav-toggle');
+  const nav = document.getElementById('site-nav');
+  toggle?.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+
+  // ===== Smooth anchor scroll (optional: works even without CSS smooth) =====
+  document.querySelectorAll('nav a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      const el = document.querySelector(id);
+      if (!el) return;
+      e.preventDefault();
+
+      // Close mobile menu on click
+      if (nav?.classList.contains('open')) {
+        nav.classList.remove('open');
+        toggle?.setAttribute('aria-expanded', 'false');
+      }
+
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.pushState(null, '', id);
     });
+  });
 
-    // Click highlight + close mobile nav (observer will correct once scrolling)
-    const links = document.querySelectorAll('nav a[href^="#"]');
-    links.forEach(a => {
-      a.addEventListener('click', () => {
-        links.forEach(l => l.classList.remove('active'));
-        a.classList.add('active');
-        if (nav.classList.contains('open')) {
-          nav.classList.remove('open');
-          toggle?.setAttribute('aria-expanded', 'false');
-        }
-      });
-    });
+  // ===== Robust scroll spy (center-based, consistent) =====
+  // Rule: highlight the section whose CENTER is closest to the viewport CENTER
+  // (below the sticky header). While the hero is ≥50% visible, highlight nothing.
+  const HEADER_H = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue('--header-h')
+  ) || 64;
 
-    // Scroll spy: highlight section in view; none while hero is visible
-    const navLinks = document.querySelectorAll('nav a[href^="#"]');
-    const allSections = document.querySelectorAll('section[id]');
-    const linkFor = id => [...navLinks].find(a => a.getAttribute('href') === `#${id}`);
+  const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
+  const sections = [...document.querySelectorAll('main section[id]')];
+  const hero = document.getElementById('hero');
 
-    const spy = new IntersectionObserver((entries) => {
-      const hero = entries.find(e => e.target.id === 'hero');
+  const linkFor = id => navLinks.find(a => a.getAttribute('href') === `#${id}`);
+  const clearActive = () => navLinks.forEach(a => a.classList.remove('active'));
 
-      // If at least 20% of hero is visible, clear highlights
-      if (hero && hero.isIntersecting && hero.intersectionRatio > 0.2) {
-        navLinks.forEach(a => a.classList.remove('active'));
+  function visibleRatio(rect) {
+    const vh = window.innerHeight;
+    const visible = Math.max(0, Math.min(rect.bottom, vh) - Math.max(rect.top, 0));
+    return visible / Math.min(vh, Math.max(1, rect.height));
+  }
+
+  function chooseActiveSection() {
+    // If hero still dominates the viewport, clear highlights
+    if (hero) {
+      const r = hero.getBoundingClientRect();
+      if (visibleRatio(r) >= 0.5) {
+        clearActive();
         return;
       }
+    }
 
-      // Choose the most visible section (excluding hero)
-      const visible = entries
-        .filter(e => e.isIntersecting && e.target.id !== 'hero')
-        .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+    // Visual center (account for sticky header)
+    const targetY = HEADER_H + (window.innerHeight - HEADER_H) / 2;
 
-      if (visible) {
-        navLinks.forEach(a => a.classList.remove('active'));
-        const link = linkFor(visible.target.id);
-        if (link) link.classList.add('active');
+    let best = null;
+    let bestDist = Infinity;
+
+    for (const sec of sections) {
+      if (sec.id === 'hero') continue; // never highlight hero
+      const rect = sec.getBoundingClientRect();
+      const center = rect.top + rect.height / 2;
+      const dist = Math.abs(center - targetY);
+      if (dist < bestDist) {
+        best = sec; bestDist = dist;
       }
-    }, {
-      // Wait until a section is near the middle; reduces false positives from sticky header
-      rootMargin: '-10% 0px -60% 0px',
-      threshold: [0.0, 0.25, 0.5, 0.75, 1.0]
-    });
+    }
 
-    allSections.forEach(sec => spy.observe(sec));
+    clearActive();
+    if (best) {
+      const link = linkFor(best.id);
+      if (link) link.classList.add('active');
+    }
+  }
 
-    // Year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+  // rAF throttling for scroll
+  let ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(() => { chooseActiveSection(); ticking = false; });
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', chooseActiveSection);
+  window.addEventListener('hashchange', chooseActiveSection);
+  document.addEventListener('DOMContentLoaded', chooseActiveSection);
+
+  // ===== Footer year =====
+  document.getElementById('year').textContent = new Date().getFullYear();
+
   </script>
 </body>
 </html>
