@@ -446,25 +446,25 @@
 
 <!-- =========== PROJECTS =========== -->
 <section id="projects" class="container" style="padding:2rem 0;">
-  <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+  <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-start;">
 
-    <!-- Left Column: Vertical Headline -->
-    <div style="writing-mode: vertical-rl; text-orientation: mixed; font-size: 1.5rem; color: var(--accent); font-weight: bold; flex-shrink: 0;">
+    <!-- Left Column: Label -->
+    <div style="flex-shrink: 0; width: 150px; font-weight: 600; color: var(--text); font-size: 1.1rem;">
       Projects
     </div>
 
-    <!-- Right Column: Project Grid -->
+    <!-- Right Column: Projects Grid -->
     <div class="grid" style="
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 projects per row */
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
-      flex: 1; /* take remaining space */
+      flex: 1;
       align-items: stretch;
     ">
 
       <!-- Project 1 -->
       <article class="card project-card" style="background:#fff; border-radius:16px; padding:1.5rem; box-shadow:0 4px 10px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between;">
-        <img src="assets/msr.png" alt="MSR Mining Challenge preview" style="width:100%; height:200px; object-fit:cover; border-radius:12px; margin-bottom:1rem;" />
+        <img src="assets/msr.png" alt="MSR Mining Challenge" style="width:100%; height:200px; object-fit:cover; border-radius:12px; margin-bottom:1rem;" />
         <h3 style="text-align:center; color:var(--accent); font-size:1.25rem;">MSR 2024 Mining Challenge</h3>
         <p style="text-align:center; color:var(--text); line-height:1.5; font-size:0.95rem; margin-bottom:1rem; min-height:4.5em;">
           Analyzed ChatGPT's performance in programming conversations using large-scale datasets, NLP, and ML models.
@@ -486,7 +486,7 @@
 
       <!-- Project 2 -->
       <article class="card project-card" style="background:#fff; border-radius:16px; padding:1.5rem; box-shadow:0 4px 10px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between;">
-        <img src="assets/DL.png" alt="Real-time Emotion Recognition preview" style="width:100%; height:200px; object-fit:cover; border-radius:12px; margin-bottom:1rem;" />
+        <img src="assets/DL.png" alt="Real-time Emotion Recognition" style="width:100%; height:200px; object-fit:cover; border-radius:12px; margin-bottom:1rem;" />
         <h3 style="text-align:center; color:var(--accent); font-size:1.25rem;">Real-time Emotion Recognition from Speech</h3>
         <p style="text-align:center; color:var(--text); line-height:1.5; font-size:0.95rem; margin-bottom:1rem; min-height:4.5em;">
           Built a system to detect emotions from webcam feed in real-time using OpenCV and deep learning models.
@@ -504,7 +504,26 @@
         </div>
       </article>
 
-      <!-- Add more projects here -->
+      <!-- Project 3 -->
+      <article class="card project-card" style="background:#fff; border-radius:16px; padding:1.5rem; box-shadow:0 4px 10px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between;">
+        <img src="assets/Airline.png" alt="Airline Delay Prediction" style="width:100%; height:200px; object-fit:cover; border-radius:12px; margin-bottom:1rem;" />
+        <h3 style="text-align:center; color:var(--accent); font-size:1.25rem;">Airline Delay Prediction System</h3>
+        <p style="text-align:center; color:var(--text); line-height:1.5; font-size:0.95rem; margin-bottom:1rem; min-height:4.5em;">
+          Predicted flight delays using historical airline data with regression models and feature engineering.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem; margin-bottom:1rem;">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag">Matplotlib</span>
+          <span class="skill-tag">Feature Engineering</span>
+        </div>
+        <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+          <a href="https://sites.google.com/view/shvdm/home" target="_blank" style="color:var(--accent); text-decoration:none;">Website</a>
+          <a href="https://github.com/jayywiz/Airline-Delay-Prediction-System" target="_blank" style="color:var(--accent); text-decoration:none;">GitHub</a>
+          <a href="https://github.com/jayywiz/Airline-Delay-Prediction-System/blob/main/Final%20Report.pdf" target="_blank" style="color:var(--accent); text-decoration:none;">Report</a>
+        </div>
+      </article>
 
     </div>
   </div>
@@ -519,14 +538,13 @@
     font-size:0.8rem;
   }
 
-  /* Responsive */
-  @media (max-width: 768px) {
+  /* Responsive: stack on small screens */
+  @media (max-width:768px) {
     section#projects div {
       flex-direction: column;
     }
     section#projects div > div:first-child {
-      writing-mode: horizontal-tb;
-      text-orientation: initial;
+      width: 100%;
       margin-bottom: 1rem;
     }
     .grid {
@@ -534,7 +552,6 @@
     }
   }
 </style>
-
     <!-- =========== CONTACT =========== -->
     <section id="contact" class="container" style="text-align:center; padding:2rem 0;">
       <h2>Contact</h2>
