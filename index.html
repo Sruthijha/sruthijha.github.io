@@ -445,89 +445,82 @@
 
 
 <!-- =========== PROJECTS =========== -->
-<section id="projects" class="container" style="padding:2rem 0;">
-  <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-start;">
+<section id="Project" class="container">
+  <h2>Projects</h2>
 
-    <!-- Left Column: Label -->
-    <div style="flex-shrink: 0; width: 150px; font-weight: 600; color: var(--text); font-size: 1.1rem;">
-      Projects
-    </div>
+  <div class="grid" style="
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+  ">
 
-    <!-- Right Column: Projects Grid -->
-    <div class="grid" style="
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      flex: 1;
-      align-items: stretch;
-    ">
+    <!-- Project 1 -->
+    <article class="card project-card" style="background:#fff; border-radius:16px; padding:1.5rem; box-shadow:0 4px 10px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between; max-width:350px;">
+      <img src="assets/msr.png" alt="MSR Mining Challenge" style="width:100%; height:200px; object-fit:cover; border-radius:12px; margin-bottom:1rem;" />
+      <h3 style="color:var(--accent); font-size:1.25rem; text-align:center;">MSR 2024 Mining Challenge</h3>
+      <p style="color:var(--text); line-height:1.5; font-size:0.95rem; text-align:center; min-height:4.5em;">
+        Analyzed ChatGPT's performance in programming conversations using large-scale datasets, NLP, and ML models.
+      </p>
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem; margin-bottom:1rem;">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">NLP</span>
+        <span class="skill-tag">Sentiment Analysis</span>
+        <span class="skill-tag">Machine Learning</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">Scikit-learn</span>
+      </div>
+      <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+        <a href="https://conf.researchr.org/home/msr-2024" target="_blank" style="color:var(--accent); text-decoration:none;">Challenge</a>
+        <a href="https://github.com/jayywiz/SE_Mining-Challenge" target="_blank" style="color:var(--accent); text-decoration:none;">GitHub</a>
+        <a href="https://github.com/jayywiz/SE_Mining-Challenge/blob/master/SE%20Project%20Report.pdf" target="_blank" style="color:var(--accent); text-decoration:none;">Report</a>
+      </div>
+    </article>
 
-      <!-- Project 1 -->
-      <article class="card project-card" style="background:#fff; border-radius:16px; padding:1.5rem; box-shadow:0 4px 10px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between;">
-        <img src="assets/msr.png" alt="MSR Mining Challenge" style="width:100%; height:200px; object-fit:cover; border-radius:12px; margin-bottom:1rem;" />
-        <h3 style="text-align:center; color:var(--accent); font-size:1.25rem;">MSR 2024 Mining Challenge</h3>
-        <p style="text-align:center; color:var(--text); line-height:1.5; font-size:0.95rem; margin-bottom:1rem; min-height:4.5em;">
-          Analyzed ChatGPT's performance in programming conversations using large-scale datasets, NLP, and ML models.
-        </p>
-        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem; margin-bottom:1rem;">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">NLP</span>
-          <span class="skill-tag">Sentiment Analysis</span>
-          <span class="skill-tag">Machine Learning</span>
-          <span class="skill-tag">Pandas</span>
-          <span class="skill-tag">Scikit-learn</span>
-        </div>
-        <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
-          <a href="https://conf.researchr.org/home/msr-2024" target="_blank" style="color:var(--accent); text-decoration:none;">Challenge</a>
-          <a href="https://github.com/jayywiz/SE_Mining-Challenge" target="_blank" style="color:var(--accent); text-decoration:none;">GitHub</a>
-          <a href="https://github.com/jayywiz/SE_Mining-Challenge/blob/master/SE%20Project%20Report.pdf" target="_blank" style="color:var(--accent); text-decoration:none;">Report</a>
-        </div>
-      </article>
+    <!-- Project 2 -->
+    <article class="card project-card" style="background:#fff; border-radius:16px; padding:1.5rem; box-shadow:0 4px 10px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between; max-width:350px;">
+      <img src="assets/DL.png" alt="Real-time Emotion Recognition" style="width:100%; height:200px; object-fit:cover; border-radius:12px; margin-bottom:1rem;" />
+      <h3 style="color:var(--accent); font-size:1.25rem; text-align:center;">Real-time Emotion Recognition from Speech</h3>
+      <p style="color:var(--text); line-height:1.5; font-size:0.95rem; text-align:center; min-height:4.5em;">
+        Built a system to detect emotions from webcam feed in real-time using OpenCV and deep learning models.
+      </p>
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem; margin-bottom:1rem;">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">OpenCV</span>
+        <span class="skill-tag">Deep Learning</span>
+        <span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">NumPy</span>
+      </div>
+      <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+        <a href="https://github.com/jayywiz/Emotion-Recognition" target="_blank" style="color:var(--accent); text-decoration:none;">GitHub</a>
+        <a href="https://github.com/jayywiz/Real-Time-Emotion-Recognition-from-Speech-/blob/main/Project%20Report.pdf" target="_blank" style="color:var(--accent); text-decoration:none;">Report</a>
+      </div>
+    </article>
 
-      <!-- Project 2 -->
-      <article class="card project-card" style="background:#fff; border-radius:16px; padding:1.5rem; box-shadow:0 4px 10px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between;">
-        <img src="assets/DL.png" alt="Real-time Emotion Recognition" style="width:100%; height:200px; object-fit:cover; border-radius:12px; margin-bottom:1rem;" />
-        <h3 style="text-align:center; color:var(--accent); font-size:1.25rem;">Real-time Emotion Recognition from Speech</h3>
-        <p style="text-align:center; color:var(--text); line-height:1.5; font-size:0.95rem; margin-bottom:1rem; min-height:4.5em;">
-          Built a system to detect emotions from webcam feed in real-time using OpenCV and deep learning models.
-        </p>
-        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem; margin-bottom:1rem;">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">OpenCV</span>
-          <span class="skill-tag">Deep Learning</span>
-          <span class="skill-tag">TensorFlow</span>
-          <span class="skill-tag">NumPy</span>
-        </div>
-        <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
-          <a href="https://github.com/jayywiz/Emotion-Recognition" target="_blank" style="color:var(--accent); text-decoration:none;">GitHub</a>
-          <a href="https://github.com/jayywiz/Real-Time-Emotion-Recognition-from-Speech-/blob/main/Project%20Report.pdf" target="_blank" style="color:var(--accent); text-decoration:none;">Report</a>
-        </div>
-      </article>
+    <!-- Project 3 -->
+    <article class="card project-card" style="background:#fff; border-radius:16px; padding:1.5rem; box-shadow:0 4px 10px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between; max-width:350px;">
+      <img src="assets/Airline.png" alt="Airline Delay Prediction" style="width:100%; height:200px; object-fit:cover; border-radius:12px; margin-bottom:1rem;" />
+      <h3 style="color:var(--accent); font-size:1.25rem; text-align:center;">Airline Delay Prediction System</h3>
+      <p style="color:var(--text); line-height:1.5; font-size:0.95rem; text-align:center; min-height:4.5em;">
+        Predicted flight delays using historical airline data with regression models and feature engineering.
+      </p>
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem; margin-bottom:1rem;">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">Scikit-learn</span>
+        <span class="skill-tag">Matplotlib</span>
+        <span class="skill-tag">Feature Engineering</span>
+      </div>
+      <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+        <a href="https://sites.google.com/view/shvdm/home" target="_blank" style="color:var(--accent); text-decoration:none;">Website</a>
+        <a href="https://github.com/jayywiz/Airline-Delay-Prediction-System" target="_blank" style="color:var(--accent); text-decoration:none;">GitHub</a>
+        <a href="https://github.com/jayywiz/Airline-Delay-Prediction-System/blob/main/Final%20Report.pdf" target="_blank" style="color:var(--accent); text-decoration:none;">Report</a>
+      </div>
+    </article>
 
-      <!-- Project 3 -->
-      <article class="card project-card" style="background:#fff; border-radius:16px; padding:1.5rem; box-shadow:0 4px 10px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between;">
-        <img src="assets/Airline.png" alt="Airline Delay Prediction" style="width:100%; height:200px; object-fit:cover; border-radius:12px; margin-bottom:1rem;" />
-        <h3 style="text-align:center; color:var(--accent); font-size:1.25rem;">Airline Delay Prediction System</h3>
-        <p style="text-align:center; color:var(--text); line-height:1.5; font-size:0.95rem; margin-bottom:1rem; min-height:4.5em;">
-          Predicted flight delays using historical airline data with regression models and feature engineering.
-        </p>
-        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem; margin-bottom:1rem;">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Pandas</span>
-          <span class="skill-tag">Scikit-learn</span>
-          <span class="skill-tag">Matplotlib</span>
-          <span class="skill-tag">Feature Engineering</span>
-        </div>
-        <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
-          <a href="https://sites.google.com/view/shvdm/home" target="_blank" style="color:var(--accent); text-decoration:none;">Website</a>
-          <a href="https://github.com/jayywiz/Airline-Delay-Prediction-System" target="_blank" style="color:var(--accent); text-decoration:none;">GitHub</a>
-          <a href="https://github.com/jayywiz/Airline-Delay-Prediction-System/blob/main/Final%20Report.pdf" target="_blank" style="color:var(--accent); text-decoration:none;">Report</a>
-        </div>
-      </article>
-
-    </div>
   </div>
 </section>
+
 
 <style>
   .skill-tag {
