@@ -449,27 +449,54 @@
    <div class="grid cols-2">
 
     <!-- Project 1 -->
-    <article class="card project-card">
+    <article class="card project-card" style="
+  background-color: #1e1e1e;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  padding: 1.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  max-width: 350px;
+  margin: 1rem;
+">
   <img src="assets/mining.png" alt="MSR Mining Challenge preview"
        style="width:100%; border-radius:12px; margin-bottom:1rem;" />
 
-  <h3 style="margin:.25rem 0 .5rem; color:var(--accent);">MSR 2024 Mining Challenge</h3>
-  <p class="lead" style="color:var(--muted); line-height:1.6;">
-    Analyzed ChatGPT’s performance in programming conversations using large-scale datasets, NLP, and ML models to assess accuracy, failure points, and user satisfaction.
+  <h3 style="margin:.25rem 0 .5rem; color:#ff6f61; font-family: 'Arial', sans-serif;">MSR 2024 Mining Challenge</h3>
+
+  <p style="color:#bbbbbb; line-height:1.5; font-size:0.95rem; margin-bottom:1rem;">
+    Analyzed ChatGPT’s performance in programming conversations using large-scale datasets,
+    NLP, and ML models to assess accuracy, failure points, and user satisfaction.
   </p>
 
-  <div class="tags" style="margin:.75rem 0;">
-    <span class="skill-tag">Python</span>
-    <span class="skill-tag">NLP</span>
-    <span class="skill-tag">Sentiment Analysis</span>
-    <span class="skill-tag">Machine Learning</span>
+  <div class="tags" style="margin-bottom:1rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+    <span style="background:#ff6f61; color:white; padding:0.3rem 0.7rem; border-radius:12px; font-size:0.8rem;">Python</span>
+    <span style="background:#6b5b95; color:white; padding:0.3rem 0.7rem; border-radius:12px; font-size:0.8rem;">NLP</span>
+    <span style="background:#88b04b; color:white; padding:0.3rem 0.7rem; border-radius:12px; font-size:0.8rem;">Sentiment Analysis</span>
+    <span style="background:#ffa500; color:white; padding:0.3rem 0.7rem; border-radius:12px; font-size:0.8rem;">Machine Learning</span>
   </div>
 
-  <p>
-    <a href="https://github.com/jayywiz/SE_Mining-Challenge" target="_blank" rel="noopener noreferrer">GitHub</a> ·
-    <a href="assets/SE_Phase_II.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+  <p style="margin-top:0.5rem;">
+    <a href="https://github.com/jayywiz/SE_Mining-Challenge" target="_blank"
+       style="color:#ff6f61; text-decoration:none; margin-right:1rem;">GitHub</a>
+    <a href="assets/SE_Phase_II.pdf" target="_blank"
+       style="color:#ff6f61; text-decoration:none;">Report</a>
   </p>
 </article>
+
+<script>
+  // Optional hover effect
+  const cards = document.querySelectorAll('.project-card');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-5px)';
+      card.style.boxShadow = '0 12px 25px rgba(0,0,0,0.3)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0)';
+      card.style.boxShadow = '0 8px 20px rgba(0,0,0,0.2)';
+    });
+  });
+</script>
 
    </div>
  </section>
