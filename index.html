@@ -451,35 +451,36 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    justify-content: center;
   ">
 
-    <!-- Project 1 -->
+    <!-- Project 1: MSR Mining Challenge -->
     <article class="card project-card" style="
       background-color: #fff;
       border-radius: 16px;
       padding: 1.5rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      max-width: 350px;
+      margin: 0 auto;
       transition: transform 0.3s, box-shadow 0.3s;
     ">
       <img src="assets/msr.png" alt="MSR Mining Challenge preview"
            style="width:100%; border-radius:12px; margin-bottom:1rem; object-fit:cover;" />
-
       <h3 style="margin:0.25rem 0 0.5rem; color:var(--accent); font-size:1.25rem;">
         MSR 2024 Mining Challenge
       </h3>
-
       <p style="color:var(--text); line-height:1.5; font-size:0.95rem; margin-bottom:1rem;">
         Analyzed ChatGPT's performance in programming conversations using large-scale datasets,
         NLP, and ML models to assess accuracy, failure points, and user satisfaction.
       </p>
-
-      <div style="margin-bottom:1rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
-        <span class="skill-tag" style="background:#f0f0f0; color:#333; padding:0.4rem 0.9rem; border-radius:25px; font-size:0.85rem; font-weight:500;">Python</span>
-        <span class="skill-tag" style="background:#f0f0f0; color:#333; padding:0.4rem 0.9rem; border-radius:25px; font-size:0.85rem; font-weight:500;">NLP</span>
-        <span class="skill-tag" style="background:#f0f0f0; color:#333; padding:0.4rem 0.9rem; border-radius:25px; font-size:0.85rem; font-weight:500;">Sentiment Analysis</span>
-        <span class="skill-tag" style="background:#f0f0f0; color:#333; padding:0.4rem 0.9rem; border-radius:25px; font-size:0.85rem; font-weight:500;">Machine Learning</span>
+      <div class="tags" style="margin-bottom:1rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span class="skill-tag" style="background:#f0f0f0; color:#333; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Python</span>
+        <span class="skill-tag" style="background:#f0f0f0; color:#333; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">NLP</span>
+        <span class="skill-tag" style="background:#f0f0f0; color:#333; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Sentiment Analysis</span>
+        <span class="skill-tag" style="background:#f0f0f0; color:#333; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Machine Learning</span>
+        <span class="skill-tag" style="background:#f0f0f0; color:#333; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Pandas</span>
+        <span class="skill-tag" style="background:#f0f0f0; color:#333; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Scikit-learn</span>
       </div>
-
       <div style="margin-top:0.5rem;">
         <a href="https://conf.researchr.org/home/msr-2024" target="_blank" style="margin-right:1rem; color:var(--accent); text-decoration:none;">Challenge</a>
         <a href="https://github.com/jayywiz/SE_Mining-Challenge" target="_blank" style="margin-right:1rem; color:var(--accent); text-decoration:none;">GitHub</a>
@@ -487,11 +488,70 @@
       </div>
     </article>
 
+    <!-- Project 2: Real-time Emotion Recognition -->
+    <article class="card project-card" style="
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      max-width: 350px;
+      margin: 0 auto;
+      transition: transform 0.3s, box-shadow 0.3s;
+    ">
+      <img src="assets/emotion.png" alt="Real-time Emotion Recognition preview"
+           style="width:100%; border-radius:12px; margin-bottom:1rem; object-fit:cover;" />
+      <h3 style="margin:0.25rem 0 0.5rem; color:var(--accent); font-size:1.25rem;">
+        Real-time Emotion Recognition
+      </h3>
+      <p style="color:var(--text); line-height:1.5; font-size:0.95rem; margin-bottom:1rem;">
+        Built a system to detect emotions from webcam feed in real-time using OpenCV and deep learning models.
+      </p>
+      <div class="tags" style="margin-bottom:1rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">OpenCV</span>
+        <span class="skill-tag">Deep Learning</span>
+        <span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">NumPy</span>
+      </div>
+      <div style="margin-top:0.5rem;">
+        <a href="https://github.com/jayywiz/Emotion-Recognition" target="_blank" style="margin-right:1rem; color:var(--accent); text-decoration:none;">GitHub</a>
+      </div>
+    </article>
+
+    <!-- Project 3: Airline Delay Prediction -->
+    <article class="card project-card" style="
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      max-width: 350px;
+      margin: 0 auto;
+      transition: transform 0.3s, box-shadow 0.3s;
+    ">
+      <img src="assets/airline.png" alt="Airline Delay Prediction preview"
+           style="width:100%; border-radius:12px; margin-bottom:1rem; object-fit:cover;" />
+      <h3 style="margin:0.25rem 0 0.5rem; color:var(--accent); font-size:1.25rem;">
+        Airline Delay Prediction System
+      </h3>
+      <p style="color:var(--text); line-height:1.5; font-size:0.95rem; margin-bottom:1rem;">
+        Predicted flight delays using historical airline data with regression models and feature engineering.
+      </p>
+      <div class="tags" style="margin-bottom:1rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">Scikit-learn</span>
+        <span class="skill-tag">Matplotlib</span>
+        <span class="skill-tag">Feature Engineering</span>
+      </div>
+      <div style="margin-top:0.5rem;">
+        <a href="https://github.com/jayywiz/Airline-Delay-Prediction" target="_blank" style="margin-right:1rem; color:var(--accent); text-decoration:none;">GitHub</a>
+      </div>
+    </article>
+
   </div>
 </section>
 
 <script>
-  // Add hover effect to project cards
   const cards = document.querySelectorAll('.project-card');
   cards.forEach(card => {
     card.addEventListener('mouseenter', () => {
