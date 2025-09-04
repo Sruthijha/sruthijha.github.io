@@ -447,68 +447,78 @@
 <!-- ======== PROJECTS ======== -->
 <section id="projects" class="container">
   <h2>Projects</h2>
+<style>
+  /* Grid: 3 / 2 / 1 columns */
+  #projects .projects-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:24px;
+    align-items:start; /* no tall-card gaps */
+  }
+  @media (max-width:1024px){
+    #projects .projects-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+  }
+  @media (max-width:640px){
+    #projects .projects-grid{ grid-template-columns:1fr; }
+  }
 
-  <style>
-    /* Grid: 3 / 2 / 1 columns */
-    #projects .projects-grid{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0, 1fr));
-      gap:24px;
-      align-items:start; /* no tall-card gaps */
-    }
-    @media (max-width:1024px){
-      #projects .projects-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
-    }
-    @media (max-width:640px){
-      #projects .projects-grid{ grid-template-columns:1fr; }
-    }
+  /* Card */
+  .project-card{
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 4px 10px rgba(0,0,0,.05);
+    overflow:hidden;             /* clip image to rounded corners */
+    display:flex; flex-direction:column;
+    padding:0 !important;        /* kill any global card padding */
+    width:100%;
+  }
 
-    /* Card */
-    .project-card{
-      background:#fff;
-      border-radius:16px;
-      box-shadow:0 4px 10px rgba(0,0,0,.05);
-      overflow:hidden;             /* clip image to rounded corners */
-      display:flex; flex-direction:column;
-      padding:0 !important;        /* kill any global card padding */
-      width:100%;
-    }
+  /* Full-bleed image */
+  .project-card img{
+    width:100%;
+    aspect-ratio:16/9;           /* uniform height; tweak if you want taller */
+    object-fit:cover;
+    display:block;
+    margin:0;
+    border:0;
+  }
 
-    /* Full-bleed image */
-    .project-card img{
-      width:100%;
-      aspect-ratio:16/9;           /* uniform height; tweak if you want taller */
-      object-fit:cover;
-      display:block;
-      margin:0;
-      border:0;
-    }
-
-    /* Content */
-    .project-card .content{ padding:10px 12px 8px 12px; } /* tighter sides & bottom */
-    .project-card h3{
-      margin:.5rem 0 .5rem 0;
-      color:var(--accent);
-      font-size:1.1rem;            /* smaller, like Experience titles */
-      text-align:left;
-    }
-    .project-card p{
-      margin:0 0 .6rem 0;
-      color:var(--text,#111827);
-      line-height:1.55;
-      font-size:.93rem;
-    }
-    .pills{ display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:.6rem; }
-    .skill-tag{
-      background:#f0f0f0; border:1px solid #e5e7eb;
-      padding:.3rem .7rem; border-radius:25px; font-size:.8rem;
-      transition:transform .12s ease, background .12s ease, border-color .12s ease;
-    }
-    .skill-tag:hover{ transform:translateY(-1px); background:#eef2ff; border-color:#dbeafe; }
-    .links{ display:flex; gap:.8rem; flex-wrap:wrap; }
-    .project-card a:hover{ text-decoration:underline; }
-    .project-card a:focus-visible{ outline:2px solid #93c5fd; outline-offset:2px; text-decoration:none; }
-  </style>
+  /* Content */
+  .project-card .content{
+    padding:12px 14px 14px 14px;   /* more air overall */
+  }
+  .project-card h3{
+    margin:.5rem 0 .5rem 0;
+    color:var(--accent);
+    font-size:1.1rem;              /* smaller, like Experience titles */
+    text-align:left;
+  }
+  .project-card p{
+    margin:0 0 .9rem 0;            /* more gap after description */
+    color:var(--text,#111827);
+    line-height:1.55;
+    font-size:.93rem;
+  }
+  .pills{
+    display:flex; flex-wrap:wrap;
+    gap:.5rem;
+    margin-bottom:.9rem;           /* more gap after tech stack */
+  }
+  .skill-tag{
+    background:#f0f0f0; border:1px solid #e5e7eb;
+    padding:.3rem .7rem; border-radius:25px; font-size:.8rem;
+    transition:transform .12s ease, background .12s ease, border-color .12s ease;
+  }
+  .skill-tag:hover{ transform:translateY(-1px); background:#eef2ff; border-color:#dbeafe; }
+  .links{
+    display:flex;
+    gap:.9rem;
+    flex-wrap:wrap;
+    margin-bottom:.6rem;           /* space before bottom of card */
+  }
+  .project-card a:hover{ text-decoration:underline; }
+  .project-card a:focus-visible{ outline:2px solid #93c5fd; outline-offset:2px; text-decoration:none; }
+</style>
 
   <div class="projects-grid">
     <!-- Project 1 -->
