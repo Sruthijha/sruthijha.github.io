@@ -444,13 +444,23 @@
     </section>
 
     <!-- =========== PROJECTS =========== -->
-<!-- =========== PROJECTS =========== -->
-<section id="projects" class="container">
-  <h2>Projects</h2>
-  <div class="grid cols-2">
+<section id="projects" class="container" style="padding:2rem 0;">
+  <h2 style="text-align:center; margin-bottom:2rem;">Projects</h2>
+
+  <div class="grid" style="
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  ">
 
     <!-- Project 1 -->
-    <article class="card">
+    <article class="card project-card" style="
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    ">
       <img src="assets/msr.png" alt="MSR Mining Challenge preview"
            style="width:100%; border-radius:12px; margin-bottom:1rem; object-fit:cover;" />
 
@@ -464,21 +474,36 @@
       </p>
 
       <div style="margin-bottom:1rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
-        <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">Python</span>
-        <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">NLP</span>
-        <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">Sentiment Analysis</span>
-        <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">Machine Learning</span>
+        <span class="skill-tag" style="background:#f0f0f0; color:#333; padding:0.4rem 0.9rem; border-radius:25px; font-size:0.85rem; font-weight:500;">Python</span>
+        <span class="skill-tag" style="background:#f0f0f0; color:#333; padding:0.4rem 0.9rem; border-radius:25px; font-size:0.85rem; font-weight:500;">NLP</span>
+        <span class="skill-tag" style="background:#f0f0f0; color:#333; padding:0.4rem 0.9rem; border-radius:25px; font-size:0.85rem; font-weight:500;">Sentiment Analysis</span>
+        <span class="skill-tag" style="background:#f0f0f0; color:#333; padding:0.4rem 0.9rem; border-radius:25px; font-size:0.85rem; font-weight:500;">Machine Learning</span>
       </div>
 
       <div style="margin-top:0.5rem;">
-        <a href="https://conf.researchr.org/home/msr-2024" target="_blank" style="margin-right:1rem;">Challenge</a>
-        <a href="https://github.com/jayywiz/SE_Mining-Challenge" target="_blank" style="margin-right:1rem;">GitHub</a>
-        <a href="https://github.com/jayywiz/SE_Mining-Challenge/blob/master/SE%20Project%20Report.pdf" target="_blank">Report</a>
+        <a href="https://conf.researchr.org/home/msr-2024" target="_blank" style="margin-right:1rem; color:var(--accent); text-decoration:none;">Challenge</a>
+        <a href="https://github.com/jayywiz/SE_Mining-Challenge" target="_blank" style="margin-right:1rem; color:var(--accent); text-decoration:none;">GitHub</a>
+        <a href="https://github.com/jayywiz/SE_Mining-Challenge/blob/master/SE%20Project%20Report.pdf" target="_blank" style="color:var(--accent); text-decoration:none;">Report</a>
       </div>
     </article>
 
   </div>
 </section>
+
+<script>
+  // Add hover effect to project cards
+  const cards = document.querySelectorAll('.project-card');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-5px)';
+      card.style.boxShadow = '0 12px 25px rgba(0,0,0,0.15)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0)';
+      card.style.boxShadow = '0 4px 10px rgba(0,0,0,0.05)';
+    });
+  });
+</script>
 
     <!-- =========== CONTACT =========== -->
     <section id="contact" class="container" style="text-align:center; padding:2rem 0;">
