@@ -444,195 +444,191 @@
     </section>
 
 <!-- =========== PROJECTS =========== -->
-<!-- =========== PROJECTS =========== -->
+<!-- ======== PROJECTS ======== -->
 <section id="projects" class="container">
   <h2>Projects</h2>
 
-  <div class="grid" style="
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
-    gap:2rem;
-    justify-content:center;
-    align-items:start;
-  ">
+  <style>
+    /* Grid: 3 / 2 / 1 columns */
+    #projects .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:24px;
+      align-items:start; /* no tall-card gaps */
+    }
+    @media (max-width:1024px){
+      #projects .projects-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+    }
+    @media (max-width:640px){
+      #projects .projects-grid{ grid-template-columns:1fr; }
+    }
 
-    <!-- Project 1: MSR Mining Challenge -->
-    <article class="card project-card" style="background:#fff; border-radius:16px; box-shadow:0 4px 10px rgba(0,0,0,0.05); width:100%; display:flex; flex-direction:column; overflow:hidden;">
-      <img src="assets/msr.png" alt="MSR 2024 Mining Challenge project banner" style="width:100%; height:200px; object-fit:cover; display:block; margin:0;" />
-      <div style="padding:0.6rem 0.75rem 0.5rem 0.75rem;">
-        <h3 style="margin:0.5rem 0 0.5rem 0; color:var(--accent); font-size:1.1rem; text-align:left;">MSR 2024 Mining Challenge</h3>
-        <p style="margin:0 0 0.7rem 0; color:var(--text,#111827); line-height:1.55; font-size:0.93rem;">
-          Analyzed ChatGPT’s performance in software-engineering dialogues by predicting conversation dynamics, measuring sentiment across programming languages, and identifying failure points to advance AI-assisted coding.
-        </p>
-        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.7rem;">
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Python</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Pandas</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">NLP</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Sentiment Analysis</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">TextBlob</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Scikit-learn</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Keras</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">LSTM</span>
+    /* Card */
+    .project-card{
+      background:#fff;
+      border-radius:16px;
+      box-shadow:0 4px 10px rgba(0,0,0,.05);
+      overflow:hidden;             /* clip image to rounded corners */
+      display:flex; flex-direction:column;
+      padding:0 !important;        /* kill any global card padding */
+      width:100%;
+    }
+
+    /* Full-bleed image */
+    .project-card img{
+      width:100%;
+      aspect-ratio:16/9;           /* uniform height; tweak if you want taller */
+      object-fit:cover;
+      display:block;
+      margin:0;
+      border:0;
+    }
+
+    /* Content */
+    .project-card .content{ padding:10px 12px 8px 12px; } /* tighter sides & bottom */
+    .project-card h3{
+      margin:.5rem 0 .5rem 0;
+      color:var(--accent);
+      font-size:1.1rem;            /* smaller, like Experience titles */
+      text-align:left;
+    }
+    .project-card p{
+      margin:0 0 .6rem 0;
+      color:var(--text,#111827);
+      line-height:1.55;
+      font-size:.93rem;
+    }
+    .pills{ display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:.6rem; }
+    .skill-tag{
+      background:#f0f0f0; border:1px solid #e5e7eb;
+      padding:.3rem .7rem; border-radius:25px; font-size:.8rem;
+      transition:transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .skill-tag:hover{ transform:translateY(-1px); background:#eef2ff; border-color:#dbeafe; }
+    .links{ display:flex; gap:.8rem; flex-wrap:wrap; }
+    .project-card a:hover{ text-decoration:underline; }
+    .project-card a:focus-visible{ outline:2px solid #93c5fd; outline-offset:2px; text-decoration:none; }
+  </style>
+
+  <div class="projects-grid">
+    <!-- Project 1 -->
+    <article class="project-card">
+      <img src="assets/msr.png" alt="MSR 2024 Mining Challenge banner" />
+      <div class="content">
+        <h3>MSR 2024 Mining Challenge</h3>
+        <p>Analyzed ChatGPT’s performance in software-engineering dialogues by predicting conversation dynamics, measuring sentiment across programming languages, and identifying failure points to advance AI-assisted coding.</p>
+        <div class="pills">
+          <span class="skill-tag">Python</span><span class="skill-tag">Pandas</span>
+          <span class="skill-tag">NLP</span><span class="skill-tag">Sentiment Analysis</span>
+          <span class="skill-tag">TextBlob</span><span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag">Keras</span><span class="skill-tag">LSTM</span>
         </div>
-        <div style="display:flex; gap:0.8rem; flex-wrap:wrap;">
-          <a href="https://conf.researchr.org/home/msr-2024" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none; padding:2px 0; border-radius:4px;">Challenge</a>
-          <a href="https://github.com/jayywiz/SE_Mining-Challenge" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none; padding:2px 0; border-radius:4px;">GitHub</a>
-          <a href="https://github.com/jayywiz/SE_Mining-Challenge/blob/master/SE%20Project%20Report.pdf" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none; padding:2px 0; border-radius:4px;">Report</a>
+        <div class="links">
+          <a href="https://conf.researchr.org/home/msr-2024" target="_blank" rel="noopener">Challenge</a>
+          <a href="https://github.com/jayywiz/SE_Mining-Challenge" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/jayywiz/SE_Mining-Challenge/blob/master/SE%20Project%20Report.pdf" target="_blank" rel="noopener">Report</a>
         </div>
       </div>
     </article>
 
-    <!-- Project 2: Real-time Emotion Recognition -->
-    <article class="card project-card" style="background:#fff; border-radius:16px; box-shadow:0 4px 10px rgba(0,0,0,0.05); width:100%; display:flex; flex-direction:column; overflow:hidden;">
-      <img src="assets/DL.png" alt="Real-time Emotion Recognition from Speech project banner" style="width:100%; height:200px; object-fit:cover; display:block; margin:0;" />
-      <div style="padding:0.6rem 0.75rem 0.5rem 0.75rem;">
-        <h3 style="margin:0.5rem 0 0.5rem 0; color:var(--accent); font-size:1.1rem; text-align:left;">Real-time Emotion Recognition from Speech</h3>
-        <p style="margin:0 0 0.7rem 0; color:var(--text,#111827); line-height:1.55; font-size:0.93rem;">
-          Built a real-time speech emotion recognition system with a CNN-LSTM model on RAVDESS, achieving 95% accuracy across eight emotions through advanced audio features and augmentation.
-        </p>
-        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.7rem;">
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Python</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">NumPy</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Deep Learning</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">TensorFlow</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">CNN + LSTM</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Librosa</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">MFCCs & Spectrograms</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Data Augmentation</span>
+    <!-- Project 2 -->
+    <article class="project-card">
+      <img src="assets/DL.png" alt="Real-time Emotion Recognition banner" />
+      <div class="content">
+        <h3>Real-time Emotion Recognition from Speech</h3>
+        <p>Built a real-time speech emotion recognition system with a CNN-LSTM model on RAVDESS, achieving 95% accuracy across eight emotions through advanced audio features and augmentation.</p>
+        <div class="pills">
+          <span class="skill-tag">Python</span><span class="skill-tag">NumPy</span>
+          <span class="skill-tag">Deep Learning</span><span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">CNN + LSTM</span><span class="skill-tag">Librosa</span>
+          <span class="skill-tag">MFCCs & Spectrograms</span><span class="skill-tag">Data Augmentation</span>
         </div>
-        <div style="display:flex; gap:0.8rem; flex-wrap:wrap;">
-          <a href="https://github.com/jayywiz/Emotion-Recognition" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none; padding:2px 0; border-radius:4px;">GitHub</a>
-          <a href="https://github.com/jayywiz/Real-Time-Emotion-Recognition-from-Speech-/blob/main/Project%20Report.pdf" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none; padding:2px 0; border-radius:4px;">Report</a>
+        <div class="links">
+          <a href="https://github.com/jayywiz/Emotion-Recognition" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/jayywiz/Real-Time-Emotion-Recognition-from-Speech-/blob/main/Project%20Report.pdf" target="_blank" rel="noopener">Report</a>
         </div>
       </div>
     </article>
 
-    <!-- Project 3: Airline Delay Prediction -->
-    <article class="card project-card" style="background:#fff; border-radius:16px; box-shadow:0 4px 10px rgba(0,0,0,0.05); width:100%; display:flex; flex-direction:column; overflow:hidden;">
-      <img src="assets/Airline.png" alt="Airline Delay Prediction project banner" style="width:100%; height:200px; object-fit:cover; display:block; margin:0;" />
-      <div style="padding:0.6rem 0.75rem 0.5rem 0.75rem;">
-        <h3 style="margin:0.5rem 0 0.5rem 0; color:var(--accent); font-size:1.1rem; text-align:left;">Airline Delay Prediction System</h3>
-        <p style="margin:0 0 0.7rem 0; color:var(--text,#111827); line-height:1.55; font-size:0.93rem;">
-          Predicted airline delays from multi-year flight data, achieving 97% accuracy through advanced feature engineering and robust data handling.
-        </p>
-        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.7rem;">
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Python</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Pandas</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Scikit-learn</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">XGBoost</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Random Forest</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Feature Engineering</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Data Visualization</span>
+    <!-- Project 3 -->
+    <article class="project-card">
+      <img src="assets/Airline.png" alt="Airline Delay Prediction banner" />
+      <div class="content">
+        <h3>Airline Delay Prediction System</h3>
+        <p>Predicted airline delays from multi-year flight data, achieving 97% accuracy through advanced feature engineering and robust data handling.</p>
+        <div class="pills">
+          <span class="skill-tag">Python</span><span class="skill-tag">Pandas</span>
+          <span class="skill-tag">Scikit-learn</span><span class="skill-tag">XGBoost</span>
+          <span class="skill-tag">Random Forest</span><span class="skill-tag">Feature Engineering</span>
+          <span class="skill-tag">Data Visualization</span>
         </div>
-        <div style="display:flex; gap:0.8rem; flex-wrap:wrap;">
-          <a href="https://sites.google.com/view/shvdm/home" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none; padding:2px 0; border-radius:4px;">Website</a>
-          <a href="https://github.com/jayywiz/Airline-Delay-Prediction-System" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none; padding:2px 0; border-radius:4px;">GitHub</a>
-          <a href="https://github.com/jayywiz/Airline-Delay-Prediction-System/blob/main/Final%20Report.pdf" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none; padding:2px 0; border-radius:4px;">Report</a>
+        <div class="links">
+          <a href="https://sites.google.com/view/shvdm/home" target="_blank" rel="noopener">Website</a>
+          <a href="https://github.com/jayywiz/Airline-Delay-Prediction-System" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/jayywiz/Airline-Delay-Prediction-System/blob/main/Final%20Report.pdf" target="_blank" rel="noopener">Report</a>
         </div>
       </div>
     </article>
 
-    <!-- Project 4: Band U -->
-    <article class="card project-card" style="background:#fff; border-radius:16px; box-shadow:0 4px 10px rgba(0,0,0,0.05); width:100%; display:flex; flex-direction:column; overflow:hidden;">
-      <img src="assets/band-u.jpg" alt="Band U project banner" style="width:100%; height:200px; object-fit:cover; display:block; margin:0;" />
-      <div style="padding:0.6rem 0.75rem 0.5rem 0.75rem;">
-        <h3 style="margin:0.5rem 0 0.5rem 0; color:var(--accent); font-size:1.1rem; text-align:left;">Band U</h3>
-        <p style="margin:0 0 0.7rem 0; color:var(--text,#111827); line-height:1.55; font-size:0.93rem;">
-          Created Band-U, a cross-platform social networking app that connects people through shared music tastes, offering profile matching, swiping, in-app messaging, and personalized discovery.
-        </p>
-        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.7rem;">
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Flutter</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Dart</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Firebase Firestore</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Spotify API</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">APIs</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Figma</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Android & iOS</span>
+    <!-- Project 4 -->
+    <article class="project-card">
+      <img src="assets/band-u.jpg" alt="Band U banner" />
+      <div class="content">
+        <h3>Band U</h3>
+        <p>Created Band-U, a cross-platform social networking app that connects people through shared music tastes, offering profile matching, swiping, in-app messaging, and personalized discovery.</p>
+        <div class="pills">
+          <span class="skill-tag">Flutter</span><span class="skill-tag">Dart</span>
+          <span class="skill-tag">Firebase Firestore</span><span class="skill-tag">Spotify API</span>
+          <span class="skill-tag">APIs</span><span class="skill-tag">Figma</span>
+          <span class="skill-tag">Android & iOS</span>
         </div>
-        <div style="display:flex; gap:0.8rem; flex-wrap:wrap;">
-          <a href="https://github.com/jayywiz/Band-U" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none; padding:2px 0; border-radius:4px;">GitHub</a>
-          <a href="https://github.com/jayywiz/Band-U/blob/master/Project%20Report.pdf" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none; padding:2px 0; border-radius:4px;">Report</a>
+        <div class="links">
+          <a href="https://github.com/jayywiz/Band-U" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/jayywiz/Band-U/blob/master/Project%20Report.pdf" target="_blank" rel="noopener">Report</a>
         </div>
       </div>
     </article>
 
-    <!-- Project 5: Crime Data Analysis -->
-    <article class="card project-card" style="background:#fff; border-radius:16px; box-shadow:0 4px 10px rgba(0,0,0,0.05); width:100%; display:flex; flex-direction:column; overflow:hidden;">
-      <img src="assets/stat.png" alt="Crime Data Analysis project banner" style="width:100%; height:200px; object-fit:cover; display:block; margin:0;" />
-      <div style="padding:0.6rem 0.75rem 0.5rem 0.75rem;">
-        <h3 style="margin:0.5rem 0 0.5rem 0; color:var(--accent); font-size:1.1rem; text-align:left;">Crime Data Analysis</h3>
-        <p style="margin:0 0 0.7rem 0; color:var(--text,#111827); line-height:1.55; font-size:0.93rem;">
-          Analyzed U.S. crime trends (1979–2023) using statistical modeling to uncover regional disparities, long-term declines, and anomalies such as the 1990s surge and 2020 disruptions, generating predictive insights for public safety.
-        </p>
-        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.7rem;">
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Python</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Pandas</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Scikit-learn</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Statsmodels</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Hypothesis Testing</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Regression Modeling</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Bootstrapping</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Data Visualization</span>
+    <!-- Project 5 -->
+    <article class="project-card">
+      <img src="assets/stat.png" alt="Crime Data Analysis banner" />
+      <div class="content">
+        <h3>Crime Data Analysis</h3>
+        <p>Analyzed U.S. crime trends (1979–2023) using statistical modeling to uncover regional disparities, long-term declines, and anomalies such as the 1990s surge and 2020 disruptions, generating predictive insights for public safety.</p>
+        <div class="pills">
+          <span class="skill-tag">Python</span><span class="skill-tag">Pandas</span>
+          <span class="skill-tag">Scikit-learn</span><span class="skill-tag">Statsmodels</span>
+          <span class="skill-tag">Hypothesis Testing</span><span class="skill-tag">Regression Modeling</span>
+          <span class="skill-tag">Bootstrapping</span><span class="skill-tag">Data Visualization</span>
         </div>
-        <div style="display:flex; gap:0.8rem; flex-wrap:wrap;">
-          <a href="https://github.com/jayywiz/CrimeDataAnalysis" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none; padding:2px 0; border-radius:4px;">GitHub</a>
-          <a href="https://github.com/jayywiz/CrimeDataAnalysis/blob/main/Report.pdf" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none; padding:2px 0; border-radius:4px;">Report</a>
+        <div class="links">
+          <a href="https://github.com/jayywiz/CrimeDataAnalysis" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/jayywiz/CrimeDataAnalysis/blob/main/Report.pdf" target="_blank" rel="noopener">Report</a>
         </div>
       </div>
     </article>
 
-    <!-- Project 6: Academy Award Prediction -->
-    <article class="card project-card" style="background:#fff; border-radius:16px; box-shadow:0 4px 10px rgba(0,0,0,0.05); width:100%; display:flex; flex-direction:column; overflow:hidden;">
-      <img src="assets/oscars.jpg" alt="Academy Award Predictions 2025 project banner" style="width:100%; height:200px; object-fit:cover; display:block; margin:0;" />
-      <div style="padding:0.6rem 0.75rem 0.5rem 0.75rem;">
-        <h3 style="margin:0.5rem 0 0.5rem 0; color:var(--accent); font-size:1.1rem; text-align:left;">Academy Award Prediction</h3>
-        <p style="margin:0 0 0.7rem 0; color:var(--text,#111827); line-height:1.55; font-size:0.93rem;">
-          Predicted 2025 Oscar outcomes across major categories using historical awards data and film signals, uncovering trends and factors that define Oscar-winning films.
-        </p>
-        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.7rem;">
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Python</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Pandas</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">NumPy</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Scikit-learn</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">TensorFlow</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">SVM</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Decision Trees</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Neural Networks</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Matplotlib</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">Seaborn</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">OMDb API</span>
-          <span class="skill-tag" style="background:#f0f0f0; border:1px solid #e5e7eb; padding:0.3rem 0.7rem; border-radius:25px; font-size:0.8rem;">TMDb API</span>
+    <!-- Project 6 -->
+    <article class="project-card">
+      <img src="assets/oscars.jpg" alt="Academy Award Prediction banner" />
+      <div class="content">
+        <h3>Academy Award Prediction</h3>
+        <p>Predicted 2025 Oscar outcomes across major categories using historical awards data and film signals, uncovering trends and factors that define Oscar-winning films.</p>
+        <div class="pills">
+          <span class="skill-tag">Python</span><span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span>
+          <span class="skill-tag">Scikit-learn</span><span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">SVM</span><span class="skill-tag">Decision Trees</span><span class="skill-tag">Neural Networks</span>
+          <span class="skill-tag">Matplotlib</span><span class="skill-tag">Seaborn</span>
+          <span class="skill-tag">OMDb API</span><span class="skill-tag">TMDb API</span>
         </div>
-        <div style="display:flex; gap:0.8rem; flex-wrap:wrap;">
-          <a href="https://sites.google.com/view/oscars-unveiled/home" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none; padding:2px 0; border-radius:4px;">Website</a>
-          <a href="https://github.com/jayywiz/Academy-Award-Predictions" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none; padding:2px 0; border-radius:4px;">GitHub</a>
+        <div class="links">
+          <a href="https://sites.google.com/view/oscars-unveiled/home" target="_blank" rel="noopener">Website</a>
+          <a href="https://github.com/jayywiz/Academy-Award-Predictions" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
     </article>
-
   </div>
 </section>
-
-<!-- Hover animation + micro-polish -->
-<style>
-  .project-card a:hover { text-decoration: underline; }
-  .project-card a:focus-visible { outline:2px solid #93c5fd; outline-offset:2px; text-decoration:none; }
-  .skill-tag { transition: transform .12s ease, background .12s ease, border-color .12s ease; }
-  .skill-tag:hover { transform: translateY(-1px); background:#eef2ff; border-color:#dbeafe; }
-</style>
-<script>
-  const cards = document.querySelectorAll('.project-card');
-  cards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      card.style.transform = 'translateY(-5px)';
-      card.style.boxShadow = '0 12px 25px rgba(0,0,0,0.15)';
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'translateY(0)';
-      card.style.boxShadow = '0 4px 10px rgba(0,0,0,0.05)';
-    });
-  });
-</script>
 
     <!-- =========== CONTACT =========== -->
     <section id="contact" class="container" style="text-align:center; padding:2rem 0;">
