@@ -445,531 +445,65 @@
 
     <!-- =========== PROJECTS =========== -->
     <section id="projects" class="container">
-   <h2>Projects</h2>
-   <div class="grid cols-2">
+  <h2>Projects</h2>
+  <div class="grid cols-2">
 
     <!-- Project 1 -->
-   <article class="card project-card" style="
-  background-color: #1e1e1e;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  padding: 1.5rem;
-  transition: transform 0.3s, box-shadow 0.3s;
-  max-width: 350px;
-  margin: 1rem;
-">
-  <img src="assets/mining.png" alt="MSR Mining Challenge preview"
-       style="width:100%; border-radius:12px; margin-bottom:1rem;" />
+    <article class="card project-card" style="
+      background-color: #1e1e1e;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      padding: 1.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      max-width: 350px;
+      margin: 1rem auto;
+      text-align: left;
+    ">
+      <img src="assets/msr.png" alt="MSR Mining Challenge preview"
+           style="width:100%; border-radius:12px; margin-bottom:1rem; object-fit:cover;" />
 
-  <h3 style="margin:.25rem 0 .5rem; color:#ff6f61; font-family: 'Arial', sans-serif;">MSR 2024 Mining Challenge</h3>
+      <h3 style="margin:0.25rem 0 0.5rem; color:#ff6f61; font-family:'Arial', sans-serif; font-size:1.25rem;">
+        MSR 2024 Mining Challenge
+      </h3>
 
-  <p style="color:#bbbbbb; line-height:1.5; font-size:0.95rem; margin-bottom:1rem;">
-    Analyzed ChatGPT’s performance in programming conversations using large-scale datasets,
-    NLP, and ML models to assess accuracy, failure points, and user satisfaction.
-  </p><!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sruthijha Pagolu · Portfolio</title>
-  <meta name="description" content="Portfolio of Sruthijha Pagolu — MS in Data Science at CU Boulder. Projects, experience, education, and contact." />
-  <meta name="theme-color" content="#2563eb" />
+      <p style="color:#bbbbbb; line-height:1.5; font-size:0.95rem; margin-bottom:1rem;">
+        Analyzed ChatGPT’s performance in programming conversations using large-scale datasets,
+        NLP, and ML models to assess accuracy, failure points, and user satisfaction.
+      </p>
 
-  <style>
-    :root{
-      --bg:#ffffff; --text:#0f172a; --muted:#64748b; --line:#e5e7eb;
-      --accent:#2563eb; --accent-2:#1e40af;
-      --shadow:0 6px 20px rgba(15,23,42,.08);
-      --header-h:64px;
-      --section-pad:64px;        /* global section spacing */
-      --title-gap:16px;          /* space between section title and first block */
-    }
-
-    html{scroll-behavior:smooth}
-    body{margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; color:var(--text); background:var(--bg);}
-    a{color:var(--accent); text-decoration:none}
-    a:hover{text-decoration:underline}
-    .container{max-width: 1000px; margin: 0 auto; padding: 0 1rem}
-
-    /* Header / Nav */
-    header{
-      position: sticky; top: 0; z-index: 50;
-      background: #fff;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-    }
-    .nav-wrap{display:flex; justify-content:center; align-items:center; height:var(--header-h);}
-    nav ul{list-style:none; margin:0; padding:0; display:flex; justify-content:center; gap:1rem;}
-    nav a{display:inline-block; padding:.5rem .6rem; border-radius:8px; color:var(--text); font-weight:500}
-    nav a.active{color:var(--accent); background:rgba(37,99,235,.08)}
-    #nav-toggle{display:none}
-    @media (max-width: 820px){
-      .nav-wrap{justify-content:space-between;}
-      #nav-toggle{display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border:1px solid var(--line); background:#fff; border-radius:10px}
-      nav{position:absolute; top:var(--header-h); left:0; right:0; background:#fff; border-bottom:1px solid var(--line); box-shadow: var(--shadow); display:none}
-      nav.open{display:block}
-      nav ul{flex-direction:column; padding: .5rem}
-      nav a{padding:.75rem}
-    }
-
-    /* Sections (top-level) — spacing + anchor offset */
-    section{
-      padding: var(--section-pad) 0;
-      scroll-margin-top: calc(var(--header-h) + 24px); /* anchors land cleanly below header */
-      border-top: none; /* no divider line */
-    }
-    h2{font-size: clamp(22px, 3vw, 28px); margin:0;}
-    /* uniform gap from title to first content block */
-    section > h2{ margin: 0 0 var(--title-gap) !important; }
-    .lead{color:var(--muted)}
-
-    /* Cards — single shared rule used everywhere */
-    .card{
-      background:#ffffff;
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:1.25rem 1.5rem;
-      box-shadow: var(--shadow);
-      margin-bottom:1.25rem;
-    }
-
-    /* Simple grids */
-    .grid{display:grid; gap:1rem}
-    @media (min-width: 760px){.grid.cols-2{grid-template-columns:1fr 1fr}}
-
-    footer{border-top:1px solid var(--line); padding: 28px 0; color:var(--muted)}
-    .foot-links{display:flex; gap:1rem; flex-wrap:wrap}
-
-    /* Accessibility helpers */
-    .skip{position:absolute; left:-9999px}
-    .skip:focus{left:1rem; top:1rem; background:#fff; padding:.5rem .75rem; border-radius:10px; border:1px solid var(--line); z-index:100}
-
-    /* ======= HERO (centered below sticky header) ======= */
-    .hero {
-      min-height: calc(100svh - var(--header-h));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-      border-top: 0;
-      background:
-        radial-gradient(900px 420px at 50% 0%, rgba(37,99,235,.06), transparent 60%),
-        radial-gradient(1200px 600px at 80% 20%, rgba(37,99,235,.05), transparent 60%),
-        #fff;
-    }
-    .hero-card {
-      width: min(1100px, 95vw);
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: clamp(1.25rem, 3.5vw, 3rem);
-      box-shadow: var(--shadow);
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: clamp(1.25rem, 4vw, 3rem);
-      align-items: center;
-      justify-items: center;
-    }
-    .hero-copy{ text-align:left; }
-    .eyebrow {
-      letter-spacing: .08em; text-transform: uppercase; font-weight:700;
-      color: var(--accent); margin: 0 0 .35rem; font-size: .9rem;
-    }
-    /* Waving hand next to HELLO */
-.wave{
-  display:inline-block;
-  margin-left:.35rem;
-  transform-origin:70% 70%;
-  animation:wave-hand 2s ease-in-out infinite;
-}
-@keyframes wave-hand{
-  0%,100%{ transform:rotate(0deg);}
-  10%{ transform:rotate(14deg);}
-  20%{ transform:rotate(-8deg);}
-  30%{ transform:rotate(14deg);}
-  40%{ transform:rotate(-4deg);}
-  50%{ transform:rotate(10deg);}
-  60%{ transform:rotate(0deg);}
-}
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce){
-  .wave{ animation:none; }
-}
-
-    .hero-title { margin:0 0 .5rem; font-size: clamp(32px, 5.5vw, 56px); line-height:1.05; color:var(--text); }
-    .text-accent{ color:var(--accent); }
-    .hero-subtitle{ margin:.35rem auto 1.25rem; color:var(--muted); line-height:1.6; max-width:60ch; }
-    .hero-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: flex-start; /* align buttons to the left */
-}
-
-    .btn{display:inline-block; padding:.7rem 1rem; border-radius:12px; border:1px solid var(--line); font-weight:600}
-    .btn.primary{background:var(--accent); color:#fff; border-color:var(--accent)}
-    .btn.primary:hover{background:var(--accent-2); border-color:var(--accent-2)}
-    .hero-photo{ display:grid; place-items:center; }
-    .hero-photo img{
-      width: clamp(200px, 32vw, 340px);
-      aspect-ratio: 1 / 1; object-fit: cover;
-      border-radius: 999px; border: 8px solid #fff;
-      box-shadow: 0 10px 30px rgba(15,23,42,.15);
-    }
-    @media (max-width: 900px){
-      .hero-card{ grid-template-columns: 1fr; }
-    }
-
-    /* ===== Styles local to About/Skills ===== */
-    #about .about-card .about-p{ line-height:1.7; margin:.4rem 0 1rem; max-width:none; }
-    #skills-section{ padding:0; border-top:none; margin-top:16px; }
-    #skills-section .card.about-card{ padding:1.25rem 1.5rem; overflow:visible; isolation:isolate; }
-    #skills-section .about-subhead{ color:var(--accent); margin:0 0 1rem; font-weight:600; }
-
-    /* Columns */
-    #skills-section .skills-columns{ display:flex; gap:1rem; align-items:flex-start; padding-top:28px; } /* was 18px → 28px to avoid “cut off” feel */
-    #skills-section .skills-col{ flex:1 1 0; display:flex; flex-direction:column; gap:1rem; }
-    @media (max-width:1024px){ #skills-section .skills-columns{ flex-wrap:wrap; } #skills-section .skills-col{ flex:1 1 calc(50% - .5rem);} }
-    @media (max-width:640px){ #skills-section .skills-col{ flex:1 1 100%; } }
-
-    /* Category boxes */
-    #skills-section .skills-category{
-      background:#f9fafb; border:1px solid #e5e7eb; border-radius:14px;
-      padding:.9rem 1rem; box-shadow:0 1px 3px rgba(0,0,0,.05);
-      transition:transform .18s, box-shadow .2s;
-      position:relative; z-index:1; background:#fff; /* ensure clean top edges */
-    }
-    #skills-section .skills-category:hover{ transform:translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,.08); }
-
-    /* Subheadings inside boxes */
-    #skills-section .skills-title{ margin:0 0 .6rem; font-weight:600; font-size:1rem; color:#374151; }
-
-    /* Skill tags */
-    #skills-section .tags{ display:flex; flex-wrap:wrap; gap:.5rem; }
-    #skills-section .skill-tag{
-      display:inline-flex; align-items:center; padding:.5rem .95rem;
-      border-radius:999px; background:#fff; border:1px solid #e5e7eb;
-      font-weight:500; font-size:.95rem; white-space:nowrap;
-      transition:background-color .2s, box-shadow .2s;
-    }
-    #skills-section .skill-tag:hover{ background:#f3f4f6; box-shadow:0 2px 6px rgba(0,0,0,.06); }
-
-    /* Experience styles */
-/* Experience styles */
-#experience{ max-width:980px; margin:auto; }
-.experience-card{ display:flex; gap:1rem; align-items:flex-start; } /* no transition here */
-
-/* Apply the same hover/active interaction to BOTH Education and Experience cards */
-#education .card,
-#experience .card{
-  transition: box-shadow .2s, transform .2s;
-  will-change: transform;
-}
-#education .card:hover,
-#experience .card:hover{
-  box-shadow:0 8px 20px rgba(0,0,0,.08);
-  transform: translateY(-2px);
-}
-#education .card:active,
-#experience .card:active{
-  transform: translateY(-1px) scale(0.997);
-}
-
-.company-logo{ width:48px; height:48px; object-fit:contain; border-radius:8px; flex-shrink:0; }
-.exp-body{ flex:1; min-width:250px; }
-.exp-header{ display:flex; justify-content:space-between; align-items:baseline; gap:.75rem; flex-wrap:wrap; margin-bottom:.5rem; }
-.exp-title{ margin:0; font-size:1.1rem; line-height:1.2; }
-.role{ font-weight:700; color: var(--accent); }
-.company{ font-weight:550; color: rgba(0,0,0,0.70); }
-.date{ color:rgba(0,0,0,0.45); font-size:.95rem; white-space:nowrap; }
-.exp-points{ margin:.25rem 0 0 1.15rem; padding:0; }
-.exp-points li{ margin:0 0 .6em 0; line-height:1.55; color:#1f2937; }
-
-  </style>
-</head>
-<body>
-  <a href="#about" class="skip">Skip to content</a>
-
-  <header>
-    <div class="container nav-wrap">
-      <button id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">≡</button>
-      <nav id="site-nav" aria-label="Primary">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-
-    <!-- Full-screen Hero (centered) -->
-    <section id="hero" class="hero">
-      <div class="hero-card">
-        <div class="hero-copy">
-          <p class="eyebrow">HELLO, I’M <span class="wave" aria-hidden="true">👋</span></p>
-          <h1 class="hero-title">
-            Sruthijha <span class="text-accent">Pagolu</span>
-          </h1>
-          <p class="hero-subtitle">
-            Data Science graduate @ CU Boulder - passionate about uncovering patterns, solving problems, and driving decisions through machine learning and analytics.
-          </p>
-          <div class="hero-actions">
-            <a href="assets/Resume.pdf" class="btn primary" target="_blank" rel="noopener noreferrer">Resume</a>
-            <a href="#contact" class="btn">Contact</a>
-          </div>
-        </div>
-
-        <div class="hero-photo">
-          <img src="assets/me.png" alt="Sruthijha Pagolu portrait" />
-        </div>
-      </div>
-    </section>
-
-    <!-- =========== ABOUT =========== -->
-    <section id="about" class="container">
-      <h2>About Me</h2>
-
-      <div class="card about-card">
-        <p class="about-p">I’m driven by a passion for uncovering the stories hidden within data. My work blends data analysis, machine learning, and statistical modeling to transform complex datasets into clear, actionable insights.</p>
-        <p class="about-p">From predictive modeling to dynamic analytics solutions, I enjoy bridging technical expertise with real-world problem solving. I have hands-on experience in Python, SQL, and R, along with modern analytics tools, supported by internships that strengthened my ability to work across both research and business domains.</p>
-        <p class="about-p">Whether it’s building models that inform decisions, designing dashboards that reveal compelling trends, or exploring cutting-edge AI techniques, I’m motivated by the challenge to turn raw numbers into meaningful impact.</p>
+      <div class="tags" style="margin-bottom:1rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span style="background:#ff6f61; color:white; padding:0.3rem 0.7rem; border-radius:12px; font-size:0.8rem;">Python</span>
+        <span style="background:#6b5b95; color:white; padding:0.3rem 0.7rem; border-radius:12px; font-size:0.8rem;">NLP</span>
+        <span style="background:#88b04b; color:white; padding:0.3rem 0.7rem; border-radius:12px; font-size:0.8rem;">Sentiment Analysis</span>
+        <span style="background:#ffa500; color:white; padding:0.3rem 0.7rem; border-radius:12px; font-size:0.8rem;">Machine Learning</span>
       </div>
 
-      <!-- =========== SKILLS (nested section) =========== -->
-      <section id="skills-section">
-        <div class="card about-card skills-card">
-          <h3 class="about-subhead">Skills</h3>
+      <p style="margin-top:0.5rem;">
+        <a href="https://conf.researchr.org/home/msr-2024" target="_blank"
+           style="color:#ff6f61; text-decoration:none; margin-right:1rem;">Challenge</a>
+        <a href="https://github.com/jayywiz/SE_Mining-Challenge" target="_blank"
+           style="color:#ff6f61; text-decoration:none; margin-right:1rem;">GitHub</a>
+        <a href="assets/SE_Phase_II.pdf" target="_blank"
+           style="color:#ff6f61; text-decoration:none;">Report</a>
+      </p>
+    </article>
 
-          <div class="skills-columns">
-            <!-- Column 1 -->
-            <div class="skills-col">
-              <section class="skills-category">
-                <h4 class="skills-title">Programming Languages</h4>
-                <div class="tags">
-                  <span class="skill-tag">Python</span>
-                  <span class="skill-tag">SQL</span>
-                  <span class="skill-tag">R</span>
-                </div>
-              </section>
-
-              <section class="skills-category">
-                <h4 class="skills-title">MLOps &amp; Tools</h4>
-                <div class="tags">
-                  <span class="skill-tag">Git / GitHub</span>
-                  <span class="skill-tag">OpenCV</span>
-                  <span class="skill-tag">Transformers (BERT, GPT, CLIP)</span>
-                </div>
-              </section>
-            </div>
-
-            <!-- Column 2 -->
-            <div class="skills-col">
-              <section class="skills-category">
-                <h4 class="skills-title">Data Science &amp; Machine Learning</h4>
-                <div class="tags">
-                  <span class="skill-tag">Scikit-learn</span>
-                  <span class="skill-tag">TensorFlow</span>
-                  <span class="skill-tag">PyTorch</span>
-                  <span class="skill-tag">Keras</span>
-                  <span class="skill-tag">XGBoost / LightGBM</span>
-                </div>
-              </section>
-            </div>
-
-            <!-- Column 3 -->
-            <div class="skills-col">
-              <section class="skills-category">
-                <h4 class="skills-title">Data Analysis &amp; Visualization</h4>
-                <div class="tags">
-                  <span class="skill-tag">Pandas</span>
-                  <span class="skill-tag">NumPy</span>
-                  <span class="skill-tag">Matplotlib</span>
-                  <span class="skill-tag">Seaborn</span>
-                  <span class="skill-tag">Plotly</span>
-                  <span class="skill-tag">Tableau</span>
-                  <span class="skill-tag">Power BI</span>
-                </div>
-              </section>
-            </div>
-          </div>
-        </div>
-      </section>
-    </section>
-
-    <!-- =========== EDUCATION =========== -->
-    <section id="education" class="container">
-      <h2>Education</h2>
-
-      <!-- CU Boulder -->
-      <div class="card" style="display:flex; gap:1.5rem; align-items:center;">
-        <img src="assets/buffs.png" alt="CU Boulder Logo"
-             style="width:120px;height:95px;object-fit:contain;flex-shrink:0;border-radius:8px"/>
-        <div style="width:1px;background:var(--line);align-self:stretch"></div>
-        <div style="flex:1;min-width:250px;padding-left:1rem">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
-            <div>
-              <strong style="font-size:1.2rem;color:var(--accent)">University of Colorado Boulder</strong><br/>
-            </div>
-            <div style="color:rgba(0,0,0,0.45);font-size:0.95rem;font-weight:400;white-space:nowrap">Aug 2023 – Dec 2025</div>
-          </div>
-          <p style="margin:.35rem 0 0; line-height:1.5"><strong>Degree:</strong> Master of Science in Data Science</p>
-          <p style="margin:.35rem 0 0; line-height:1.5"><strong>CGPA:</strong> 3.96 / 4.0</p>
-
-          <p style="margin:.35rem 0 0; line-height:1.5"><strong>Relevant Coursework:</strong></p>
-          <ul style="margin:.25rem 0 0 1rem; line-height:1.6">
-            <li>Data Mining</li>
-            <li>Statistical Methods and Applications</li>
-            <li>Machine Learning</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Mahindra University -->
-      <div class="card" style="display:flex; gap:1.5rem; align-items:center;">
-        <img src="assets/MU.png" alt="Mahindra University Logo"
-             style="width:120px;height:95px;object-fit:contain;flex-shrink:0;border-radius:8px"/>
-        <div style="width:1px;background:var(--line);align-self:stretch"></div>
-        <div style="flex:1;min-width:250px;padding-left:1rem">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
-            <div>
-              <strong style="font-size:1.2rem;color:var(--accent)">Mahindra University</strong><br/>
-            </div>
-            <div style="color:rgba(0,0,0,0.45);font-size:0.95rem;font-weight:400;white-space:nowrap">Aug 2019 – May 2023</div>
-          </div>
-          <p style="margin:.35rem 0 0; line-height:1.5"><strong>Degree:</strong> Bachelor of Technology in Electrical and Electronics Engineering</p>
-          <p style="margin:.35rem 0 0; line-height:1.5"><strong>CGPA:</strong> 3.54 / 4.0</p>
-
-          <p style="margin:.35rem 0 0; line-height:1.5"><strong>Relevant Coursework:</strong></p>
-          <ul style="margin:.25rem 0 0 1rem; line-height:1.6">
-            <li>Data Structures & Algorithms</li>
-            <li>Computer Architecture & Design</li>
-            <li>Computer & Communication Networks</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========== EXPERIENCE =========== -->
-    <section id="experience" class="container">
-      <h2>Experience</h2>
-
-      <div class="experience-card card">
-        <img src="assets/intech.png" alt="Intech Logo" class="company-logo">
-        <div class="exp-body">
-          <div class="exp-header">
-            <h3 class="exp-title">
-              <span class="role">Data Analyst Intern</span>
-              <span class="company"> @ Intech Insurance Surveyors & Loss Assessors Pvt. Ltd</span>
-            </h3>
-            <span class="date">Jan – Jun 2023</span>
-          </div>
-          <ul class="exp-points">
-            <li>Processed and transformed large volumes of raw insurance claims data (Excel/CSV) into clean, analysis-ready datasets for internal reporting.</li>
-            <li>Automated repetitive reporting workflows in Python + Excel, cutting manual effort by 90% and saving 20+ hours/month under senior mentorship.</li>
-            <li>Contributed to the development of a predictive fraud-detection framework, improving claim review accuracy across 15 branches.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="experience-card card">
-        <img src="assets/MU.png" alt="Mahindra University Logo" class="company-logo">
-        <div class="exp-body">
-          <div class="exp-header">
-            <h3 class="exp-title">
-              <span class="role">Recruitment Analytics Coordinator</span>
-              <span class="company"> @ Mahindra University</span>
-            </h3>
-            <span class="date">Apr 2022 – May 2023</span>
-          </div>
-          <ul class="exp-points">
-            <li>Compiled a centralized database of placement activity through web research, manual verification, and data cleaning to support strategic decisions.</li>
-            <li>Built Excel-based dashboards and visuals highlighting hiring trends, top recruiters, and seasonal placement patterns.</li>
-            <li>Collaborated with recruiters and campus stakeholders to align outreach strategies with student profiles, improving hiring outcomes.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="experience-card card">
-        <img src="assets/M&M.png" alt="Mahindra Logo" class="company-logo">
-        <div class="exp-body">
-          <div class="exp-header">
-            <h3 class="exp-title">
-              <span class="role">Project Intern</span>
-              <span class="company"> @ Mahindra & Mahindra Ltd</span>
-            </h3>
-            <span class="date">Jul – Aug 2022</span>
-          </div>
-          <ul class="exp-points">
-            <li>Collected and analyzed sensor data to pinpoint performance bottlenecks in manufacturing systems, implementing improvements that reduced MTTR by 60%.</li>
-            <li>Researched, tested, and optimized water-scaling mitigation techniques, enhancing system reliability and efficiency across production lines.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========== PROJECTS =========== -->
-    <section id="projects" class="container">
-   <h2>Projects</h2>
-   <div class="grid cols-2">
-
-    <!-- Project 1 -->
-   <article class="card project-card" style="
-  background-color: #1e1e1e;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  padding: 1.5rem;
-  transition: transform 0.3s, box-shadow 0.3s;
-  max-width: 350px;
-  margin: 1rem;
-">
-  <img src="assets/mining.png" alt="MSR Mining Challenge preview"
-       style="width:100%; border-radius:12px; margin-bottom:1rem;" />
-
-  <h3 style="margin:.25rem 0 .5rem; color:#ff6f61; font-family: 'Arial', sans-serif;">MSR 2024 Mining Challenge</h3>
-
-  <p style="color:#bbbbbb; line-height:1.5; font-size:0.95rem; margin-bottom:1rem;">
-    Analyzed ChatGPT’s performance in programming conversations using large-scale datasets,
-    NLP, and ML models to assess accuracy, failure points, and user satisfaction.
-  </p>
-
-  <div class="tags" style="margin-bottom:1rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
-    <span style="background:#ff6f61; color:white; padding:0.3rem 0.7rem; border-radius:12px; font-size:0.8rem;">Python</span>
-    <span style="background:#6b5b95; color:white; padding:0.3rem 0.7rem; border-radius:12px; font-size:0.8rem;">NLP</span>
-    <span style="background:#88b04b; color:white; padding:0.3rem 0.7rem; border-radius:12px; font-size:0.8rem;">Sentiment Analysis</span>
-    <span style="background:#ffa500; color:white; padding:0.3rem 0.7rem; border-radius:12px; font-size:0.8rem;">Machine Learning</span>
+    <script>
+      // Hover effect
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          card.style.transform = 'translateY(-5px)';
+          card.style.boxShadow = '0 12px 25px rgba(0,0,0,0.3)';
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'translateY(0)';
+          card.style.boxShadow = '0 8px 20px rgba(0,0,0,0.2)';
+        });
+      });
+    </script>
   </div>
-
-  <p style="margin-top:0.5rem;">
-    <a href="https://conf.researchr.org/home/msr-2024" target="_blank"
-       style="color:#ff6f61; text-decoration:none; margin-right:1rem;">Challenge Details</a>
-    <a href="https://github.com/jayywiz/SE_Mining-Challenge" target="_blank"
-       style="color:#ff6f61; text-decoration:none; margin-right:1rem;">GitHub</a>
-    <a href="assets/SE_Phase_II.pdf" target="_blank"
-       style="color:#ff6f61; text-decoration:none;">Report</a>
-  </p>
-</article>
-
-<script>
-  // Optional hover effect
-  const cards = document.querySelectorAll('.project-card');
-  cards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      card.style.transform = 'translateY(-5px)';
-      card.style.boxShadow = '0 12px 25px rgba(0,0,0,0.3)';
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'translateY(0)';
-      card.style.boxShadow = '0 8px 20px rgba(0,0,0,0.2)';
-    });
-  });
-</script>
-
-   </div>
- </section>
+</section>
 
     <!-- =========== CONTACT =========== -->
     <section id="contact" class="container" style="text-align:center; padding:2rem 0;">
