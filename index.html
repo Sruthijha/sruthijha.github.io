@@ -443,48 +443,42 @@
       </div>
     </section>
 
-
 <!-- =========== PROJECTS =========== -->
 <!-- =========== PROJECTS =========== -->
 <section id="projects" class="container" style="padding:2rem 0;">
-  <h2>Projects</h2>
+  <h2 style="margin-bottom:2rem;">Projects</h2>
 
   <div class="grid" style="
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    justify-items: center;
+    justify-items: stretch;
   ">
 
     <!-- Project 1: MSR Mining Challenge -->
     <article class="card project-card" style="
       background:#fff;
       border-radius:16px;
-      overflow:hidden;
-      max-width:400px;
       box-shadow:0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
     ">
-      <img src="assets/msr.png" alt="MSR Mining Challenge" style="
-        width:100%;
-        height:200px;
-        object-fit:cover;
-        display:block;
-      " />
-      <div style="padding:0 1.5rem 1.5rem 1.5rem;">
-        <h3 style="color:var(--accent); font-size:1.25rem; text-align:left; margin:0.5rem 0 0.25rem 0;">
+      <img src="assets/msr.png" alt="MSR Mining Challenge" style="width:100%; height:220px; object-fit:cover;" />
+      <div style="padding:1rem;">
+        <h3 style="color:var(--accent); font-size:1.25rem; margin:0 0 0.25rem 0;">
           MSR 2024 Mining Challenge
         </h3>
-        <p style="color:var(--text); line-height:1.5; font-size:0.95rem; text-align:left; margin:0.25rem 0 1rem 0; min-height:4.5em;">
+        <p style="color:var(--text); font-size:0.95rem; line-height:1.4; margin:0 0 0.5rem 0;">
           Analyzed ChatGPT's performance in programming conversations using large-scale datasets, NLP, and ML models.
         </p>
-        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem;">
-          <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">Python</span>
-          <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">NLP</span>
-          <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">Sentiment Analysis</span>
-          <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">Machine Learning</span>
-          <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">Pandas</span>
-          <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">Scikit-learn</span>
+        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.75rem;">
+          <span style="background:#fff; border:1px solid #e5e7eb; border-radius:25px; padding:0.4rem 0.8rem; font-size:0.85rem;">Python</span>
+          <span style="background:#fff; border:1px solid #e5e7eb; border-radius:25px; padding:0.4rem 0.8rem; font-size:0.85rem;">NLP</span>
+          <span style="background:#fff; border:1px solid #e5e7eb; border-radius:25px; padding:0.4rem 0.8rem; font-size:0.85rem;">Sentiment Analysis</span>
+          <span style="background:#fff; border:1px solid #e5e7eb; border-radius:25px; padding:0.4rem 0.8rem; font-size:0.85rem;">Machine Learning</span>
+          <span style="background:#fff; border:1px solid #e5e7eb; border-radius:25px; padding:0.4rem 0.8rem; font-size:0.85rem;">Pandas</span>
+          <span style="background:#fff; border:1px solid #e5e7eb; border-radius:25px; padding:0.4rem 0.8rem; font-size:0.85rem;">Scikit-learn</span>
         </div>
         <div style="display:flex; gap:1rem; flex-wrap:wrap;">
           <a href="https://conf.researchr.org/home/msr-2024" target="_blank" style="color:var(--accent); text-decoration:none;">Challenge</a>
@@ -498,30 +492,25 @@
     <article class="card project-card" style="
       background:#fff;
       border-radius:16px;
-      overflow:hidden;
-      max-width:400px;
       box-shadow:0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
     ">
-      <img src="assets/DL.png" alt="Real-time Emotion Recognition" style="
-        width:100%;
-        height:200px;
-        object-fit:cover;
-        display:block;
-      " />
-      <div style="padding:0 1.5rem 1.5rem 1.5rem;">
-        <h3 style="color:var(--accent); font-size:1.25rem; text-align:left; margin:0.5rem 0 0.25rem 0;">
+      <img src="assets/DL.png" alt="Real-time Emotion Recognition" style="width:100%; height:220px; object-fit:cover;" />
+      <div style="padding:1rem;">
+        <h3 style="color:var(--accent); font-size:1.25rem; margin:0 0 0.25rem 0;">
           Real-time Emotion Recognition from Speech
         </h3>
-        <p style="color:var(--text); line-height:1.5; font-size:0.95rem; text-align:left; margin:0.25rem 0 1rem 0; min-height:4.5em;">
+        <p style="color:var(--text); font-size:0.95rem; line-height:1.4; margin:0 0 0.5rem 0;">
           Built a system to detect emotions from webcam feed in real-time using OpenCV and deep learning models.
         </p>
-        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem;">
-          <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">Python</span>
-          <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">OpenCV</span>
-          <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">Deep Learning</span>
-          <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">TensorFlow</span>
-          <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">NumPy</span>
+        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.75rem;">
+          <span style="background:#fff; border:1px solid #e5e7eb; border-radius:25px; padding:0.4rem 0.8rem; font-size:0.85rem;">Python</span>
+          <span style="background:#fff; border:1px solid #e5e7eb; border-radius:25px; padding:0.4rem 0.8rem; font-size:0.85rem;">OpenCV</span>
+          <span style="background:#fff; border:1px solid #e5e7eb; border-radius:25px; padding:0.4rem 0.8rem; font-size:0.85rem;">Deep Learning</span>
+          <span style="background:#fff; border:1px solid #e5e7eb; border-radius:25px; padding:0.4rem 0.8rem; font-size:0.85rem;">TensorFlow</span>
+          <span style="background:#fff; border:1px solid #e5e7eb; border-radius:25px; padding:0.4rem 0.8rem; font-size:0.85rem;">NumPy</span>
         </div>
         <div style="display:flex; gap:1rem; flex-wrap:wrap;">
           <a href="https://github.com/jayywiz/Emotion-Recognition" target="_blank" style="color:var(--accent); text-decoration:none;">GitHub</a>
@@ -530,42 +519,7 @@
       </div>
     </article>
 
-    <!-- Project 3: Airline Delay Prediction -->
-    <article class="card project-card" style="
-      background:#fff;
-      border-radius:16px;
-      overflow:hidden;
-      max-width:400px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
-    ">
-      <img src="assets/Airline.png" alt="Airline Delay Prediction" style="
-        width:100%;
-        height:200px;
-        object-fit:cover;
-        display:block;
-      " />
-      <div style="padding:0 1.5rem 1.5rem 1.5rem;">
-        <h3 style="color:var(--accent); font-size:1.25rem; text-align:left; margin:0.5rem 0 0.25rem 0;">
-          Airline Delay Prediction System
-        </h3>
-        <p style="color:var(--text); line-height:1.5; font-size:0.95rem; text-align:left; margin:0.25rem 0 1rem 0; min-height:4.5em;">
-          Predicted flight delays using historical airline data with regression models and feature engineering.
-        </p>
-        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem;">
-          <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">Python</span>
-          <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">Pandas</span>
-          <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">Scikit-learn</span>
-          <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">Matplotlib</span>
-          <span style="background:#fff; border:1px solid #e5e7eb; color:var(--text); padding:0.5rem 1rem; border-radius:25px; font-size:0.9rem; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.05);">Feature Engineering</span>
-        </div>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <a href="https://sites.google.com/view/shvdm/home" target="_blank" style="color:var(--accent); text-decoration:none;">Website</a>
-          <a href="https://github.com/jayywiz/Airline-Delay-Prediction-System" target="_blank" style="color:var(--accent); text-decoration:none;">GitHub</a>
-          <a href="https://github.com/jayywiz/Airline-Delay-Prediction-System/blob/main/Final%20Report.pdf" target="_blank" style="color:var(--accent); text-decoration:none;">Report</a>
-        </div>
-      </div>
-    </article>
+    <!-- Add more projects here following same structure -->
 
   </div>
 </section>
@@ -584,7 +538,6 @@
     });
   });
 </script>
-
 
     <!-- =========== CONTACT =========== -->
     <section id="contact" class="container" style="text-align:center; padding:2rem 0;">
