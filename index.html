@@ -276,55 +276,6 @@ section > h2{ margin: 0 0 var(--title-gap) !important; }
     }
     #skills-section .skill-tag:hover{ background: rgba(96,165,250,.12); box-shadow: var(--shadow); transform: translateY(-1px); }
 
-/* ===== Education (clean + consistent) ===== */
-.edu-card{ display:flex; gap:1.25rem; align-items:center; }
-
-.edu-logo{
-  width:96px;
-  height:96px;
-  object-fit:contain;
-  flex-shrink:0;
-  border-radius:14px;
-  padding:6px;               /* reduced */
-  background: rgba(255,255,255,.03);
-  border:1px solid var(--line);
-}
-
-
-.edu-divider{ width:1px; background: var(--line); align-self:stretch; }
-.edu-body{ flex:1; min-width:250px; padding-left: .75rem; }
-
-.edu-head{
-  display:flex; justify-content:space-between;
-  align-items:flex-start; gap:1rem;
-  flex-wrap:wrap;
-  margin-bottom: .35rem;
-}
-
-.edu-date{ color: var(--muted); white-space:nowrap; }
-.edu-meta{ margin:.35rem 0 0; line-height:1.6; color: var(--text); }
-.edu-label{ color: var(--muted); }
-.edu-list{ margin:.25rem 0 0 0; padding:0; list-style:none; }
-
-.edu-list li{
-  display:flex; gap:10px;
-  line-height:1.6;
-  margin:0 0 6px 0;
-  color: var(--text);
-}
-.edu-list li{
-  align-items: center;
-}
-
-.edu-list li::before{
-  content:"▶";
-  color: var(--good);
-  line-height: 1;
-}
-
-
-/* ===== Step 1: Education readability polish (overrides) ===== */
-./* =========================
    EDUCATION (clean + no logo box)
    ========================= */
 
@@ -352,9 +303,7 @@ section > h2{ margin: 0 0 var(--title-gap) !important; }
 
 /* keep divider (or remove if you want by setting display:none) */
 .edu-divider{
-  width:1px;
-  background: var(--line);
-  align-self:stretch;
+  display: none;
 }
 
 .edu-body{
@@ -373,7 +322,7 @@ section > h2{ margin: 0 0 var(--title-gap) !important; }
 }
 
 .edu-school{
-  font-size: 1.4rem;          /* reduced from huge */
+  font-size: 1.35rem;          /* reduced from huge */
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--accent);
