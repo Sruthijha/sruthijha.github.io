@@ -276,31 +276,26 @@
   }
   #skills-section .skill-tag:hover{ background: rgba(96,165,250,.12); box-shadow: var(--shadow); transform: translateY(-1px); }
 
+/* ✅ Replace your entire EDUCATION block with this (paste over it) */
 /* =========================
-   EDUCATION (aligned rows + clean separation)
+   EDUCATION (clean + aligned)
    ========================= */
-
-#education{
-  padding-bottom: calc(var(--section-pad) + 12px); /* extra separation before Experience */
-}
 
 #education .edu-grid{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
-  align-items: start;           /* IMPORTANT: stop forced equal-height stretch */
-  margin-bottom: 10px;          /* small buffer even if section spacing gets tight */
+  align-items: stretch;
 }
 
 /* stack on smaller screens */
 @media (max-width: 980px){
-  #education .edu-grid{
-    grid-template-columns: 1fr;
-  }
+  #education .edu-grid{ grid-template-columns: 1fr; }
 }
 
 #education .edu-card{
-  margin-bottom: 0;              /* grid handles spacing */
+  margin-bottom: 0;
+  height: 100%;
   padding: 1.35rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -313,44 +308,44 @@
   border-color: rgba(96,165,250,.35);
 }
 
-/* header: logo+school left, date right */
+/* header: logo + (school + date below) */
 #education .edu-head{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: nowrap;            /* keeps header stable */
-  margin-bottom: .75rem;
+  margin-bottom: .95rem;
 }
 
 #education .edu-head-left{
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: .75rem;
+  gap: .85rem;
   min-width: 0;
 }
 
+#education .edu-head-text{
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* school */
 #education .edu-school{
-  font-size: 1.2rem;
+  font-size: 1.22rem;
   font-weight: 900;
   letter-spacing: -0.02em;
-  line-height: 1.2;
+  line-height: 1.15;
   color: var(--accent);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 44ch;
+  /* allow wrap instead of awkward truncation */
+  white-space: normal;
 }
 
+/* date sits under school (quiet) */
 #education .edu-date{
+  margin-top: .18rem;
   color: var(--muted);
-  font-size: .95rem;
-  opacity: .85;
-  white-space: nowrap;
-  flex-shrink: 0;
+  font-size: .9rem;
+  opacity: .8;
 }
 
-/* logo sizing */
+/* logo */
 #education .edu-logo{
   width: 44px;
   height: 44px;
@@ -382,11 +377,9 @@
   opacity: .75;
 }
 
-/* ✅ KEY FIX: reserve 2 lines for the DEGREE row so GPA + Coursework align */
-#education .edu-card .edu-meta:first-of-type{
-  line-height: 1.55;
-  min-height: calc(1.55em * 2); /* exactly 2 lines reserved */
-  margin-top: .25rem;
+/* spacer to align GPA / Coursework across cards */
+#education .edu-spacer{
+  height: 1.55em; /* matches roughly one line of text */
 }
 
 /* coursework list */
@@ -410,6 +403,7 @@
   color: var(--good);
   margin-top: 2px;
 }
+
 
 
   /* ===== Experience ===== */
@@ -672,6 +666,7 @@
       </section>
     </section>
 
+<!-- ✅ Replace your Education section HTML with this (ONLY this section) -->
 <section id="education" class="container">
   <h2>Education</h2>
 
@@ -681,12 +676,17 @@
       <div class="edu-head">
         <div class="edu-head-left">
           <img src="assets/buffs.png" alt="CU Boulder Logo" class="edu-logo" />
-          <div class="edu-school">University of Colorado Boulder</div>
+          <div class="edu-head-text">
+            <div class="edu-school">University of Colorado Boulder</div>
+            <div class="edu-date">Aug 2023 – Dec 2025</div>
+          </div>
         </div>
-        <div class="edu-date">Aug 2023 – Dec 2025</div>
       </div>
 
       <p class="edu-meta"><strong>Master of Science in Data Science</strong></p>
+      <!-- spacer line to keep GPA/coursework aligned with the other card -->
+      <div class="edu-spacer" aria-hidden="true"></div>
+
       <p class="edu-meta"><span class="edu-label">GPA:</span> <strong>3.96 / 4.0</strong></p>
 
       <p class="edu-meta"><span class="edu-label">Relevant Coursework:</span></p>
@@ -701,12 +701,15 @@
       <div class="edu-head">
         <div class="edu-head-left">
           <img src="assets/MU.png" alt="Mahindra University Logo" class="edu-logo edu-logo--rounded" />
-          <div class="edu-school">Mahindra University</div>
+          <div class="edu-head-text">
+            <div class="edu-school">Mahindra University</div>
+            <div class="edu-date">Aug 2019 – May 2023</div>
+          </div>
         </div>
-        <div class="edu-date">Aug 2019 – May 2023</div>
       </div>
 
       <p class="edu-meta"><strong>Bachelor of Technology in Electrical and Electronics Engineering</strong></p>
+
       <p class="edu-meta"><span class="edu-label">GPA:</span> <strong>3.54 / 4.0</strong></p>
 
       <p class="edu-meta"><span class="edu-label">Relevant Coursework:</span></p>
