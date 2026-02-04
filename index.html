@@ -277,22 +277,19 @@
   #skills-section .skill-tag:hover{ background: rgba(96,165,250,.12); box-shadow: var(--shadow); transform: translateY(-1px); }
 
 /* =========================
-   EDUCATION (clean + consistent)
+   EDUCATION (wide horizontal cards)
    ========================= */
 
 #education .edu-grid{
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-  align-items: stretch;
+  grid-template-columns: 1fr;   /* stack cards vertically */
+  gap: 1.25rem;
 }
 
+/* card look + interaction */
 #education .edu-card{
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  height: 100%;
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  margin-bottom: 0; /* grid gap handles spacing */
 }
 
 #education .edu-card:hover{
@@ -301,69 +298,61 @@
   border-color: rgba(96,165,250,.35);
 }
 
-/* LOGO */
-#education .edu-logo{
-  width: 110px;
-  height: 110px;
-  object-fit: contain;
-  flex-shrink: 0;
-  display: block;
-  margin: auto 0;
-
-  padding: 0;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  filter: none;
-}
-
-/* Mahindra logo only */
-#education .edu-logo--rounded{
-  border-radius: 16px;
-}
-
-/* subtle divider */
-#education .edu-divider{
-  width: 1px;
-  align-self: stretch;
-  background: rgba(148, 163, 184, 0.10);
-}
-
-/* body */
-#education .edu-body{
-  flex: 1;
-  min-width: 250px;
-}
-
 /* header row */
 #education .edu-head{
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-bottom: .25rem;
+  margin-bottom: .75rem;
 }
 
+/* logo + school name group */
+#education .edu-head-left{
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  min-width: 0; /* prevents overflow issues */
+}
+
+/* logo: small + neat */
+#education .edu-logo{
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex-shrink: 0;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  filter: none;
+}
+
+#education .edu-logo--rounded{
+  border-radius: 10px;
+}
+
+/* school */
 #education .edu-school{
-  font-size: 1.35rem;
-  font-weight: 800;
+  font-size: 1.25rem;
+  font-weight: 900;
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.2;
   color: var(--accent);
 }
 
+/* date */
 #education .edu-date{
   color: var(--muted);
-  font-size: .9rem;
-  opacity: .8;
+  font-size: .95rem;
+  opacity: .85;
   white-space: nowrap;
 }
 
-/* meta */
+/* meta lines */
 #education .edu-meta{
-  margin: .22rem 0 0;
+  margin: .25rem 0 0;
   line-height: 1.6;
   color: var(--text);
 }
@@ -374,33 +363,36 @@
   opacity: .75;
 }
 
-/* coursework */
+/* coursework list */
 #education .edu-list{
-  margin: .35rem 0 0;
+  margin: .5rem 0 0;
   padding: 0;
   list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* uses width better */
+  gap: .25rem 1.25rem;
 }
 
 #education .edu-list li{
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
-  margin-bottom: 6px;
   line-height: 1.6;
 }
 
 #education .edu-list li::before{
   content: "▶";
   color: var(--good);
+  line-height: 1.2;
+  margin-top: 2px;
 }
 
-/* Mobile */
-@media (max-width: 900px){
-  #education .edu-grid{
+/* mobile: coursework becomes one column */
+@media (max-width: 700px){
+  #education .edu-list{
     grid-template-columns: 1fr;
   }
 }
-
 
   /* ===== Experience ===== */
   #experience{ max-width:980px; margin:auto; }
