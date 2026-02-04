@@ -512,6 +512,37 @@ section > h2{ margin: 0 0 var(--title-gap) !important; }
   font-weight: 650;
   opacity: 0.75;
 }
+/* ===== EDUCATION: remove borders + remove logo box ===== */
+#education .card{
+  border: none !important;
+  box-shadow: var(--shadow-2) !important; /* keeps it elevated */
+}
+
+/* remove the vertical divider line */
+#education .edu-divider{
+  display: none !important;
+}
+
+/* logo: no padding, no border, no background box */
+#education .edu-logo{
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+
+  width: 110px !important;
+  height: 110px !important;
+  object-fit: contain;
+
+  /* optional: makes logo look crisp on dark bg */
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.35));
+}
+
+/* slightly reduce spacing since divider is gone */
+#education .edu-card{
+  gap: 1rem !important;
+  align-items: center !important;
+}
 
   </style>
 
