@@ -307,6 +307,17 @@ section > h2{ margin: 0 0 var(--title-gap) !important; }
 /* Mahindra only: rounded corners */
 .edu-card:nth-of-type(2) .edu-logo{
   border-radius: 16px;
+
+  /* default logos (CU etc.) */
+.edu-logo{
+  border-radius: 0;
+}
+
+/* Mahindra only */
+.edu-logo--rounded{
+  border-radius: 16px;   /* tweak: 12px–20px */
+}
+
 }
 
 .edu-divider{
@@ -670,7 +681,7 @@ section > h2{ margin: 0 0 var(--title-gap) !important; }
       </div>
 
       <div class="card edu-card">
-        <img src="assets/MU.png" alt="Mahindra University Logo" class="edu-logo" />
+        <img src="assets/MU.png" alt="Mahindra University Logo" class="edu-logo edu-logo--rounded" />
         <div class="edu-divider"></div>
         <div class="edu-body">
           <div class="edu-head">
