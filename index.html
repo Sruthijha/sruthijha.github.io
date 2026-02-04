@@ -278,51 +278,58 @@ section > h2{ margin: 0 0 var(--title-gap) !important; }
 
    EDUCATION (clean + no logo box)
    ========================= */
+/* =========================
+   EDUCATION (clean + consistent)
+   ========================= */
 
 .edu-card{
   display:flex;
   gap: 1.25rem;
-  align-items:center;
+  align-items:flex-start; /* important: keeps text from dropping */
 }
 
-/* LOGO: no padding/background/border box */
 .edu-logo{
   width: 110px;
   height: 110px;
   object-fit: contain;
   flex-shrink: 0;
 
+  /* no box around logo */
   padding: 0;
   background: transparent;
   border: none;
-  border-radius: 0;
 
-  /* optional: subtle depth without a “box” */
-  filter: none;
+  /* CU logo can be sharp */
+  border-radius: 0;
+  filter: none; /* no shadow */
 }
 
-/* keep divider (or remove if you want by setting display:none) */
+/* Mahindra only: rounded corners */
+.edu-card:nth-of-type(2) .edu-logo{
+  border-radius: 16px;
+}
+
 .edu-divider{
-  display: none;
+  display:none; /* remove divider */
 }
 
 .edu-body{
-  flex:1;
-  min-width:250px;
-  padding-left: .75rem;
+  flex: 1;
+  min-width: 250px;
+  padding-left: 0; /* divider is gone so don't indent */
 }
 
 .edu-head{
   display:flex;
   justify-content:space-between;
   align-items:flex-start;
-  gap:1rem;
+  gap: 1rem;
   flex-wrap:wrap;
   margin-bottom: .25rem;
 }
 
 .edu-school{
-  font-size: 1.35rem;          /* reduced from huge */
+  font-size: 1.35rem; /* uni name slightly smaller */
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--accent);
@@ -331,12 +338,11 @@ section > h2{ margin: 0 0 var(--title-gap) !important; }
 
 .edu-date{
   color: var(--muted);
-  white-space:nowrap;
-  font-size: 0.9rem;
-  opacity: 0.8;
+  font-size: .9rem;
+  opacity: .8;
+  white-space: nowrap;
 }
 
-/* meta lines */
 .edu-meta{
   margin: .22rem 0 0;
   line-height: 1.6;
@@ -345,9 +351,30 @@ section > h2{ margin: 0 0 var(--title-gap) !important; }
 
 .edu-label{
   color: var(--muted);
-  font-weight: 600;     /* less “shouty” */
-  opacity: 0.75;
+  font-weight: 600;
+  opacity: .75;
 }
+
+/* coursework bullets */
+.edu-list{
+  margin: .35rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.edu-list li{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  margin: 0 0 6px 0;
+}
+
+.edu-list li::before{
+  content:"▶";
+  color: var(--good);
+  line-height: 1;
+}
+
 
     /* ===== Experience ===== */
     #experience{ max-width:980px; margin:auto; }
@@ -489,7 +516,7 @@ section > h2{ margin: 0 0 var(--title-gap) !important; }
 
     /* Footer */
     footer a{ color: var(--accent); }
-}
+
 #education img[src*="MU"]{
   border-radius: 12px;
 }
