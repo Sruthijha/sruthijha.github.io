@@ -303,12 +303,13 @@
     border-radius: 16px;  /* tweak 12–20 */
   }
 .edu-logo-wrap{
-  width: 110px;          /* same as logo width */
+  width: 110px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;   /* vertical center */
   justify-content: center;
-  flex-shrink: 0;
 }
+
 
   .edu-divider{
     width: 1px;
@@ -643,14 +644,16 @@
       </section>
     </section>
 
-    <!-- EDUCATION -->
+   <!-- EDUCATION -->
 <section id="education" class="container">
   <h2>Education</h2>
 
-  <!-- CU Boulder -->
+  <!-- CU BOULDER -->
   <div class="card edu-card">
     <div class="edu-logo-wrap">
-    <img src="assets/buffs.png" alt="CU Boulder Logo" class="edu-logo" />
+      <img src="assets/buffs.png" alt="CU Boulder Logo" class="edu-logo" />
+    </div>
+
     <div class="edu-divider"></div>
 
     <div class="edu-body">
@@ -659,19 +662,10 @@
         <div class="edu-date">Aug 2023 – Dec 2025</div>
       </div>
 
-      <p class="edu-meta">
-        <strong>Master of Science in Data Science</strong>
-      </p>
+      <p class="edu-meta"><strong>Master of Science in Data Science</strong></p>
+      <p class="edu-meta"><span class="edu-label">GPA:</span> <strong>3.96 / 4.0</strong></p>
 
-      <p class="edu-meta">
-        <span class="edu-label">GPA:</span>
-        <strong>3.96 / 4.0</strong>
-      </p>
-
-      <p class="edu-meta">
-        <span class="edu-label">Relevant Coursework:</span>
-      </p>
-
+      <p class="edu-meta"><span class="edu-label">Relevant Coursework:</span></p>
       <ul class="edu-list">
         <li>Machine Learning</li>
         <li>Statistical Methods &amp; Applications</li>
@@ -680,14 +674,12 @@
     </div>
   </div>
 
-  <!-- Mahindra University -->
+  <!-- MAHINDRA -->
   <div class="card edu-card">
     <div class="edu-logo-wrap">
-    <img
-      src="assets/MU.png"
-      alt="Mahindra University Logo"
-      class="edu-logo edu-logo--rounded"
-    />
+      <img src="assets/MU.png" alt="Mahindra University Logo" class="edu-logo edu-logo--rounded" />
+    </div>
+
     <div class="edu-divider"></div>
 
     <div class="edu-body">
@@ -696,19 +688,10 @@
         <div class="edu-date">Aug 2019 – May 2023</div>
       </div>
 
-      <p class="edu-meta">
-        <strong>Bachelor of Technology in Electrical and Electronics Engineering</strong>
-      </p>
+      <p class="edu-meta"><strong>Bachelor of Technology in Electrical and Electronics Engineering</strong></p>
+      <p class="edu-meta"><span class="edu-label">GPA:</span> <strong>3.54 / 4.0</strong></p>
 
-      <p class="edu-meta">
-        <span class="edu-label">GPA:</span>
-        <strong>3.54 / 4.0</strong>
-      </p>
-
-      <p class="edu-meta">
-        <span class="edu-label">Relevant Coursework:</span>
-      </p>
-
+      <p class="edu-meta"><span class="edu-label">Relevant Coursework:</span></p>
       <ul class="edu-list">
         <li>Data Structures</li>
         <li>Computer Architecture and Design</li>
@@ -717,7 +700,6 @@
     </div>
   </div>
 </section>
-
 
     <!-- EXPERIENCE -->
     <section id="experience" class="container">
