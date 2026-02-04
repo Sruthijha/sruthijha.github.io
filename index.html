@@ -308,11 +308,16 @@ section > h2{ margin: 0 0 var(--title-gap) !important; }
   margin:0 0 10px 0;
   color: var(--text);
 }
+.edu-list li{
+  align-items: center;
+}
+
 .edu-list li::before{
   content:"▶";
   color: var(--good);
-  margin-top:2px;
+  line-height: 1;
 }
+
 
 /* ===== Step 1: Education readability polish (overrides) ===== */
 .edu-school{
@@ -639,7 +644,7 @@ section > h2{ margin: 0 0 var(--title-gap) !important; }
   </div>
 
   <p class="edu-meta"><strong>Master of Science in Data Science</strong></p>
-  <p class="edu-meta"><strong>GPA:</strong> 3.96 / 4.0</p>
+  <p class="edu-meta">GPA: <strong>3.96 / 4.0</strong></p>
 
   <p class="edu-meta"><span class="edu-label">Relevant coursework:</span></p>
   <ul class="edu-list">
