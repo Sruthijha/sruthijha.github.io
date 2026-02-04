@@ -277,27 +277,31 @@
   #skills-section .skill-tag:hover{ background: rgba(96,165,250,.12); box-shadow: var(--shadow); transform: translateY(-1px); }
 
 /* =========================
-   EDUCATION (2 wide cards side-by-side)
+   WIDER CONTAINER (Education only)
+   ========================= */
+.container.container-wide{
+  max-width: 1280px;   /* fills the empty space you pointed out */
+}
+
+/* =========================
+   EDUCATION (wide side-by-side cards)
    ========================= */
 
 #education .edu-grid{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
+  gap: 1.25rem;
   align-items: stretch;
 }
 
 /* stack on smaller screens */
-@media (max-width: 980px){
+@media (max-width: 900px){
   #education .edu-grid{ grid-template-columns: 1fr; }
 }
 
 #education .edu-card{
-  margin-bottom: 0;              /* grid handles spacing */
   height: 100%;
-  padding: 1.35rem 1.5rem;       /* slightly tighter than global .card */
-  display: flex;
-  flex-direction: column;
+  padding: 1.35rem 1.5rem;
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 
@@ -307,67 +311,57 @@
   border-color: rgba(96,165,250,.35);
 }
 
-/* header: logo+school left, date right */
+/* header row */
 #education .edu-head{
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  flex-wrap: wrap;
   margin-bottom: .9rem;
 }
 
 #education .edu-head-left{
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: .75rem;
-  min-width: 0;
 }
 
-/* keep the title from wrapping weirdly */
-#education .edu-school{
-  font-size: 1.2rem;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  color: var(--accent);
-  max-width: 42ch;
-}
-
-/* date always top-right */
-#education .edu-date{
-  color: var(--muted);
-  font-size: .95rem;
-  opacity: .85;
-  white-space: nowrap;
-  margin-left: auto;
-}
-
-/* logo sizing + consistency */
+/* logo next to name */
 #education .edu-logo{
   width: 44px;
   height: 44px;
   object-fit: contain;
   flex-shrink: 0;
-  display: block;
-
   background: transparent;
   border: none;
-  border-radius: 10px;           /* helps CU logo look less "floating" */
   box-shadow: none;
-  filter: none;
 }
 
-/* Mahindra only (slightly more rounding if you like) */
 #education .edu-logo--rounded{
   border-radius: 12px;
 }
 
-/* meta lines */
+/* school name */
+#education .edu-school{
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--accent);
+}
+
+/* date */
+#education .edu-date{
+  color: var(--muted);
+  font-size: .95rem;
+  opacity: .85;
+  white-space: nowrap;
+}
+
+/* meta text */
 #education .edu-meta{
-  margin: .28rem 0 0;
+  margin: .25rem 0 0;
   line-height: 1.55;
-  color: var(--text);
 }
 
 #education .edu-label{
@@ -376,9 +370,9 @@
   opacity: .75;
 }
 
-/* coursework list */
+/* coursework */
 #education .edu-list{
-  margin: .7rem 0 0;
+  margin: .65rem 0 0;
   padding: 0;
   list-style: none;
   display: grid;
@@ -387,7 +381,6 @@
 
 #education .edu-list li{
   display: flex;
-  align-items: flex-start;
   gap: 10px;
   line-height: 1.55;
 }
@@ -397,7 +390,6 @@
   color: var(--good);
   margin-top: 2px;
 }
-
 
   /* ===== Experience ===== */
   #experience{ max-width:980px; margin:auto; }
@@ -659,7 +651,7 @@
       </section>
     </section>
 
-<section id="education" class="container">
+<section id="education" class="container container-wide">
   <h2>Education</h2>
 
   <div class="edu-grid">
@@ -693,7 +685,7 @@
         <div class="edu-date">Aug 2019 – May 2023</div>
       </div>
 
-      <p class="edu-meta"><strong>B.Tech in Electrical and Electronics Engineering</strong></p>
+      <p class="edu-meta"><strong>Bachelor of Technology in Electrical and Electronics Engineering</strong></p>
       <p class="edu-meta"><span class="edu-label">GPA:</span> <strong>3.54 / 4.0</strong></p>
 
       <p class="edu-meta"><span class="edu-label">Relevant Coursework:</span></p>
