@@ -276,59 +276,68 @@
     }
     #skills-section .skill-tag:hover{ background: rgba(96,165,250,.12); box-shadow: var(--shadow); transform: translateY(-1px); }
 
-    /* ===== Education (clean + consistent, no inline colors) ===== */
-    .edu-card{ display:flex; gap:1.25rem; align-items:center; }
-    .edu-logo{
-      width:120px; height:95px; object-fit:contain; flex-shrink:0;
-      border-radius:14px; padding:10px;
-      background: rgba(255,255,255,.03);
-      border:1px solid var(--line);
-    }
-    .edu-divider{ width:1px; background: var(--line); align-self:stretch; }
-    .edu-body{ flex:1; min-width:250px; padding-left: .75rem; }
-    .edu-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap; margin-bottom: .35rem; }
-    .edu-school{ font-size:1.25rem; font-weight:900; color: var(--accent); letter-spacing:-0.02em; }
-    .edu-date{ color: var(--muted); font-size:.95rem; white-space:nowrap; }
-    .edu-meta{ margin:.35rem 0 0; line-height:1.6; color: var(--text); }
-    .edu-meta strong{ color: var(--text); }
-    .edu-label{ color: var(--muted); font-weight:800; }
-    .edu-list{ margin:.25rem 0 0 0; padding:0; list-style:none; }
-    .edu-list li{
-      display:flex; gap:10px;
-      line-height:1.6;
-      margin:0 0 10px 0;
-      color: var(--text);
-    }
-    .edu-list li::before{
-      content:"▶";
-      color: var(--good);
-      margin-top:2px;
-    }
-    /* Step 1: Education readability polish */
+/* ===== Education (clean + consistent) ===== */
+.edu-card{ display:flex; gap:1.25rem; align-items:center; }
+
+.edu-logo{
+  width:120px; height:95px;
+  object-fit:contain; flex-shrink:0;
+  border-radius:14px; padding:10px;
+  background: rgba(255,255,255,.03);
+  border:1px solid var(--line);
+}
+
+.edu-divider{ width:1px; background: var(--line); align-self:stretch; }
+.edu-body{ flex:1; min-width:250px; padding-left: .75rem; }
+
+.edu-head{
+  display:flex; justify-content:space-between;
+  align-items:flex-start; gap:1rem;
+  flex-wrap:wrap;
+  margin-bottom: .35rem;
+}
+
+.edu-date{ color: var(--muted); white-space:nowrap; }
+.edu-meta{ margin:.35rem 0 0; line-height:1.6; color: var(--text); }
+.edu-label{ color: var(--muted); }
+.edu-list{ margin:.25rem 0 0 0; padding:0; list-style:none; }
+
+.edu-list li{
+  display:flex; gap:10px;
+  line-height:1.6;
+  margin:0 0 10px 0;
+  color: var(--text);
+}
+.edu-list li::before{
+  content:"▶";
+  color: var(--good);
+  margin-top:2px;
+}
+
+/* ===== Step 1: Education readability polish (overrides) ===== */
 .edu-school{
-  font-size: 1.65rem;     /* slightly bigger */
+  font-size: 1.65rem;
   font-weight: 900;
   letter-spacing: -0.025em;
+  color: var(--accent);
 }
 
 .edu-date{
-  font-size: 0.9rem;      /* quieter */
+  font-size: 0.9rem;
   opacity: 0.75;
 }
 
 .edu-label{
-  font-weight: 600;       /* less shouty */
+  font-weight: 600;
   opacity: 0.7;
 }
 
-.edu-value{
-  font-weight: 700;
-}
-
-.edu-line{
+.edu-meta{
   margin-top: 0.25rem;
 }
-
+.edu-meta strong{
+  font-weight: 700;
+}
 
     /* ===== Experience ===== */
     #experience{ max-width:980px; margin:auto; }
