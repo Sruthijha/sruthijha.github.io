@@ -379,6 +379,40 @@
   color: var(--good);
   line-height: 1;
 }
+/* =========================
+   EDUCATION GRID (SIDE BY SIDE)
+   ========================= */
+
+#education .edu-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+#education .edu-card{
+  height: 100%;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+#education .edu-card:hover{
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-2);
+  border-color: rgba(96,165,250,.35);
+}
+
+/* Mobile fallback */
+@media (max-width: 900px){
+  #education .edu-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Better logo centering */
+#education .edu-logo{
+  display: block;
+  margin: auto 0;
+}
 
 
   /* ===== Experience ===== */
@@ -641,60 +675,63 @@
       </section>
     </section>
 
-   <!-- EDUCATION -->
-<section id="education" class="container">
+   <section id="education" class="container">
   <h2>Education</h2>
 
-  <!-- CU BOULDER -->
-  <div class="card edu-card">
-    <div class="edu-logo-wrap">
-      <img src="assets/buffs.png" alt="CU Boulder Logo" class="edu-logo" />
-    </div>
+  <div class="edu-grid">
 
-    <div class="edu-divider"></div>
-
-    <div class="edu-body">
-      <div class="edu-head">
-        <div class="edu-school">University of Colorado Boulder</div>
-        <div class="edu-date">Aug 2023 – Dec 2025</div>
+    <!-- CU BOULDER -->
+    <div class="card edu-card">
+      <div class="edu-logo-wrap">
+        <img src="assets/buffs.png" alt="CU Boulder Logo" class="edu-logo" />
       </div>
 
-      <p class="edu-meta"><strong>Master of Science in Data Science</strong></p>
-      <p class="edu-meta"><span class="edu-label">GPA:</span> <strong>3.96 / 4.0</strong></p>
+      <div class="edu-divider"></div>
 
-      <p class="edu-meta"><span class="edu-label">Relevant Coursework:</span></p>
-      <ul class="edu-list">
-        <li>Machine Learning</li>
-        <li>Statistical Methods &amp; Applications</li>
-        <li>Deep &amp; Reinforcement Learning</li>
-      </ul>
+      <div class="edu-body">
+        <div class="edu-head">
+          <div class="edu-school">University of Colorado Boulder</div>
+          <div class="edu-date">Aug 2023 – Dec 2025</div>
+        </div>
+
+        <p class="edu-meta"><strong>Master of Science in Data Science</strong></p>
+        <p class="edu-meta"><span class="edu-label">GPA:</span> <strong>3.96 / 4.0</strong></p>
+
+        <p class="edu-meta"><span class="edu-label">Relevant Coursework:</span></p>
+        <ul class="edu-list">
+          <li>Machine Learning</li>
+          <li>Statistical Methods &amp; Applications</li>
+          <li>Deep &amp; Reinforcement Learning</li>
+        </ul>
+      </div>
     </div>
-  </div>
 
-  <!-- MAHINDRA -->
-  <div class="card edu-card">
-    <div class="edu-logo-wrap">
-      <img src="assets/MU.png" alt="Mahindra University Logo" class="edu-logo edu-logo--rounded" />
-    </div>
-
-    <div class="edu-divider"></div>
-
-    <div class="edu-body">
-      <div class="edu-head">
-        <div class="edu-school">Mahindra University</div>
-        <div class="edu-date">Aug 2019 – May 2023</div>
+    <!-- MAHINDRA -->
+    <div class="card edu-card">
+      <div class="edu-logo-wrap">
+        <img src="assets/MU.png" alt="Mahindra University Logo" class="edu-logo edu-logo--rounded" />
       </div>
 
-      <p class="edu-meta"><strong>Bachelor of Technology in Electrical and Electronics Engineering</strong></p>
-      <p class="edu-meta"><span class="edu-label">GPA:</span> <strong>3.54 / 4.0</strong></p>
+      <div class="edu-divider"></div>
 
-      <p class="edu-meta"><span class="edu-label">Relevant Coursework:</span></p>
-      <ul class="edu-list">
-        <li>Data Structures</li>
-        <li>Computer Architecture and Design</li>
-        <li>Computer &amp; Communication Networks</li>
-      </ul>
+      <div class="edu-body">
+        <div class="edu-head">
+          <div class="edu-school">Mahindra University</div>
+          <div class="edu-date">Aug 2019 – May 2023</div>
+        </div>
+
+        <p class="edu-meta"><strong>Bachelor of Technology in Electrical and Electronics Engineering</strong></p>
+        <p class="edu-meta"><span class="edu-label">GPA:</span> <strong>3.54 / 4.0</strong></p>
+
+        <p class="edu-meta"><span class="edu-label">Relevant Coursework:</span></p>
+        <ul class="edu-list">
+          <li>Data Structures</li>
+          <li>Computer Architecture and Design</li>
+          <li>Computer &amp; Communication Networks</li>
+        </ul>
+      </div>
     </div>
+
   </div>
 </section>
 
