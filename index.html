@@ -276,113 +276,110 @@
   }
   #skills-section .skill-tag:hover{ background: rgba(96,165,250,.12); box-shadow: var(--shadow); transform: translateY(-1px); }
 
-  /* =========================
-     EDUCATION (clean + consistent)
-     ========================= */
-  .edu-card{
-    display:flex;
-    gap: 1.25rem;
-    align-items: stretch; /* IMPORTANT: lets divider stretch full height */
-  }
+ /* =========================
+   EDUCATION (clean + consistent)
+   ========================= */
 
-  .edu-logo{
-    width: 110px;
-    height: 110px;
-    object-fit: contain;
-    flex-shrink: 0;
-
-    padding: 0;
-    background: transparent;
-    border: none;
-    border-radius: 0;     /* CU stays sharp */
-    filter: none;         /* no shadow */
-  }
-
-  /* Mahindra only (you already added class="edu-logo edu-logo--rounded") */
-  .edu-logo--rounded{
-    border-radius: 16px;  /* tweak 12–20 */
-  }
-.edu-logo-wrap{
-  width: 110px;
-  flex-shrink: 0;
+#education .edu-card{
   display: flex;
-  align-items: center;   /* vertical center */
-  justify-content: center;
+  align-items: center;          /* centers logo vertically */
+  gap: 1.25rem;
 }
 
+/* LOGO */
+#education .edu-logo{
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  flex-shrink: 0;
 
-  .edu-divider{
-    width: 1px;
-    align-self: stretch;
-    background: linear-gradient(
-      to bottom,
-      transparent,
-      rgba(148,163,184,0.16),
-      transparent
-    );
-  }
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
 
-  .edu-body{
-    flex: 1;
-    min-width: 250px;
-    padding-left: .75rem;
-  }
+  box-shadow: none;
+  filter: none;
+}
 
-  .edu-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    gap: 1rem;
-    flex-wrap:wrap;
-    margin-bottom: .25rem;
-  }
+/* Mahindra logo only (rounded corners) */
+#education .edu-logo--rounded{
+  border-radius: 16px;          /* tweak 12–20px if you want */
+}
 
-  .edu-school{
-    font-size: 1.35rem;   /* uni name slightly smaller */
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: var(--accent);
-    line-height: 1.15;
-  }
+/* subtle vertical divider */
+#education .edu-divider{
+  width: 1px;
+  align-self: stretch;
+  background: rgba(148, 163, 184, 0.10);  /* less opaque */
+}
 
-  .edu-date{
-    color: var(--muted);
-    font-size: .9rem;
-    opacity: .8;
-    white-space: nowrap;
-  }
+/* body */
+#education .edu-body{
+  flex: 1;
+  min-width: 250px;
+  padding-left: 0;              /* divider already adds separation */
+}
 
-  .edu-meta{
-    margin: .22rem 0 0;
-    line-height: 1.6;
-    color: var(--text);
-  }
+/* header row: school left, date right */
+#education .edu-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: .25rem;
+}
 
-  .edu-label{
-    color: var(--muted);
-    font-weight: 600;
-    opacity: .75;
-  }
+#education .edu-school{
+  font-size: 1.35rem;           /* slightly smaller than section feel */
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--accent);
+}
 
-  .edu-list{
-    margin: .35rem 0 0;
-    padding: 0;
-    list-style: none;
-  }
+#education .edu-date{
+  color: var(--muted);
+  font-size: .9rem;
+  opacity: .8;
+  white-space: nowrap;
+}
 
-  .edu-list li{
-    display:flex;
-    align-items:center;
-    gap: 10px;
-    margin: 0 0 6px 0;
-    line-height: 1.6;
-  }
+/* meta lines */
+#education .edu-meta{
+  margin: .22rem 0 0;
+  line-height: 1.6;
+  color: var(--text);
+}
 
-  .edu-list li::before{
-    content:"▶";
-    color: var(--good);
-    line-height: 1;
-  }
+#education .edu-label{
+  color: var(--muted);
+  font-weight: 600;
+  opacity: .75;
+}
+
+/* coursework list */
+#education .edu-list{
+  margin: .35rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+#education .edu-list li{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 6px 0;
+  line-height: 1.6;
+}
+
+#education .edu-list li::before{
+  content: "▶";
+  color: var(--good);
+  line-height: 1;
+}
+
 
   /* ===== Experience ===== */
   #experience{ max-width:980px; margin:auto; }
