@@ -276,14 +276,29 @@
   }
   #skills-section .skill-tag:hover{ background: rgba(96,165,250,.12); box-shadow: var(--shadow); transform: translateY(-1px); }
 
- /* =========================
+/* =========================
    EDUCATION (clean + consistent)
    ========================= */
 
+#education .edu-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
 #education .edu-card{
   display: flex;
-  align-items: center;          /* centers logo vertically */
+  align-items: center;
   gap: 1.25rem;
+  height: 100%;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+#education .edu-card:hover{
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-2);
+  border-color: rgba(96,165,250,.35);
 }
 
 /* LOGO */
@@ -292,36 +307,36 @@
   height: 110px;
   object-fit: contain;
   flex-shrink: 0;
+  display: block;
+  margin: auto 0;
 
   padding: 0;
   background: transparent;
   border: none;
   border-radius: 0;
-
   box-shadow: none;
   filter: none;
 }
 
-/* Mahindra logo only (rounded corners) */
+/* Mahindra logo only */
 #education .edu-logo--rounded{
-  border-radius: 16px;          /* tweak 12–20px if you want */
+  border-radius: 16px;
 }
 
-/* subtle vertical divider */
+/* subtle divider */
 #education .edu-divider{
   width: 1px;
   align-self: stretch;
-  background: rgba(148, 163, 184, 0.10);  /* less opaque */
+  background: rgba(148, 163, 184, 0.10);
 }
 
 /* body */
 #education .edu-body{
   flex: 1;
   min-width: 250px;
-  padding-left: 0;              /* divider already adds separation */
 }
 
-/* header row: school left, date right */
+/* header row */
 #education .edu-head{
   display: flex;
   justify-content: space-between;
@@ -332,7 +347,7 @@
 }
 
 #education .edu-school{
-  font-size: 1.35rem;           /* slightly smaller than section feel */
+  font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.15;
@@ -346,7 +361,7 @@
   white-space: nowrap;
 }
 
-/* meta lines */
+/* meta */
 #education .edu-meta{
   margin: .22rem 0 0;
   line-height: 1.6;
@@ -359,7 +374,7 @@
   opacity: .75;
 }
 
-/* coursework list */
+/* coursework */
 #education .edu-list{
   margin: .35rem 0 0;
   padding: 0;
@@ -370,48 +385,20 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 0 0 6px 0;
+  margin-bottom: 6px;
   line-height: 1.6;
 }
 
 #education .edu-list li::before{
   content: "▶";
   color: var(--good);
-  line-height: 1;
-}
-/* =========================
-   EDUCATION GRID (SIDE BY SIDE)
-   ========================= */
-
-#education .edu-grid{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-  align-items: stretch;
 }
 
-#education .edu-card{
-  height: 100%;
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-}
-
-#education .edu-card:hover{
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-2);
-  border-color: rgba(96,165,250,.35);
-}
-
-/* Mobile fallback */
+/* Mobile */
 @media (max-width: 900px){
   #education .edu-grid{
     grid-template-columns: 1fr;
   }
-}
-
-/* Better logo centering */
-#education .edu-logo{
-  display: block;
-  margin: auto 0;
 }
 
 
