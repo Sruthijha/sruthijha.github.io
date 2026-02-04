@@ -302,6 +302,13 @@
   .edu-logo--rounded{
     border-radius: 16px;  /* tweak 12–20 */
   }
+.edu-logo-wrap{
+  width: 110px;          /* same as logo width */
+  display: flex;
+  align-items: center;   /* vertical center */
+  justify-content: center;
+  flex-shrink: 0;
+}
 
   .edu-divider{
     width: 1px;
@@ -642,6 +649,7 @@
 
   <!-- CU Boulder -->
   <div class="card edu-card">
+    <div class="edu-logo-wrap">
     <img src="assets/buffs.png" alt="CU Boulder Logo" class="edu-logo" />
     <div class="edu-divider"></div>
 
@@ -674,6 +682,7 @@
 
   <!-- Mahindra University -->
   <div class="card edu-card">
+    <div class="edu-logo-wrap">
     <img
       src="assets/MU.png"
       alt="Mahindra University Logo"
