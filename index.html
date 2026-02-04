@@ -284,10 +284,12 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
     align-items: stretch;
+    margin-bottom: 28px; /* clean breathing room before Experience */
   }
   @media (max-width: 980px){
     #education .edu-grid{ grid-template-columns: 1fr; }
   }
+
   #education .edu-card{
     margin-bottom: 0;
     height: 100%;
@@ -296,8 +298,8 @@
     flex-direction: column;
     background: linear-gradient(180deg, var(--panel), rgba(255,255,255,.01));
     position: relative;
-    z-index: 2;               /* ensures nothing overlays inside */
-    overflow: hidden;         /* hard clip any overlap */
+    z-index: 2;
+    overflow: hidden;
     transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
   }
   #education .edu-card:hover{
@@ -305,6 +307,7 @@
     box-shadow: var(--shadow-2);
     border-color: rgba(96,165,250,.35);
   }
+
   #education .edu-head{ margin-bottom: .95rem; }
   #education .edu-head-left{
     display: flex;
@@ -318,47 +321,62 @@
     min-width: 0;
   }
   #education .edu-school{
-    font-size: 1.22rem;
+    font-size: 1.18rem;
     font-weight: 900;
     letter-spacing: -0.02em;
-    line-height: 1.15;
+    line-height: 1.2;
     color: var(--accent);
     white-space: normal;
   }
   #education .edu-date{
-    margin-top: .18rem;
+    margin-top: .25rem;
     color: var(--muted);
     font-size: .9rem;
-    opacity: .8;
+    opacity: .85;
   }
+
+  /* padded/framed logos */
   #education .edu-logo{
     width: 44px;
     height: 44px;
+    padding: 6px;
     object-fit: contain;
     flex-shrink: 0;
     display: block;
-    background: transparent;
-    border: none;
-    border-radius: 10px;
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--line);
+    border-radius: 12px;
     box-shadow: none;
     filter: none;
   }
+  html[data-theme="light"] #education .edu-logo{ background:#fff; }
   #education .edu-logo--rounded{ border-radius: 12px; }
 
   #education .edu-meta{
-    margin: .28rem 0 0;
+    margin: .45rem 0 0;
     line-height: 1.55;
     color: var(--text);
   }
+
+  /* ✅ Align GPA + coursework across both cards:
+     reserve 2 lines for the degree row in BOTH cards */
+  #education .edu-card .edu-meta:first-of-type{
+    min-height: calc(1.55em * 2);
+    margin-top: .45rem;
+    margin-bottom: .25rem;
+  }
+
   #education .edu-label{
     color: var(--muted);
     font-weight: 600;
     opacity: .75;
   }
-  #education .edu-spacer{ height: 1.55em; }
+
+  /* spacer no longer needed (kept in HTML but disabled) */
+  #education .edu-spacer{ display:none; }
 
   #education .edu-list{
-    margin: .7rem 0 0;
+    margin: .65rem 0 0;
     padding: 0;
     list-style: none;
     display: grid;
@@ -376,9 +394,9 @@
     margin-top: 2px;
   }
 
-  /* ✅ true hard separation: prevents “Experience” from visually sitting inside Edu */
-  #education{ padding-bottom: 72px; }
-  #experience{ padding-top: 72px; }
+  /* clean separation without lines */
+  #education{ padding-bottom: calc(var(--section-pad) + 24px); }
+  #experience{ padding-top: var(--section-pad); }
 
   /* ===== Experience ===== */
   #experience{ max-width:980px; margin:auto; }
@@ -408,8 +426,7 @@
     margin-top:2px;
   }
 
-  /* Hover/active interaction for cards */
-  #education .card,
+  /* Hover/active interaction for cards (Education removed to avoid double-hover) */
   #experience .card,
   #projects .project-card,
   #about .card,
@@ -417,13 +434,11 @@
     transition: box-shadow .2s, transform .2s;
     will-change: transform;
   }
-  #education .card:hover,
   #experience .card:hover,
   #about .card:hover{
     box-shadow: var(--shadow-2);
     transform: translateY(-2px);
   }
-  #education .card:active,
   #experience .card:active,
   #about .card:active{
     transform: translateY(-1px) scale(0.997);
@@ -686,6 +701,7 @@
     flex-shrink: 0;
   }
 </style>
+
 </head>
 
 <body>
