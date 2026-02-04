@@ -282,21 +282,22 @@
 
 #education .edu-grid{
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr)); /* LEFT + RIGHT */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
   align-items: stretch;
 }
 
 /* stack on smaller screens */
 @media (max-width: 980px){
-  #education .edu-grid{
-    grid-template-columns: 1fr;
-  }
+  #education .edu-grid{ grid-template-columns: 1fr; }
 }
 
 #education .edu-card{
-  margin-bottom: 0; /* grid handles spacing */
+  margin-bottom: 0;              /* grid handles spacing */
   height: 100%;
+  padding: 1.35rem 1.5rem;       /* slightly tighter than global .card */
+  display: flex;
+  flex-direction: column;
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 
@@ -306,59 +307,66 @@
   border-color: rgba(96,165,250,.35);
 }
 
-/* header row */
+/* header: logo+school left, date right */
 #education .edu-head{
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-bottom: .75rem;
+  margin-bottom: .9rem;
 }
 
 #education .edu-head-left{
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: .75rem;
   min-width: 0;
 }
 
-/* logo next to name (small) */
-#education .edu-logo{
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
-  flex-shrink: 0;
-
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  filter: none;
-}
-
-#education .edu-logo--rounded{
-  border-radius: 10px;
-}
-
+/* keep the title from wrapping weirdly */
 #education .edu-school{
   font-size: 1.2rem;
   font-weight: 900;
   letter-spacing: -0.02em;
   line-height: 1.2;
   color: var(--accent);
+  max-width: 42ch;
 }
 
+/* date always top-right */
 #education .edu-date{
   color: var(--muted);
   font-size: .95rem;
   opacity: .85;
   white-space: nowrap;
+  margin-left: auto;
 }
 
-/* meta */
+/* logo sizing + consistency */
+#education .edu-logo{
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+
+  background: transparent;
+  border: none;
+  border-radius: 10px;           /* helps CU logo look less "floating" */
+  box-shadow: none;
+  filter: none;
+}
+
+/* Mahindra only (slightly more rounding if you like) */
+#education .edu-logo--rounded{
+  border-radius: 12px;
+}
+
+/* meta lines */
 #education .edu-meta{
-  margin: .25rem 0 0;
-  line-height: 1.6;
+  margin: .28rem 0 0;
+  line-height: 1.55;
   color: var(--text);
 }
 
@@ -368,20 +376,20 @@
   opacity: .75;
 }
 
-/* coursework list (single column to avoid weird spreading) */
+/* coursework list */
 #education .edu-list{
-  margin: .5rem 0 0;
+  margin: .7rem 0 0;
   padding: 0;
   list-style: none;
   display: grid;
-  gap: .35rem;
+  gap: .45rem;
 }
 
 #education .edu-list li{
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 #education .edu-list li::before{
@@ -389,6 +397,7 @@
   color: var(--good);
   margin-top: 2px;
 }
+
 
   /* ===== Experience ===== */
   #experience{ max-width:980px; margin:auto; }
