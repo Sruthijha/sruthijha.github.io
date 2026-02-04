@@ -277,19 +277,27 @@
   #skills-section .skill-tag:hover{ background: rgba(96,165,250,.12); box-shadow: var(--shadow); transform: translateY(-1px); }
 
 /* =========================
-   EDUCATION (wide horizontal cards)
+   EDUCATION (2 wide cards side-by-side)
    ========================= */
 
 #education .edu-grid{
   display: grid;
-  grid-template-columns: 1fr;   /* stack cards vertically */
-  gap: 1.25rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* LEFT + RIGHT */
+  gap: 1.5rem;
+  align-items: stretch;
 }
 
-/* card look + interaction */
+/* stack on smaller screens */
+@media (max-width: 980px){
+  #education .edu-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
 #education .edu-card{
+  margin-bottom: 0; /* grid handles spacing */
+  height: 100%;
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-  margin-bottom: 0; /* grid gap handles spacing */
 }
 
 #education .edu-card:hover{
@@ -302,21 +310,20 @@
 #education .edu-head{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   flex-wrap: wrap;
   margin-bottom: .75rem;
 }
 
-/* logo + school name group */
 #education .edu-head-left{
   display: flex;
   align-items: center;
   gap: .75rem;
-  min-width: 0; /* prevents overflow issues */
+  min-width: 0;
 }
 
-/* logo: small + neat */
+/* logo next to name (small) */
 #education .edu-logo{
   width: 44px;
   height: 44px;
@@ -333,16 +340,14 @@
   border-radius: 10px;
 }
 
-/* school */
 #education .edu-school{
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 900;
   letter-spacing: -0.02em;
   line-height: 1.2;
   color: var(--accent);
 }
 
-/* date */
 #education .edu-date{
   color: var(--muted);
   font-size: .95rem;
@@ -350,7 +355,7 @@
   white-space: nowrap;
 }
 
-/* meta lines */
+/* meta */
 #education .edu-meta{
   margin: .25rem 0 0;
   line-height: 1.6;
@@ -363,14 +368,13 @@
   opacity: .75;
 }
 
-/* coursework list */
+/* coursework list (single column to avoid weird spreading) */
 #education .edu-list{
   margin: .5rem 0 0;
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr)); /* uses width better */
-  gap: .25rem 1.25rem;
+  gap: .35rem;
 }
 
 #education .edu-list li{
@@ -383,15 +387,7 @@
 #education .edu-list li::before{
   content: "▶";
   color: var(--good);
-  line-height: 1.2;
   margin-top: 2px;
-}
-
-/* mobile: coursework becomes one column */
-@media (max-width: 700px){
-  #education .edu-list{
-    grid-template-columns: 1fr;
-  }
 }
 
   /* ===== Experience ===== */
