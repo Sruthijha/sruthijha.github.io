@@ -238,74 +238,77 @@
   color: var(--accent);
 }
 
-/* Icon row inside each group */
+/* ===== Skill icon grid ===== */
 .skill-icons{
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)); /* Python / SQL / R side-by-side */
-  gap: 1.1rem;
-  align-items: start;
-}
-@media (max-width: 520px){
-  .skill-icons{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  align-items: center;
 }
 
-/* Individual icon tile */
+/* each icon tile (optional but makes it look clean) */
 .skill-icon{
-  display: grid;
-  justify-items: center;
-  gap: .55rem;
-  padding: .9rem .75rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:.45rem;
+  padding: .9rem 1rem;
   border-radius: 18px;
-  border: 1px solid rgba(148,163,184,.10);
+  border: 1px solid rgba(148,163,184,.14);
   background: rgba(255,255,255,.02);
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
-  cursor: default;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
-/* image */
+/* icon size */
 .skill-icon img{
-  width: 30px;
-  height: 30px;
+  width: 34px;     /* smaller */
+  height: 34px;
   object-fit: contain;
-  filter:
-    drop-shadow(0 0 6px rgba(96,165,250,.45))
-    drop-shadow(0 0 14px rgba(96,165,250,.22));
-  transition: filter .18s ease, transform .18s ease;
+  transition: transform .18s ease, filter .18s ease;
 }
 
-/* label (unified!) */
+/* labels consistent */
 .skill-icon span{
   font-size: .95rem;
-  font-weight: 900;
+  font-weight: 800;
   color: var(--text);
-  line-height: 1.1;
-  transition: color .18s ease, text-shadow .18s ease, transform .18s ease;
+  transition: color .18s ease, text-shadow .18s ease;
 }
 
-/* Hover = highlight + stronger glow */
+/* ONLY for black icons -> turn them white */
+.skill-icon img.mono{
+  filter: brightness(0) invert(1);
+  opacity: .92;
+}
+
+/* hover highlight (your “lights up” effect) */
 .skill-icon:hover{
   transform: translateY(-2px);
-  border-color: rgba(96,165,250,.30);
-  background: rgba(96,165,250,.06);
-  box-shadow: 0 10px 26px rgba(0,0,0,.28);
+  border-color: rgba(96,165,250,.35);
+  box-shadow:
+    0 0 0 1px rgba(96,165,250,.10),
+    0 12px 30px rgba(0,0,0,.25);
 }
+
 .skill-icon:hover img{
   transform: translateY(-1px);
   filter:
     drop-shadow(0 0 10px rgba(96,165,250,.70))
     drop-shadow(0 0 22px rgba(96,165,250,.45));
 }
+
+/* keep mono icons white AND glowing */
+.skill-icon:hover img.mono{
+  filter:
+    brightness(0) invert(1)
+    drop-shadow(0 0 10px rgba(96,165,250,.70))
+    drop-shadow(0 0 22px rgba(96,165,250,.45));
+}
+
 .skill-icon:hover span{
   color: var(--accent);
   text-shadow: 0 0 10px rgba(96,165,250,.55);
-}
-
-/* Optional: if you want Python a tiny bit “featured”, keep this.
-   If not, delete this block. */
-.skill-icon.python img{
-  filter:
-    drop-shadow(0 0 8px rgba(96,165,250,.62))
-    drop-shadow(0 0 18px rgba(96,165,250,.38));
 }
 
 
@@ -921,20 +924,21 @@ html[data-theme="light"] .contact-item{
       <h3>Programming Languages</h3>
       <div class="skill-icons">
 
-        <div class="skill-icon python">
-          <img src="assets/python.png" alt="Python logo">
-          <span>Python</span>
-        </div>
-
         <div class="skill-icon">
-          <img src="assets/sql.png" alt="SQL logo">
-          <span>SQL</span>
-        </div>
+  <img class="mono" src="assets/python.png" alt="Python logo">
+  <span>Python</span>
+</div>
 
-        <div class="skill-icon">
-          <img src="assets/r.png" alt="R logo">
-          <span>R</span>
-        </div>
+<div class="skill-icon">
+  <img class="mono" src="assets/sql.png" alt="SQL logo">
+  <span>SQL</span>
+</div>
+
+<div class="skill-icon">
+  <img src="assets/r.png" alt="R logo">
+  <span>R</span>
+</div>
+
 
       </div>
     </article>
