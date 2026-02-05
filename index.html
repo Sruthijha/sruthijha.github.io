@@ -967,7 +967,7 @@ footer{
 }
 
 /* =========================================================
-   CONTACT FAB + MODAL (FINAL)
+   CONTACT FAB + MODAL (FINAL — clean + not-too-wide cards)
    ========================================================= */
 
 .contact-fab{
@@ -1030,9 +1030,9 @@ footer{
   place-items: center;
 }
 
-/* Modal */
+/* Modal (narrower so cards feel less wide) */
 .contact-modal{
-  width: min(880px, 92vw);
+  width: min(760px, 92vw);
   border-radius: 24px;
   padding: 22px 22px 26px;
   border: 1px solid rgba(148,163,184,.18);
@@ -1050,7 +1050,7 @@ footer{
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 18px;
-  border-bottom: none; /* no divider line */
+  border-bottom: none;
   padding-bottom: 0;
 }
 
@@ -1083,7 +1083,7 @@ footer{
 
 .contact-close:active{ transform: translateY(0) scale(.99); }
 
-/* Grid (single source of truth) */
+/* Grid */
 .contact-grid{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1108,10 +1108,6 @@ footer{
   text-decoration: none;
   box-shadow: none;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
-}
-.contact-item{
-  max-width: 420px;
-  margin-inline: auto;
 }
 
 .contact-item:hover{
@@ -1208,49 +1204,38 @@ footer{
 }
 
 /* =========================
-   COPY EMAIL HINT (INLINE)
+   COPY (next to Email label)
    ========================= */
 
-.email-item{
-  position: relative;
-}
-
-/* row that holds email + copy */
-.contact-main-row{
+.contact-toprow{
   display: flex;
   align-items: baseline;
+  justify-content: space-between;
   gap: 12px;
-  min-width: 0;
 }
 
-.contact-main-row .contact-main{
-  margin: 0;
-  flex: 1;
-  min-width: 0;
-}
-
-/* Copy text */
 .copy-hint{
   font-size: .85rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--muted);
   opacity: 0;
   white-space: nowrap;
-  transition: opacity .18s ease, color .18s ease;
+  transition: opacity .18s ease, color .18s ease, transform .18s ease;
+  transform: translateY(1px);
   pointer-events: none;
 }
 
-/* hover */
 .email-item:hover .copy-hint{
-  opacity: .9;
+  opacity: .95;
   color: var(--accent);
+  transform: translateY(0);
 }
 
-/* copied state */
 .email-item.copied .copy-hint{
   opacity: 1;
   color: var(--good);
 }
+
 
 /* =========================================================
    RESPONSIVE SPACING TWEAKS
@@ -1278,8 +1263,6 @@ footer{
     <span id="greetType"></span><span class="caret" aria-hidden="true"></span>
   </span>
 </div>
-
-
 
 
       <p class="hero-desc">
@@ -1907,68 +1890,82 @@ footer{
     </div>
 
     <!-- Contact Links -->
-<div class="contact-grid">
-  <!-- Email -->
-  <a class="contact-item email-item" href="mailto:sruthipagolu@gmail.com">
-    <div class="contact-left">
-      <div class="contact-ico">
-        <img src="assets/gmail.png" alt="Email icon" />
-      </div>
+<!-- CONTACT MODAL OVERLAY -->
+<div
+  id="contact-overlay"
+  class="contact-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="contact-title"
+>
+  <div class="contact-modal" role="document">
+    <div class="contact-modal-head">
+      <h3 id="contact-title" class="contact-modal-title">Get In Touch</h3>
+      <button id="contact-close" class="contact-close" type="button" aria-label="Close">×</button>
+    </div>
 
-      <div class="contact-text">
-        <div class="contact-toprow">
-          <p class="contact-kicker">Email</p>
-          <span class="copy-hint">Copy</span>
+    <div class="contact-grid">
+      <!-- Email (copy-on-click) -->
+      <a class="contact-item email-item" href="mailto:sruthipagolu@gmail.com">
+        <div class="contact-left">
+          <div class="contact-ico">
+            <img src="assets/gmail.png" alt="Email icon" />
+          </div>
+
+          <div class="contact-text">
+            <div class="contact-toprow">
+              <p class="contact-kicker">Email</p>
+              <span class="copy-hint">Copy</span>
+            </div>
+            <p class="contact-main">sruthipagolu@gmail.com</p>
+          </div>
         </div>
+        <div class="contact-arrow">→</div>
+      </a>
 
-        <p class="contact-main">sruthipagolu@gmail.com</p>
-      </div>
+      <!-- LinkedIn -->
+      <a class="contact-item" href="https://www.linkedin.com/in/sruthijha" target="_blank" rel="noopener noreferrer">
+        <div class="contact-left">
+          <div class="contact-ico">
+            <img src="assets/linkedin.png" alt="LinkedIn icon" />
+          </div>
+          <div class="contact-text">
+            <p class="contact-kicker">LinkedIn</p>
+            <p class="contact-main">Connect with me</p>
+          </div>
+        </div>
+        <div class="contact-arrow">→</div>
+      </a>
+
+      <!-- GitHub -->
+      <a class="contact-item" href="https://github.com/Sruthijha" target="_blank" rel="noopener noreferrer">
+        <div class="contact-left">
+          <div class="contact-ico">
+            <img src="assets/github.svg" alt="GitHub icon" />
+          </div>
+          <div class="contact-text">
+            <p class="contact-kicker">GitHub</p>
+            <p class="contact-main">View my code</p>
+          </div>
+        </div>
+        <div class="contact-arrow">→</div>
+      </a>
+
+      <!-- Medium -->
+      <a class="contact-item" href="https://medium.com/@sruthijha" target="_blank" rel="noopener noreferrer">
+        <div class="contact-left">
+          <div class="contact-ico">
+            <img src="assets/medium.png" alt="Medium icon" />
+          </div>
+          <div class="contact-text">
+            <p class="contact-kicker">Medium</p>
+            <p class="contact-main">Read my writing</p>
+          </div>
+        </div>
+        <div class="contact-arrow">→</div>
+      </a>
     </div>
-
-    <div class="contact-arrow">→</div>
-  </a>
-
-  <!-- LinkedIn -->
-  <a class="contact-item" href="https://www.linkedin.com/in/sruthijha" target="_blank" rel="noopener noreferrer">
-    <div class="contact-left">
-      <div class="contact-ico">
-        <img src="assets/linkedin.png" alt="LinkedIn icon" />
-      </div>
-      <div class="contact-text">
-        <p class="contact-kicker">LinkedIn</p>
-        <p class="contact-main">Connect with me</p>
-      </div>
-    </div>
-    <div class="contact-arrow">→</div>
-  </a>
-
-  <!-- GitHub -->
-  <a class="contact-item" href="https://github.com/Sruthijha" target="_blank" rel="noopener noreferrer">
-    <div class="contact-left">
-      <div class="contact-ico">
-        <img src="assets/github.svg" alt="GitHub icon" />
-      </div>
-      <div class="contact-text">
-        <p class="contact-kicker">GitHub</p>
-        <p class="contact-main">View my code</p>
-      </div>
-    </div>
-    <div class="contact-arrow">→</div>
-  </a>
-
-  <!-- Medium -->
-  <a class="contact-item" href="https://medium.com/@sruthijha" target="_blank" rel="noopener noreferrer">
-    <div class="contact-left">
-      <div class="contact-ico">
-        <img src="assets/medium.png" alt="Medium icon" />
-      </div>
-      <div class="contact-text">
-        <p class="contact-kicker">Medium</p>
-        <p class="contact-main">Read my writing</p>
-      </div>
-    </div>
-    <div class="contact-arrow">→</div>
-  </a>
+  </div>
 </div>
 
 
