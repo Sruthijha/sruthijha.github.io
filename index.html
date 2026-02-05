@@ -2137,20 +2137,49 @@
 
 </script>
 <script>
-  (function(){
+  <script>
+  (function () {
     const el = document.getElementById("heroType");
     if (!el) return;
 
-    const text = "HELLO, I’M 👋 SRUTHIJHA PAGOLU";
-    let i = 0;
+    const parts = [
+      { text: "Hello, I’m ", className: "" },
+      { text: "Sruthijha ", className: "" },
+      { text: "Pagolu", className: "text-accent" }
+    ];
 
-    function type(){
-      el.textContent = text.slice(0, i);
+    let p = 0, i = 0;
+    el.innerHTML = "";
+
+    function type() {
+      if (p >= parts.length) return;
+
+      const { text, className } = parts[p];
+      const current = text.slice(0, i);
+
+      // rebuild safely each tick
+      let html = "";
+      for (let k = 0; k < p; k++) {
+        const done = parts[k];
+        html += done.className ? `<span class="${done.className}">${done.text}</span>` : done.text;
+      }
+      html += className ? `<span class="${className}">${current}</span>` : current;
+      el.innerHTML = html;
+
       i++;
-      if (i <= text.length) setTimeout(type, 38);
+      if (i <= text.length) {
+        setTimeout(type, 34);
+      } else {
+        p++;
+        i = 0;
+        setTimeout(type, 120);
+      }
     }
+
     type();
   })();
+</script>
+
 </script>
 
 </body>
