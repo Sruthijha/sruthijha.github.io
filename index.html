@@ -2136,6 +2136,22 @@
 
 
 </script>
+<script>
+  (function(){
+    const el = document.getElementById("heroType");
+    if (!el) return;
+
+    const text = "HELLO, I’M 👋 SRUTHIJHA PAGOLU";
+    let i = 0;
+
+    function type(){
+      el.textContent = text.slice(0, i);
+      i++;
+      if (i <= text.length) setTimeout(type, 38);
+    }
+    type();
+  })();
+</script>
 
 </body>
 </html>
