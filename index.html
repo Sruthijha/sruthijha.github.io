@@ -2059,9 +2059,13 @@ footer{
   nameLine.className = "greet-name";
   nameLine.style.display = "block";
 
-  const first = document.createElement("span"); // Sruthijha
-  const last  = document.createElement("span"); // Pagolu
-  last.className = "text-accent";
+ const first = document.createElement("span"); // Sruthijha
+first.textContent = "Sruthijha ";
+
+const last = document.createElement("span"); // Pagolu
+last.textContent = "Pagolu";
+last.classList.add("text-accent");
+
 
 
   nameLine.appendChild(first);
