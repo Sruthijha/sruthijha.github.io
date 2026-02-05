@@ -967,7 +967,7 @@ footer{
 }
 
 /* =========================================================
-   CONTACT FAB + MODAL (FINAL + SIMPLE)
+   CONTACT FAB + MODAL (FINAL + SIMPLE)  ✅ CLEAN
    ========================================================= */
 
 .contact-fab{
@@ -1020,7 +1020,7 @@ footer{
   z-index: 1000;
   display: none;
   padding: 18px;
-  background: rgba(0,0,0,.68);
+  background: rgba(0,0,0,.74);   /* slightly darker = modal pops */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -1030,22 +1030,11 @@ footer{
   place-items: center;
 }
 
-/* Modal (MAKE IT LESS WIDE HERE) */
+/* Modal (less wide + nicer glow) */
 .contact-modal{
-  width: min(760px, 92vw); /* <- tighten modal width */
-  border-radius: 24px;
-  padding: 22px 22px 26px;
-  border: 1px solid rgba(148,163,184,.18);
-  background:
-    radial-gradient(900px 420px at 18% 10%, rgba(96,165,250,.10), transparent 60%),
-    linear-gradient(180deg, rgba(11,15,23,.92), rgba(11,15,23,.80));
-  box-shadow:
-    0 22px 70px rgba(0,0,0,.55),
-    0 0 50px rgba(96,165,250,.08);
-}
-
-.contact-modal{
+  width: min(760px, 92vw);
   border-radius: 26px;
+  padding: 22px 22px 26px;
   border: 1px solid rgba(148,163,184,.16);
   background:
     radial-gradient(900px 420px at 18% 10%, rgba(96,165,250,.14), transparent 60%),
@@ -1107,8 +1096,8 @@ footer{
 /* Cards */
 .contact-item{
   border-radius: 18px;
-  border: 1px solid rgba(148,163,184,.16);
-  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(148,163,184,.14);
+  background: rgba(255,255,255,.025);
   padding: 16px;
   display: flex;
   align-items: center;
@@ -1116,23 +1105,13 @@ footer{
   gap: 14px;
   color: var(--text);
   text-decoration: none;
-  box-shadow: none;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
 }
 
 .contact-item:hover{
   transform: translateY(-2px);
-  background: rgba(96,165,250,.07);
-  border-color: rgba(96,165,250,.55);
-  box-shadow: 0 12px 34px rgba(0,0,0,.35), 0 0 22px rgba(96,165,250,.10);
-}
-.contact-item{
-  background: rgba(255,255,255,.025);
-  border-color: rgba(148,163,184,.14);
-}
-
-.contact-item:hover{
   background: rgba(96,165,250,.06);
+  border-color: rgba(96,165,250,.55);
   box-shadow:
     0 18px 46px rgba(0,0,0,.45),
     0 0 0 1px rgba(96,165,250,.20) inset,
@@ -1157,6 +1136,14 @@ footer{
   display: grid;
   place-items: center;
   flex-shrink: 0;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.contact-item:hover .contact-ico{
+  box-shadow:
+    0 0 0 2px rgba(96,165,250,.18),
+    0 0 18px rgba(96,165,250,.22);
+  transform: translateY(-1px);
 }
 
 .contact-ico img{
@@ -1201,12 +1188,6 @@ footer{
   transform: translateX(4px);
   color: var(--accent);
   opacity: 1;
-}
-.contact-item:hover .contact-ico{
-  box-shadow:
-    0 0 0 2px rgba(96,165,250,.18),
-    0 0 18px rgba(96,165,250,.22);
-  transform: translateY(-1px);
 }
 
 /* =========================
