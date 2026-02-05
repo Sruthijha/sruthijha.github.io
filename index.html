@@ -527,23 +527,6 @@
 .type-done .caret{
   display: none !important;
 }
-/* Waving hand animation (continuous, subtle) */
-.wave{
-  display: inline-block;
-  transform-origin: 70% 70%;
-  animation: waveAnim 2.4s ease-in-out infinite;
-}
-
-@keyframes waveAnim{
-  0%   { transform: rotate(0deg); }
-  10%  { transform: rotate(14deg); }
-  20%  { transform: rotate(-8deg); }
-  30%  { transform: rotate(12deg); }
-  40%  { transform: rotate(-4deg); }
-  50%  { transform: rotate(10deg); }
-  60%,
-  100% { transform: rotate(0deg); }
-}
 
 
  /* =========================================================
@@ -1281,11 +1264,8 @@
   <span class="typewrap" id="greetWrap">
     <span id="greetType"></span><span class="caret" aria-hidden="true"></span>
   </span>
-  <span class="greet-small">
-  Hello <span class="wave" aria-hidden="true">👋</span> I’m
-</span>
-
 </div>
+
 
 
 
@@ -2130,48 +2110,43 @@
   // =========================
   // HERO NAME TYPEWRITER (types once, keeps Pagolu blue, then hides caret)
   // =========================
-
-
 (function(){
   const wrap = document.getElementById("greetWrap");
   const out  = document.getElementById("greetType");
   if(!wrap || !out) return;
 
   const parts = [
-    { html: `<span class="greet-small">Hello 👋 I’m </span>` },
+    { html: `<span class="greet-small">HELLO <span class="wave" aria-hidden="true">👋</span> I’M </span>` },
     { html: `<span class="greet-name">Sruthijha <span class="accent">Pagolu</span></span>` }
   ];
 
   let part = 0, char = 0;
 
-  function type(){
+  function step(){
     if(part >= parts.length){
-      wrap.classList.add("type-done");
+      wrap.classList.add("type-done"); // hides cursor
       return;
     }
 
     const current = parts[part].html;
-    const slice = current.slice(0, char);
 
     let done = "";
-    for(let i = 0; i < part; i++){
-      done += parts[i].html;
-    }
+    for(let i = 0; i < part; i++) done += parts[i].html;
 
-    out.innerHTML = done + slice;
+    out.innerHTML = done + current.slice(0, char);
 
     char++;
 
     if(char <= current.length){
-      setTimeout(type, 48);   // ⬅️ SLOWER typing speed (was ~34)
+      setTimeout(step, 55);   // slower + aesthetic
     }else{
       part++;
       char = 0;
-      setTimeout(type, 260);  // pause before name appears
+      setTimeout(step, 260);
     }
   }
 
-  type();
+  step();
 })();
 
 </script>
