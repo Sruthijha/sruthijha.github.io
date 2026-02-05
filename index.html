@@ -967,9 +967,10 @@ footer{
 }
 
 /* =========================================================
-   CONTACT FAB + MODAL (FINAL + SIMPLE)  ✅ CLEAN
+   CONTACT FAB + MODAL (AESTHETICS UPGRADE — SAME LAYOUT)
    ========================================================= */
 
+/* FAB (same, slightly cleaner glow) */
 .contact-fab{
   position: fixed;
   right: 22px;
@@ -979,72 +980,56 @@ footer{
   height: 62px;
   border-radius: 999px;
   border: 1px solid rgba(96,165,250,.45);
-  background: rgba(96,165,250,.18);
+  background: rgba(96,165,250,.16);
   display: grid;
   place-items: center;
   cursor: pointer;
   box-shadow:
     0 0 0 6px rgba(96,165,250,.06),
-    0 0 22px rgba(96,165,250,.35),
+    0 0 26px rgba(96,165,250,.22),
     var(--shadow-2);
   transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
 }
-
 .contact-fab:hover{
   transform: translateY(-2px);
-  filter: brightness(1.05);
+  filter: brightness(1.06);
   box-shadow:
     0 0 0 8px rgba(96,165,250,.08),
-    0 0 28px rgba(96,165,250,.45),
+    0 0 34px rgba(96,165,250,.28),
     var(--shadow-2);
 }
-
 .contact-fab:active{ transform: translateY(-1px) scale(.99); }
+.contact-fab svg{ width: 26px; height: 26px; fill: #fff; opacity: .95; }
 
-.contact-fab svg{
-  width: 26px;
-  height: 26px;
-  fill: #fff;
-  opacity: .95;
-}
-
-.contact-fab:focus-visible{
-  outline: 2px solid rgba(96,165,250,.6);
-  outline-offset: 4px;
-}
-
-/* Overlay */
+/* Overlay (slightly darker + richer blur) */
 .contact-overlay{
   position: fixed;
   inset: 0;
   z-index: 1000;
   display: none;
   padding: 18px;
-  background: rgba(0,0,0,.74);   /* slightly darker = modal pops */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(0,0,0,.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
+.contact-overlay.open{ display: grid; place-items: center; }
 
-.contact-overlay.open{
-  display: grid;
-  place-items: center;
-}
-
-/* Modal (less wide + nicer glow) */
+/* Modal (more depth + inner highlight) */
 .contact-modal{
-  width: min(760px, 92vw);
+  width: min(880px, 92vw);
   border-radius: 26px;
   padding: 22px 22px 26px;
-  border: 1px solid rgba(148,163,184,.16);
+  border: 1px solid rgba(148,163,184,.18);
   background:
-    radial-gradient(900px 420px at 18% 10%, rgba(96,165,250,.14), transparent 60%),
-    radial-gradient(700px 380px at 85% 0%, rgba(167,139,250,.08), transparent 55%),
-    linear-gradient(180deg, rgba(11,15,23,.94), rgba(11,15,23,.82));
+    radial-gradient(900px 520px at 16% 6%, rgba(96,165,250,.14), transparent 62%),
+    radial-gradient(820px 520px at 92% 0%, rgba(167,139,250,.10), transparent 60%),
+    linear-gradient(180deg, rgba(12,16,26,.92), rgba(8,10,16,.84));
   box-shadow:
-    0 24px 80px rgba(0,0,0,.62),
+    0 26px 90px rgba(0,0,0,.65),
     0 0 0 1px rgba(255,255,255,.04) inset;
 }
 
+/* Header */
 .contact-modal-head{
   display: flex;
   align-items: flex-start;
@@ -1052,18 +1037,18 @@ footer{
   gap: 12px;
   margin-bottom: 18px;
 }
-
 .contact-modal-title{
   margin: 0;
-  font-size: clamp(22px, 3vw, 32px);
+  font-size: clamp(22px, 3vw, 34px);
   letter-spacing: -0.02em;
 }
 
+/* Close button (sleeker) */
 .contact-close{
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 14px;
-  border: 1px solid rgba(148,163,184,.16);
+  border: 1px solid rgba(148,163,184,.18);
   background: rgba(255,255,255,.04);
   color: var(--text);
   cursor: pointer;
@@ -1071,54 +1056,56 @@ footer{
   place-items: center;
   font-size: 22px;
   line-height: 1;
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
 }
-
 .contact-close:hover{
-  border-color: rgba(96,165,250,.45);
-  box-shadow: 0 0 0 2px rgba(96,165,250,.18);
   transform: translateY(-1px);
+  border-color: rgba(96,165,250,.35);
+  background: rgba(96,165,250,.08);
+  box-shadow: 0 0 0 3px rgba(96,165,250,.10);
 }
-
 .contact-close:active{ transform: translateY(0) scale(.99); }
 
-/* Grid */
+/* Grid (unchanged) */
 .contact-grid{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
-
 @media (max-width: 680px){
   .contact-grid{ grid-template-columns: 1fr; }
 }
 
-/* Cards */
+/* Cards (better contrast + inner highlight) */
 .contact-item{
   border-radius: 18px;
-  border: 1px solid rgba(148,163,184,.14);
-  background: rgba(255,255,255,.025);
-  padding: 16px;
+  border: 1px solid rgba(148,163,184,.16);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  padding: 16px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 14px;
   color: var(--text);
   text-decoration: none;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.03) inset;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
 }
 
+/* Hover: controlled glow (not too much) */
 .contact-item:hover{
   transform: translateY(-2px);
-  background: rgba(96,165,250,.06);
-  border-color: rgba(96,165,250,.55);
+  border-color: rgba(96,165,250,.32);
+  background:
+    linear-gradient(180deg, rgba(96,165,250,.08), rgba(255,255,255,.02));
   box-shadow:
-    0 18px 46px rgba(0,0,0,.45),
-    0 0 0 1px rgba(96,165,250,.20) inset,
-    0 0 22px rgba(96,165,250,.10);
+    0 14px 42px rgba(0,0,0,.42),
+    0 0 0 1px rgba(96,165,250,.14) inset,
+    0 0 18px rgba(96,165,250,.10);
 }
-
-.contact-item:active{ transform: scale(.985); }
+.contact-item:active{ transform: translateY(-1px) scale(.99); }
 
 .contact-left{
   display: flex;
@@ -1127,6 +1114,7 @@ footer{
   min-width: 0;
 }
 
+/* Icon box (cleaner, slightly brighter on hover) */
 .contact-ico{
   width: 46px;
   height: 46px;
@@ -1136,16 +1124,8 @@ footer{
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  transition: transform .18s ease, box-shadow .18s ease;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
 }
-
-.contact-item:hover .contact-ico{
-  box-shadow:
-    0 0 0 2px rgba(96,165,250,.18),
-    0 0 18px rgba(96,165,250,.22);
-  transform: translateY(-1px);
-}
-
 .contact-ico img{
   width: 26px;
   height: 26px;
@@ -1154,9 +1134,16 @@ footer{
   opacity: .95;
   display: block;
 }
+.contact-item:hover .contact-ico{
+  transform: translateY(-1px);
+  background: rgba(96,165,250,.16);
+  border-color: rgba(96,165,250,.35);
+  box-shadow:
+    0 0 0 2px rgba(96,165,250,.14),
+    0 0 18px rgba(96,165,250,.18);
+}
 
 .contact-text{ min-width: 0; }
-
 .contact-kicker{
   margin: 0;
   color: var(--muted);
@@ -1165,61 +1152,47 @@ footer{
   opacity: .78;
   letter-spacing: .02em;
 }
-
 .contact-main{
   margin: 4px 0 0;
   font-size: 1.02rem;
   font-weight: 900;
-  color: var(--text);
+  color: rgba(229,231,235,.96);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+/* Arrow (more “intent”) */
 .contact-arrow{
   font-size: 22px;
-  color: var(--muted);
-  opacity: .75;
+  color: rgba(229,231,235,.45);
+  opacity: .9;
   flex-shrink: 0;
-  transition: transform .18s ease, color .18s ease, opacity .18s ease;
+  transition: transform .18s ease, color .18s ease;
 }
-
 .contact-item:hover .contact-arrow{
-  transform: translateX(4px);
-  color: var(--accent);
-  opacity: 1;
+  transform: translateX(5px);
+  color: rgba(147,197,253,.95);
 }
 
-/* =========================
-   COPY HINT (beside "Email")
-   ========================= */
-
+/* Copy hint beside Email */
 .contact-toprow{
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 12px;
 }
-
 .copy-hint{
   font-size: .85rem;
   font-weight: 800;
-  color: var(--muted);
+  color: rgba(229,231,235,.45);
   opacity: 0;
   white-space: nowrap;
   transition: opacity .18s ease, color .18s ease;
   pointer-events: none;
 }
-
-.email-item:hover .copy-hint{
-  opacity: .9;
-  color: var(--accent);
-}
-
-.email-item.copied .copy-hint{
-  opacity: 1;
-  color: var(--good);
-}
+.email-item:hover .copy-hint{ opacity: 1; color: rgba(147,197,253,.95); }
+.email-item.copied .copy-hint{ opacity: 1; color: var(--good); }
 
 /* =========================================================
    RESPONSIVE SPACING TWEAKS
