@@ -929,20 +929,22 @@ section > :last-child{ margin-bottom: 0; }
 
 .achievement-list strong{ font-weight: 600; }
 
-a.accent{
+/* ACCENT — works for both <span class="accent"> and <a class="accent"> */
+.accent,
+.accent:visited{
   color: var(--accent);
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
-  transition: color .15s ease, text-shadow .15s ease, transform .15s ease;
 }
 
-a.accent:hover,
-a.accent:focus-visible{
+/* Hover glow/pop (no underline) */
+.accent:hover,
+.accent:focus-visible{
   color: #93c5fd;
   text-shadow: 0 0 8px rgba(96,165,250,.6), 0 0 16px rgba(96,165,250,.35);
-  transform: translateX(2px);
   outline: none;
 }
+
 
 /* =========================================================
    FOOTER
