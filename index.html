@@ -1030,6 +1030,50 @@ a.accent:focus-visible{
   outline: none;
 }
 
+/* ===== CONTACT ICON POP (FINAL) ===== */
+
+.contact-ico{
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  border: 1px solid rgba(96,165,250,.35);
+  background: rgba(96,165,250,.12);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition:
+    background .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease;
+}
+
+.contact-ico img{
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: .95;
+}
+
+.contact-item:hover .contact-ico,
+.contact-item:focus-visible .contact-ico{
+  background: rgba(96,165,250,.22);
+  box-shadow:
+    0 0 0 2px rgba(96,165,250,.25),
+    0 0 22px rgba(96,165,250,.35);
+  transform: translateY(-1px);
+}
+
+.contact-item:hover .contact-arrow,
+.contact-item:focus-visible .contact-arrow{
+  transform: translateX(4px);
+  color: var(--accent);
+}
+
+.contact-item,
+.contact-item:hover{
+  text-decoration: none;
+}
 
 
 </style>
