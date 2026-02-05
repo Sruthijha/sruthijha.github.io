@@ -1210,6 +1210,8 @@ footer{
 .email-item{ position: relative; }
 
 .copy-hint{
+  display: inline-block;
+  margin-top: 6px;
   font-size: .85rem;
   font-weight: 700;
   color: var(--muted);
@@ -1229,8 +1231,6 @@ footer{
   opacity: 1;
   color: var(--good);
 }
-
-.contact-modal{ outline: 3px solid red !important; }
 
 /* =========================================================
    RESPONSIVE SPACING TWEAKS
@@ -1887,7 +1887,7 @@ footer{
     </div>
 
     <!-- Contact Links -->
-    <div class="contact-grid">
+<div class="contact-grid">
   <!-- Email -->
   <a class="contact-item email-item" href="mailto:sruthipagolu@gmail.com">
     <div class="contact-left">
@@ -1897,76 +1897,55 @@ footer{
       <div class="contact-text">
         <p class="contact-kicker">Email</p>
         <p class="contact-main">sruthipagolu@gmail.com</p>
+        <span class="copy-hint">Copy</span>
       </div>
     </div>
+    <div class="contact-arrow">→</div>
+  </a>
 
-    <!-- subtle copy affordance -->
-    <span class="copy-hint">Copy</span>
+  <!-- LinkedIn -->
+  <a class="contact-item" href="https://www.linkedin.com/in/sruthijha" target="_blank" rel="noopener noreferrer">
+    <div class="contact-left">
+      <div class="contact-ico">
+        <img src="assets/linkedin.png" alt="LinkedIn icon" />
+      </div>
+      <div class="contact-text">
+        <p class="contact-kicker">LinkedIn</p>
+        <p class="contact-main">Connect with me</p>
+      </div>
+    </div>
+    <div class="contact-arrow">→</div>
+  </a>
 
+  <!-- GitHub -->
+  <a class="contact-item" href="https://github.com/Sruthijha" target="_blank" rel="noopener noreferrer">
+    <div class="contact-left">
+      <div class="contact-ico">
+        <img src="assets/github.svg" alt="GitHub icon" />
+      </div>
+      <div class="contact-text">
+        <p class="contact-kicker">GitHub</p>
+        <p class="contact-main">View my code</p>
+      </div>
+    </div>
+    <div class="contact-arrow">→</div>
+  </a>
+
+  <!-- Medium -->
+  <a class="contact-item" href="https://medium.com/@sruthijha" target="_blank" rel="noopener noreferrer">
+    <div class="contact-left">
+      <div class="contact-ico">
+        <img src="assets/medium.png" alt="Medium icon" />
+      </div>
+      <div class="contact-text">
+        <p class="contact-kicker">Medium</p>
+        <p class="contact-main">Read my writing</p>
+      </div>
+    </div>
     <div class="contact-arrow">→</div>
   </a>
 </div>
 
-
-      <!-- LinkedIn -->
-      <a
-        class="contact-item"
-        href="https://www.linkedin.com/in/sruthijha"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div class="contact-left">
-          <div class="contact-ico">
-            <img src="assets/linkedin.png" alt="LinkedIn icon" />
-          </div>
-          <div class="contact-text">
-            <p class="contact-kicker">LinkedIn</p>
-            <p class="contact-main">Connect with me</p>
-          </div>
-        </div>
-        <div class="contact-arrow">→</div>
-      </a>
-
-      <!-- GitHub -->
-      <a
-        class="contact-item"
-        href="https://github.com/Sruthijha"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div class="contact-left">
-          <div class="contact-ico">
-            <img src="assets/github.svg" alt="GitHub icon" />
-          </div>
-          <div class="contact-text">
-            <p class="contact-kicker">GitHub</p>
-            <p class="contact-main">View my code</p>
-          </div>
-        </div>
-        <div class="contact-arrow">→</div>
-      </a>
-
-      <!-- Medium -->
-      <a
-        class="contact-item"
-        href="https://medium.com/@sruthijha"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div class="contact-left">
-          <div class="contact-ico">
-            <img src="assets/medium.png" alt="Medium icon" />
-          </div>
-          <div class="contact-text">
-            <p class="contact-kicker">Medium</p>
-            <p class="contact-main">Read my writing</p>
-          </div>
-        </div>
-        <div class="contact-arrow">→</div>
-      </a>
-    </div>
-  </div>
-</div>
 
 
 <!-- SCRIPTS -->
