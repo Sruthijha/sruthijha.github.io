@@ -162,6 +162,7 @@
     nav a{ padding: .75rem; }
   }
 
+
   /* =========================================================
      SECTIONS / TYPOGRAPHY / CARDS / GRIDS
      ========================================================= */
@@ -232,70 +233,171 @@
      HERO (ONLY essentials kept)
      ========================================================= */
 
+  /* =========================================================
+   HERO (LOCKED — container + card + wave + icons + no purple)
+   ========================================================= */
+
+#hero{
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+/* keeps hero centered like before */
+.hero{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* the actual card (this is what you're missing visually) */
+.hero-card{
+  padding: 56px 56px;
+  border-radius: 28px;
+
+  background:
+    radial-gradient(900px 420px at 20% 10%, rgba(96,165,250,.12), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 0 60px rgba(96,165,250,.08);
+
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: center;
+  gap: 44px;
+}
+
+/* typography */
+.hero-title{
+  margin: 0;
+  font-size: clamp(46px, 5vw, 76px);
+  line-height: 1.03;
+  letter-spacing: -0.02em;
+}
+
+.text-accent{
+  color: var(--accent);
+  text-shadow: 0 0 18px rgba(96,165,250,.22);
+}
+
+.hero-desc{
+  margin: 14px 0 0;
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(229,231,235,.78);
+  max-width: 62ch;
+}
+
+.hero-role{
+  display: inline-block;
+  font-weight: 750;
+  color: rgba(229,231,235,.92);
+  margin-bottom: 8px;
+}
+
+/* wave animation */
+.wave{
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: waveWiggle 2.2s ease-in-out infinite;
+}
+@keyframes waveWiggle{
+  0%, 50%, 100% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(12deg); }
+  40% { transform: rotate(-4deg); }
+}
+
+/* typewriter caret */
+.typewrap{ display: inline-block; }
+.caret{
+  display:inline-block;
+  width: 10px;
+  margin-left: 2px;
+  border-right: 2px solid rgba(96,165,250,.95);
+  animation: blink 1s step-end infinite;
+  height: 1em;
+  transform: translateY(2px);
+}
+@keyframes blink{ 50%{ opacity: 0; } }
+
+/* actions row */
+.hero-actions{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+/* Resume button: force theme colors, prevent purple */
+.hero-actions .btn.primary,
+.hero-actions .btn.primary:visited{
+  background: rgba(96,165,250,.18);
+  border: 1px solid rgba(96,165,250,.35);
+  color: #eaf2ff;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(0,0,0,.28);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.hero-actions .btn.primary:hover{
+  transform: translateY(-2px);
+  background: rgba(96,165,250,.22); /* stays blue */
+  border-color: rgba(96,165,250,.55);
+  box-shadow: 0 14px 32px rgba(0,0,0,.35), 0 0 22px rgba(96,165,250,.20);
+}
+
+/* ICONS (LOCKED like you wanted: clean, no circles) */
+.hero-links{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 6px;
+}
+.hero-links a,
+.hero-links a:visited{
+  color: rgba(229,231,235,.78);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  transition: transform .18s ease, color .18s ease, filter .18s ease;
+}
+.hero-links a:hover{
+  color: var(--accent);
+  transform: translateY(-2px);
+  filter: drop-shadow(0 0 10px rgba(96,165,250,.35));
+}
+.hero-links i{ font-size: 18px; line-height: 1; }
+
+/* photo */
+.hero-photo{
+  display: grid;
+  place-items: center;
+}
+.hero-photo img{
+  width: min(380px, 36vw);
+  aspect-ratio: 1/1;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 8px solid rgba(255,255,255,.03);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 18px 46px rgba(0,0,0,.35);
+}
+
+/* responsive */
+@media (max-width: 900px){
   .hero-card{
-    display: grid;
-    grid-template-columns: 1.25fr .75fr;
-    align-items: center;
-    gap: 42px;
-    padding: 56px 56px;
+    grid-template-columns: 1fr;
+    padding: 34px 22px;
+    gap: 26px;
+    border-radius: 24px;
   }
-
-  .hero-copy{ max-width: 680px; }
-
-  .hero-title{
-    font-size: clamp(44px, 5vw, 72px);
-    line-height: 1.05;
-  }
-
-  .hero-desc{
-    font-size: 17px;
-    line-height: 1.65;
-    max-width: 60ch;
-    margin-top: 14px;
-  }
-
-  .hero-role{
-    display: inline-block;
-    font-weight: 750;
-    color: rgba(229,231,235,.92);
-    margin-bottom: 8px;
-  }
-
-  .typewrap{ display: inline-block; color: rgba(229,231,235,.80); }
-
-  .caret{
-    display: inline-block;
-    width: 10px;
-    margin-left: 2px;
-    border-right: 2px solid rgba(96,165,250,.95);
-    animation: blink 1s step-end infinite;
-    height: 1em;
-    transform: translateY(2px);
-  }
-
-  @keyframes blink{
-    50%{ opacity: 0; }
-  }
-
-  .hero-photo{ display: grid; place-items: center; }
-
-  .hero-photo img{
-    width: min(360px, 34vw);
-    aspect-ratio: 1/1;
-    border-radius: 999px;
-    object-fit: cover;
-  }
-
-  @media (max-width: 900px){
-    .hero-card{
-      grid-template-columns: 1fr;
-      padding: 34px 22px;
-      gap: 26px;
-    }
-    .hero-photo img{
-      width: min(280px, 70vw);
-    }
-  }
+  .hero-photo img{ width: min(300px, 74vw); }
+  .hero-links{ padding-left: 0; }
+}
 
   /* =========================================================
      SKILLS (LOCKED)
