@@ -853,6 +853,23 @@ html[data-theme="light"] .contact-item{
     0 0 0 2px rgba(96,165,250,.25),
     var(--shadow-2);
 }
+/* ACHIEVEMENTS */
+.achievement-card {
+  padding: 24px;
+}
+
+.achievement-list {
+  margin: 0;
+  padding-left: 1.2rem;          /* ensures bullets sit nicely */
+  list-style: disc;
+  list-style-position: outside;  /* bullets outside = cleaner */
+  display: grid;
+  gap: 12px;                      /* space between bullets */
+}
+
+.achievement-list li {
+  line-height: 1.6;               /* fixes the “stacked” feel */
+}
 
 
 </style>
@@ -1294,30 +1311,32 @@ html[data-theme="light"] .contact-item{
     <article class="card achievement-card">
       <ul class="achievement-list">
         <li>
-          Recipient of the <strong>Institute Merit Scholarship</strong> at
-          <strong>Mahindra University</strong>, awarded for academic excellence during
-          <strong>2019–2023</strong>, with a total scholarship amount of <strong>₹100,000</strong>.
+          Recipient of the <strong>Institute Merit Scholarship</strong> at <strong>Mahindra University</strong>
+          (<strong>2019–2023</strong>), total scholarship amount <strong>₹100,000</strong>.
         </li>
 
         <li>
           Earned a <strong>Licentiate Certification in Insurance</strong> from the
-          <strong>Insurance Institute of India (III)</strong>, demonstrating formal training in
-          insurance and risk management.
+          <strong>Insurance Institute of India (III)</strong>.
         </li>
 
         <li>
           Achieved <strong>95th percentile</strong> in <strong>JEE Main</strong> and secured
-          <strong>AIR 4,000</strong> in <strong>EAMCET Telangana</strong>.
+          <strong>All India Rank 4,000</strong> in <strong>EAMCET Telangana</strong>.
         </li>
 
         <li>
-          Awarded a <strong>₹175,000 FIITJEE Talent Reward Scholarship</strong> for achieving
-          <strong>100% in FTRE (FIITJEE Talent Reward Exam)</strong> during higher secondary education.
+          Awarded a <strong>₹175,000 FIITJEE Talent Reward Scholarship</strong> for scoring
+          <strong>100% in FTRE</strong> (FIITJEE Talent Reward Exam).
         </li>
       </ul>
     </article>
   </div>
 </section>
+
+
+
+
 
   <footer>
     <div class="container">
