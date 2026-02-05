@@ -858,17 +858,25 @@ html[data-theme="light"] .contact-item{
   padding: 24px;
 }
 
+/* If you already have global list resets, this safely overrides just this list */
 .achievement-list {
   margin: 0;
-  padding-left: 1.2rem;          /* ensures bullets sit nicely */
+  padding-left: 1.2rem;
   list-style: disc;
-  list-style-position: outside;  /* bullets outside = cleaner */
+  list-style-position: outside;
+
   display: grid;
-  gap: 12px;                      /* space between bullets */
+  gap: 14px;         /* space between bullets */
 }
 
 .achievement-list li {
-  line-height: 1.6;               /* fixes the “stacked” feel */
+  line-height: 1.65; /* fixes stacking/congestion */
+  max-width: 70ch;   /* prevents “wall of text” */
+}
+
+/* Theme-consistent bullets (muted accent) */
+.achievement-list li::marker {
+  color: rgba(96, 165, 250, 0.85); /* soft accent blue; tweak if you have a variable */
 }
 
 
@@ -1312,7 +1320,7 @@ html[data-theme="light"] .contact-item{
       <ul class="achievement-list">
         <li>
           Recipient of the <strong>Institute Merit Scholarship</strong> at <strong>Mahindra University</strong>
-          (<strong>2019–2023</strong>), total scholarship amount <strong>₹100,000</strong>.
+          (<strong>2019–2023</strong>), awarded <strong>₹100,000 per semester</strong> for academic excellence.
         </li>
 
         <li>
