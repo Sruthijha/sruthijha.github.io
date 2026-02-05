@@ -618,13 +618,27 @@ html[data-theme="light"] .project-card p{ color: #111827; }
   margin-bottom: .2rem;
 }
 
-.project-card a:hover{ text-decoration: underline; }
-
-.project-card a:focus-visible{
-  outline: 2px solid rgba(96,165,250,.6);
-  outline-offset: 2px;
+/* ===== Project Links (FINAL) ===== */
+.project-card .links a{
+  color: var(--accent);
+  font-weight: 700;
   text-decoration: none;
+  transition:
+    color .15s ease,
+    text-shadow .15s ease,
+    transform .15s ease;
 }
+
+.project-card .links a:hover,
+.project-card .links a:focus-visible{
+  color: #93c5fd;
+  text-shadow:
+    0 0 8px rgba(96,165,250,.6),
+    0 0 16px rgba(96,165,250,.35);
+  transform: translateX(2px);
+  outline: none;
+}
+
 
 @media (prefers-reduced-motion: reduce){
   .project-card,
