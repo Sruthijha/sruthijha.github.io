@@ -238,71 +238,71 @@
   color: var(--accent);
 }
 
-/* ===== Skill icon grid ===== */
+/* ===== Skill icons ===== */
+
 .skill-icons{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   gap: 1rem;
-  align-items: center;
 }
 
-/* each icon tile (optional but makes it look clean) */
+/* Card */
 .skill-icon{
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   gap:.45rem;
-  padding: .9rem 1rem;
+  padding: .85rem 1rem;
   border-radius: 18px;
-  border: 1px solid rgba(148,163,184,.14);
+  border: 1px solid var(--line);
   background: rgba(255,255,255,.02);
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
-/* icon size */
+/* Icon size (smaller, cleaner) */
 .skill-icon img{
-  width: 34px;     /* smaller */
-  height: 34px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
   transition: transform .18s ease, filter .18s ease;
 }
 
-/* labels consistent */
+/* Labels */
 .skill-icon span{
-  font-size: .95rem;
+  font-size: .9rem;
   font-weight: 800;
   color: var(--text);
   transition: color .18s ease, text-shadow .18s ease;
 }
 
-/* ONLY for black icons -> turn them white */
+/* DARK ICONS → WHITE */
 .skill-icon img.mono{
   filter: brightness(0) invert(1);
-  opacity: .92;
+  opacity: .9;
 }
 
-/* hover highlight (your “lights up” effect) */
+/* Hover highlight */
 .skill-icon:hover{
   transform: translateY(-2px);
   border-color: rgba(96,165,250,.35);
   box-shadow:
     0 0 0 1px rgba(96,165,250,.10),
-    0 12px 30px rgba(0,0,0,.25);
+    0 12px 28px rgba(0,0,0,.28);
 }
 
 .skill-icon:hover img{
   transform: translateY(-1px);
   filter:
-    drop-shadow(0 0 10px rgba(96,165,250,.70))
+    drop-shadow(0 0 10px rgba(96,165,250,.7))
     drop-shadow(0 0 22px rgba(96,165,250,.45));
 }
 
-/* keep mono icons white AND glowing */
+/* Mono icons keep white + glow */
 .skill-icon:hover img.mono{
   filter:
     brightness(0) invert(1)
-    drop-shadow(0 0 10px rgba(96,165,250,.70))
+    drop-shadow(0 0 10px rgba(96,165,250,.7))
     drop-shadow(0 0 22px rgba(96,165,250,.45));
 }
 
@@ -310,7 +310,6 @@
   color: var(--accent);
   text-shadow: 0 0 10px rgba(96,165,250,.55);
 }
-
 
   /* =========================
    EDUCATION (locked)
@@ -947,9 +946,20 @@ html[data-theme="light"] .contact-item{
     <article class="skill-card">
       <h3>Machine Learning &amp; Deep Learning</h3>
       <div class="skill-icons">
-        <div class="skill-icon"><span>PyTorch</span></div>
-        <div class="skill-icon"><span>TensorFlow</span></div>
-        <div class="skill-icon"><span>Hugging Face</span></div>
+  <img class="mono" src="assets/hugging-face.png" alt="Hugging Face">
+  <span>Hugging Face</span>
+</div>
+
+<div class="skill-icon">
+  <img class="mono" src="assets/pytorch.png" alt="PyTorch">
+  <span>PyTorch</span>
+</div>
+
+<div class="skill-icon">
+  <img class="mono" src="assets/tf.png" alt="TensorFlow">
+  <span>TensorFlow</span>
+</div>
+
       </div>
     </article>
 
