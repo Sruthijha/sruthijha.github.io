@@ -198,127 +198,116 @@
   html[data-theme="light"] .hero-photo img{ border: 8px solid #fff; box-shadow: 0 10px 30px rgba(15,23,42,.15); }
   @media (max-width: 900px){ .hero-card{ grid-template-columns: 1fr; } }
 
-  /* =========================
-   SKILLS
+ /* =========================
+   SKILLS (FINAL)
    ========================= */
 
 #skills{
-  padding-bottom: 48px;
+  padding: var(--section-pad) 0;
 }
 
+/* 2-up on desktop, 1 column on mobile */
 .skills-grid{
   display: grid;
   gap: 1.5rem;
 }
-
 @media (min-width: 900px){
   .skills-grid{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+/* Group card */
 .skill-card{
   background: linear-gradient(180deg, var(--panel), rgba(255,255,255,.01));
   border: 1px solid var(--line);
   border-radius: 22px;
   padding: 1.25rem 1.5rem;
   box-shadow: var(--shadow);
-  transition: transform .18s ease, box-shadow .18s ease;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
-
 .skill-card:hover{
   transform: translateY(-2px);
   box-shadow: var(--shadow-2);
+  border-color: rgba(96,165,250,.28);
 }
-
 .skill-card h3{
-  margin: 0 0 .75rem;
+  margin: 0 0 .9rem;
   font-size: 1.05rem;
   font-weight: 900;
   color: var(--accent);
 }
 
-.skill-tags{
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem;
-}
-
-.skill-tags span{
-  padding: .4rem .85rem;
-  border-radius: 999px;
-  background: rgba(255,255,255,.03);
-  border: 1px solid var(--line);
-  font-size: .9rem;
-  font-weight: 700;
-  color: var(--text);
-  white-space: nowrap;
-  transition: background .15s ease, transform .12s ease;
-}
-
-.skill-tags span:hover{
-  background: rgba(96,165,250,.12);
-  transform: translateY(-1px);
-}
-/* ===== Skill icon grid ===== */
+/* Icon row inside each group */
 .skill-icons{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
-  gap: 1rem;
-  align-items: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* Python / SQL / R side-by-side */
+  gap: 1.1rem;
+  align-items: start;
+}
+@media (max-width: 520px){
+  .skill-icons{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-/* Skill block */
+/* Individual icon tile */
 .skill-icon{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: .45rem;
+  display: grid;
+  justify-items: center;
+  gap: .55rem;
+  padding: .9rem .75rem;
+  border-radius: 18px;
+  border: 1px solid rgba(148,163,184,.10);
+  background: rgba(255,255,255,.02);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+  cursor: default;
 }
 
-/* Icon image — ALL glow */
+/* image */
 .skill-icon img{
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
   filter:
     drop-shadow(0 0 6px rgba(96,165,250,.45))
-    drop-shadow(0 0 14px rgba(96,165,250,.25));
+    drop-shadow(0 0 14px rgba(96,165,250,.22));
   transition: filter .18s ease, transform .18s ease;
 }
 
-/* Label */
+/* label (unified!) */
 .skill-icon span{
-  font-size: .9rem;
-  font-weight: 700;
+  font-size: .95rem;
+  font-weight: 900;
   color: var(--text);
-  transition: color .18s ease, text-shadow .18s ease;
+  line-height: 1.1;
+  transition: color .18s ease, text-shadow .18s ease, transform .18s ease;
 }
 
-/* Hover — subtle lift + stronger glow */
-.skill-icon:hover img{
+/* Hover = highlight + stronger glow */
+.skill-icon:hover{
   transform: translateY(-2px);
+  border-color: rgba(96,165,250,.30);
+  background: rgba(96,165,250,.06);
+  box-shadow: 0 10px 26px rgba(0,0,0,.28);
+}
+.skill-icon:hover img{
+  transform: translateY(-1px);
   filter:
-    drop-shadow(0 0 10px rgba(96,165,250,.7))
+    drop-shadow(0 0 10px rgba(96,165,250,.70))
     drop-shadow(0 0 22px rgba(96,165,250,.45));
 }
-
 .skill-icon:hover span{
   color: var(--accent);
-  text-shadow:
-    0 0 8px rgba(96,165,250,.55);
+  text-shadow: 0 0 10px rgba(96,165,250,.55);
 }
 
-/* Python — slightly stronger by default (still consistent) */
+/* Optional: if you want Python a tiny bit “featured”, keep this.
+   If not, delete this block. */
 .skill-icon.python img{
   filter:
-    drop-shadow(0 0 8px rgba(96,165,250,.65))
-    drop-shadow(0 0 18px rgba(96,165,250,.45));
+    drop-shadow(0 0 8px rgba(96,165,250,.62))
+    drop-shadow(0 0 18px rgba(96,165,250,.38));
 }
 
-.skill-icon.python span{
-  color: var(--accent);
-}
 
   /* =========================
    EDUCATION (locked)
