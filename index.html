@@ -260,6 +260,25 @@
   background: rgba(96,165,250,.12);
   transform: translateY(-1px);
 }
+.skill-icon{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+}
+
+.skill-icon img{
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.skill-icon span{
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
 
   /* =========================
    EDUCATION (locked)
@@ -875,6 +894,11 @@ html[data-theme="light"] .contact-item{
         <span>R</span>
       </div>
     </article>
+
+    <div class="skill-icon">
+  <img src="assets/python.png" alt="Python logo">
+  <span>Python</span>
+</div>
 
     <article class="skill-card">
       <h3>Data Science & Machine Learning</h3>
