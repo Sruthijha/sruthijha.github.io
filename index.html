@@ -295,16 +295,24 @@
 
 /* Typewriter caret */
 .typewrap{ display: inline-block; }
+
 .caret{
-  display:none !important;
+  display: inline-block;
   width: 10px;
-  margin-left: 3px;
+  margin-left: 4px;
   border-right: 2px solid rgba(96,165,250,.95);
   animation: blink 1s step-end infinite;
   height: 1em;
-  transform: translateY(2px);
+  transform: translateY(3px);
 }
+
 @keyframes blink{ 50%{ opacity: 0; } }
+
+/* cursor disappears after typing */
+.type-done .caret{
+  display: none !important;
+}
+
 
 /* =========================
    HERO = FULL VIEWPORT + CARD
@@ -1268,10 +1276,11 @@
       <p class="eyebrow">HELLO, I’M <span class="wave" aria-hidden="true">👋</span></p>
 
       <h1 class="hero-title">
-        <span class="typewrap" id="nameWrap">
-          <span id="nameType"></span><span class="caret" aria-hidden="true"></span>
-        </span>
-      </h1>
+  <span class="typewrap" id="greetWrap">
+    <span id="greetType"></span><span class="caret" aria-hidden="true"></span>
+  </span>
+</h1>
+
 
       <p class="hero-desc">
         <span class="hero-role">Data Intern @ Goodie Bag</span><br />
@@ -2115,53 +2124,56 @@
   // HERO NAME TYPEWRITER (types once, keeps Pagolu blue, then hides caret)
   // =========================
   (function(){
-    const wrap = document.getElementById("nameWrap");
-    const out  = document.getElementById("nameType");
-    if(!wrap || !out) return;
+  const wrap = document.getElementById("greetWrap");
+  const out  = document.getElementById("greetType");
+  if(!wrap || !out) return;
 
-    const parts = [
-      { text: "Sruthijha ", cls: "" },
-      { text: "Pagolu",    cls: "text-accent" }
-    ];
+  const parts = [
+    { text: "Hello 👋 I’m ", cls: "" },
+    { text: "Sruthijha ",   cls: "" },
+    { text: "Pagolu",       cls: "text-accent" }
+  ];
 
-    let partIndex = 0, charIndex = 0;
+  let p = 0, i = 0;
 
-    function render(typedParts, currentPartText, currentCls){
-      let html = typedParts.map(p =>
-        p.cls ? `<span class="${p.cls}">${p.text}</span>` : p.text
-      ).join("");
+  function render(){
+    let html = "";
 
-      html += currentCls
-        ? `<span class="${currentCls}">${currentPartText}</span>`
-        : currentPartText;
-
-      out.innerHTML = html;
+    // fully typed parts
+    for(let k = 0; k < p; k++){
+      const done = parts[k];
+      html += done.cls ? `<span class="${done.cls}">${done.text}</span>` : done.text;
     }
 
-    function type(){
-      if(partIndex >= parts.length){
-        wrap.classList.add("type-done"); // hides caret via CSS
-        return;
-      }
-
-      const { text, cls } = parts[partIndex];
-      const current = text.slice(0, charIndex);
-
-      const typedParts = parts.slice(0, partIndex);
-      render(typedParts, current, cls);
-
-      charIndex++;
-      if(charIndex <= text.length){
-        setTimeout(type, 34);
-      }else{
-        partIndex++;
-        charIndex = 0;
-        setTimeout(type, 120);
-      }
+    // current part being typed
+    if(p < parts.length){
+      const cur = parts[p];
+      const chunk = cur.text.slice(0, i);
+      html += cur.cls ? `<span class="${cur.cls}">${chunk}</span>` : chunk;
     }
 
-    type();
-  })();
+    out.innerHTML = html;
+  }
+
+  function step(){
+    if(p >= parts.length){
+      wrap.classList.add("type-done"); // hides cursor
+      return;
+    }
+
+    render();
+    i++;
+
+    if(i <= parts[p].text.length){
+      setTimeout(step, 34);      // typing speed (adjust 28–42)
+    }else{
+      p++; i = 0;
+      setTimeout(step, 140);     // tiny pause between chunks
+    }
+  }
+
+  step();
+})();
 </script>
 
 </body>
