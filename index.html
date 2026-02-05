@@ -2126,38 +2126,62 @@
   const out  = document.getElementById("greetType");
   if(!wrap || !out) return;
 
-  const parts = [
-    { html: `<span class="greet-small">HELLO <span class="wave" aria-hidden="true">👋</span> I’M </span>` },
-    { html: `<span class="greet-name">Sruthijha <span class="accent">Pagolu</span></span>` }
+  // Build DOM pieces once (no innerHTML slicing)
+  const small = document.createElement("span");
+  small.className = "greet-small";
+
+  const name = document.createElement("span");
+  name.className = "greet-name";
+  name.innerHTML = `Sruthijha <span class="accent">Pagolu</span>`;
+  name.style.display = "block";
+
+  const wave = document.createElement("span");
+  wave.className = "wave";
+  wave.setAttribute("aria-hidden", "true");
+  wave.textContent = "👋";
+
+  out.appendChild(small);
+
+  const seq = [
+    { node: small, text: "Hello " },
+    { node: small, insert: wave },          // real element -> animation works
+    { node: small, text: " I’m " },
+    { node: out,  insert: document.createElement("br") },
+    { node: out,  insert: name }            // big name appears under it
   ];
 
-  let part = 0, char = 0;
+  let step = 0;
+  let i = 0;
 
-  function step(){
-    if(part >= parts.length){
-      wrap.classList.add("type-done"); // hides cursor
+  function tick(){
+    if(step >= seq.length){
+      wrap.classList.add("type-done");
       return;
     }
 
-    const current = parts[part].html;
+    const cur = seq[step];
 
-    let done = "";
-    for(let i = 0; i < part; i++) done += parts[i].html;
+    if(cur.text != null){
+      cur.node.textContent += cur.text.charAt(i);
+      i++;
+      if(i <= cur.text.length){
+        setTimeout(tick, 65);               // slower typing
+        return;
+      }
+      step++; i = 0;
+      setTimeout(tick, 240);
+      return;
+    }
 
-    out.innerHTML = done + current.slice(0, char);
-
-    char++;
-
-    if(char <= current.length){
-      setTimeout(step, 55);   // slower + aesthetic
-    }else{
-      part++;
-      char = 0;
-      setTimeout(step, 260);
+    if(cur.insert){
+      cur.node.appendChild(cur.insert);
+      step++; i = 0;
+      setTimeout(tick, 240);
+      return;
     }
   }
 
-  step();
+  tick();
 })();
 
 </script>
