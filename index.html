@@ -521,12 +521,23 @@
   transform: translateY(3px);
 }
 
-@keyframes blink{ 50%{ opacity: 0; } }
-
-/* Remove cursor when done */
-.type-done .caret{
-  display: none !important;
+.wave{
+  display:inline-block;
+  transform-origin: 70% 70%;
+  animation: waveAnim 2.4s ease-in-out infinite;
 }
+
+@keyframes waveAnim{
+  0%{transform:rotate(0deg)}
+  10%{transform:rotate(14deg)}
+  20%{transform:rotate(-8deg)}
+  30%{transform:rotate(12deg)}
+  40%{transform:rotate(-4deg)}
+  50%{transform:rotate(10deg)}
+  60%,100%{transform:rotate(0deg)}
+}
+
+.type-done .caret{ display:none !important; }
 
 
  /* =========================================================
