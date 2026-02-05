@@ -930,6 +930,7 @@ section > :last-child{ margin-bottom: 0; }
 .achievement-list strong{ font-weight: 600; }
 
 /* ACCENT — works for both <span class="accent"> and <a class="accent"> */
+/* ACCENT — base (spans + links, no glow) */
 .accent,
 .accent:visited{
   color: var(--accent);
@@ -937,13 +938,16 @@ section > :last-child{ margin-bottom: 0; }
   text-decoration: none;
 }
 
-/* Hover glow/pop (no underline) */
-.accent:hover,
-.accent:focus-visible{
+/* Hover glow ONLY for links */
+a.accent:hover,
+a.accent:focus-visible{
   color: #93c5fd;
-  text-shadow: 0 0 8px rgba(96,165,250,.6), 0 0 16px rgba(96,165,250,.35);
+  text-shadow:
+    0 0 8px rgba(96,165,250,.6),
+    0 0 16px rgba(96,165,250,.35);
   outline: none;
 }
+
 
 
 /* =========================================================
