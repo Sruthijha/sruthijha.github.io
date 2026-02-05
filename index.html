@@ -2183,14 +2183,22 @@ section > :last-child{ margin-bottom: 0; }
   const out  = document.getElementById("greetType");
   if(!wrap || !out) return;
 
-  // Build DOM pieces once (no innerHTML slicing)
+  out.innerHTML = "";
+
+  // Nodes
   const small = document.createElement("span");
   small.className = "greet-small";
 
-  const name = document.createElement("span");
-  name.className = "greet-name";
-  name.innerHTML = `Sruthijha <span class="accent">Pagolu</span>`;
-  name.style.display = "block";
+  const nameLine = document.createElement("span");
+  nameLine.className = "greet-name";
+  nameLine.style.display = "block";
+
+  const first = document.createElement("span"); // Sruthijha
+  const last  = document.createElement("span"); // Pagolu
+  last.className = "accent";
+
+  nameLine.appendChild(first);
+  nameLine.appendChild(last);
 
   const wave = document.createElement("span");
   wave.className = "wave";
@@ -2199,49 +2207,54 @@ section > :last-child{ margin-bottom: 0; }
 
   out.appendChild(small);
 
-  const seq = [
-    { node: small, text: "Hello " },
-    { node: small, insert: wave },          // real element -> animation works
-    { node: small, text: " I’m " },
-    { node: out,  insert: document.createElement("br") },
-    { node: out,  insert: name }            // big name appears under it
+  // ✅ SPEED CONTROLS (make it slower here)
+  const SPEED_SMALL = 70;   // Hello line speed
+  const SPEED_NAME  = 95;   // <-- name speed (SLOWER)
+  const PAUSE_STEP  = 260;  // pause between chunks
+
+  const steps = [
+    { kind: "type", node: small, text: "Hello " , ms: SPEED_SMALL },
+    { kind: "insert", node: small, el: wave },
+    { kind: "type", node: small, text: " I’m", ms: SPEED_SMALL },
+    { kind: "insert", node: out, el: document.createElement("br") },
+    { kind: "insert", node: out, el: nameLine },
+    { kind: "type", node: first, text: "Sruthijha ", ms: SPEED_NAME },
+    { kind: "type", node: last,  text: "Pagolu",    ms: SPEED_NAME }
   ];
 
-  let step = 0;
-  let i = 0;
+  let s = 0, i = 0;
 
   function tick(){
-    if(step >= seq.length){
-      wrap.classList.add("type-done");
+    if(s >= steps.length){
+      wrap.classList.add("type-done"); // hides cursor
       return;
     }
 
-    const cur = seq[step];
+    const cur = steps[s];
 
-    if(cur.text != null){
-      cur.node.textContent += cur.text.charAt(i);
-      i++;
-      if(i <= cur.text.length){
-        setTimeout(tick, 65);               // slower typing
-        return;
-      }
-      step++; i = 0;
-      setTimeout(tick, 240);
+    if(cur.kind === "insert"){
+      cur.node.appendChild(cur.el);
+      s++; i = 0;
+      setTimeout(tick, PAUSE_STEP);
       return;
     }
 
-    if(cur.insert){
-      cur.node.appendChild(cur.insert);
-      step++; i = 0;
-      setTimeout(tick, 240);
-      return;
+    // type
+    cur.node.textContent += cur.text.charAt(i);
+    i++;
+
+    if(i < cur.text.length){
+      setTimeout(tick, cur.ms);
+    }else{
+      s++; i = 0;
+      setTimeout(tick, PAUSE_STEP);
     }
   }
 
   tick();
 })();
-
 </script>
+
 
 </body>
 </html>
