@@ -1272,6 +1272,19 @@ footer{
   }
 }
 
+/* ===== Contact grid: FORCE 2×2 in modal ===== */
+.contact-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 18px;
+}
+
+/* Only collapse on truly small screens */
+@media (max-width: 560px){
+  .contact-grid{
+    grid-template-columns: 1fr !important;
+  }
+}
 
 /* =========================
    COPY EMAIL HINT
