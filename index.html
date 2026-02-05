@@ -1176,6 +1176,88 @@ footer{
   transform: translateX(4px);
   color: var(--accent);
 }
+/* =========================
+   CONTACT MODAL — polish pass
+   ========================= */
+
+/* make the overlay a bit darker so the modal pops */
+.contact-overlay{
+  background: rgba(0,0,0,.68);
+}
+
+/* make the modal itself more “solid” */
+.contact-modal{
+  border-radius: 24px;
+  padding: 22px 22px 26px;
+  background:
+    radial-gradient(900px 420px at 18% 10%, rgba(96,165,250,.10), transparent 60%),
+    linear-gradient(180deg, rgba(11,15,23,.92), rgba(11,15,23,.80));
+  border: 1px solid rgba(148,163,184,.18);
+  box-shadow:
+    0 22px 70px rgba(0,0,0,.55),
+    0 0 50px rgba(96,165,250,.08);
+}
+
+/* add a subtle divider under the title */
+.contact-modal-head{
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid rgba(148,163,184,.14);
+}
+
+/* close button: tighter + consistent */
+.contact-close{
+  border-radius: 14px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(148,163,184,.16);
+}
+
+.contact-close:hover{
+  border-color: rgba(96,165,250,.45);
+  box-shadow: 0 0 0 2px rgba(96,165,250,.18);
+  transform: translateY(-1px);
+}
+
+/* cards: slightly smaller radius, more contrast, more “clickable” */
+.contact-item{
+  border-radius: 18px;
+  border: 1px solid rgba(148,163,184,.16);
+  background: rgba(255,255,255,.03);
+  box-shadow: none;
+}
+
+.contact-item:hover{
+  background: rgba(96,165,250,.07);
+  border-color: rgba(96,165,250,.55);
+  box-shadow: 0 12px 34px rgba(0,0,0,.35), 0 0 22px rgba(96,165,250,.10);
+  transform: translateY(-2px);
+}
+
+/* icon container: less “bubble”, more sleek */
+.contact-ico{
+  border-radius: 14px;
+  background: rgba(96,165,250,.10);
+  border: 1px solid rgba(96,165,250,.22);
+}
+
+/* hierarchy: kicker softer, main slightly tighter */
+.contact-kicker{
+  opacity: .78;
+  letter-spacing: .02em;
+}
+
+.contact-main{
+  font-size: 1.02rem;
+}
+
+/* arrow: make it feel interactive */
+.contact-arrow{
+  opacity: .75;
+}
+
+.contact-item:hover .contact-arrow{
+  opacity: 1;
+}
 
 /* =========================================================
    RESPONSIVE SPACING TWEAKS
