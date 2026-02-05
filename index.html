@@ -1232,6 +1232,25 @@ footer{
   color: var(--good);
 }
 
+.contact-main-row{
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+}
+
+.contact-main-row .contact-main{
+  margin: 4px 0 0;
+  min-width: 0;
+  flex: 1;
+}
+
+/* Copy sits to the right, never wraps */
+.copy-hint{
+  margin: 0;
+  white-space: nowrap;
+}
+
 /* =========================================================
    RESPONSIVE SPACING TWEAKS
    ========================================================= */
@@ -1896,8 +1915,11 @@ footer{
       </div>
       <div class="contact-text">
         <p class="contact-kicker">Email</p>
-        <p class="contact-main">sruthipagolu@gmail.com</p>
-        <span class="copy-hint">Copy</span>
+        <div class="contact-main-row">
+  <p class="contact-main">sruthipagolu@gmail.com</p>
+  <span class="copy-hint" aria-hidden="true">Copy</span>
+</div>
+
       </div>
     </div>
     <div class="contact-arrow">→</div>
