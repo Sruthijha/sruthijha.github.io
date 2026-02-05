@@ -1258,6 +1258,37 @@ footer{
 .contact-item:hover .contact-arrow{
   opacity: 1;
 }
+/* =========================
+   COPY EMAIL HINT
+   ========================= */
+
+.email-item{
+  position: relative;
+}
+
+.copy-hint{
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--muted);
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity .18s ease, transform .18s ease, color .18s ease;
+  pointer-events: none;
+}
+
+/* show on hover */
+.email-item:hover .copy-hint{
+  opacity: .9;
+  transform: translateY(0);
+  color: var(--accent);
+}
+
+/* copied state */
+.email-item.copied .copy-hint{
+  color: var(--good);
+  opacity: 1;
+}
+
 
 /* =========================================================
    RESPONSIVE SPACING TWEAKS
@@ -1915,19 +1946,25 @@ footer{
 
     <!-- Contact Links -->
     <div class="contact-grid">
-      <!-- Email -->
-      <a class="contact-item" href="mailto:sruthipagolu@gmail.com">
-        <div class="contact-left">
-          <div class="contact-ico">
-            <img src="assets/gmail.png" alt="Email icon" />
-          </div>
-          <div class="contact-text">
-            <p class="contact-kicker">Email</p>
-            <p class="contact-main">sruthipagolu@gmail.com</p>
-          </div>
-        </div>
-        <div class="contact-arrow">→</div>
-      </a>
+  <!-- Email -->
+  <a class="contact-item email-item" href="mailto:sruthipagolu@gmail.com">
+    <div class="contact-left">
+      <div class="contact-ico">
+        <img src="assets/gmail.png" alt="Email icon" />
+      </div>
+      <div class="contact-text">
+        <p class="contact-kicker">Email</p>
+        <p class="contact-main">sruthipagolu@gmail.com</p>
+      </div>
+    </div>
+
+    <!-- subtle copy affordance -->
+    <span class="copy-hint">Copy</span>
+
+    <div class="contact-arrow">→</div>
+  </a>
+</div>
+
 
       <!-- LinkedIn -->
       <a
@@ -2210,6 +2247,27 @@ last.classList.add("text-accent");
 
   tick();
 })();
+  const emailItem = document.querySelector(".email-item");
+
+if (emailItem){
+  emailItem.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const email = "sruthipagolu@gmail.com";
+    navigator.clipboard.writeText(email);
+
+    emailItem.classList.add("copied");
+
+    const hint = emailItem.querySelector(".copy-hint");
+    hint.textContent = "Copied";
+
+    setTimeout(() => {
+      emailItem.classList.remove("copied");
+      hint.textContent = "Copy";
+    }, 1500);
+  });
+}
+
 </script>
 
 
