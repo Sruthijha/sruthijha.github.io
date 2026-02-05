@@ -1979,40 +1979,21 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && contactOverlay?.classList.contains('open')) closeContact();
     });
-  </script>
-      <script>
-  const phrases = [
-    "I turn raw data into product insights.",
-    "I build dashboards that drive decisions.",
-    "I love finding patterns people miss."
-  ];
 
+  const text = "I turn raw data into product insights.";
   const el = document.getElementById("typewriter");
-  let p = 0, i = 0, deleting = false;
+  let i = 0;
 
-  function tick(){
-    const text = phrases[p];
-    if (!deleting) {
+  function typeOnce(){
+    if (!el) return;
+    if (i <= text.length){
+      el.textContent = text.slice(0, i);
       i++;
-      el.textContent = text.slice(0, i);
-      if (i === text.length) {
-        deleting = true;
-        setTimeout(tick, 1100);
-        return;
-      }
-    } else {
-      i--;
-      el.textContent = text.slice(0, i);
-      if (i === 0) {
-        deleting = false;
-        p = (p + 1) % phrases.length;
-      }
+      setTimeout(typeOnce, 28);
     }
-
-    const speed = deleting ? 28 : 38;
-    setTimeout(tick, speed);
   }
-  tick();
+  typeOnce();
+
 </script>
 
 </body>
