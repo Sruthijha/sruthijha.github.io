@@ -313,10 +313,11 @@
 .hero-actions{
   display: flex;
   align-items: center;
-  gap: 22px;           /* more space between resume & icons */
+  gap: 26px; /* Resume ↔ links separation */
   margin-top: 22px;
   flex-wrap: wrap;
 }
+
 
 /* STRONG resume button (blue glow, not weak) */
 .hero-actions .btn.primary,
@@ -461,6 +462,48 @@
   opacity: 1;
 }
 
+/* =========================
+   HERO LINKS (icon + label)
+   ========================= */
+
+.hero-links{
+  display: flex;
+  align-items: center;
+  gap: 22px; /* space BETWEEN Mail / LinkedIn / GitHub */
+}
+
+/* each link becomes a calm pill */
+.hero-link,
+.hero-link:visited{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;               /* space between icon and text */
+  padding: 6px 10px;
+
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+
+  border-radius: 12px;
+  transition:
+    transform .18s ease,
+    background .18s ease,
+    box-shadow .18s ease;
+}
+
+/* icon size */
+.hero-link i{
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* hover = subtle glow, not loud */
+.hero-link:hover{
+  transform: translateY(-2px);
+  background: rgba(96,165,250,.12);
+  box-shadow: 0 0 18px rgba(96,165,250,.25);
+}
 
 /* photo */
 .hero-photo{
@@ -1302,28 +1345,22 @@
             <a href="resume.pdf" class="btn primary">Resume</a>
 
             <div class="hero-links">
-              <a href="mailto:sruthijha.pagolu@colorado.edu" aria-label="Email">
-                <i class="fa-solid fa-envelope"></i>
-              </a>
+  <a href="mailto:sruthijha.pagolu@colorado.edu" class="hero-link">
+    <i class="fa-solid fa-envelope"></i>
+    <span>Mail</span>
+  </a>
 
-              <a
-                href="https://www.linkedin.com/in/sruthijha"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <i class="fa-brands fa-linkedin-in"></i>
-              </a>
+  <a href="https://www.linkedin.com/in/sruthijha" target="_blank" class="hero-link">
+    <i class="fa-brands fa-linkedin-in"></i>
+    <span>LinkedIn</span>
+  </a>
 
-              <a
-                href="https://github.com/Sruthijha"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-              >
-                <i class="fa-brands fa-github"></i>
-              </a>
-            </div>
+  <a href="https://github.com/Sruthijha" target="_blank" class="hero-link">
+    <i class="fa-brands fa-github"></i>
+    <span>GitHub</span>
+  </a>
+</div>
+
           </div>
         </div>
 
