@@ -753,6 +753,20 @@ html[data-theme="light"] .contact-item{
   transform: translateX(4px);
   color: var(--accent);
 }
+/* Visible click / tap highlight */
+.contact-item:focus-visible,
+.contact-item:focus-within{
+  border-color: rgba(96,165,250,.75);
+  box-shadow:
+    0 0 0 2px rgba(96,165,250,.35),
+    var(--shadow-2);
+}
+
+.contact-item:focus-visible .contact-arrow,
+.contact-item:focus-within .contact-arrow{
+  transform: translateX(4px);
+  color: var(--accent);
+}
 
 </style>
 
