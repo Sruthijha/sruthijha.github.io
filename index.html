@@ -375,24 +375,30 @@
   /* spacer no longer needed (kept in HTML but disabled) */
   #education .edu-spacer{ display:none; }
 
-  #education .edu-list{
-    margin: .65rem 0 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    gap: .45rem;
-  }
-  #education .edu-list li{
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    line-height: 1.55;
-  }
-  #education .edu-list li::before{
-    content: "▶";
-    color: var(--good);
-    margin-top: 2px;
-  }
+  /* ===== Fix: bullet alignment + reduce extra space under coursework ===== */
+
+/* tighten the space above the list */
+#education .edu-list{
+  margin: .4rem 0 0;   /* was ~.65rem */
+  gap: .35rem;         /* slightly tighter between items */
+}
+
+/* align the green triangle perfectly with the first line of text */
+#education .edu-list li{
+  display: flex;
+  align-items: baseline;  /* key change (was flex-start) */
+  gap: 10px;
+  line-height: 1.5;
+}
+
+/* make the triangle sit on the same baseline as the text */
+#education .edu-list li::before{
+  content: "▶";
+  color: var(--good);
+  line-height: 1;     /* prevents vertical weirdness */
+  margin-top: 0;      /* remove the old 2px nudge */
+  flex: 0 0 auto;
+}
 
   /* clean separation without lines */
   #education{ padding-bottom: calc(var(--section-pad) + 24px); }
