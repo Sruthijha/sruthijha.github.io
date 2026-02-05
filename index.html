@@ -197,6 +197,37 @@ section > h2{
   .grid.cols-2{ grid-template-columns: 1fr 1fr; }
 }
 
+/* =========================================================
+   CONSISTENT SECTION SPACING (single source of truth)
+   ========================================================= */
+
+:root{
+  --section-pad: 56px;   /* controls gap between sections */
+  --title-gap: 18px;     /* space under each h2 */
+}
+
+/* Every section uses the same vertical padding */
+section{
+  padding: var(--section-pad) 0;
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+
+/* Consistent spacing under section titles */
+section > h2{
+  margin: 0 0 var(--title-gap) !important;
+}
+
+/* Kill surprise margins that create “random big gaps” */
+section > :first-child{ margin-top: 0; }
+section > :last-child{ margin-bottom: 0; }
+
+/* Grids/cards shouldn’t add extra bottom spacing */
+.grid,
+.skills-grid,
+#education .edu-grid,
+#projects .projects-grid{
+  margin: 0 !important;
+}
 
 /* =========================================================
    BUTTONS (GLOBAL) — removes purple hover / visited issues
