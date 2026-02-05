@@ -967,7 +967,7 @@ footer{
 }
 
 /* =========================================================
-   CONTACT FAB + MODAL (FINAL — clean + not-too-wide cards)
+   CONTACT FAB + MODAL (FINAL + SIMPLE)
    ========================================================= */
 
 .contact-fab{
@@ -1030,9 +1030,9 @@ footer{
   place-items: center;
 }
 
-/* Modal (narrower so cards feel less wide) */
+/* Modal (MAKE IT LESS WIDE HERE) */
 .contact-modal{
-  width: min(760px, 92vw);
+  width: min(760px, 92vw); /* <- tighten modal width */
   border-radius: 24px;
   padding: 22px 22px 26px;
   border: 1px solid rgba(148,163,184,.18);
@@ -1050,8 +1050,6 @@ footer{
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 18px;
-  border-bottom: none;
-  padding-bottom: 0;
 }
 
 .contact-modal-title{
@@ -1117,18 +1115,7 @@ footer{
   box-shadow: 0 12px 34px rgba(0,0,0,.35), 0 0 22px rgba(96,165,250,.10);
 }
 
-.contact-item:active{
-  transform: scale(.985);
-  border-color: rgba(96,165,250,.75);
-}
-
-.contact-item:focus-visible,
-.contact-item:focus-within{
-  outline: 2px solid rgba(96,165,250,.6);
-  outline-offset: 3px;
-  border-color: rgba(96,165,250,.75);
-  box-shadow: 0 0 0 2px rgba(96,165,250,.35), 0 12px 34px rgba(0,0,0,.35);
-}
+.contact-item:active{ transform: scale(.985); }
 
 .contact-left{
   display: flex;
@@ -1146,7 +1133,6 @@ footer{
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  transition: background .18s ease, box-shadow .18s ease, transform .18s ease, border-color .18s ease;
 }
 
 .contact-ico img{
@@ -1156,14 +1142,6 @@ footer{
   filter: brightness(0) invert(1);
   opacity: .95;
   display: block;
-}
-
-.contact-item:hover .contact-ico,
-.contact-item:focus-visible .contact-ico{
-  background: rgba(96,165,250,.22);
-  border-color: rgba(96,165,250,.45);
-  box-shadow: 0 0 0 2px rgba(96,165,250,.20), 0 0 22px rgba(96,165,250,.25);
-  transform: translateY(-1px);
 }
 
 .contact-text{ min-width: 0; }
@@ -1195,16 +1173,14 @@ footer{
   transition: transform .18s ease, color .18s ease, opacity .18s ease;
 }
 
-.contact-item:hover .contact-arrow,
-.contact-item:focus-visible .contact-arrow,
-.contact-item:focus-within .contact-arrow{
+.contact-item:hover .contact-arrow{
   transform: translateX(4px);
   color: var(--accent);
   opacity: 1;
 }
 
 /* =========================
-   COPY (next to Email label)
+   COPY HINT (beside "Email")
    ========================= */
 
 .contact-toprow{
@@ -1220,22 +1196,19 @@ footer{
   color: var(--muted);
   opacity: 0;
   white-space: nowrap;
-  transition: opacity .18s ease, color .18s ease, transform .18s ease;
-  transform: translateY(1px);
+  transition: opacity .18s ease, color .18s ease;
   pointer-events: none;
 }
 
 .email-item:hover .copy-hint{
-  opacity: .95;
+  opacity: .9;
   color: var(--accent);
-  transform: translateY(0);
 }
 
 .email-item.copied .copy-hint{
   opacity: 1;
   color: var(--good);
 }
-
 
 /* =========================================================
    RESPONSIVE SPACING TWEAKS
@@ -1876,36 +1849,13 @@ footer{
   aria-labelledby="contact-title"
 >
   <div class="contact-modal" role="document">
-    <!-- Modal Header -->
-    <div class="contact-modal-head">
-      <h3 id="contact-title" class="contact-modal-title">Get In Touch</h3>
-      <button
-        id="contact-close"
-        class="contact-close"
-        type="button"
-        aria-label="Close"
-      >
-        ×
-      </button>
-    </div>
-
-    <!-- Contact Links -->
-<!-- CONTACT MODAL OVERLAY -->
-<div
-  id="contact-overlay"
-  class="contact-overlay"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="contact-title"
->
-  <div class="contact-modal" role="document">
     <div class="contact-modal-head">
       <h3 id="contact-title" class="contact-modal-title">Get In Touch</h3>
       <button id="contact-close" class="contact-close" type="button" aria-label="Close">×</button>
     </div>
 
     <div class="contact-grid">
-      <!-- Email (copy-on-click) -->
+      <!-- Email -->
       <a class="contact-item email-item" href="mailto:sruthipagolu@gmail.com">
         <div class="contact-left">
           <div class="contact-ico">
@@ -1920,6 +1870,7 @@ footer{
             <p class="contact-main">sruthipagolu@gmail.com</p>
           </div>
         </div>
+
         <div class="contact-arrow">→</div>
       </a>
 
@@ -1967,6 +1918,7 @@ footer{
     </div>
   </div>
 </div>
+
 
 
 <!-- SCRIPTS -->
