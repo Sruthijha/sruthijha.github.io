@@ -1208,34 +1208,14 @@ footer{
 }
 
 /* =========================
-   COPY EMAIL HINT
+   COPY EMAIL HINT (INLINE)
    ========================= */
 
-.email-item{ position: relative; }
-
-.copy-hint{
-  display: inline-block;
-  margin-top: 6px;
-  font-size: .85rem;
-  font-weight: 700;
-  color: var(--muted);
-  opacity: 0;
-  transform: translateY(2px);
-  transition: opacity .18s ease, transform .18s ease, color .18s ease;
-  pointer-events: none;
+.email-item{
+  position: relative;
 }
 
-.email-item:hover .copy-hint{
-  opacity: .9;
-  transform: translateY(0);
-  color: var(--accent);
-}
-
-.email-item.copied .copy-hint{
-  opacity: 1;
-  color: var(--good);
-}
-
+/* row that holds email + copy */
 .contact-main-row{
   display: flex;
   align-items: baseline;
@@ -1244,15 +1224,32 @@ footer{
 }
 
 .contact-main-row .contact-main{
-  margin: 4px 0 0;
-  min-width: 0;
+  margin: 0;
   flex: 1;
+  min-width: 0;
 }
 
-/* Copy sits to the right, never wraps */
+/* Copy text */
 .copy-hint{
-  margin: 0;
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--muted);
+  opacity: 0;
   white-space: nowrap;
+  transition: opacity .18s ease, color .18s ease;
+  pointer-events: none;
+}
+
+/* hover */
+.email-item:hover .copy-hint{
+  opacity: .9;
+  color: var(--accent);
+}
+
+/* copied state */
+.email-item.copied .copy-hint{
+  opacity: 1;
+  color: var(--good);
 }
 
 /* =========================================================
@@ -1917,15 +1914,17 @@ footer{
       <div class="contact-ico">
         <img src="assets/gmail.png" alt="Email icon" />
       </div>
-      <div class="contact-text">
-        <p class="contact-kicker">Email</p>
-        <div class="contact-main-row">
-  <p class="contact-main">sruthipagolu@gmail.com</p>
-  <span class="copy-hint" aria-hidden="true">Copy</span>
-</div>
 
+      <div class="contact-text">
+        <div class="contact-toprow">
+          <p class="contact-kicker">Email</p>
+          <span class="copy-hint">Copy</span>
+        </div>
+
+        <p class="contact-main">sruthipagolu@gmail.com</p>
       </div>
     </div>
+
     <div class="contact-arrow">→</div>
   </a>
 
@@ -1971,7 +1970,6 @@ footer{
     <div class="contact-arrow">→</div>
   </a>
 </div>
-
 
 
 <!-- SCRIPTS -->
@@ -2135,8 +2133,6 @@ first.textContent = ""; // IMPORTANT: start empty
 const last = document.createElement("span"); // Pagolu
 last.textContent = "";  // IMPORTANT: start empty
 last.classList.add("text-accent");
-
-
 
 
   nameLine.appendChild(first);
