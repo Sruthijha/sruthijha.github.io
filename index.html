@@ -162,84 +162,94 @@
     nav a{ padding: .75rem; }
   }
 
+/* =========================================================
+   SECTIONS / TYPOGRAPHY / CARDS / GRIDS
+   ========================================================= */
 
-  /* =========================================================
-     SECTIONS / TYPOGRAPHY / CARDS / GRIDS
-     ========================================================= */
+section{
+  padding: var(--section-pad) 0;
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
 
-  section{
-    padding: var(--section-pad) 0;
-    scroll-margin-top: calc(var(--header-h) + 24px);
-  }
+h2{
+  font-size: clamp(22px, 3vw, 28px);
+  margin: 0;
+}
 
-  h2{
-    font-size: clamp(22px, 3vw, 28px);
-    margin: 0;
-  }
+section > h2{
+  margin: 0 0 var(--title-gap) !important;
+}
 
-  section > h2{ margin: 0 0 var(--title-gap) !important; }
+.lead{ color: var(--muted); }
 
-  .lead{ color: var(--muted); }
+.card{
+  background: linear-gradient(180deg, var(--panel-2), rgba(255,255,255,.01));
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.25rem;
+}
 
-  .card{
-    background: linear-gradient(180deg, var(--panel-2), rgba(255,255,255,.01));
-    border: 1px solid var(--line);
-    border-radius: 22px;
-    padding: 1.5rem 1.75rem;
-    box-shadow: var(--shadow);
-    margin-bottom: 1.25rem;
-  }
+.grid{ display: grid; gap: 1rem; }
 
-  .grid{ display: grid; gap: 1rem; }
-  @media (min-width: 760px){
-    .grid.cols-2{ grid-template-columns: 1fr 1fr; }
-  }
+@media (min-width: 760px){
+  .grid.cols-2{ grid-template-columns: 1fr 1fr; }
+}
 
-  /* =========================================================
-     BUTTONS (GLOBAL) — removes purple hover / visited issues
-     ========================================================= */
 
-  .btn,
-  .btn:visited{
-    display: inline-block;
-    padding: .7rem 1rem;
-    border-radius: 12px;
-    border: 1px solid var(--line);
-    font-weight: 800;
-    background: var(--btn-bg);
-    color: var(--btn-text);
-    text-decoration: none;
-    transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
-  }
+/* =========================================================
+   BUTTONS (GLOBAL) — removes purple hover / visited issues
+   ========================================================= */
 
-  .btn.primary,
-  .btn.primary:visited{
-    background: rgba(96,165,250,.18);
-    border-color: rgba(96,165,250,.35);
-    color: #eaf2ff;
-    box-shadow: 0 10px 24px rgba(0,0,0,.28);
-  }
+.btn,
+.btn:visited{
+  display: inline-block;
+  padding: .7rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  font-weight: 800;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  text-decoration: none;
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    background .18s ease,
+    border-color .18s ease,
+    color .18s ease;
+}
 
-  .btn.primary:hover{
-    transform: translateY(-2px);
-    background: rgba(96,165,250,.22);
-    border-color: rgba(96,165,250,.55);
-    box-shadow: 0 14px 32px rgba(0,0,0,.35), 0 0 22px rgba(96,165,250,.20);
-  }
+.btn.primary,
+.btn.primary:visited{
+  background: rgba(96,165,250,.18);
+  border-color: rgba(96,165,250,.35);
+  color: #eaf2ff;
+  box-shadow: 0 10px 24px rgba(0,0,0,.28);
+}
 
-  .btn.primary:active{ transform: translateY(0); }
+.btn.primary:hover{
+  transform: translateY(-2px);
+  background: rgba(96,165,250,.22);
+  border-color: rgba(96,165,250,.55);
+  box-shadow: 0 14px 32px rgba(0,0,0,.35), 0 0 22px rgba(96,165,250,.20);
+}
 
-/* =========================
-   HERO (spacious + polished)
-   ========================= */
+.btn.primary:active{ transform: translateY(0); }
+
+
+/* =========================================================
+   HERO (full viewport + card container)
+   ========================================================= */
 
 #hero{
   min-height: 100vh;
   display: grid;
   align-items: center;
-  padding: 0;
+  padding: 0; /* hero owns the viewport */
 }
 
+/* Hero outer container (keeps card centered + safe margins) */
 .hero{
   width: 100%;
   max-width: 1120px;
@@ -247,14 +257,17 @@
   padding: 0 20px;
 }
 
+/* Card layout */
 .hero-card{
-  padding: 64px 64px;
+  padding: 64px;
   border-radius: 30px;
   border: 1px solid rgba(255,255,255,.09);
+
   background:
     radial-gradient(900px 420px at 18% 10%, rgba(96,165,250,.14), transparent 60%),
     radial-gradient(900px 520px at 85% 35%, rgba(96,165,250,.08), transparent 65%),
     linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+
   box-shadow:
     0 0 70px rgba(96,165,250,.10),
     0 18px 60px rgba(0,0,0,.30);
@@ -263,19 +276,82 @@
   grid-template-columns: 1.15fr .85fr;
   align-items: center;
   gap: 54px;
+
+  margin: 0 auto;
+
+  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+  will-change: transform;
 }
 
+/* Subtle interactive glow */
+.hero-card:hover{
+  border-color: rgba(96,165,250,.20);
+  box-shadow:
+    0 0 80px rgba(96,165,250,.14),
+    0 22px 70px rgba(0,0,0,.35);
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO: Greeting (typewriter line + big name)
+   ========================================================= */
+
+.hero-greeting{ margin-bottom: 12px; }
+
+/* small “Hello 👋 I’m” */
+.greet-small{
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: rgba(229,231,235,.75);
+}
+
+/* big name */
+.greet-name{
+  display: block;
+  font-size: clamp(48px, 5vw, 78px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.greet-name .accent{
+  color: var(--accent);
+  text-shadow: 0 0 18px rgba(96,165,250,.22);
+}
+
+/* Optional: if you still use .hero-title somewhere */
 .hero-title{
   margin: 0;
   font-size: clamp(48px, 5vw, 78px);
   line-height: 1.03;
   letter-spacing: -0.02em;
+  transition: text-shadow .25s ease;
+}
+
+.hero-card:hover .hero-title{
+  text-shadow:
+    0 0 18px rgba(96,165,250,.18),
+    0 0 42px rgba(96,165,250,.10);
 }
 
 .text-accent{
   color: var(--accent);
   text-shadow: 0 0 18px rgba(96,165,250,.22);
 }
+
+.hero-card:hover .text-accent{
+  text-shadow:
+    0 0 18px rgba(96,165,250,.35),
+    0 0 44px rgba(96,165,250,.22);
+}
+
+
+/* =========================================================
+   HERO: Description
+   ========================================================= */
 
 .hero-desc{
   margin: 16px 0 0;
@@ -293,7 +369,11 @@
   margin-bottom: 10px;
 }
 
-/* Typewriter caret */
+
+/* =========================================================
+   TYPEWRITER: caret + end state
+   ========================================================= */
+
 .typewrap{ display: inline-block; }
 
 .caret{
@@ -308,71 +388,43 @@
 
 @keyframes blink{ 50%{ opacity: 0; } }
 
-/* cursor disappears after typing */
-.type-done .caret{
-  display: none !important;
+.type-done .caret{ display: none !important; }
+
+
+/* =========================================================
+   WAVE (keeps waving forever)
+   ========================================================= */
+
+.wave{
+  display:inline-block;
+  transform-origin: 70% 70%;
+  animation: waveAnim 2.4s ease-in-out infinite;
+}
+
+@keyframes waveAnim{
+  0%{transform:rotate(0deg)}
+  10%{transform:rotate(14deg)}
+  20%{transform:rotate(-8deg)}
+  30%{transform:rotate(12deg)}
+  40%{transform:rotate(-4deg)}
+  50%{transform:rotate(10deg)}
+  60%,100%{transform:rotate(0deg)}
 }
 
 
-/* =========================
-   HERO = FULL VIEWPORT + CARD
-   ========================= */
-
-#hero{
-  min-height: 100vh;
-  display: grid;
-  align-items: center;
-  padding: 0;
-}
-
-.hero{
-  width: 100%;
-}
-
-.hero-card{
-  margin: 0 auto;
-  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
-  will-change: transform;
-}
-
-/* Interactive glow (subtle, premium) */
-.hero-card:hover{
-  border-color: rgba(96,165,250,.20);
-  box-shadow:
-    0 0 80px rgba(96,165,250,.14),
-    0 22px 70px rgba(0,0,0,.35);
-  transform: translateY(-2px);
-}
-
-.hero-title{
-  transition: text-shadow .25s ease;
-}
-
-.hero-card:hover .hero-title{
-  text-shadow:
-    0 0 18px rgba(96,165,250,.18),
-    0 0 42px rgba(96,165,250,.10);
-}
-
-.hero-card:hover .text-accent{
-  text-shadow:
-    0 0 18px rgba(96,165,250,.35),
-    0 0 44px rgba(96,165,250,.22);
-}
-
-/* =========================
-   HERO ACTIONS (Resume + Links)
-   ========================= */
+/* =========================================================
+   HERO: Actions (Resume + links)
+   ========================================================= */
 
 .hero-actions{
   display: flex;
   align-items: center;
-  gap: 26px;             /* Resume ↔ links spacing */
+  gap: 26px;
   margin-top: 22px;
   flex-wrap: wrap;
 }
 
-/* Resume button locked to blue (no purple hover) */
+/* Resume button — stronger blue glow */
 .hero-actions .btn.primary,
 .hero-actions .btn.primary:visited{
   padding: 12px 20px;
@@ -388,7 +440,11 @@
     0 0 0 6px rgba(96,165,250,.08),
     0 18px 38px rgba(0,0,0,.35);
 
-  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    background .18s ease,
+    border-color .18s ease;
 }
 
 .hero-actions .btn.primary:hover{
@@ -401,14 +457,11 @@
     0 0 24px rgba(96,165,250,.28);
 }
 
-/* =========================
-   HERO LINKS (icon + label pills)
-   ========================= */
-
+/* Links as pills (icon + label) */
 .hero-links{
   display: flex;
   align-items: center;
-  gap: 22px;             /* spacing between Mail / LinkedIn / GitHub */
+  gap: 22px;
   padding-left: 4px;
 }
 
@@ -427,11 +480,15 @@
   font-size: 0.95rem;
   opacity: .95;
 
-  transition: transform .18s ease, background .18s ease, box-shadow .18s ease, opacity .18s ease;
+  transition:
+    transform .18s ease,
+    background .18s ease,
+    box-shadow .18s ease,
+    opacity .18s ease;
 }
 
 .hero-link i{
-  font-size: 20px;       /* bigger icon */
+  font-size: 20px;
   line-height: 1;
 }
 
@@ -442,9 +499,10 @@
   opacity: 1;
 }
 
-/* =========================
-   HERO PHOTO
-   ========================= */
+
+/* =========================================================
+   HERO: Photo
+   ========================================================= */
 
 .hero-photo{
   display: grid;
@@ -457,12 +515,15 @@
   border-radius: 999px;
   object-fit: cover;
   border: 8px solid rgba(255,255,255,.03);
-  box-shadow: 0 0 0 1px rgba(255,255,255,.10), 0 22px 60px rgba(0,0,0,.35);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.10),
+    0 22px 60px rgba(0,0,0,.35);
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+
+/* =========================================================
+   HERO: Responsive
+   ========================================================= */
 
 @media (max-width: 900px){
   .hero-card{
@@ -471,73 +532,15 @@
     gap: 28px;
     border-radius: 24px;
   }
+
   .hero-photo img{
     width: min(320px, 76vw);
   }
+
   .hero-links{
     padding-left: 0;
   }
 }
-
-
- /* Greeting wrapper */
-.hero-greeting{
-  margin-bottom: 12px;
-}
-
-/* Smaller intro text */
-.greet-small{
-  font-size: 1rem;            /* same as before */
-  font-weight: 600;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  color: rgba(229,231,235,.75);
-}
-
-/* BIG name (same size as hero-title before) */
-.greet-name{
-  display: block;
-  font-size: clamp(48px, 5vw, 78px);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-}
-
-/* Accent surname */
-.greet-name .accent{
-  color: var(--accent);
-}
-
-/* Caret */
-.typewrap{ display: inline-block; }
-
-.caret{
-  display:inline-block;
-  width: 10px;
-  margin-left: 4px;
-  border-right: 2px solid rgba(96,165,250,.95);
-  animation: blink 1s step-end infinite;
-  height: 1em;
-  transform: translateY(3px);
-}
-
-.wave{
-  display:inline-block;
-  transform-origin: 70% 70%;
-  animation: waveAnim 2.4s ease-in-out infinite;
-}
-
-@keyframes waveAnim{
-  0%{transform:rotate(0deg)}
-  10%{transform:rotate(14deg)}
-  20%{transform:rotate(-8deg)}
-  30%{transform:rotate(12deg)}
-  40%{transform:rotate(-4deg)}
-  50%{transform:rotate(10deg)}
-  60%,100%{transform:rotate(0deg)}
-}
-
-.type-done .caret{ display:none !important; }
 
 
  /* =========================================================
