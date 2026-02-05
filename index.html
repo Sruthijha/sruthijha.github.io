@@ -527,6 +527,23 @@
 .type-done .caret{
   display: none !important;
 }
+/* Waving hand animation (continuous, subtle) */
+.wave{
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: waveAnim 2.4s ease-in-out infinite;
+}
+
+@keyframes waveAnim{
+  0%   { transform: rotate(0deg); }
+  10%  { transform: rotate(14deg); }
+  20%  { transform: rotate(-8deg); }
+  30%  { transform: rotate(12deg); }
+  40%  { transform: rotate(-4deg); }
+  50%  { transform: rotate(10deg); }
+  60%,
+  100% { transform: rotate(0deg); }
+}
 
 
  /* =========================================================
@@ -1264,6 +1281,10 @@
   <span class="typewrap" id="greetWrap">
     <span id="greetType"></span><span class="caret" aria-hidden="true"></span>
   </span>
+  <span class="greet-small">
+  Hello <span class="wave" aria-hidden="true">👋</span> I’m
+</span>
+
 </div>
 
 
