@@ -1202,7 +1202,7 @@ footer{
 .contact-modal-head{
   padding-bottom: 14px;
   margin-bottom: 18px;
-  border-bottom: 1px solid rgba(148,163,184,.14);
+  border-bottom: none;
 }
 
 /* close button: tighter + consistent */
@@ -1258,6 +1258,20 @@ footer{
 .contact-item:hover .contact-arrow{
   opacity: 1;
 }
+/* ===== Contact grid: 2 columns like before ===== */
+.contact-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* Mobile: stack */
+@media (max-width: 860px){
+  .contact-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
 /* =========================
    COPY EMAIL HINT
    ========================= */
