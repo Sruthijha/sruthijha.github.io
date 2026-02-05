@@ -260,62 +260,65 @@
   background: rgba(96,165,250,.12);
   transform: translateY(-1px);
 }
+/* ===== Skill icon grid ===== */
+.skill-icons{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Skill block */
 .skill-icon{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .5rem;
+  gap: .45rem;
 }
 
+/* Icon image — ALL glow */
 .skill-icon img{
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
+  filter:
+    drop-shadow(0 0 6px rgba(96,165,250,.45))
+    drop-shadow(0 0 14px rgba(96,165,250,.25));
+  transition: filter .18s ease, transform .18s ease;
 }
 
+/* Label */
 .skill-icon span{
   font-size: .9rem;
   font-weight: 700;
   color: var(--text);
+  transition: color .18s ease, text-shadow .18s ease;
 }
 
-.skill-icon{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: .5rem;
+/* Hover — subtle lift + stronger glow */
+.skill-icon:hover img{
+  transform: translateY(-2px);
+  filter:
+    drop-shadow(0 0 10px rgba(96,165,250,.7))
+    drop-shadow(0 0 22px rgba(96,165,250,.45));
 }
 
-/* base icon */
-.skill-icon img{
-  width: 56px;
-  height: 56px;
-  object-fit: contain;
-  filter: brightness(1.1);
+.skill-icon:hover span{
+  color: var(--accent);
+  text-shadow:
+    0 0 8px rgba(96,165,250,.55);
 }
 
-/* label */
-.skill-icon span{
-  font-size: .95rem;
-  font-weight: 800;
-  color: var(--text);
-  transition: color .2s ease;
-}
-
-/* ===== Python glow (blue) ===== */
+/* Python — slightly stronger by default (still consistent) */
 .skill-icon.python img{
   filter:
-    drop-shadow(0 0 6px rgba(96,165,250,.6))
-    drop-shadow(0 0 14px rgba(96,165,250,.45));
+    drop-shadow(0 0 8px rgba(96,165,250,.65))
+    drop-shadow(0 0 18px rgba(96,165,250,.45));
 }
 
 .skill-icon.python span{
   color: var(--accent);
-  text-shadow:
-    0 0 6px rgba(96,165,250,.6),
-    0 0 14px rgba(96,165,250,.35);
 }
-
 
   /* =========================
    EDUCATION (locked)
@@ -918,7 +921,7 @@ html[data-theme="light"] .contact-item{
         <p class="about-p">What excites me most is the transformation of raw data into models, stories, and tools that create real impact. Whether it is analyzing long-term trends, building AI systems that recognize emotion, or designing analytics that guide business strategy, I thrive on work that is both technically sharp and meaningful.</p>
       </div>
 
-<!-- SKILLS -->
+ <!-- SKILLS -->
 <section id="skills" class="container">
   <h2>Skills</h2>
 
@@ -928,16 +931,22 @@ html[data-theme="light"] .contact-item{
     <article class="skill-card">
       <h3>Programming Languages</h3>
       <div class="skill-icons">
+
         <div class="skill-icon python">
           <img src="assets/python.png" alt="Python logo">
           <span>Python</span>
         </div>
+
         <div class="skill-icon">
+          <img src="assets/sql.png" alt="SQL logo">
           <span>SQL</span>
         </div>
+
         <div class="skill-icon">
+          <img src="assets/r.png" alt="R logo">
           <span>R</span>
         </div>
+
       </div>
     </article>
 
@@ -945,15 +954,9 @@ html[data-theme="light"] .contact-item{
     <article class="skill-card">
       <h3>Machine Learning &amp; Deep Learning</h3>
       <div class="skill-icons">
-        <div class="skill-icon">
-          <span>PyTorch</span>
-        </div>
-        <div class="skill-icon">
-          <span>TensorFlow</span>
-        </div>
-        <div class="skill-icon">
-          <span>Hugging Face Transformers</span>
-        </div>
+        <div class="skill-icon"><span>PyTorch</span></div>
+        <div class="skill-icon"><span>TensorFlow</span></div>
+        <div class="skill-icon"><span>Hugging Face</span></div>
       </div>
     </article>
 
@@ -961,21 +964,11 @@ html[data-theme="light"] .contact-item{
     <article class="skill-card">
       <h3>Data Analysis &amp; Visualization</h3>
       <div class="skill-icons">
-        <div class="skill-icon">
-          <span>Pandas</span>
-        </div>
-        <div class="skill-icon">
-          <span>NumPy</span>
-        </div>
-        <div class="skill-icon">
-          <span>Seaborn</span>
-        </div>
-        <div class="skill-icon">
-          <span>Tableau</span>
-        </div>
-        <div class="skill-icon">
-          <span>Power BI</span>
-        </div>
+        <div class="skill-icon"><span>Pandas</span></div>
+        <div class="skill-icon"><span>NumPy</span></div>
+        <div class="skill-icon"><span>Seaborn</span></div>
+        <div class="skill-icon"><span>Tableau</span></div>
+        <div class="skill-icon"><span>Power BI</span></div>
       </div>
     </article>
 
@@ -983,21 +976,11 @@ html[data-theme="light"] .contact-item{
     <article class="skill-card">
       <h3>Cloud Platforms &amp; Tools</h3>
       <div class="skill-icons">
-        <div class="skill-icon">
-          <span>AWS</span>
-        </div>
-        <div class="skill-icon">
-          <span>GCP</span>
-        </div>
-        <div class="skill-icon">
-          <span>Azure</span>
-        </div>
-        <div class="skill-icon">
-          <span>FastAPI</span>
-        </div>
-        <div class="skill-icon">
-          <span>Git</span>
-        </div>
+        <div class="skill-icon"><span>AWS</span></div>
+        <div class="skill-icon"><span>GCP</span></div>
+        <div class="skill-icon"><span>Azure</span></div>
+        <div class="skill-icon"><span>FastAPI</span></div>
+        <div class="skill-icon"><span>Git</span></div>
       </div>
     </article>
 
