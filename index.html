@@ -229,47 +229,45 @@
 
   .btn.primary:active{ transform: translateY(0); }
 
-  /* =========================================================
-     HERO (ONLY essentials kept)
-     ========================================================= */
-
-  /* =========================================================
-   HERO (LOCKED — container + card + wave + icons + no purple)
-   ========================================================= */
+/* =========================
+   HERO (spacious + polished)
+   ========================= */
 
 #hero{
-  padding-top: 56px;
-  padding-bottom: 56px;
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  padding: 0;
 }
 
-/* keeps hero centered like before */
 .hero{
+  width: 100%;
   max-width: 1120px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* the actual card (this is what you're missing visually) */
 .hero-card{
-  padding: 56px 56px;
-  border-radius: 28px;
-
+  padding: 64px 64px;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,.09);
   background:
-    radial-gradient(900px 420px at 20% 10%, rgba(96,165,250,.12), transparent 60%),
-    linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-  border: 1px solid rgba(255,255,255,.08);
-  box-shadow: 0 0 60px rgba(96,165,250,.08);
+    radial-gradient(900px 420px at 18% 10%, rgba(96,165,250,.14), transparent 60%),
+    radial-gradient(900px 520px at 85% 35%, rgba(96,165,250,.08), transparent 65%),
+    linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+  box-shadow:
+    0 0 70px rgba(96,165,250,.10),
+    0 18px 60px rgba(0,0,0,.30);
 
   display: grid;
-  grid-template-columns: 1.2fr .8fr;
+  grid-template-columns: 1.15fr .85fr;
   align-items: center;
-  gap: 44px;
+  gap: 54px;
 }
 
-/* typography */
 .hero-title{
   margin: 0;
-  font-size: clamp(46px, 5vw, 76px);
+  font-size: clamp(48px, 5vw, 78px);
   line-height: 1.03;
   letter-spacing: -0.02em;
 }
@@ -280,40 +278,27 @@
 }
 
 .hero-desc{
-  margin: 14px 0 0;
+  margin: 16px 0 0;
   font-size: 17px;
-  line-height: 1.65;
+  line-height: 1.7;
   color: rgba(229,231,235,.78);
   max-width: 62ch;
 }
 
 .hero-role{
   display: inline-block;
-  font-weight: 750;
+  font-weight: 800;
+  letter-spacing: .2px;
   color: rgba(229,231,235,.92);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
-/* wave animation */
-.wave{
-  display: inline-block;
-  transform-origin: 70% 70%;
-  animation: waveWiggle 2.2s ease-in-out infinite;
-}
-@keyframes waveWiggle{
-  0%, 50%, 100% { transform: rotate(0deg); }
-  10% { transform: rotate(14deg); }
-  20% { transform: rotate(-8deg); }
-  30% { transform: rotate(12deg); }
-  40% { transform: rotate(-4deg); }
-}
-
-/* typewriter caret */
+/* Typewriter caret */
 .typewrap{ display: inline-block; }
 .caret{
   display:inline-block;
   width: 10px;
-  margin-left: 2px;
+  margin-left: 3px;
   border-right: 2px solid rgba(96,165,250,.95);
   animation: blink 1s step-end infinite;
   height: 1em;
@@ -321,31 +306,102 @@
 }
 @keyframes blink{ 50%{ opacity: 0; } }
 
-/* actions row */
+/* =========================
+   HERO ACTIONS (more spacing)
+   ========================= */
+
 .hero-actions{
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-top: 18px;
+  gap: 22px;           /* more space between resume & icons */
+  margin-top: 22px;
   flex-wrap: wrap;
 }
 
-/* Resume button: force theme colors, prevent purple */
+/* STRONG resume button (blue glow, not weak) */
 .hero-actions .btn.primary,
 .hero-actions .btn.primary:visited{
-  background: rgba(96,165,250,.18);
-  border: 1px solid rgba(96,165,250,.35);
+  padding: 12px 20px;
+  border-radius: 16px;
+  font-weight: 900;
+  letter-spacing: .2px;
+
+  background: rgba(96,165,250,.22);
+  border: 1px solid rgba(96,165,250,.55);
   color: #eaf2ff;
-  text-decoration: none;
-  box-shadow: 0 10px 24px rgba(0,0,0,.28);
+
+  box-shadow:
+    0 0 0 6px rgba(96,165,250,.08),
+    0 18px 38px rgba(0,0,0,.35);
   transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
 }
 
 .hero-actions .btn.primary:hover{
   transform: translateY(-2px);
-  background: rgba(96,165,250,.22); /* stays blue */
-  border-color: rgba(96,165,250,.55);
-  box-shadow: 0 14px 32px rgba(0,0,0,.35), 0 0 22px rgba(96,165,250,.20);
+  background: rgba(96,165,250,.28);
+  border-color: rgba(96,165,250,.75);
+  box-shadow:
+    0 0 0 8px rgba(96,165,250,.10),
+    0 22px 44px rgba(0,0,0,.40),
+    0 0 24px rgba(96,165,250,.28);
+}
+
+/* BIGGER icon row + roomy */
+.hero-links{
+  display: flex;
+  align-items: center;
+  gap: 18px;           /* more space between icons */
+  padding-left: 4px;
+}
+
+.hero-links a,
+.hero-links a:visited{
+  color: var(--accent);
+  opacity: .95;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .18s ease, filter .18s ease, opacity .18s ease;
+}
+
+.hero-links i{
+  font-size: 26px;     /* bigger icons */
+  line-height: 1;
+}
+
+.hero-links a:hover{
+  transform: translateY(-2px) scale(1.06);
+  filter: drop-shadow(0 0 14px rgba(96,165,250,.55));
+  opacity: 1;
+}
+
+/* Photo */
+.hero-photo{
+  display: grid;
+  place-items: center;
+}
+
+.hero-photo img{
+  width: min(400px, 36vw);
+  aspect-ratio: 1/1;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 8px solid rgba(255,255,255,.03);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.10), 0 22px 60px rgba(0,0,0,.35);
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .hero-card{
+    grid-template-columns: 1fr;
+    padding: 36px 22px;
+    gap: 28px;
+    border-radius: 24px;
+  }
+  .hero-photo img{
+    width: min(320px, 76vw);
+  }
 }
 
 /* =========================
@@ -1224,18 +1280,21 @@
     <section id="hero" class="hero">
       <div class="hero-card">
         <div class="hero-copy">
-        <p class="eyebrow robo">
-  HELLO, I’M <span class="wave" aria-hidden="true">👋</span>
+        <p class="eyebrow">
+  <span class="typewrap">
+    <span id="heroType"></span><span class="caret" aria-hidden="true"></span>
+  </span>
 </p>
 
-<h1 class="hero-title robo-title">
+<h1 class="hero-title">
   Sruthijha <span class="text-accent">Pagolu</span>
 </h1>
 
 
+
           <p class="hero-desc">
   <span class="hero-role">Data Intern @ Goodie Bag</span><br />
-  I turn raw data into insights that help products grow. Curious by nature, detail-oriented by habit, and focused on building things that create real impact.
+  I turn raw data into insights that help products grow. Curious by nature, detail-oriented by habit, and focused on building things that create real impact :)
 </p>
 
 
