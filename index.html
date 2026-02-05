@@ -1009,6 +1009,27 @@ section.container{
 @media (max-width: 640px){
   :root{ --section-pad: 44px; }
 }
+  /* ===== Accent Links (FINAL – used in Leadership & Achievements) ===== */
+a.accent{
+  color: var(--accent);
+  font-weight: 500; /* consistent with project links */
+  text-decoration: none;
+  transition:
+    color .15s ease,
+    text-shadow .15s ease,
+    transform .15s ease;
+}
+
+a.accent:hover,
+a.accent:focus-visible{
+  color: #93c5fd;
+  text-shadow:
+    0 0 8px rgba(96,165,250,.6),
+    0 0 16px rgba(96,165,250,.35);
+  transform: translateX(2px);
+  outline: none;
+}
+
 
 
 </style>
