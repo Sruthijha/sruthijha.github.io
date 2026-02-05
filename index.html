@@ -279,6 +279,43 @@
   color: var(--text);
 }
 
+.skill-icon{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+}
+
+/* base icon */
+.skill-icon img{
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  filter: brightness(1.1);
+}
+
+/* label */
+.skill-icon span{
+  font-size: .95rem;
+  font-weight: 800;
+  color: var(--text);
+  transition: color .2s ease;
+}
+
+/* ===== Python glow (blue) ===== */
+.skill-icon.python img{
+  filter:
+    drop-shadow(0 0 6px rgba(96,165,250,.6))
+    drop-shadow(0 0 14px rgba(96,165,250,.45));
+}
+
+.skill-icon.python span{
+  color: var(--accent);
+  text-shadow:
+    0 0 6px rgba(96,165,250,.6),
+    0 0 14px rgba(96,165,250,.35);
+}
+
 
   /* =========================
    EDUCATION (locked)
@@ -895,9 +932,11 @@ html[data-theme="light"] .contact-item{
       </div>
     </article>
 
-    <div class="skill-icon">
+    <div class="skill-icon python">
   <img src="assets/python.jpeg" alt="Python logo">
   <span>Python</span>
+</div>
+
 </div>
 
     <article class="skill-card">
