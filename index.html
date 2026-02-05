@@ -740,6 +740,19 @@ html[data-theme="light"] .contact-item{
   filter: brightness(0) invert(1);
   opacity: .95;
 }
+/* Click / active feedback for contact items */
+.contact-item:active{
+  transform: scale(.985);
+  border-color: rgba(96,165,250,.75);
+  box-shadow:
+    0 0 0 2px rgba(96,165,250,.25),
+    var(--shadow-2);
+}
+
+.contact-item:active .contact-arrow{
+  transform: translateX(4px);
+  color: var(--accent);
+}
 
 </style>
 
