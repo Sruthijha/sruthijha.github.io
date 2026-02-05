@@ -375,30 +375,38 @@
   /* spacer no longer needed (kept in HTML but disabled) */
   #education .edu-spacer{ display:none; }
 
-  #education .edu-list{
-    margin: .65rem 0 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    gap: .45rem;
-  }
-  #education .edu-list li{
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    line-height: 1.55;
-  }
-  #education .edu-list li::before{
-    content: "▶";
-    color: var(--good);
-    margin-top: 2px;
-  }
-#education .edu-card{ padding-bottom: 1.15rem; } /* was 1.35rem top/bottom */
+ /* Coursework list — clean, baseline-aligned bullets */
+#education .edu-list{
+  margin: .4rem 0 0;      /* tighter top spacing */
+  padding-left: 0;        /* no fake indent */
+  list-style: none;
+  display: grid;
+  gap: .35rem;
+}
 
+#education .edu-list li{
+  display: grid;
+  grid-template-columns: 14px 1fr; /* bullet + text */
+  align-items: start;
+  column-gap: 10px;
+  line-height: 1.5;
+}
 
-  /* clean separation without lines */
-  #education{ padding-bottom: calc(var(--section-pad) + 24px); }
-  #experience{ padding-top: var(--section-pad); }
+/* bullet sits naturally at text start, not centered */
+#education .edu-list li::before{
+  content: "▶";
+  color: var(--good);
+  font-size: .9em;
+  line-height: 1.4;
+}
+
+#education{
+  padding-bottom: var(--section-pad);
+}
+
+#experience{
+  padding-top: var(--section-pad);
+}
 
   /* ===== Experience ===== */
   #experience{ max-width:980px; margin:auto; }
