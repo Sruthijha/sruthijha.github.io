@@ -2156,7 +2156,7 @@ last.classList.add("text-accent");
     }
 
     // type
-    cur.node.textContent += cur.text.charAt(i);
+    cur.node.append(cur.text.charAt(i));
     i++;
 
     if(i < cur.text.length){
