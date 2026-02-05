@@ -8,6 +8,7 @@
   <meta name="theme-color" content="#60a5fa" />
 
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
   /* =========================
@@ -174,6 +175,49 @@
   .text-accent{ color:var(--accent); }
   .hero-subtitle{ margin:.35rem auto 1.25rem; color:var(--muted); line-height:1.6; max-width:60ch; }
   .hero-actions { display:flex; gap:1rem; justify-content:flex-start; }
+  /* HERO: Resume + social icons in one row */
+.hero-actions{
+  display:flex;
+  align-items:center;
+  gap: 14px;
+  flex-wrap: wrap; /* prevents weird overflow on small screens */
+}
+
+.hero-links{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+/* icon buttons */
+.hero-links a{
+  width: 42px;
+  height: 42px;
+  display:grid;
+  place-items:center;
+
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+
+  color: rgba(229,231,235,.85);
+  text-decoration: none;
+
+  transition: transform .18s ease, box-shadow .18s ease, color .18s ease, background .18s ease;
+}
+
+.hero-links a:hover{
+  transform: translateY(-2px);
+  color: var(--accent);
+  box-shadow: 0 0 18px rgba(96,165,250,.45);
+  background: rgba(96,165,250,.10);
+}
+
+.hero-links i{
+  font-size: 16px;
+  line-height: 1;
+}
+
 
   .btn{
     display:inline-block;
