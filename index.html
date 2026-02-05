@@ -769,6 +769,29 @@ section > h2{
     font-size: .9em;
     line-height: 1.4;
   }
+  /* =========================================================
+   EDUCATION LOGO HOVER GLOW
+   ========================================================= */
+
+#education .edu-logo{
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    background .18s ease,
+    border-color .18s ease;
+}
+
+/* Card hover → logo reacts */
+#education .edu-card:hover .edu-logo,
+#education .edu-logo:focus-visible{
+  transform: translateY(-1px);
+  border-color: rgba(96,165,250,.55);
+  background: rgba(96,165,250,.10);
+  box-shadow:
+    0 0 0 2px rgba(96,165,250,.25),
+    0 0 22px rgba(96,165,250,.35);
+}
+
 
   /* =========================================================
      EXPERIENCE
