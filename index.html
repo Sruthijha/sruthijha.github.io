@@ -307,19 +307,64 @@
 @keyframes blink{ 50%{ opacity: 0; } }
 
 /* =========================
-   HERO ACTIONS (more spacing)
+   HERO = FULL VIEWPORT + CARD
+   ========================= */
+
+#hero{
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  padding: 0;
+}
+
+.hero{
+  width: 100%;
+}
+
+.hero-card{
+  margin: 0 auto;
+  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+  will-change: transform;
+}
+
+/* Interactive glow (subtle, premium) */
+.hero-card:hover{
+  border-color: rgba(96,165,250,.20);
+  box-shadow:
+    0 0 80px rgba(96,165,250,.14),
+    0 22px 70px rgba(0,0,0,.35);
+  transform: translateY(-2px);
+}
+
+.hero-title{
+  transition: text-shadow .25s ease;
+}
+
+.hero-card:hover .hero-title{
+  text-shadow:
+    0 0 18px rgba(96,165,250,.18),
+    0 0 42px rgba(96,165,250,.10);
+}
+
+.hero-card:hover .text-accent{
+  text-shadow:
+    0 0 18px rgba(96,165,250,.35),
+    0 0 44px rgba(96,165,250,.22);
+}
+
+/* =========================
+   HERO ACTIONS (Resume + Links)
    ========================= */
 
 .hero-actions{
   display: flex;
   align-items: center;
-  gap: 26px; /* Resume ↔ links separation */
+  gap: 26px;             /* Resume ↔ links spacing */
   margin-top: 22px;
   flex-wrap: wrap;
 }
 
-
-/* STRONG resume button (blue glow, not weak) */
+/* Resume button locked to blue (no purple hover) */
 .hero-actions .btn.primary,
 .hero-actions .btn.primary:visited{
   padding: 12px 20px;
@@ -334,6 +379,7 @@
   box-shadow:
     0 0 0 6px rgba(96,165,250,.08),
     0 18px 38px rgba(0,0,0,.35);
+
   transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
 }
 
@@ -347,44 +393,58 @@
     0 0 24px rgba(96,165,250,.28);
 }
 
-/* BIGGER icon row + roomy */
+/* =========================
+   HERO LINKS (icon + label pills)
+   ========================= */
+
 .hero-links{
   display: flex;
   align-items: center;
-  gap: 18px;           /* more space between icons */
+  gap: 22px;             /* spacing between Mail / LinkedIn / GitHub */
   padding-left: 4px;
 }
 
-.hero-links a,
-.hero-links a:visited{
-  color: var(--accent);
-  opacity: .95;
-  text-decoration: none;
+.hero-link,
+.hero-link:visited{
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  transition: transform .18s ease, filter .18s ease, opacity .18s ease;
+  gap: 8px;
+
+  padding: 6px 10px;
+  border-radius: 12px;
+
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  opacity: .95;
+
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease, opacity .18s ease;
 }
 
-.hero-links i{
-  font-size: 26px;     /* bigger icons */
+.hero-link i{
+  font-size: 20px;       /* bigger icon */
   line-height: 1;
 }
 
-.hero-links a:hover{
-  transform: translateY(-2px) scale(1.06);
-  filter: drop-shadow(0 0 14px rgba(96,165,250,.55));
+.hero-link:hover{
+  transform: translateY(-2px);
+  background: rgba(96,165,250,.12);
+  box-shadow: 0 0 18px rgba(96,165,250,.25);
   opacity: 1;
 }
 
-/* Photo */
+/* =========================
+   HERO PHOTO
+   ========================= */
+
 .hero-photo{
   display: grid;
   place-items: center;
 }
 
 .hero-photo img{
-  width: min(400px, 36vw);
+  width: min(380px, 36vw);
   aspect-ratio: 1/1;
   border-radius: 999px;
   object-fit: cover;
@@ -392,7 +452,10 @@
   box-shadow: 0 0 0 1px rgba(255,255,255,.10), 0 22px 60px rgba(0,0,0,.35);
 }
 
-/* Responsive */
+/* =========================
+   RESPONSIVE
+   ========================= */
+
 @media (max-width: 900px){
   .hero-card{
     grid-template-columns: 1fr;
@@ -403,168 +466,11 @@
   .hero-photo img{
     width: min(320px, 76vw);
   }
-}
-
-/* =========================
-   HERO = FULL VIEWPORT
-   ========================= */
-
-#hero{
-  min-height: 100vh;
-  display: grid;
-  align-items: center;
-  padding-top: 0;     /* ensures true full-viewport feel */
-  padding-bottom: 0;
-}
-
-/* keep your card from sticking to edges */
-.hero{
-  width: 100%;
-}
-
-/* optional: make card slightly taller / centered */
-.hero-card{
-  margin: 0 auto;
-}
-
-
-/* ICONS (LOCKED like you wanted: clean, no circles) */
-/* =========================
-   HERO ICON LINKS (big + accent blue)
-   ========================= */
-
-.hero-links{
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding-left: 8px;
-}
-
-.hero-links a,
-.hero-links a:visited{
-  color: var(--accent);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform .18s ease, filter .18s ease, opacity .18s ease;
-  opacity: .95;
-}
-
-.hero-links i{
-  font-size: 24px; /* BIGGER */
-  line-height: 1;
-}
-
-.hero-links a:hover{
-  transform: translateY(-2px) scale(1.06);
-  filter: drop-shadow(0 0 14px rgba(96,165,250,.55));
-  opacity: 1;
-}
-
-/* =========================
-   HERO LINKS (icon + label)
-   ========================= */
-
-.hero-links{
-  display: flex;
-  align-items: center;
-  gap: 22px; /* space BETWEEN Mail / LinkedIn / GitHub */
-}
-
-/* each link becomes a calm pill */
-.hero-link,
-.hero-link:visited{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;               /* space between icon and text */
-  padding: 6px 10px;
-
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-
-  border-radius: 12px;
-  transition:
-    transform .18s ease,
-    background .18s ease,
-    box-shadow .18s ease;
-}
-
-/* icon size */
-.hero-link i{
-  font-size: 18px;
-  line-height: 1;
-}
-
-/* hover = subtle glow, not loud */
-.hero-link:hover{
-  transform: translateY(-2px);
-  background: rgba(96,165,250,.12);
-  box-shadow: 0 0 18px rgba(96,165,250,.25);
-}
-
-/* photo */
-.hero-photo{
-  display: grid;
-  place-items: center;
-}
-.hero-photo img{
-  width: min(380px, 36vw);
-  aspect-ratio: 1/1;
-  border-radius: 999px;
-  object-fit: cover;
-  border: 8px solid rgba(255,255,255,.03);
-  box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 18px 46px rgba(0,0,0,.35);
-}
-
-/* responsive */
-@media (max-width: 900px){
-  .hero-card{
-    grid-template-columns: 1fr;
-    padding: 34px 22px;
-    gap: 26px;
-    border-radius: 24px;
+  .hero-links{
+    padding-left: 0;
   }
-  .hero-photo img{ width: min(300px, 74vw); }
-  .hero-links{ padding-left: 0; }
-}
-/* =========================
-   INTERACTIVE HERO GLOW
-   ========================= */
-
-/* card hover = subtle glow shift */
-.hero-card{
-  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
-  will-change: transform;
 }
 
-.hero-card:hover{
-  border-color: rgba(96,165,250,.20);
-  box-shadow:
-    0 0 80px rgba(96,165,250,.14),
-    0 22px 70px rgba(0,0,0,.35);
-  transform: translateY(-2px);
-}
-
-/* title glow on hover */
-.hero-title{
-  transition: text-shadow .25s ease;
-}
-
-.hero-card:hover .hero-title{
-  text-shadow:
-    0 0 18px rgba(96,165,250,.18),
-    0 0 42px rgba(96,165,250,.10);
-}
-
-/* accent word extra glow on hover */
-.hero-card:hover .text-accent{
-  text-shadow:
-    0 0 18px rgba(96,165,250,.35),
-    0 0 44px rgba(96,165,250,.22);
-}
 
  /* =========================
    ROBOT / TERMINAL FEEL (for eyebrow + title)
