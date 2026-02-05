@@ -277,122 +277,136 @@
   #skills-section .skill-tag:hover{ background: rgba(96,165,250,.12); box-shadow: var(--shadow); transform: translateY(-1px); }
 
   /* =========================
-     EDUCATION (locked)
-     ========================= */
-  #education .edu-grid{
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
-    align-items: stretch;
-    margin-bottom: 28px; /* clean breathing room before Experience */
-  }
-  @media (max-width: 980px){
-    #education .edu-grid{ grid-template-columns: 1fr; }
-  }
+  /* =========================
+   EDUCATION (locked)
+   ========================= */
 
-  #education .edu-card{
-    margin-bottom: 0;
-    height: 100%;
-    padding: 1.35rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(180deg, var(--panel), rgba(255,255,255,.01));
-    position: relative;
-    z-index: 2;
-    overflow: hidden;
-    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-  }
-  #education .edu-card:hover{
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-2);
-    border-color: rgba(96,165,250,.35);
-  }
+#education{
+  padding-bottom: 48px; /* consistent gap to Experience */
+}
 
-  #education .edu-head{ margin-bottom: .95rem; }
-  #education .edu-head-left{
-    display: flex;
-    align-items: center;
-    gap: .85rem;
-    min-width: 0;
-  }
-  #education .edu-head-text{
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-  }
-  #education .edu-school{
-    font-size: 1.18rem;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    color: var(--accent);
-    white-space: normal;
-  }
-  #education .edu-date{
-    margin-top: .25rem;
-    color: var(--muted);
-    font-size: .9rem;
-    opacity: .85;
-  }
+#education .edu-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+  margin-bottom: 0; /* avoid stacking extra gap */
+}
 
-  /* padded/framed logos */
-  #education .edu-logo{
-    width: 44px;
-    height: 44px;
-    padding: 6px;
-    object-fit: contain;
-    flex-shrink: 0;
-    display: block;
-    background: rgba(255,255,255,.03);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    box-shadow: none;
-    filter: none;
-  }
-  html[data-theme="light"] #education .edu-logo{ background:#fff; }
-  #education .edu-logo--rounded{ border-radius: 12px; }
+@media (max-width: 980px){
+  #education .edu-grid{ grid-template-columns: 1fr; }
+}
 
-  #education .edu-meta{
-    margin: .45rem 0 0;
-    line-height: 1.55;
-    color: var(--text);
-  }
+#education .edu-card{
+  margin-bottom: 0;
+  height: 100%;
+  padding: 1.25rem 1.5rem; /* reduced bottom space */
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, var(--panel), rgba(255,255,255,.01));
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
 
-  /* ✅ Align GPA + coursework across both cards:
-     reserve 2 lines for the degree row in BOTH cards */
-  #education .edu-card .edu-meta:first-of-type{
-    min-height: calc(1.55em * 2);
-    margin-top: .45rem;
-    margin-bottom: .25rem;
-  }
+#education .edu-card:hover{
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-2);
+  border-color: rgba(96,165,250,.35);
+}
 
-  #education .edu-label{
-    color: var(--muted);
-    font-weight: 600;
-    opacity: .75;
-  }
+/* Header */
+#education .edu-head{ margin-bottom: .9rem; }
 
-  /* spacer no longer needed (kept in HTML but disabled) */
-  #education .edu-spacer{ display:none; }
+#education .edu-head-left{
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  min-width: 0;
+}
 
- /* Coursework list — clean, baseline-aligned bullets */
+#education .edu-head-text{
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+#education .edu-school{
+  font-size: 1.18rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--accent);
+  white-space: normal;
+}
+
+#education .edu-date{
+  margin-top: .25rem;
+  color: var(--muted);
+  font-size: .9rem;
+  opacity: .85;
+}
+
+/* Padded/framed logos */
+#education .edu-logo{
+  width: 44px;
+  height: 44px;
+  padding: 6px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: none;
+  filter: none;
+}
+
+html[data-theme="light"] #education .edu-logo{ background:#fff; }
+#education .edu-logo--rounded{ border-radius: 12px; }
+
+/* Body text */
+#education .edu-meta{
+  margin: .4rem 0 0;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+/* Align GPA + coursework across both cards:
+   reserve 2 lines for the degree row in BOTH cards */
+#education .edu-card .edu-meta:first-of-type{
+  min-height: calc(1.55em * 2);
+  margin-top: .4rem;
+  margin-bottom: .2rem;
+}
+
+#education .edu-label{
+  color: var(--muted);
+  font-weight: 600;
+  opacity: .75;
+}
+
+/* Spacer kept in HTML but disabled */
+#education .edu-spacer{ display:none; }
+
+/* Coursework list — aligned bullets, tighter spacing */
 #education .edu-list{
-  margin: .4rem 0 0;      /* tighter top spacing */
-  padding-left: 0;        /* no fake indent */
+  margin: .25rem 0 0; /* reduced gap after "Relevant Coursework:" */
+  padding: 0;
   list-style: none;
   display: grid;
-  gap: .35rem;
+  gap: .3rem;
 }
 
 #education .edu-list li{
   display: grid;
-  grid-template-columns: 14px 1fr; /* bullet + text */
-  align-items: start;
+  grid-template-columns: 14px 1fr;
   column-gap: 10px;
   line-height: 1.5;
+  align-items: start;
 }
 
-/* bullet sits naturally at text start, not centered */
 #education .edu-list li::before{
   content: "▶";
   color: var(--good);
@@ -400,12 +414,12 @@
   line-height: 1.4;
 }
 
-#education{
-  padding-bottom: var(--section-pad);
-}
+/* =========================
+   EXPERIENCE spacing match
+   ========================= */
 
 #experience{
-  padding-top: var(--section-pad);
+  padding-top: 48px; /* match Education bottom padding */
 }
 
   /* ===== Experience ===== */
