@@ -348,30 +348,63 @@
   box-shadow: 0 14px 32px rgba(0,0,0,.35), 0 0 22px rgba(96,165,250,.20);
 }
 
+/* =========================
+   HERO = FULL VIEWPORT
+   ========================= */
+
+#hero{
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  padding-top: 0;     /* ensures true full-viewport feel */
+  padding-bottom: 0;
+}
+
+/* keep your card from sticking to edges */
+.hero{
+  width: 100%;
+}
+
+/* optional: make card slightly taller / centered */
+.hero-card{
+  margin: 0 auto;
+}
+
+
 /* ICONS (LOCKED like you wanted: clean, no circles) */
+/* =========================
+   HERO ICON LINKS (big + accent blue)
+   ========================= */
+
 .hero-links{
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding-left: 6px;
+  gap: 16px;
+  padding-left: 8px;
 }
+
 .hero-links a,
 .hero-links a:visited{
-  color: rgba(229,231,235,.78);
+  color: var(--accent);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
-  transition: transform .18s ease, color .18s ease, filter .18s ease;
+  transition: transform .18s ease, filter .18s ease, opacity .18s ease;
+  opacity: .95;
 }
+
+.hero-links i{
+  font-size: 24px; /* BIGGER */
+  line-height: 1;
+}
+
 .hero-links a:hover{
-  color: var(--accent);
-  transform: translateY(-2px);
-  filter: drop-shadow(0 0 10px rgba(96,165,250,.35));
+  transform: translateY(-2px) scale(1.06);
+  filter: drop-shadow(0 0 14px rgba(96,165,250,.55));
+  opacity: 1;
 }
-.hero-links i{ font-size: 18px; line-height: 1; }
+
 
 /* photo */
 .hero-photo{
@@ -399,7 +432,70 @@
   .hero-links{ padding-left: 0; }
 }
 
-  /* =========================================================
+ /* =========================
+   ROBOT / TERMINAL FEEL (for eyebrow + title)
+   ========================= */
+
+.robo{
+  position: relative;
+  text-shadow: 0 0 14px rgba(96,165,250,.12);
+}
+
+.robo::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -6px;
+  width: 100%;
+  height: calc(100% + 12px);
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,.04),
+    rgba(255,255,255,.04) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+  opacity: .12;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.robo-title{
+  position: relative;
+  text-shadow:
+    0 0 22px rgba(96,165,250,.18),
+    0 0 48px rgba(96,165,250,.08);
+}
+
+/* subtle “speech/scan” shimmer */
+.robo-title::after{
+  content: "";
+  position: absolute;
+  left: -10%;
+  top: 0;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(96,165,250,.18),
+    transparent
+  );
+  transform: skewX(-12deg);
+  animation: scanSweep 2.8s ease-in-out infinite;
+  pointer-events: none;
+  opacity: .55;
+}
+
+@keyframes scanSweep{
+  0%{ left: -30%; opacity: 0; }
+  10%{ opacity: .55; }
+  50%{ opacity: .55; }
+  90%{ opacity: .35; }
+  100%{ left: 110%; opacity: 0; }
+}
+
+ /* =========================================================
      SKILLS (LOCKED)
      ========================================================= */
 
@@ -1128,21 +1224,20 @@
     <section id="hero" class="hero">
       <div class="hero-card">
         <div class="hero-copy">
-          <p class="eyebrow">
-            HELLO, I’M <span class="wave" aria-hidden="true">👋</span>
-          </p>
+        <p class="eyebrow robo">
+  HELLO, I’M <span class="wave" aria-hidden="true">👋</span>
+</p>
 
-          <h1 class="hero-title">
-            Sruthijha <span class="text-accent">Pagolu</span>
-          </h1>
+<h1 class="hero-title robo-title">
+  Sruthijha <span class="text-accent">Pagolu</span>
+</h1>
+
 
           <p class="hero-desc">
-            <span class="hero-role">Data Intern @ Goodie Bag</span><br />
-            <span class="typewrap">
-              <span id="typewriter"></span>
-              <span class="caret" aria-hidden="true"></span>
-            </span>
-          </p>
+  <span class="hero-role">Data Intern @ Goodie Bag</span><br />
+  I turn raw data into product insights.
+</p>
+
 
           <div class="hero-actions">
             <a href="resume.pdf" class="btn primary">Resume</a>
@@ -1980,19 +2075,6 @@
       if (e.key === 'Escape' && contactOverlay?.classList.contains('open')) closeContact();
     });
 
-  const text = "I turn raw data into product insights.";
-  const el = document.getElementById("typewriter");
-  let i = 0;
-
-  function typeOnce(){
-    if (!el) return;
-    if (i <= text.length){
-      el.textContent = text.slice(0, i);
-      i++;
-      setTimeout(typeOnce, 28);
-    }
-  }
-  typeOnce();
 
 </script>
 
