@@ -502,93 +502,138 @@ html[data-theme="light"] #education .edu-logo{ background:#fff; }
   }
 
   /* ===== Projects ===== */
-  #projects .projects-grid{
-    display:grid;
-    grid-template-columns:repeat(3, minmax(0, 1fr));
-    gap:24px;
-    align-items:start;
-  }
-  @media (max-width:1024px){
-    #projects .projects-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
-  }
-  @media (max-width:640px){
-    #projects .projects-grid{ grid-template-columns:1fr; }
-  }
+#projects .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch; /* KEY: equal-height rows */
+}
 
-  .project-card{
-    background: linear-gradient(180deg, var(--panel-2), rgba(255,255,255,.01));
-    border:1px solid var(--line);
-    border-radius:20px;
-    overflow:hidden;
-    display:flex; flex-direction:column;
-    padding:0 !important;
-    width:100%;
-    transition: transform .18s ease, box-shadow .18s ease;
-    will-change: transform;
-    box-shadow: var(--shadow);
-  }
-  .project-card > img{
-    width:100%;
-    aspect-ratio:16/9;
-    object-fit:cover;
-    display:block;
-    margin:0;
-    border:0;
-    border-radius:20px 20px 0 0;
-    transition: transform .35s ease;
-    filter: saturate(1.05);
-  }
+@media (max-width: 1024px) {
+  #projects .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 
-  .project-card:hover,
-  .project-card:focus-within{
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-2);
-  }
-  .project-card:hover > img,
-  .project-card:focus-within > img{ transform: scale(1.03); }
+@media (max-width: 640px) {
+  #projects .projects-grid { grid-template-columns: 1fr; }
+}
 
-  .project-card .content{ padding:14px 16px 16px 16px; }
-  .project-card h3{
-    margin:.5rem 0 .5rem 0;
-    color: var(--accent);
-    font-size:1.05rem;
-    text-align:left;
-    font-weight: 900;
-    line-height:1.35;
-  }
-  .project-card p{
-    margin:0 0 .9rem 0;
-    color: rgba(229,231,235,.9);
-    line-height:1.6;
-    font-size:.93rem;
-  }
-  html[data-theme="light"] .project-card p{ color: #111827; }
+.project-card {
+  background: linear-gradient(180deg, var(--panel-2), rgba(255, 255, 255, 0.01));
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  overflow: hidden;
+  width: 100%;
 
-  .pills{
-    display:flex; flex-wrap:wrap;
-    gap:.5rem;
-    margin-bottom:.9rem;
-  }
-  .pill{
-    background: rgba(255,255,255,.03);
-    border:1px solid var(--line);
-    padding:.35rem .75rem;
-    border-radius:999px;
-    font-size:.82rem;
-    font-weight: 800;
-    color: var(--text);
-    transition: transform .12s ease, background .12s ease, border-color .12s ease;
-  }
-  .pill:hover{ transform:translateY(-1px); background: rgba(96,165,250,.12); border-color: rgba(96,165,250,.22); }
+  display: flex;
+  flex-direction: column;
+  height: 100%;          /* KEY: fill grid cell */
+  padding: 0 !important;
 
-  .links{ display:flex; gap:.9rem; flex-wrap:wrap; margin-bottom:.6rem; }
-  .project-card a:hover{ text-decoration:underline; }
-  .project-card a:focus-visible{ outline:2px solid rgba(96,165,250,.6); outline-offset:2px; text-decoration:none; }
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  will-change: transform;
+  box-shadow: var(--shadow);
+}
 
-  @media (prefers-reduced-motion: reduce){
-    .project-card, .project-card > img{ transition:none !important; }
-    .theme-toggle{ transition:none !important; }
-  }
+.project-card > img {
+  width: 100%;
+  height: 170px;         /* KEY: fixed media height for uniform cards */
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  border: 0;
+  border-radius: 20px 20px 0 0;
+  transition: transform 0.35s ease;
+  filter: saturate(1.05);
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-2);
+}
+
+.project-card:hover > img,
+.project-card:focus-within > img {
+  transform: scale(1.03);
+}
+
+.project-card .content {
+  padding: 14px 16px 16px 16px;
+  display: flex;         /* KEY: lets links sit at bottom */
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-card h3 {
+  margin: 0.5rem 0 0.5rem 0;
+  color: var(--accent);
+  font-size: 1.05rem;
+  text-align: left;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+/* Uniform description height */
+.project-card p {
+  margin: 0 0 0.9rem 0;
+  color: rgba(229, 231, 235, 0.9);
+  line-height: 1.6;
+  font-size: 0.93rem;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;       /* KEY: same length visually */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+html[data-theme="light"] .project-card p { color: #111827; }
+
+.project-card .pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.pill {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--text);
+  transition: transform 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+}
+
+.pill:hover {
+  transform: translateY(-1px);
+  background: rgba(96, 165, 250, 0.12);
+  border-color: rgba(96, 165, 250, 0.22);
+}
+
+/* Links pinned to bottom for equal rhythm */
+.project-card .links {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  margin-top: auto;      /* KEY */
+  padding-top: 0.1rem;
+  margin-bottom: 0.2rem;
+}
+
+.project-card a:hover { text-decoration: underline; }
+.project-card a:focus-visible {
+  outline: 2px solid rgba(96, 165, 250, 0.6);
+  outline-offset: 2px;
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-card > img { transition: none !important; }
+}
+
 
   /* Footer */
   footer a{ color: var(--accent); }
@@ -1214,122 +1259,171 @@ a.accent:hover {
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="container">
-      <h2>Projects</h2>
+   <!-- PROJECTS -->
+<section id="projects" class="container">
+  <h2>Projects</h2>
 
-      <div class="projects-grid">
-        <article class="project-card">
-          <img src="assets/minutes.png" alt="Minutes Maker banner" />
-          <div class="content">
-            <h3>Minutes Maker – Video Transcription and Summarization Pipeline</h3>
-            <p>Automated meeting transcription and summarization pipeline using AWS Serverless. Fully asynchronous architecture with Whisper for transcription and FLAN-T5 for summarization, delivering professional meeting minutes.</p>
-            <div class="pills">
-              <span class="pill">AWS Lambda</span><span class="pill">S3</span>
-              <span class="pill">SQS</span><span class="pill">API Gateway</span>
-              <span class="pill">Terraform</span><span class="pill">Python</span>
-              <span class="pill">Docker</span><span class="pill">Hugging Face</span>
-            </div>
-            <div class="links">
-              <a href="https://github.com/Sruthijha/Minutes-Maker" target="_blank" rel="noopener">GitHub</a>
-              <a href="https://github.com/Sruthijha/Minutes-Maker/blob/main/Architecture.pdf" target="_blank" rel="noopener">Architecture</a>
-            </div>
-          </div>
-        </article>
+  <div class="projects-grid">
+    <!-- Minutes Maker -->
+    <article class="project-card">
+      <img src="assets/minutes.png" alt="Minutes Maker banner" />
+      <div class="content">
+        <h3>Minutes Maker – Video Transcription & Summarization</h3>
+        <p>
+          Built an asynchronous AWS serverless pipeline that transcribes meetings with Whisper and
+          generates structured minutes using FLAN-T5.
+        </p>
 
-        <article class="project-card">
-          <img src="assets/Airline.png" alt="Airline Delay Prediction banner" />
-          <div class="content">
-            <h3>Airline Delay Prediction System</h3>
-            <p>Predicted airline delays from multi-year flight data, achieving 97% accuracy through advanced feature engineering and robust data handling.</p>
-            <div class="pills">
-              <span class="pill">Python</span><span class="pill">Pandas</span>
-              <span class="pill">Scikit-learn</span><span class="pill">XGBoost</span>
-              <span class="pill">Random Forest</span><span class="pill">Feature Engineering</span>
-              <span class="pill">Data Visualization</span>
-            </div>
-            <div class="links">
-              <a href="https://sites.google.com/view/shvdm/home" target="_blank" rel="noopener">Website</a>
-              <a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System" target="_blank" rel="noopener">GitHub</a>
-              <a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System/blob/main/Final%20Report.pdf" target="_blank" rel="noopener">Report</a>
-            </div>
-          </div>
-        </article>
+        <div class="pills">
+          <span class="pill">AWS Serverless</span>
+          <span class="pill">Whisper</span>
+          <span class="pill">FLAN-T5</span>
+          <span class="pill">Async Pipeline</span>
+          <span class="pill">Terraform</span>
+          <span class="pill">Python</span>
+        </div>
 
-        <article class="project-card">
-          <img src="assets/DL.png" alt="Real-time Emotion Recognition banner" />
-          <div class="content">
-            <h3>Real-time Emotion Recognition from Speech</h3>
-            <p>Built a real-time system that recognizes emotions from speech with 95% accuracy, powered by a CNN-LSTM model and enriched through advanced audio features and augmentation.</p>
-            <div class="pills">
-              <span class="pill">Python</span><span class="pill">NumPy</span>
-              <span class="pill">Deep Learning</span><span class="pill">TensorFlow</span>
-              <span class="pill">CNN + LSTM</span><span class="pill">Librosa</span>
-              <span class="pill">MFCCs &amp; Spectrograms</span>
-            </div>
-            <div class="links">
-              <a href="https://github.com/Sruthijha/Real-Time-Emotion-Recognition-from-Speech-/blob/main/term_project_final.ipynb" target="_blank" rel="noopener">GitHub</a>
-              <a href="https://github.com/Sruthijha/Real-Time-Emotion-Recognition-from-Speech-/blob/main/Project%20Report.pdf" target="_blank" rel="noopener">Report</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <img src="assets/movie.jpg" alt="Movie Recommendation System banner" />
-          <div class="content">
-            <h3>Movie Recommendation System</h3>
-            <p>Developed a personalized movie recommendation system using collaborative filtering and similarity metrics, helping users discover new movies based on their preferences.</p>
-            <div class="pills">
-              <span class="pill">Python</span><span class="pill">Pandas</span>
-              <span class="pill">Scikit-learn</span>
-              <span class="pill">Cosine Similarity</span>
-              <span class="pill">Streamlit</span>
-              <span class="pill">Recommendation Systems</span>
-            </div>
-            <div class="links">
-              <a href="https://github.com/Sruthijha/Movie-Recommendation-System" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <img src="assets/msr.png" alt="MSR 2024 Mining Challenge banner" />
-          <div class="content">
-            <h3>MSR 2024 Mining Challenge</h3>
-            <p>Analyzed ChatGPT’s performance in software-engineering dialogues by predicting conversation dynamics, measuring sentiment across programming languages, and identifying failure points to advance AI-assisted coding.</p>
-            <div class="pills">
-              <span class="pill">Python</span><span class="pill">Pandas</span>
-              <span class="pill">NLP</span><span class="pill">Sentiment Analysis</span>
-              <span class="pill">TextBlob</span><span class="pill">Scikit-learn</span>
-              <span class="pill">Keras</span><span class="pill">LSTM</span>
-            </div>
-            <div class="links">
-              <a href="https://conf.researchr.org/home/msr-2024" target="_blank" rel="noopener">Challenge</a>
-              <a href="https://github.com/Sruthijha/SE_Mining-Challenge" target="_blank" rel="noopener">GitHub</a>
-              <a href="https://github.com/Sruthijha/SE_Mining-Challenge/blob/master/SE%20Project%20Report.pdf" target="_blank" rel="noopener">Report</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <img src="assets/stat.png" alt="Crime Data Analysis banner" />
-          <div class="content">
-            <h3>Crime Data Analysis</h3>
-            <p>Analyzed U.S. crime trends (1979–2023) using statistical modeling to uncover regional disparities, long-term declines, and anomalies such as the 1990s surge and 2020 disruptions, generating predictive insights for public safety.</p>
-            <div class="pills">
-              <span class="pill">Python</span><span class="pill">Pandas</span>
-              <span class="pill">Scikit-learn</span><span class="pill">Statsmodels</span>
-              <span class="pill">Hypothesis Testing</span><span class="pill">Regression Modeling</span>
-              <span class="pill">Bootstrapping</span>
-            </div>
-            <div class="links">
-              <a href="https://github.com/Sruthijha/CrimeDataAnalysis" target="_blank" rel="noopener">GitHub</a>
-              <a href="https://github.com/Sruthijha/CrimeDataAnalysis/blob/main/Report.pdf" target="_blank" rel="noopener">Report</a>
-            </div>
-          </div>
-        </article>
+        <div class="links">
+          <a href="https://github.com/Sruthijha/Minutes-Maker" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/Sruthijha/Minutes-Maker/blob/main/Architecture.pdf" target="_blank" rel="noopener noreferrer">Architecture</a>
+        </div>
       </div>
-    </section>
+    </article>
+
+    <!-- Airline Delay Prediction -->
+    <article class="project-card">
+      <img src="assets/Airline.png" alt="Airline Delay Prediction banner" />
+      <div class="content">
+        <h3>Airline Delay Prediction System</h3>
+        <p>
+          Predicted airline delays from multi-year flight data, achieving 97% accuracy through robust
+          feature engineering and model evaluation.
+        </p>
+
+        <div class="pills">
+          <span class="pill">Feature Engineering</span>
+          <span class="pill">XGBoost</span>
+          <span class="pill">Random Forest</span>
+          <span class="pill">Scikit-learn</span>
+          <span class="pill">Pandas</span>
+          <span class="pill">Model Evaluation</span>
+        </div>
+
+        <div class="links">
+          <a href="https://sites.google.com/view/shvdm/home" target="_blank" rel="noopener noreferrer">Website</a>
+          <a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System/blob/main/Final%20Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Emotion Recognition -->
+    <article class="project-card">
+      <img src="assets/DL.png" alt="Real-time Emotion Recognition banner" />
+      <div class="content">
+        <h3>Real-time Emotion Recognition from Speech</h3>
+        <p>
+          Built a real-time speech emotion classifier with 95% accuracy using a CNN-LSTM model and
+          engineered audio features with augmentation.
+        </p>
+
+        <div class="pills">
+          <span class="pill">CNN-LSTM</span>
+          <span class="pill">TensorFlow</span>
+          <span class="pill">Audio Features</span>
+          <span class="pill">MFCCs</span>
+          <span class="pill">Augmentation</span>
+          <span class="pill">Python</span>
+        </div>
+
+        <div class="links">
+          <a href="https://github.com/Sruthijha/Real-Time-Emotion-Recognition-from-Speech-/blob/main/term_project_final.ipynb" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/Sruthijha/Real-Time-Emotion-Recognition-from-Speech-/blob/main/Project%20Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Movie Recommender -->
+    <article class="project-card">
+      <img src="assets/movie.jpg" alt="Movie Recommendation System banner" />
+      <div class="content">
+        <h3>Movie Recommendation System</h3>
+        <p>
+          Developed a personalized recommender using collaborative filtering and similarity scoring,
+          deployed as an interactive Streamlit app.
+        </p>
+
+        <div class="pills">
+          <span class="pill">Collaborative Filtering</span>
+          <span class="pill">Cosine Similarity</span>
+          <span class="pill">RecSys</span>
+          <span class="pill">Scikit-learn</span>
+          <span class="pill">Streamlit</span>
+          <span class="pill">Python</span>
+        </div>
+
+        <div class="links">
+          <a href="https://github.com/Sruthijha/Movie-Recommendation-System" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- MSR 2024 -->
+    <article class="project-card">
+      <img src="assets/msr.png" alt="MSR 2024 Mining Challenge banner" />
+      <div class="content">
+        <h3>MSR 2024 Mining Challenge</h3>
+        <p>
+          Analyzed software-engineering dialogues to model conversation dynamics, sentiment, and
+          failure points to better understand AI-assisted coding interactions.
+        </p>
+
+        <div class="pills">
+          <span class="pill">NLP</span>
+          <span class="pill">Sentiment Analysis</span>
+          <span class="pill">Conversation Modeling</span>
+          <span class="pill">LSTM</span>
+          <span class="pill">Scikit-learn</span>
+          <span class="pill">Python</span>
+        </div>
+
+        <div class="links">
+          <a href="https://conf.researchr.org/home/msr-2024" target="_blank" rel="noopener noreferrer">Challenge</a>
+          <a href="https://github.com/Sruthijha/SE_Mining-Challenge" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/Sruthijha/SE_Mining-Challenge/blob/master/SE%20Project%20Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Crime Data -->
+    <article class="project-card">
+      <img src="assets/stat.png" alt="Crime Data Analysis banner" />
+      <div class="content">
+        <h3>Crime Data Analysis</h3>
+        <p>
+          Analyzed U.S. crime trends (1979–2023) using statistical modeling to identify regional patterns,
+          anomalies, and drivers across decades.
+        </p>
+
+        <div class="pills">
+          <span class="pill">Statistical Modeling</span>
+          <span class="pill">Regression</span>
+          <span class="pill">Hypothesis Testing</span>
+          <span class="pill">Bootstrapping</span>
+          <span class="pill">Statsmodels</span>
+          <span class="pill">Python</span>
+        </div>
+
+        <div class="links">
+          <a href="https://github.com/Sruthijha/CrimeDataAnalysis" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/Sruthijha/CrimeDataAnalysis/blob/main/Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+
 
 <!-- ACHIEVEMENTS -->
 <section id="achievements" class="container">
