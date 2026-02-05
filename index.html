@@ -264,19 +264,14 @@
 
 /* image */
 .skill-icon img{
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
   filter:
-    brightness(0)
-    saturate(100%)
-    invert(56%)
-    sepia(64%)
-    saturate(380%)
-    hue-rotate(185deg)
-    brightness(95%)
-    contrast(95%)
     drop-shadow(0 0 6px rgba(96,165,250,.45))
-    drop-shadow(0 0 14px rgba(96,165,250,.25));
+    drop-shadow(0 0 14px rgba(96,165,250,.22));
+  transition: filter .18s ease, transform .18s ease;
 }
-
 
 /* label (unified!) */
 .skill-icon span{
@@ -305,6 +300,13 @@
   text-shadow: 0 0 10px rgba(96,165,250,.55);
 }
 
+/* Optional: if you want Python a tiny bit “featured”, keep this.
+   If not, delete this block. */
+.skill-icon.python img{
+  filter:
+    drop-shadow(0 0 8px rgba(96,165,250,.62))
+    drop-shadow(0 0 18px rgba(96,165,250,.38));
+}
 
 
   /* =========================
