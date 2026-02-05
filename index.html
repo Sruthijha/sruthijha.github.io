@@ -2070,208 +2070,192 @@
 
 <!-- SCRIPTS -->
 <script>
+  // =========================
+  // Mobile nav toggle
+  // =========================
+  const toggle = document.getElementById('nav-toggle');
+  const nav = document.getElementById('site-nav');
+  toggle?.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
 
-    // =========================
-    // Mobile nav toggle
-    // =========================
-    const toggle = document.getElementById('nav-toggle');
-    const nav = document.getElementById('site-nav');
-    toggle?.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(open));
-    });
+  // =========================
+  // Smooth anchor scroll
+  // =========================
+  document.querySelectorAll('nav a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      const el = document.querySelector(id);
+      if (!el) return;
+      e.preventDefault();
 
-    // =========================
-    // Smooth anchor scroll
-    // =========================
-    document.querySelectorAll('nav a[href^="#"]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        const id = a.getAttribute('href');
-        const el = document.querySelector(id);
-        if (!el) return;
-        e.preventDefault();
-
-        if (nav?.classList.contains('open')) {
-          nav.classList.remove('open');
-          toggle?.setAttribute('aria-expanded', 'false');
-        }
-
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        history.pushState(null, '', id);
-      });
-    });
-
-    // =========================
-    // Scroll spy (center-based)
-    // =========================
-    const HEADER_H = parseInt(
-      getComputedStyle(document.documentElement).getPropertyValue('--header-h')
-    ) || 64;
-
-    const navLinksArr = [...document.querySelectorAll('nav a[href^="#"]')];
-    const sectionIds = navLinksArr
-      .map(a => a.getAttribute('href'))
-      .filter(h => h && h.startsWith('#'))
-      .map(h => h.slice(1));
-    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-    const hero = document.getElementById('hero');
-
-    const linkFor = id => navLinksArr.find(a => a.getAttribute('href') === `#${id}`);
-    const clearActive = () => navLinksArr.forEach(a => a.classList.remove('active'));
-
-    function visibleRatio(rect) {
-      const vh = window.innerHeight;
-      const visible = Math.max(0, Math.min(rect.bottom, vh) - Math.max(rect.top, 0));
-      return visible / Math.min(vh, Math.max(1, rect.height));
-    }
-
-    function chooseActiveSection() {
-      if (hero) {
-        const r = hero.getBoundingClientRect();
-        if (visibleRatio(r) >= 0.5) {
-          clearActive();
-          return;
-        }
+      if (nav?.classList.contains('open')) {
+        nav.classList.remove('open');
+        toggle?.setAttribute('aria-expanded', 'false');
       }
 
-      const targetY = HEADER_H + (window.innerHeight - HEADER_H) / 2;
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.pushState(null, '', id);
+    });
+  });
 
-      let best = null;
-      let bestDist = Infinity;
+  // =========================
+  // Scroll spy (center-based)
+  // =========================
+  const HEADER_H = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue('--header-h')
+  ) || 64;
 
-      for (const sec of sections) {
-        const rect = sec.getBoundingClientRect();
-        const center = rect.top + rect.height / 2;
-        const dist = Math.abs(center - targetY);
-        if (dist < bestDist) {
-          best = sec; bestDist = dist;
-        }
-      }
+  const navLinksArr = [...document.querySelectorAll('nav a[href^="#"]')];
+  const sectionIds = navLinksArr
+    .map(a => a.getAttribute('href'))
+    .filter(h => h && h.startsWith('#'))
+    .map(h => h.slice(1));
+  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+  const hero = document.getElementById('hero');
 
-      clearActive();
-      if (best) {
-        const link = linkFor(best.id);
-        if (link) link.classList.add('active');
+  const linkFor = id => navLinksArr.find(a => a.getAttribute('href') === `#${id}`);
+  const clearActive = () => navLinksArr.forEach(a => a.classList.remove('active'));
+
+  function visibleRatio(rect) {
+    const vh = window.innerHeight;
+    const visible = Math.max(0, Math.min(rect.bottom, vh) - Math.max(rect.top, 0));
+    return visible / Math.min(vh, Math.max(1, rect.height));
+  }
+
+  function chooseActiveSection() {
+    if (hero) {
+      const r = hero.getBoundingClientRect();
+      if (visibleRatio(r) >= 0.5) {
+        clearActive();
+        return;
       }
     }
 
-    let ticking = false;
-    function onScroll() {
-      if (!ticking) {
-        requestAnimationFrame(() => { chooseActiveSection(); ticking = false; });
-        ticking = true;
+    const targetY = HEADER_H + (window.innerHeight - HEADER_H) / 2;
+
+    let best = null;
+    let bestDist = Infinity;
+
+    for (const sec of sections) {
+      const rect = sec.getBoundingClientRect();
+      const center = rect.top + rect.height / 2;
+      const dist = Math.abs(center - targetY);
+      if (dist < bestDist) {
+        best = sec; bestDist = dist;
       }
     }
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', chooseActiveSection);
-    window.addEventListener('hashchange', chooseActiveSection);
-    document.addEventListener('DOMContentLoaded', chooseActiveSection);
-
-    // =========================
-    // Footer year
-    // =========================
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // =========================
-    // Contact FAB modal
-    // =========================
-    const contactFab = document.getElementById('contact-fab');
-    const contactOverlay = document.getElementById('contact-overlay');
-    const contactClose = document.getElementById('contact-close');
-
-    function openContact(){
-      if (!contactOverlay) return;
-      contactOverlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      contactClose?.focus();
+    clearActive();
+    if (best) {
+      const link = linkFor(best.id);
+      if (link) link.classList.add('active');
     }
+  }
 
-    function closeContact(){
-      if (!contactOverlay) return;
-      contactOverlay.classList.remove('open');
-      document.body.style.overflow = '';
-      contactFab?.focus();
+  let ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(() => { chooseActiveSection(); ticking = false; });
+      ticking = true;
     }
+  }
 
-    contactFab?.addEventListener('click', openContact);
-    contactClose?.addEventListener('click', closeContact);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', chooseActiveSection);
+  window.addEventListener('hashchange', chooseActiveSection);
+  document.addEventListener('DOMContentLoaded', chooseActiveSection);
 
-    contactOverlay?.addEventListener('click', (e) => {
-      if (e.target === contactOverlay) closeContact();
-    });
+  // =========================
+  // Footer year
+  // =========================
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && contactOverlay?.classList.contains('open')) closeContact();
-    });
+  // =========================
+  // Contact FAB modal
+  // =========================
+  const contactFab = document.getElementById('contact-fab');
+  const contactOverlay = document.getElementById('contact-overlay');
+  const contactClose = document.getElementById('contact-close');
 
+  function openContact(){
+    if (!contactOverlay) return;
+    contactOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    contactClose?.focus();
+  }
 
+  function closeContact(){
+    if (!contactOverlay) return;
+    contactOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+    contactFab?.focus();
+  }
 
+  contactFab?.addEventListener('click', openContact);
+  contactClose?.addEventListener('click', closeContact);
+
+  contactOverlay?.addEventListener('click', (e) => {
+    if (e.target === contactOverlay) closeContact();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && contactOverlay?.classList.contains('open')) closeContact();
+  });
+
+  // =========================
+  // HERO NAME TYPEWRITER (types once, keeps Pagolu blue, then hides caret)
+  // =========================
   (function(){
-    const el = document.getElementById("heroType");
-    if (!el) return;
+    const wrap = document.getElementById("nameWrap");
+    const out  = document.getElementById("nameType");
+    if(!wrap || !out) return;
 
-    const text = "HELLO, I’M 👋";
-    let i = 0;
+    const parts = [
+      { text: "Sruthijha ", cls: "" },
+      { text: "Pagolu",    cls: "text-accent" }
+    ];
+
+    let partIndex = 0, charIndex = 0;
+
+    function render(typedParts, currentPartText, currentCls){
+      let html = typedParts.map(p =>
+        p.cls ? `<span class="${p.cls}">${p.text}</span>` : p.text
+      ).join("");
+
+      html += currentCls
+        ? `<span class="${currentCls}">${currentPartText}</span>`
+        : currentPartText;
+
+      out.innerHTML = html;
+    }
 
     function type(){
-      el.textContent = text.slice(0, i);
-      i++;
-      if (i <= text.length) setTimeout(type, 38);
+      if(partIndex >= parts.length){
+        wrap.classList.add("type-done"); // hides caret via CSS
+        return;
+      }
+
+      const { text, cls } = parts[partIndex];
+      const current = text.slice(0, charIndex);
+
+      const typedParts = parts.slice(0, partIndex);
+      render(typedParts, current, cls);
+
+      charIndex++;
+      if(charIndex <= text.length){
+        setTimeout(type, 34);
+      }else{
+        partIndex++;
+        charIndex = 0;
+        setTimeout(type, 120);
+      }
     }
+
     type();
   })();
-  <script>
-(function(){
-  const wrap = document.getElementById("nameWrap");
-  const out  = document.getElementById("nameType");
-  if(!wrap || !out) return;
-
-  const parts = [
-    { text: "Sruthijha ", cls: "" },
-    { text: "Pagolu",    cls: "text-accent" }
-  ];
-
-  let partIndex = 0, charIndex = 0;
-
-  function render(typedParts, currentPartText, currentCls){
-    let html = typedParts.map(p =>
-      p.cls ? `<span class="${p.cls}">${p.text}</span>` : p.text
-    ).join("");
-
-    html += currentCls
-      ? `<span class="${currentCls}">${currentPartText}</span>`
-      : currentPartText;
-
-    out.innerHTML = html;
-  }
-
-  function type(){
-    if(partIndex >= parts.length){
-      // done → remove cursor
-      wrap.classList.add("type-done");
-      return;
-    }
-
-    const { text, cls } = parts[partIndex];
-    const current = text.slice(0, charIndex);
-
-    const typedParts = parts.slice(0, partIndex);
-    render(typedParts, current, cls);
-
-    charIndex++;
-    if(charIndex <= text.length){
-      setTimeout(type, 34);
-    }else{
-      partIndex++;
-      charIndex = 0;
-      setTimeout(type, 120);
-    }
-  }
-
-  type();
-})();
-
 </script>
 
 </body>
