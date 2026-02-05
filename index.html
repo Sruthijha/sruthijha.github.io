@@ -348,9 +348,7 @@ section > :last-child{ margin-bottom: 0; }
   letter-spacing: -0.02em;
 }
 
-.greet-name .accent{
-  color: var(--accent);
-  text-shadow: 0 0 18px rgba(96,165,250,.22);
+.greet-name .text-accent{ color: var(--accent); }
 }
 
 /* Optional: if you still use .hero-title somewhere */
@@ -1314,6 +1312,21 @@ section > :last-child{ margin-bottom: 0; }
 
   @media (max-width: 640px){
     :root{ --section-pad: 44px; }
+
+    /* Default spacing for all sections */
+section{
+  padding: var(--section-pad) 0;
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+
+/* Consistent h2 spacing */
+section > h2{
+  margin: 0 0 var(--title-gap) !important;
+}
+
+/* Prevent random last-child bottom margins from creating big gaps */
+section > :last-child{ margin-bottom: 0 !important; }
+section > :first-child{ margin-top: 0 !important; }
   }
 </style>
 </head>
@@ -2195,7 +2208,8 @@ section > :last-child{ margin-bottom: 0; }
 
   const first = document.createElement("span"); // Sruthijha
   const last  = document.createElement("span"); // Pagolu
-  last.className = "accent";
+  last.className = "text-accent";
+
 
   nameLine.appendChild(first);
   nameLine.appendChild(last);
