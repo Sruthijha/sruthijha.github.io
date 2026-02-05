@@ -296,7 +296,7 @@
 /* Typewriter caret */
 .typewrap{ display: inline-block; }
 .caret{
-  display:inline-block;
+  display:none !important;
   width: 10px;
   margin-left: 3px;
   border-right: 2px solid rgba(96,165,250,.95);
@@ -529,6 +529,41 @@
   }
   .hero-photo img{ width: min(300px, 74vw); }
   .hero-links{ padding-left: 0; }
+}
+/* =========================
+   INTERACTIVE HERO GLOW
+   ========================= */
+
+/* card hover = subtle glow shift */
+.hero-card{
+  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+  will-change: transform;
+}
+
+.hero-card:hover{
+  border-color: rgba(96,165,250,.20);
+  box-shadow:
+    0 0 80px rgba(96,165,250,.14),
+    0 22px 70px rgba(0,0,0,.35);
+  transform: translateY(-2px);
+}
+
+/* title glow on hover */
+.hero-title{
+  transition: text-shadow .25s ease;
+}
+
+.hero-card:hover .hero-title{
+  text-shadow:
+    0 0 18px rgba(96,165,250,.18),
+    0 0 42px rgba(96,165,250,.10);
+}
+
+/* accent word extra glow on hover */
+.hero-card:hover .text-accent{
+  text-shadow:
+    0 0 18px rgba(96,165,250,.35),
+    0 0 44px rgba(96,165,250,.22);
 }
 
  /* =========================
@@ -1330,9 +1365,12 @@
 </p>
 
 <h1 class="hero-title">
-  Sruthijha <span class="text-accent">Pagolu</span>
+  <span class="typewrap" id="nameWrap">
+    <span id="nameType"></span><span class="caret" aria-hidden="true"></span>
+  </span>
 </h1>
 
+<p class="eyebrow">HELLO, I’M <span class="wave" aria-hidden="true">👋</span></p>
 
 
           <p class="hero-desc">
@@ -2172,8 +2210,7 @@
     });
 
 
-</script>
-<script>
+
   (function(){
     const el = document.getElementById("heroType");
     if (!el) return;
@@ -2188,6 +2225,57 @@
     }
     type();
   })();
+  <script>
+(function(){
+  const wrap = document.getElementById("nameWrap");
+  const out  = document.getElementById("nameType");
+  if(!wrap || !out) return;
+
+  const parts = [
+    { text: "Sruthijha ", cls: "" },
+    { text: "Pagolu",    cls: "text-accent" }
+  ];
+
+  let partIndex = 0, charIndex = 0;
+
+  function render(typedParts, currentPartText, currentCls){
+    let html = typedParts.map(p =>
+      p.cls ? `<span class="${p.cls}">${p.text}</span>` : p.text
+    ).join("");
+
+    html += currentCls
+      ? `<span class="${currentCls}">${currentPartText}</span>`
+      : currentPartText;
+
+    out.innerHTML = html;
+  }
+
+  function type(){
+    if(partIndex >= parts.length){
+      // done → remove cursor
+      wrap.classList.add("type-done");
+      return;
+    }
+
+    const { text, cls } = parts[partIndex];
+    const current = text.slice(0, charIndex);
+
+    const typedParts = parts.slice(0, partIndex);
+    render(typedParts, current, cls);
+
+    charIndex++;
+    if(charIndex <= text.length){
+      setTimeout(type, 34);
+    }else{
+      partIndex++;
+      charIndex = 0;
+      setTimeout(type, 120);
+    }
+  }
+
+  type();
+})();
+
 </script>
 
 </body>
