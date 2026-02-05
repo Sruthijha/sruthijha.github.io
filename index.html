@@ -480,68 +480,54 @@
 }
 
 
- /* =========================
-   ROBOT / TERMINAL FEEL (for eyebrow + title)
-   ========================= */
-
-.robo{
-  position: relative;
-  text-shadow: 0 0 14px rgba(96,165,250,.12);
+ /* Greeting wrapper */
+.hero-greeting{
+  margin-bottom: 12px;
 }
 
-.robo::after{
-  content: "";
-  position: absolute;
-  left: 0;
-  top: -6px;
-  width: 100%;
-  height: calc(100% + 12px);
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(255,255,255,.04),
-    rgba(255,255,255,.04) 1px,
-    transparent 1px,
-    transparent 6px
-  );
-  opacity: .12;
-  pointer-events: none;
-  mix-blend-mode: overlay;
+/* Smaller intro text */
+.greet-small{
+  font-size: 1rem;            /* same as before */
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: rgba(229,231,235,.75);
 }
 
-.robo-title{
-  position: relative;
-  text-shadow:
-    0 0 22px rgba(96,165,250,.18),
-    0 0 48px rgba(96,165,250,.08);
+/* BIG name (same size as hero-title before) */
+.greet-name{
+  display: block;
+  font-size: clamp(48px, 5vw, 78px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
 }
 
-/* subtle “speech/scan” shimmer */
-.robo-title::after{
-  content: "";
-  position: absolute;
-  left: -10%;
-  top: 0;
-  width: 30%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(96,165,250,.18),
-    transparent
-  );
-  transform: skewX(-12deg);
-  animation: scanSweep 2.8s ease-in-out infinite;
-  pointer-events: none;
-  opacity: .55;
+/* Accent surname */
+.greet-name .accent{
+  color: var(--accent);
 }
 
-@keyframes scanSweep{
-  0%{ left: -30%; opacity: 0; }
-  10%{ opacity: .55; }
-  50%{ opacity: .55; }
-  90%{ opacity: .35; }
-  100%{ left: 110%; opacity: 0; }
+/* Caret */
+.typewrap{ display: inline-block; }
+
+.caret{
+  display:inline-block;
+  width: 10px;
+  margin-left: 4px;
+  border-right: 2px solid rgba(96,165,250,.95);
+  animation: blink 1s step-end infinite;
+  height: 1em;
+  transform: translateY(3px);
 }
+
+@keyframes blink{ 50%{ opacity: 0; } }
+
+/* Remove cursor when done */
+.type-done .caret{
+  display: none !important;
+}
+
 
  /* =========================================================
      SKILLS (LOCKED)
@@ -1275,11 +1261,12 @@
     <div class="hero-copy">
       <p class="eyebrow">HELLO, I’M <span class="wave" aria-hidden="true">👋</span></p>
 
-      <h1 class="hero-title">
+<div class="hero-greeting">
   <span class="typewrap" id="greetWrap">
     <span id="greetType"></span><span class="caret" aria-hidden="true"></span>
   </span>
-</h1>
+</div>
+
 
 
       <p class="hero-desc">
@@ -2123,57 +2110,49 @@
   // =========================
   // HERO NAME TYPEWRITER (types once, keeps Pagolu blue, then hides caret)
   // =========================
-  (function(){
+  <script>
+(function(){
   const wrap = document.getElementById("greetWrap");
   const out  = document.getElementById("greetType");
   if(!wrap || !out) return;
 
   const parts = [
-    { text: "Hello 👋 I’m ", cls: "" },
-    { text: "Sruthijha ",   cls: "" },
-    { text: "Pagolu",       cls: "text-accent" }
+    { html: `<span class="greet-small">Hello 👋 I’m </span>` },
+    { html: `<span class="greet-name">Sruthijha <span class="accent">Pagolu</span></span>` }
   ];
 
-  let p = 0, i = 0;
+  let part = 0, char = 0;
 
-  function render(){
-    let html = "";
-
-    // fully typed parts
-    for(let k = 0; k < p; k++){
-      const done = parts[k];
-      html += done.cls ? `<span class="${done.cls}">${done.text}</span>` : done.text;
-    }
-
-    // current part being typed
-    if(p < parts.length){
-      const cur = parts[p];
-      const chunk = cur.text.slice(0, i);
-      html += cur.cls ? `<span class="${cur.cls}">${chunk}</span>` : chunk;
-    }
-
-    out.innerHTML = html;
-  }
-
-  function step(){
-    if(p >= parts.length){
-      wrap.classList.add("type-done"); // hides cursor
+  function type(){
+    if(part >= parts.length){
+      wrap.classList.add("type-done");
       return;
     }
 
-    render();
-    i++;
+    const current = parts[part].html;
+    const slice = current.slice(0, char);
 
-    if(i <= parts[p].text.length){
-      setTimeout(step, 34);      // typing speed (adjust 28–42)
+    let done = "";
+    for(let i = 0; i < part; i++){
+      done += parts[i].html;
+    }
+
+    out.innerHTML = done + slice;
+
+    char++;
+
+    if(char <= current.length){
+      setTimeout(type, 48);   // ⬅️ SLOWER typing speed (was ~34)
     }else{
-      p++; i = 0;
-      setTimeout(step, 140);     // tiny pause between chunks
+      part++;
+      char = 0;
+      setTimeout(type, 260);  // pause before name appears
     }
   }
 
-  step();
+  type();
 })();
+
 </script>
 
 </body>
