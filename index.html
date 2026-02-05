@@ -943,9 +943,55 @@ html[data-theme="light"] .contact-item{
 a.accent:hover {
   text-decoration: underline;
 }
-/* Global section spacing */
-section.container {
-  margin-bottom: 72px; /* adjust to taste: 80–120px */
+
+  /* =========================
+   FINAL: CONSISTENT SECTION SPACING
+   ========================= */
+
+/* ONE spacing system only: section padding (no extra margins) */
+:root{
+  --section-pad: 56px;   /* was 64px; reduce to tighten gaps */
+  --title-gap: 18px;     /* spacing between h2 and content */
+}
+
+/* Sections control spacing */
+section{
+  padding: var(--section-pad) 0;
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+
+/* Keep section headings consistent */
+section > h2{
+  margin: 0 0 var(--title-gap) !important;
+}
+
+/* REMOVE extra section margin that was causing big gaps */
+section.container{
+  margin-bottom: 0 !important;
+}
+
+/* Prevent grids/cards from adding surprise top/bottom spacing */
+.skills-grid,
+#education .edu-grid,
+#projects .projects-grid{
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* If any section has custom padding overrides, neutralize them */
+#skills,
+#education,
+#projects,
+#achievements,
+#leadership,
+#experience{
+  padding-top: var(--section-pad) !important;
+  padding-bottom: var(--section-pad) !important;
+}
+
+/* Optional: slightly tighter on small screens */
+@media (max-width: 640px){
+  :root{ --section-pad: 44px; }
 }
 
 
