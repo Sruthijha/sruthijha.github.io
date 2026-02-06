@@ -7,16 +7,20 @@
   <meta name="description" content="Portfolio of Sruthijha Pagolu — MS in Data Science at CU Boulder." />
   <meta name="theme-color" content="#60a5fa" />
 
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Fonts + Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<style>
+  <style>
+/* =========================================================
+   THEME TOKENS
+   ========================================================= */
 
 :root{
   /* layout */
-  --header-h: 64px;        /* set to 0px only if you truly want a zero-height header */
-  --section-pad: 56px;     /* controls spacing between sections */
-  --title-gap: 18px;       /* space under each section h2 */
+  --header-h: 64px;
+  --section-pad: 56px;
+  --title-gap: 18px;
 
   /* motion */
   --shadow: 0 0 40px rgba(96,165,250,.10);
@@ -46,59 +50,17 @@ html[data-theme="dark"]{
    BASE
    ========================================================= */
 
-html{
-  scroll-behavior: smooth;
-}
+html{ scroll-behavior: smooth; }
 
 body{
   margin: 0;
   font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   color: var(--text);
-
-  /* existing glow background */
   background:
     radial-gradient(900px 420px at 20% 0%, rgba(96,165,250,.12), transparent 60%),
     radial-gradient(1200px 600px at 80% 20%, rgba(167,139,250,.10), transparent 60%),
     var(--bg);
 }
-
-/* =========================================================
-   SUBTLE COSMIC DUST / STARS
-   ========================================================= */
-
-/* =========================================================
-   VISIBLE STAR DUST BACKGROUND
-   ========================================================= */
-
-body::before{
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-
-  background:
-    /* dense small stars */
-    radial-gradient(1.5px 1.5px at 10% 15%, rgba(255,255,255,.9) 50%, transparent),
-    radial-gradient(1.5px 1.5px at 20% 70%, rgba(255,255,255,.8) 50%, transparent),
-    radial-gradient(1.5px 1.5px at 35% 40%, rgba(255,255,255,.85) 50%, transparent),
-    radial-gradient(1.5px 1.5px at 50% 20%, rgba(255,255,255,.75) 50%, transparent),
-    radial-gradient(1.5px 1.5px at 65% 65%, rgba(255,255,255,.85) 50%, transparent),
-    radial-gradient(1.5px 1.5px at 80% 30%, rgba(255,255,255,.9) 50%, transparent),
-    radial-gradient(1.5px 1.5px at 90% 75%, rgba(255,255,255,.8) 50%, transparent),
-
-    /* medium stars */
-    radial-gradient(2.5px 2.5px at 18% 28%, rgba(255,255,255,.9) 40%, transparent),
-    radial-gradient(2.5px 2.5px at 42% 78%, rgba(255,255,255,.85) 40%, transparent),
-    radial-gradient(2.5px 2.5px at 72% 52%, rgba(255,255,255,.9) 40%, transparent),
-
-    /* subtle accent-tinted stars (ties into your blue theme) */
-    radial-gradient(2px 2px at 30% 55%, rgba(96,165,250,.55) 40%, transparent),
-    radial-gradient(2px 2px at 60% 35%, rgba(167,139,250,.45) 40%, transparent);
-
-  opacity: .6;
-}
-
 
 a{ color: var(--accent); text-decoration: none; }
 a:hover{ text-decoration: none; }
@@ -122,7 +84,33 @@ a:hover{ text-decoration: none; }
 }
 
 /* =========================================================
-   HEADER / NAV
+   BACKGROUND — STAR DUST
+   ========================================================= */
+
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(1.5px 1.5px at 10% 15%, rgba(255,255,255,.9) 50%, transparent),
+    radial-gradient(1.5px 1.5px at 20% 70%, rgba(255,255,255,.8) 50%, transparent),
+    radial-gradient(1.5px 1.5px at 35% 40%, rgba(255,255,255,.85) 50%, transparent),
+    radial-gradient(1.5px 1.5px at 50% 20%, rgba(255,255,255,.75) 50%, transparent),
+    radial-gradient(1.5px 1.5px at 65% 65%, rgba(255,255,255,.85) 50%, transparent),
+    radial-gradient(1.5px 1.5px at 80% 30%, rgba(255,255,255,.9) 50%, transparent),
+    radial-gradient(1.5px 1.5px at 90% 75%, rgba(255,255,255,.8) 50%, transparent),
+    radial-gradient(2.5px 2.5px at 18% 28%, rgba(255,255,255,.9) 40%, transparent),
+    radial-gradient(2.5px 2.5px at 42% 78%, rgba(255,255,255,.85) 40%, transparent),
+    radial-gradient(2.5px 2.5px at 72% 52%, rgba(255,255,255,.9) 40%, transparent),
+    radial-gradient(2px 2px at 30% 55%, rgba(96,165,250,.55) 40%, transparent),
+    radial-gradient(2px 2px at 60% 35%, rgba(167,139,250,.45) 40%, transparent);
+  opacity: .6;
+}
+
+/* =========================================================
+   HEADER / NAV (styles kept; header markup not included below)
    ========================================================= */
 
 header{
@@ -205,20 +193,10 @@ nav a.active{
 /* =========================================================
    SECTIONS / TYPOGRAPHY / CARDS / GRIDS
    ========================================================= */
-/* sections: consistent spacing without affecting width */
-section{
-  scroll-margin-top: calc(var(--header-h) + 24px);
-}
 
-/* only apply spacing to your normal sections (the ones using .container) */
-section.container{
-  padding: var(--section-pad) 0;
-}
-
-/* hero stays special */
-#hero{
-  padding: 0 !important;
-}
+section{ scroll-margin-top: calc(var(--header-h) + 24px); }
+section.container{ padding: var(--section-pad) 0; }
+#hero{ padding: 0 !important; }
 
 h2{
   font-size: clamp(22px, 3vw, 28px);
@@ -233,11 +211,7 @@ section > :last-child{ margin-bottom: 0; }
 
 .card{
   background:
-    linear-gradient(
-      180deg,
-      rgba(15,23,42,.92),
-      rgba(11,15,23,.88)
-    );
+    linear-gradient(180deg, rgba(15,23,42,.92), rgba(11,15,23,.88));
   border: 1px solid rgba(148,163,184,.18);
   border-radius: 22px;
   padding: 1.6rem 1.75rem;
@@ -245,6 +219,7 @@ section > :last-child{ margin-bottom: 0; }
     0 18px 50px rgba(0,0,0,.45),
     0 0 0 1px rgba(255,255,255,.04) inset;
   margin-bottom: 1.25rem;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
 .card:hover{
@@ -254,15 +229,13 @@ section > :last-child{ margin-bottom: 0; }
     0 22px 70px rgba(0,0,0,.55),
     0 0 32px rgba(96,165,250,.18);
 }
+
 .card p{
   line-height: 1.8;
   margin-bottom: 1.15rem;
 }
 
-.card p:last-child{
-  margin-bottom: 0;
-}
-
+.card p:last-child{ margin-bottom: 0; }
 
 .grid{ display: grid; gap: 1rem; }
 @media (min-width: 760px){
@@ -277,9 +250,8 @@ section > :last-child{ margin-bottom: 0; }
   margin: 0 !important;
 }
 
-
 /* =========================================================
-   BUTTONS (GLOBAL) — fixes purple hover / visited issues
+   BUTTONS (GLOBAL)
    ========================================================= */
 
 .btn,
@@ -313,17 +285,16 @@ section > :last-child{ margin-bottom: 0; }
 .btn.primary:active{ transform: translateY(0); }
 
 /* =========================================================
-   HERO (full viewport + card container)
+   HERO
    ========================================================= */
 
 #hero{
   min-height: 100vh;
   display: grid;
   align-items: center;
-  padding: 0; /* hero owns the viewport */
+  padding: 0;
 }
 
-/* Hero outer container (keeps card centered + safe margins) */
 .hero{
   width: 100%;
   max-width: 1120px;
@@ -331,7 +302,6 @@ section > :last-child{ margin-bottom: 0; }
   padding: 0 20px;
 }
 
-/* Card layout */
 .hero-card{
   padding: 64px;
   border-radius: 30px;
@@ -362,7 +332,6 @@ section > :last-child{ margin-bottom: 0; }
   transform: translateY(-2px);
 }
 
-/* Greeting */
 .hero-greeting{ margin-bottom: 12px; }
 
 .greet-small{
@@ -383,7 +352,6 @@ section > :last-child{ margin-bottom: 0; }
 
 .greet-name .text-accent{ color: var(--accent); }
 
-/* Optional: if you still use .hero-title somewhere */
 .hero-title{
   margin: 0;
   font-size: clamp(48px, 5vw, 78px);
@@ -405,7 +373,6 @@ section > :last-child{ margin-bottom: 0; }
   text-shadow: 0 0 18px rgba(96,165,250,.35), 0 0 44px rgba(96,165,250,.22);
 }
 
-/* Description */
 .hero-desc{
   margin: 16px 0 0;
   font-size: 17px;
@@ -422,7 +389,6 @@ section > :last-child{ margin-bottom: 0; }
   margin-bottom: 10px;
 }
 
-/* Typewriter caret + end state */
 .typewrap{ display: inline-block; }
 
 .caret{
@@ -439,24 +405,22 @@ section > :last-child{ margin-bottom: 0; }
 
 .type-done .caret{ display: none !important; }
 
-/* Wave */
 .wave{
-  display:inline-block;
+  display: inline-block;
   transform-origin: 70% 70%;
   animation: waveAnim 2.4s ease-in-out infinite;
 }
 
 @keyframes waveAnim{
-  0%{transform:rotate(0deg)}
-  10%{transform:rotate(14deg)}
-  20%{transform:rotate(-8deg)}
-  30%{transform:rotate(12deg)}
-  40%{transform:rotate(-4deg)}
-  50%{transform:rotate(10deg)}
-  60%,100%{transform:rotate(0deg)}
+  0%{ transform: rotate(0deg); }
+  10%{ transform: rotate(14deg); }
+  20%{ transform: rotate(-8deg); }
+  30%{ transform: rotate(12deg); }
+  40%{ transform: rotate(-4deg); }
+  50%{ transform: rotate(10deg); }
+  60%,100%{ transform: rotate(0deg); }
 }
 
-/* Actions (Resume + links) */
 .hero-actions{
   display: flex;
   align-items: center;
@@ -465,32 +429,6 @@ section > :last-child{ margin-bottom: 0; }
   flex-wrap: wrap;
 }
 
-.hero-actions .btn.primary,
-.hero-actions .btn.primary:visited{
-  padding: 12px 20px;
-  border-radius: 16px;
-  font-weight: 900;
-  letter-spacing: .2px;
-  background: rgba(96,165,250,.22);
-  border: 1px solid rgba(96,165,250,.55);
-  color: #eaf2ff;
-  box-shadow:
-    0 0 0 6px rgba(96,165,250,.08),
-    0 18px 38px rgba(0,0,0,.35);
-  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
-}
-
-.hero-actions .btn.primary:hover{
-  transform: translateY(-2px);
-  background: rgba(96,165,250,.28);
-  border-color: rgba(96,165,250,.75);
-  box-shadow:
-    0 0 0 8px rgba(96,165,250,.10),
-    0 22px 44px rgba(0,0,0,.40),
-    0 0 24px rgba(96,165,250,.28);
-}
-
-/* Links as pills (icon + label) */
 .hero-links{
   display: flex;
   align-items: center;
@@ -522,12 +460,17 @@ section > :last-child{ margin-bottom: 0; }
   opacity: 1;
 }
 
-/* Photo */
+.doc-icon{
+  font-size: 20px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
 .hero-photo{ display: grid; place-items: center; }
 
 .hero-photo img{
   width: min(380px, 36vw);
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
   border-radius: 999px;
   object-fit: cover;
   border: 8px solid rgba(255,255,255,.03);
@@ -536,7 +479,6 @@ section > :last-child{ margin-bottom: 0; }
     0 22px 60px rgba(0,0,0,.35);
 }
 
-/* Hero responsive */
 @media (max-width: 900px){
   .hero-card{
     grid-template-columns: 1fr;
@@ -544,14 +486,8 @@ section > :last-child{ margin-bottom: 0; }
     gap: 28px;
     border-radius: 24px;
   }
-
   .hero-photo img{ width: min(320px, 76vw); }
   .hero-links{ padding-left: 0; }
-}
-.doc-icon{
-  font-size: 20px;
-  line-height: 1;
-  transform: translateY(-1px);
 }
 
 /* =========================================================
@@ -622,7 +558,6 @@ section > :last-child{ margin-bottom: 0; }
   transition: color .18s ease, text-shadow .18s ease;
 }
 
-/* dark icons -> white */
 .skill-icon img.mono{
   filter: brightness(0) invert(1);
   opacity: .9;
@@ -736,7 +671,9 @@ section > :last-child{ margin-bottom: 0; }
   transform: translateY(-1px);
   border-color: rgba(96,165,250,.55);
   background: rgba(96,165,250,.10);
-  box-shadow: 0 0 0 2px rgba(96,165,250,.25), 0 0 22px rgba(96,165,250,.35);
+  box-shadow:
+    0 0 0 2px rgba(96,165,250,.25),
+    0 0 22px rgba(96,165,250,.35);
 }
 
 #education .edu-meta{
@@ -781,8 +718,9 @@ section > :last-child{ margin-bottom: 0; }
   font-size: .9em;
   line-height: 1.4;
 }
+
 /* =========================================================
-   EXPERIENCE (FINAL — HEADER + FULL-WIDTH BULLETS)
+   EXPERIENCE (FINAL)
    ========================================================= */
 
 #experience{
@@ -800,7 +738,6 @@ section > :last-child{ margin-bottom: 0; }
   box-shadow: var(--shadow-2);
 }
 
-/* Header row: icon + (role/company + date) */
 #experience .exp-header{
   display: grid;
   grid-template-columns: 64px 1fr;
@@ -808,20 +745,18 @@ section > :last-child{ margin-bottom: 0; }
   align-items: start;
 }
 
-/* logo */
 #experience .company-logo{
-  width: 48px;          /* ↓ from 56px */
+  width: 48px;
   height: 48px;
   object-fit: contain;
-  border-radius: 12px; /* proportional */
+  border-radius: 12px;
   padding: 6px;
   background: rgba(255,255,255,.03);
   border: 1px solid var(--line);
-  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease, transform .18s ease;
 }
 
-
-/* Active + hover glow */
+/* Active + hover glow (matched to Education) */
 #experience .experience-card.is-active .company-logo{
   transform: translateY(-1px);
   border-color: rgba(96,165,250,.65);
@@ -830,7 +765,6 @@ section > :last-child{ margin-bottom: 0; }
     0 0 0 2px rgba(96,165,250,.35),
     0 0 28px rgba(96,165,250,.45);
 }
-
 
 #experience .experience-card:hover .company-logo{
   transform: translateY(-1px);
@@ -841,9 +775,6 @@ section > :last-child{ margin-bottom: 0; }
     0 0 22px rgba(96,165,250,.35);
 }
 
-
-
-/* title */
 #experience .exp-title{
   margin: 0;
   font-weight: 900;
@@ -851,20 +782,17 @@ section > :last-child{ margin-bottom: 0; }
   white-space: normal;
 }
 
-/* role — slightly bigger */
 #experience .role{
   font-size: 1.1rem;
   font-weight: 900;
   color: var(--accent);
 }
 
-/* company — WHITE */
 #experience .company{
   color: var(--text);
   font-weight: 600;
 }
 
-/* date */
 #experience .date{
   font-size: .95rem;
   color: var(--muted);
@@ -872,7 +800,6 @@ section > :last-child{ margin-bottom: 0; }
   margin-top: 5px;
 }
 
-/* FULL-WIDTH bullets (start next line, no left gap) */
 #experience .exp-points{
   margin: .6rem 0 0;
   padding: 0;
@@ -881,7 +808,6 @@ section > :last-child{ margin-bottom: 0; }
   gap: .5rem;
 }
 
-/* 🔑 allow wrapping */
 #experience .exp-points li{
   min-width: 0;
   white-space: normal;
@@ -892,7 +818,7 @@ section > :last-child{ margin-bottom: 0; }
   column-gap: 10px;
   align-items: start;
 
-  font-size: 0.95rem;   /* keep this consistent */
+  font-size: .95rem;
   line-height: 1.6;
 }
 
@@ -903,7 +829,6 @@ section > :last-child{ margin-bottom: 0; }
   line-height: 1.4;
 }
 
-/* subtle flow for role + company on active card */
 #experience .role,
 #experience .company{
   transition: transform .22s ease, text-shadow .22s ease, opacity .22s ease;
@@ -915,25 +840,16 @@ section > :last-child{ margin-bottom: 0; }
 }
 
 #experience .experience-card.is-active .company{
-  transform: translateY(-0.5px);
+  transform: translateY(-.5px);
   opacity: .95;
 }
 
-/* mobile */
+#experience .exp-title-wrap{ margin-top: 6px; }
+
 @media (max-width: 720px){
-  #experience .exp-header{
-    grid-template-columns: 1fr;
-  }
-
-  #experience .company-logo{
-    margin-bottom: 8px;
-  }
+  #experience .exp-header{ grid-template-columns: 1fr; }
+  #experience .company-logo{ margin-bottom: 8px; }
 }
-/* tighten vertical alignment with logo */
-#experience .exp-title-wrap{
-  margin-top: 6px;
-}
-
 
 /* =========================================================
    PROJECTS
@@ -1070,6 +986,12 @@ section > :last-child{ margin-bottom: 0; }
    ACHIEVEMENTS + ACCENT LINKS
    ========================================================= */
 
+.achievements-grid{
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+}
+
 .achievement-list{
   margin: 0;
   padding-left: 1.2rem;
@@ -1085,11 +1007,8 @@ section > :last-child{ margin-bottom: 0; }
 }
 
 .achievement-list li::marker{ color: rgba(96,165,250,.85); }
-
 .achievement-list strong{ font-weight: 600; }
 
-/* ACCENT — works for both <span class="accent"> and <a class="accent"> */
-/* ACCENT — base (spans + links, no glow) */
 .accent,
 .accent:visited{
   color: var(--accent);
@@ -1097,7 +1016,6 @@ section > :last-child{ margin-bottom: 0; }
   text-decoration: none;
 }
 
-/* Hover glow ONLY for links */
 a.accent:hover,
 a.accent:focus-visible{
   color: #93c5fd;
@@ -1107,7 +1025,36 @@ a.accent:focus-visible{
   outline: none;
 }
 
+/* Hover consistency for achievements + leadership */
+.achievement-card,
+#leadership .card{
+  transition: transform .18s ease, box-shadow .18s ease;
+}
 
+.achievement-card:hover,
+#leadership .card:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2);
+}
+
+/* =========================================================
+   ABOUT ME — spacing + hover
+   ========================================================= */
+
+#about .about-card{ line-height: 1.85; }
+
+#about .about-card p{ margin: 0 0 16px; }
+#about .about-card p:last-child{ margin-bottom: 0; }
+
+.about-card{
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.about-card:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2), 0 0 22px rgba(96,165,250,.12);
+  border-color: rgba(96,165,250,.35);
+}
 
 /* =========================================================
    FOOTER
@@ -1126,7 +1073,7 @@ footer{
 }
 
 /* =========================================================
-   CONTACT FAB + MODAL (FINAL + SIMPLE)
+   CONTACT FAB + MODAL
    ========================================================= */
 
 .contact-fab{
@@ -1172,7 +1119,6 @@ footer{
   outline-offset: 4px;
 }
 
-/* Overlay */
 .contact-overlay{
   position: fixed;
   inset: 0;
@@ -1189,28 +1135,19 @@ footer{
   place-items: center;
 }
 
-/* Modal (MAKE IT LESS WIDE HERE) */
-
 .contact-modal{
   position: relative;
-overflow: hidden;
-width: min(760px, 92vw);
+  overflow: hidden;
+  width: min(760px, 92vw);
   border-radius: 26px;
   padding: 24px 24px 28px;
   border: 1px solid rgba(148,163,184,.16);
-  background:
-  linear-gradient(
-    180deg,
-    rgba(15,23,42,.92),
-    rgba(11,15,23,.88)
-  );
-
+  background: linear-gradient(180deg, rgba(15,23,42,.92), rgba(11,15,23,.88));
   box-shadow:
     0 24px 80px rgba(0,0,0,.62),
     0 0 0 1px rgba(255,255,255,.04) inset,
     0 0 40px rgba(96,165,250,.10);
 }
-
 
 .contact-modal-head{
   display: flex;
@@ -1249,7 +1186,6 @@ width: min(760px, 92vw);
 
 .contact-close:active{ transform: translateY(0) scale(.99); }
 
-/* Grid */
 .contact-grid{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1260,8 +1196,6 @@ width: min(760px, 92vw);
   .contact-grid{ grid-template-columns: 1fr; }
 }
 
-/* Cards */
-/* Cards (one single source of truth) */
 .contact-item{
   border-radius: 18px;
   border: 1px solid rgba(148,163,184,.14);
@@ -1307,7 +1241,6 @@ width: min(760px, 92vw);
   flex-shrink: 0;
 }
 
-
 .contact-ico img{
   width: 26px;
   height: 26px;
@@ -1321,11 +1254,14 @@ width: min(760px, 92vw);
 
 .contact-kicker{
   margin: 0;
-  color: var(--muted);
   font-size: .95rem;
-  font-weight: 700;
-  opacity: .78;
-  letter-spacing: .02em;
+  font-weight: 800;
+  color: var(--accent);
+  opacity: 1;
+}
+
+.contact-item:hover .contact-kicker{
+  text-shadow: 0 0 6px rgba(96,165,250,.35);
 }
 
 .contact-main{
@@ -1351,6 +1287,7 @@ width: min(760px, 92vw);
   color: var(--accent);
   opacity: 1;
 }
+
 .contact-item:hover .contact-ico{
   background: rgba(96,165,250,.12);
   box-shadow:
@@ -1358,11 +1295,7 @@ width: min(760px, 92vw);
     0 0 14px rgba(96,165,250,.35);
 }
 
-
-/* =========================
-   COPY HINT (beside "Email")
-   ========================= */
-
+/* Email copy hint */
 .contact-toprow{
   display: flex;
   align-items: baseline;
@@ -1390,1165 +1323,854 @@ width: min(760px, 92vw);
   color: var(--good);
 }
 
-/* =========================================================
-   RESPONSIVE SPACING TWEAKS
-   ========================================================= */
-
+/* Responsive section spacing */
 @media (max-width: 640px){
   :root{ --section-pad: 38px; }
-
 }
-  /* Achievements + Leadership should behave like Skills/Education */
-.achievements-grid{
-  display: grid;
-  gap: 1rem;
-  margin: 0;
-}
-
-/* =========================================================
-   ACHIEVEMENTS & LEADERSHIP – hover consistency
-   ========================================================= */
-
-.achievement-card,
-#leadership .card{
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.achievement-card:hover,
-#leadership .card:hover{
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-2);
-}
-/* CONTACT MODAL — accent ONLY the titles (Email / LinkedIn / GitHub / Medium) */
-.contact-item .contact-kicker{
-  color: var(--accent);
-  font-weight: 800;
-  opacity: 1;
-}
-
-/* subtle glow on hover only */
-.contact-item:hover .contact-kicker{
-  text-shadow: 0 0 6px rgba(96,165,250,.35);
-}
-  /* ABOUT ME – make it breathe */
-#about .about-card{
-  line-height: 1.85;     /* overall line spacing */
-}
-
-#about .about-card p{
-  margin: 0 0 16px;      /* space between paragraphs */
-}
-
-#about .about-card p:last-child{
-  margin-bottom: 0;
-}
-/* ABOUT ME — match other cards */
-.about-card{
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-}
-
-.about-card:hover{
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-2);
-  border-color: rgba(96,165,250,.35);
-}
-
-  .about-card:hover{
-  box-shadow:
-    var(--shadow-2),
-    0 0 22px rgba(96,165,250,.12);
-}
-
-
-</style>
-
+  </style>
 </head>
+
 <body>
   <a href="#about" class="skip">Skip to content</a>
 
   <main>
-
-<!-- HERO -->
-<section id="hero" class="hero">
-  <div class="hero-card">
-    <div class="hero-copy">
-
-<div class="hero-greeting">
-  <span class="typewrap" id="greetWrap">
-    <span id="greetType"></span><span class="caret" aria-hidden="true"></span>
-  </span>
-</div>
-
-
-      <p class="hero-desc">
-        <span class="hero-role">Data Intern @ Goodie Bag</span><br />
-        I turn raw data into insights that help products grow. Curious by nature,
-        detail-oriented by habit, and focused on building things that create real impact :)
-      </p>
-
-      <div class="hero-actions">
-        <a href="resume.pdf" class="hero-link" target="_blank" rel="noopener">
-  <span class="doc-icon" aria-hidden="true">📄</span>
-  <span>Resume</span>
-</a>
-
-        <div class="hero-links">
-          <a href="mailto:sruthijha.pagolu@colorado.edu" class="hero-link">
-            <i class="fa-solid fa-envelope"></i>
-            <span>Mail</span>
-          </a>
-
-          <a href="https://www.linkedin.com/in/sruthijha" target="_blank" rel="noopener" class="hero-link">
-            <i class="fa-brands fa-linkedin-in"></i>
-            <span>LinkedIn</span>
-          </a>
-
-          <a href="https://github.com/Sruthijha" target="_blank" rel="noopener" class="hero-link">
-            <i class="fa-brands fa-github"></i>
-            <span>GitHub</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-photo">
-      <img src="assets/me.png" alt="Sruthijha Pagolu portrait" />
-    </div>
-  </div>
-</section>
-
-
-
-
-<section id="about" class="container">
-  <h2>About Me</h2>
-
-  <div class="card about-card">
-
-<p>
-  I see data as more than just numbers on a screen - it’s one of the closest things we have
-  to a record of how people think, decide, and build systems. I enjoy
-  <span class="accent">studying complex problems</span>, working with
-  <span class="accent">messy data</span>, and turning ambiguity into insights that genuinely
-  influence real decisions.
-</p>
-
-<p>
-  I recently graduated from the
-  <span class="accent">University of Colorado Boulder</span> with a
-  <span class="accent">Master’s in Data Science</span>, and I’m currently working as a
-  <span class="accent">Data Intern at Goodie Bag</span>, where I support data-driven decisions
-  around <span class="accent">customer acquisition</span> and
-  <span class="accent">marketplace growth</span>. I’m especially interested in work where
-  analysis connects directly to the real world - not just dashboards, but outcomes that
-  actually matter.
-</p>
-
-<p>
-  Outside of work, I’m deeply curious and creative by nature. I genuinely enjoy
-  <span class="accent">studying and learning new things</span>, whether it’s a technical
-  concept or an unfamiliar idea. I grew up watching
-  <span class="accent">Naruto</span>, later developed a love for stories like
-  <span class="accent">Percy Jackson</span>, and often spend my time
-  <span class="accent">sketching</span>, <span class="accent">listening to music</span>, or
-  exploring questions that sit at the intersection of creativity and logic.
-</p>
-
-<p>
-  I’m most excited by work that blends
-  <span class="accent">thoughtful analysis</span> with
-  <span class="accent">real-world impact</span> - where data is used not just to describe
-  what happened, but to help shape what comes next.
-</p>
-
-  </div>
-</section>
-
-
-<!-- SKILLS -->
-<section id="skills" class="container">
-  <h2>Skills</h2>
-
-  <div class="skills-grid">
-    <!-- Programming Languages -->
-    <article class="skill-card">
-      <h3>Programming Languages</h3>
-      <div class="skill-icons">
-        <div class="skill-icon">
-          <img src="assets/python.png" alt="Python logo" />
-          <span>Python</span>
-        </div>
-
-        <div class="skill-icon">
-          <img src="assets/sql.png" alt="SQL logo" />
-          <span>SQL</span>
-        </div>
-
-        <div class="skill-icon">
-          <img src="assets/r.png" alt="R logo" />
-          <span>R</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- Machine Learning & Deep Learning -->
-    <article class="skill-card">
-      <h3>Machine Learning &amp; Deep Learning</h3>
-      <div class="skill-icons">
-        <div class="skill-icon">
-          <img src="assets/huggingface.png" alt="Hugging Face logo" />
-          <span>HuggingFace</span>
-        </div>
-
-        <div class="skill-icon">
-          <img src="assets/pytorch.png" alt="PyTorch logo" />
-          <span>PyTorch</span>
-        </div>
-
-        <div class="skill-icon">
-          <img src="assets/tf.png" alt="TensorFlow logo" />
-          <span>TensorFlow</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- Data Analysis & Visualization -->
-    <article class="skill-card">
-      <h3>Data Analysis &amp; Visualization</h3>
-      <div class="skill-icons">
-        <div class="skill-icon">
-          <img src="assets/pandas.png" alt="Pandas logo" />
-          <span>Pandas</span>
-        </div>
-
-        <div class="skill-icon">
-          <img src="assets/numpy.png" alt="NumPy logo" />
-          <span>NumPy</span>
-        </div>
-
-        <div class="skill-icon">
-          <img src="assets/seaborn.svg" alt="Seaborn logo" />
-          <span>Seaborn</span>
-        </div>
-
-        <div class="skill-icon">
-          <img src="assets/tableau.png" alt="Tableau logo" />
-          <span>Tableau</span>
-        </div>
-
-        <div class="skill-icon">
-          <img src="assets/powerbi.png" alt="Power BI logo" />
-          <span>Power BI</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- Cloud Platforms & Tools -->
-    <article class="skill-card">
-      <h3>Cloud Platforms &amp; Tools</h3>
-      <div class="skill-icons">
-        <div class="skill-icon">
-          <img class="mono"  src="assets/aws.png" alt="AWS logo" />
-          <span>AWS</span>
-        </div>
-
-        <div class="skill-icon">
-          <img src="assets/gcp.png" alt="GCP logo" />
-          <span>GCP</span>
-        </div>
-
-        <div class="skill-icon">
-          <img src="assets/azure.png" alt="Azure logo" />
-          <span>Azure</span>
-        </div>
-
-        <div class="skill-icon">
-          <img class="mono" src="assets/fastapi.png" alt="FastAPI logo" />
-          <span>FastAPI</span>
-        </div>
-
-        <div class="skill-icon">
-          <img src="assets/git.png" alt="Git logo" />
-          <span>Git</span>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
-
-
-<!-- EDUCATION -->
-<section id="education" class="container">
-  <h2>Education</h2>
-
-  <div class="edu-grid">
-    <!-- University of Colorado Boulder -->
-    <article class="card edu-card">
-      <div class="edu-head">
-        <div class="edu-head-left">
-          <img
-            src="assets/buffs.png"
-            alt="CU Boulder Logo"
-            class="edu-logo"
-          />
-
-          <div class="edu-head-text">
-            <div class="edu-school">University of Colorado Boulder</div>
-            <div class="edu-date">Aug 2023 – Dec 2025</div>
-          </div>
-        </div>
-      </div>
-
-      <p class="edu-meta">
-        <strong>Master of Science in Data Science</strong>
-      </p>
-
-      <div class="edu-spacer" aria-hidden="true"></div>
-
-      <p class="edu-meta">
-        <span class="edu-label">GPA:</span>
-        <strong>3.96 / 4.0</strong>
-      </p>
-
-      <p class="edu-meta">
-        <span class="edu-label">Relevant Coursework:</span>
-      </p>
-
-      <ul class="edu-list">
-        <li>Machine Learning</li>
-        <li>Statistical Methods &amp; Applications</li>
-        <li>Deep &amp; Reinforcement Learning</li>
-      </ul>
-    </article>
-
-    <!-- Mahindra University -->
-    <article class="card edu-card">
-      <div class="edu-head">
-        <div class="edu-head-left">
-          <img
-            src="assets/MU.png"
-            alt="Mahindra University Logo"
-            class="edu-logo edu-logo--rounded"
-          />
-
-          <div class="edu-head-text">
-            <div class="edu-school">Mahindra University</div>
-            <div class="edu-date">Aug 2019 – May 2023</div>
-          </div>
-        </div>
-      </div>
-
-      <p class="edu-meta">
-        <strong>Bachelor of Technology in Electrical and Electronics Engineering</strong>
-      </p>
-
-      <div class="edu-spacer" aria-hidden="true"></div>
-
-      <p class="edu-meta">
-        <span class="edu-label">GPA:</span>
-        <strong>3.54 / 4.0</strong>
-      </p>
-
-      <p class="edu-meta">
-        <span class="edu-label">Relevant Coursework:</span>
-      </p>
-
-      <ul class="edu-list">
-        <li>Data Structures</li>
-        <li>Computer Architecture and Design</li>
-        <li>Computer &amp; Communication Networks</li>
-      </ul>
-    </article>
-  </div>
-</section>
-
-
-<!-- EXPERIENCE -->
-<section id="experience" class="container">
-  <h2>Experience</h2>
-
-  <!-- Goodie Bag -->
-  <article class="experience-card card" tabindex="0">
-
-    <!-- Header row -->
-    <div class="exp-header">
-      <img src="assets/goodiebag.png" alt="Goodie Bag Logo" class="company-logo" />
-
-      <div class="exp-title-wrap">
-        <h3 class="exp-title">
-          <span class="role">Data Intern</span>
-          <span class="company"> @ Goodie Bag Food Co.</span>
-        </h3>
-        <span class="date">Jan 2026 – Present</span>
-      </div>
-    </div>
-
-    <!-- Full-width bullets -->
-    <ul class="exp-points">
-      <li>
-        Analyzed marketplace and customer data to support neighborhood-level acquisition
-        strategy for Goodie Bag’s NYC launch.
-      </li>
-      <li>
-        Built clean, analysis-ready datasets by integrating external data sources
-        (demographics, geography, local supply) with internal product data.
-      </li>
-      <li>
-        Conducted exploratory data analysis to identify high-potential neighborhoods,
-        customer density trends, and market saturation risks.
-      </li>
-      <li>
-        Translated insights into clear recommendations on where and when to focus
-        marketing efforts, directly informing go-to-market decisions.
-      </li>
-    </ul>
-  </article>
-
-  <!-- Intech Insurance -->
-  <article class="experience-card card" tabindex="0">
-
-    <div class="exp-header">
-      <img src="assets/intech.png" alt="Intech Logo" class="company-logo" />
-
-      <div class="exp-title-wrap">
-        <h3 class="exp-title">
-          <span class="role">Data Science Intern</span>
-          <span class="company">
-            @ Intech Insurance Surveyors &amp; Loss Assessors Pvt. Ltd
-          </span>
-        </h3>
-        <span class="date">Jan 2023 – Jun 2023</span>
-      </div>
-    </div>
-
-    <ul class="exp-points">
-      <li>
-        Analyzed insurance claim data using SQL and Python to uncover patterns associated with high-risk, suspicious, or inconsistent claims across 15 branch offices.
-      </li>
-      <li>
-        Designed structured, analysis-ready datasets by joining policy details, incident records, and assessment reports, improving cross-branch visibility.
-      </li>
-      <li>
-        Developed risk indicators and anomaly rules based on claim amount, frequency, geography, and loss type to support fraud identification and investigation.
-      </li>
-      <li>
-        Generated branch-level summaries and dashboards that helped teams prioritize claim reviews and reduce investigation turnaround time.
-      </li>
-    </ul>
-  </article>
-
-  <!-- Mahindra University -->
-  <article class="experience-card card" tabindex="0">
-
-    <div class="exp-header">
-      <img src="assets/MU.png" alt="Mahindra University Logo" class="company-logo" />
-
-      <div class="exp-title-wrap">
-        <h3 class="exp-title">
-          <span class="role">Placement Student Coordinator</span>
-          <span class="company"> @ Mahindra University</span>
-        </h3>
-        <span class="date">Apr 2022 – May 2023</span>
-      </div>
-    </div>
-
-    <ul class="exp-points">
-      <li>
-        Collected and maintained structured data on recruiting companies, roles, hiring timelines, and student outcomes across multiple placement cycles.
-      </li>
-      <li>
-        Analyzed historical placement trends to identify which companies converted offers more reliably and which roles aligned best with student skill profiles.
-      </li>
-      <li>
-        Created summaries and trackers for the placement office to support company prioritization, scheduling, and outreach planning.
-      </li>
-      <li>
-        Worked closely with placement officers and recruiters to translate data insights into more targeted student shortlists and improved placement outcomes.
-      </li>
-    </ul>
-  </article>
-
-  <!-- Mahindra & Mahindra -->
-  <article class="experience-card card" tabindex="0">
-
-    <div class="exp-header">
-      <img src="assets/M&M.png" alt="Mahindra &amp; Mahindra Logo" class="company-logo" />
-
-      <div class="exp-title-wrap">
-        <h3 class="exp-title">
-          <span class="role">Data Analyst Intern</span>
-          <span class="company"> @ Mahindra &amp; Mahindra Ltd</span>
-        </h3>
-        <span class="date">Jun 2022 – Aug 2022</span>
-      </div>
-    </div>
-
-    <ul class="exp-points">
-      <li>
-        Worked on-site at Mahindra’s tractor manufacturing plant during my 3-2 semester, gaining hands-on exposure to large-scale manufacturing workflows and operational systems.
-      </li>
-      <li>
-        Delivered two project-based analytics initiatives, analyzing production and operational data using Python and Excel to identify inefficiencies, bottlenecks, and downtime patterns.
-      </li>
-      <li>
-        Built automated reports and lightweight dashboards to track key metrics such as production throughput, defect trends, and line-level performance.
-      </li>
-      <li>
-        Collaborated closely with plant engineers and operations teams to validate findings and translate insights into practical, data-backed process improvements.
-      </li>
-    </ul>
-  </article>
-
-</section>
-
-
-<!-- PROJECTS -->
-<section id="projects" class="container">
-  <h2>Projects</h2>
-
-  <div class="projects-grid">
-    <!-- Minutes Maker -->
-    <article class="project-card">
-      <img src="assets/minutes.jpg" alt="Minutes Maker banner" />
-
-      <div class="content">
-        <h3>Minutes Maker – Video Transcription & Summarization</h3>
-        <p>
-          Built an asynchronous AWS serverless pipeline that transcribes meetings with Whisper and
-          generates structured minutes using FLAN-T5.
-        </p>
-
-        <div class="pills">
-          <span class="pill">AWS Lambda</span>
-          <span class="pill">Docker</span>
-          <span class="pill">SQS</span>
-          <span class="pill">Hugging Face</span>
-          <span class="pill">Terraform</span>
-          <span class="pill">Python</span>
-        </div>
-
-        <div class="links">
-          <a href="https://github.com/Sruthijha/Minutes-Maker" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- Airline Delay Prediction -->
-    <article class="project-card">
-      <img src="assets/Airline.png" alt="Airline Delay Prediction banner" />
-
-      <div class="content">
-        <h3>Airline Delay Prediction System</h3>
-        <p>
-          Predicted airline delays from multi-year flight data, achieving 97% accuracy through robust
-          feature engineering and model evaluation.
-        </p>
-
-        <div class="pills">
-          <span class="pill">Python</span>
-          <span class="pill">Scikit-learn</span>
-          <span class="pill">XGBoost</span>
-          <span class="pill">Random Forest</span>
-          <span class="pill">Pandas</span>
-          <span class="pill">Feature Engineering</span>
-        </div>
-
-        <div class="links">
-          <a href="https://sites.google.com/view/shvdm/home" target="_blank" rel="noopener noreferrer">Website</a>
-          <a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System/blob/main/Final%20Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- Real-time Emotion Recognition -->
-    <article class="project-card">
-      <img src="assets/DL.png" alt="Real-time Emotion Recognition banner" />
-
-      <div class="content">
-        <h3>Real-time Emotion Recognition from Speech</h3>
-        <p>
-          Built a real-time speech emotion classifier with 95% accuracy using a CNN-LSTM model and
-          engineered audio features with augmentation.
-        </p>
-
-        <div class="pills">
-          <span class="pill">Python</span>
-          <span class="pill">TensorFlow</span>
-          <span class="pill">CNN-LSTM</span>
-          <span class="pill">MFCCs</span>
-          <span class="pill">Audio Processing</span>
-          <span class="pill">Data Augmentation</span>
-        </div>
-
-        <div class="links">
-          <a href="https://github.com/Sruthijha/Real-Time-Emotion-Recognition-from-Speech-/tree/main" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://github.com/Sruthijha/Real-Time-Emotion-Recognition-from-Speech-/blob/main/Project%20Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- Movie Recommender -->
-    <article class="project-card">
-      <img src="assets/movie.jpg" alt="Movie Recommendation System banner" />
-
-      <div class="content">
-        <h3>Movie Recommendation System</h3>
-        <p>
-          Developed a personalized recommender using collaborative filtering and similarity scoring,
-          deployed as an interactive Streamlit app.
-        </p>
-
-        <div class="pills">
-          <span class="pill">Python</span>
-          <span class="pill">Scikit-learn</span>
-          <span class="pill">Content-Based Filtering</span>
-          <span class="pill">Cosine Similarity</span>
-          <span class="pill">NLP</span>
-          <span class="pill">Streamlit</span>
-        </div>
-
-        <div class="links">
-          <a href="https://github.com/Sruthijha/Movie-Recommendation-System" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- MSR 2024 -->
-    <article class="project-card">
-      <img src="assets/msr.png" alt="MSR 2024 Mining Challenge banner" />
-
-      <div class="content">
-        <h3>MSR 2024 Mining Challenge</h3>
-        <p>
-          Analyzed software-engineering dialogues to model conversation dynamics, sentiment, and
-          failure points to better understand AI-assisted coding interactions.
-        </p>
-
-        <div class="pills">
-          <span class="pill">Python</span>
-          <span class="pill">NLP</span>
-          <span class="pill">Sentiment Analysis</span>
-          <span class="pill">Data Mining</span>
-          <span class="pill">Scikit-learn</span>
-          <span class="pill">Conversation Analysis</span>
-        </div>
-
-        <div class="links">
-          <a href="https://conf.researchr.org/home/msr-2024" target="_blank" rel="noopener noreferrer">Challenge</a>
-          <a href="https://github.com/Sruthijha/SE_Mining-Challenge" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://github.com/Sruthijha/SE_Mining-Challenge/blob/master/SE%20Project%20Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- Crime Data -->
-    <article class="project-card">
-      <img src="assets/stat.png" alt="Crime Data Analysis banner" />
-
-      <div class="content">
-        <h3>Crime Data Analysis</h3>
-        <p>
-          Analyzed U.S. crime trends (1979–2023) using statistical modeling to identify regional patterns,
-          anomalies, and drivers across decades.
-        </p>
-
-        <div class="pills">
-          <span class="pill">R</span>
-          <span class="pill">Statistical Analysis</span>
-          <span class="pill">Hypothesis Testing</span>
-          <span class="pill">Data Visualization</span>
-          <span class="pill">Bootstrapping</span>
-          <span class="pill">Regression</span>
-        </div>
-
-        <div class="links">
-          <a href="https://github.com/Sruthijha/CrimeDataAnalysis" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://github.com/Sruthijha/CrimeDataAnalysis/blob/main/Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- ACHIEVEMENTS -->
-<section id="achievements" class="container">
-  <h2>Achievements</h2>
-
-  <div class="achievements-grid">
-    <article class="card achievement-card">
-      <ul class="achievement-list">
-        <li>
-          Recipient of the
-          <span class="accent">Institute Merit Scholarship</span> at
-          <span class="accent">Mahindra University</span>
-          (<span class="accent">2019–2023</span>), awarded
-          <strong>₹100,000 per semester</strong>
-          for academic excellence.
-        </li>
-
-        <li>
-          Earned a
-          <span class="accent">Licentiate Certification in Insurance</span> from the
-          <span class="accent">Insurance Institute of India (III)</span>.
-        </li>
-
-        <li>
-          Achieved <strong>95th percentile</strong> in
-          <span class="accent">JEE Main</span> and secured
-          <strong>All India Rank 4,000</strong> in
-          <span class="accent">EAMCET Telangana</span>.
-        </li>
-
-        <li>
-          Awarded a <strong>₹175,000</strong>
-          <span class="accent">FIITJEE Talent Reward Scholarship</span>
-          for scoring <strong>100%</strong> in FTRE
-          (<span class="accent">FIITJEE Talent Reward Exam</span>).
-        </li>
-      </ul>
-    </article>
-  </div>
-</section>
-
-<!-- LEADERSHIP & ENGAGEMENT -->
-<section id="leadership" class="container">
-  <h2>Leadership &amp; Engagement</h2>
-
-  <div class="achievements-grid">
-    <article class="card achievement-card">
-      <ul class="achievement-list">
-        <li>
-          Volunteered as a
-          <a
-            href="https://www.colorado.edu/graduateschool/services-resources/mentoring/graduate-students/graduate-peer-mentoring-program"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="accent"
-          >
-            Graduate Peer Mentor
-          </a>
-          at the <span class="accent">University of Colorado Boulder</span>, supporting incoming graduate
-          students with academic transition and campus resources.
-        </li>
-
-        <li>
-          Participated in <span class="accent">Model United Nations (MUN)</span> conferences,
-          gaining experience in diplomacy, public speaking, and structured debate.
-        </li>
-
-        <li>
-          Volunteered in
-          <a
-            href="https://www.mahindrauniversity.edu.in/events/mahindra-universitys-cleanliness-drive/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="accent"
-          >
-            Mahindra University’s Cleanliness Drive
-          </a>,
-          contributing to campus-wide community service initiatives.
-        </li>
-
-        <li>
-          Active member of student organizations including the
-          <span class="accent">Football Club</span>,
-          <span class="accent">Anime Club</span>, and
-          <span class="accent">Artfelt Club</span>.
-        </li>
-
-        <li>
-          Supported <span class="accent">logistics and coordination</span> for academic activities,
-          assisting with test organization and on-ground execution.
-        </li>
-      </ul>
-    </article>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="foot-links">
-      <span>© <span id="year"></span> Sruthijha Pagolu</span>
-      <a href="#about" title="Back to top">Back to top ↑</a>
-    </div>
-  </div>
-</footer>
-
-<!-- FLOATING CONTACT BUTTON -->
-<button
-  id="contact-fab"
-  class="contact-fab"
-  type="button"
-  aria-label="Open contact menu"
-  aria-haspopup="dialog"
-  aria-controls="contact-overlay"
->
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path
-      d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16
-         c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8
-         5-8-5V6l8 5 8-5v2z"
-    />
-  </svg>
-</button>
-
-<!-- CONTACT MODAL OVERLAY -->
-<div
-  id="contact-overlay"
-  class="contact-overlay"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="contact-title"
->
-  <div class="contact-modal" role="document">
-    <div class="contact-modal-head">
-      <h3 id="contact-title" class="contact-modal-title">Get In Touch</h3>
-      <button id="contact-close" class="contact-close" type="button" aria-label="Close">×</button>
-    </div>
-
-    <div class="contact-grid">
-      <!-- Email -->
-      <a class="contact-item email-item" href="mailto:sruthipagolu@gmail.com">
-        <div class="contact-left">
-          <div class="contact-ico">
-            <img src="assets/gmail.png" alt="Email icon" />
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="hero-card">
+        <div class="hero-copy">
+          <div class="hero-greeting">
+            <span class="typewrap" id="greetWrap">
+              <span id="greetType"></span><span class="caret" aria-hidden="true"></span>
+            </span>
           </div>
 
-          <div class="contact-text">
-            <div class="contact-toprow">
-              <p class="contact-kicker">Email</p>
-              <span class="copy-hint">Copy</span>
+          <p class="hero-desc">
+            <span class="hero-role">Data Intern @ Goodie Bag</span><br />
+            I turn raw data into insights that help products grow. Curious by nature,
+            detail-oriented by habit, and focused on building things that create real impact :)
+          </p>
+
+          <div class="hero-actions">
+            <a href="resume.pdf" class="hero-link" target="_blank" rel="noopener">
+              <span class="doc-icon" aria-hidden="true">📄</span>
+              <span>Resume</span>
+            </a>
+
+            <div class="hero-links">
+              <a href="mailto:sruthijha.pagolu@colorado.edu" class="hero-link">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Mail</span>
+              </a>
+
+              <a href="https://www.linkedin.com/in/sruthijha" target="_blank" rel="noopener" class="hero-link">
+                <i class="fa-brands fa-linkedin-in"></i>
+                <span>LinkedIn</span>
+              </a>
+
+              <a href="https://github.com/Sruthijha" target="_blank" rel="noopener" class="hero-link">
+                <i class="fa-brands fa-github"></i>
+                <span>GitHub</span>
+              </a>
             </div>
-            <p class="contact-main">sruthipagolu@gmail.com</p>
           </div>
         </div>
 
-        <div class="contact-arrow">→</div>
-      </a>
+        <div class="hero-photo">
+          <img src="assets/me.png" alt="Sruthijha Pagolu portrait" />
+        </div>
+      </div>
+    </section>
 
-      <!-- LinkedIn -->
-      <a class="contact-item" href="https://www.linkedin.com/in/sruthijha" target="_blank" rel="noopener noreferrer">
-        <div class="contact-left">
-          <div class="contact-ico">
-            <img src="assets/linkedin.png" alt="LinkedIn icon" />
+    <!-- ABOUT -->
+    <section id="about" class="container">
+      <h2>About Me</h2>
+
+      <div class="card about-card">
+        <p>
+          I see data as more than just numbers on a screen - it’s one of the closest things we have
+          to a record of how people think, decide, and build systems. I enjoy
+          <span class="accent">studying complex problems</span>, working with
+          <span class="accent">messy data</span>, and turning ambiguity into insights that genuinely
+          influence real decisions.
+        </p>
+
+        <p>
+          I recently graduated from the
+          <span class="accent">University of Colorado Boulder</span> with a
+          <span class="accent">Master’s in Data Science</span>, and I’m currently working as a
+          <span class="accent">Data Intern at Goodie Bag</span>, where I support data-driven decisions
+          around <span class="accent">customer acquisition</span> and
+          <span class="accent">marketplace growth</span>. I’m especially interested in work where
+          analysis connects directly to the real world - not just dashboards, but outcomes that
+          actually matter.
+        </p>
+
+        <p>
+          Outside of work, I’m deeply curious and creative by nature. I genuinely enjoy
+          <span class="accent">studying and learning new things</span>, whether it’s a technical
+          concept or an unfamiliar idea. I grew up watching
+          <span class="accent">Naruto</span>, later developed a love for stories like
+          <span class="accent">Percy Jackson</span>, and often spend my time
+          <span class="accent">sketching</span>, <span class="accent">listening to music</span>, or
+          exploring questions that sit at the intersection of creativity and logic.
+        </p>
+
+        <p>
+          I’m most excited by work that blends
+          <span class="accent">thoughtful analysis</span> with
+          <span class="accent">real-world impact</span> - where data is used not just to describe
+          what happened, but to help shape what comes next.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="container">
+      <h2>Skills</h2>
+
+      <div class="skills-grid">
+        <article class="skill-card">
+          <h3>Programming Languages</h3>
+          <div class="skill-icons">
+            <div class="skill-icon">
+              <img src="assets/python.png" alt="Python logo" />
+              <span>Python</span>
+            </div>
+            <div class="skill-icon">
+              <img src="assets/sql.png" alt="SQL logo" />
+              <span>SQL</span>
+            </div>
+            <div class="skill-icon">
+              <img src="assets/r.png" alt="R logo" />
+              <span>R</span>
+            </div>
           </div>
-          <div class="contact-text">
-            <p class="contact-kicker">LinkedIn</p>
-            <p class="contact-main">Connect with me</p>
+        </article>
+
+        <article class="skill-card">
+          <h3>Machine Learning &amp; Deep Learning</h3>
+          <div class="skill-icons">
+            <div class="skill-icon">
+              <img src="assets/huggingface.png" alt="Hugging Face logo" />
+              <span>HuggingFace</span>
+            </div>
+            <div class="skill-icon">
+              <img src="assets/pytorch.png" alt="PyTorch logo" />
+              <span>PyTorch</span>
+            </div>
+            <div class="skill-icon">
+              <img src="assets/tf.png" alt="TensorFlow logo" />
+              <span>TensorFlow</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <h3>Data Analysis &amp; Visualization</h3>
+          <div class="skill-icons">
+            <div class="skill-icon">
+              <img src="assets/pandas.png" alt="Pandas logo" />
+              <span>Pandas</span>
+            </div>
+            <div class="skill-icon">
+              <img src="assets/numpy.png" alt="NumPy logo" />
+              <span>NumPy</span>
+            </div>
+            <div class="skill-icon">
+              <img src="assets/seaborn.svg" alt="Seaborn logo" />
+              <span>Seaborn</span>
+            </div>
+            <div class="skill-icon">
+              <img src="assets/tableau.png" alt="Tableau logo" />
+              <span>Tableau</span>
+            </div>
+            <div class="skill-icon">
+              <img src="assets/powerbi.png" alt="Power BI logo" />
+              <span>Power BI</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <h3>Cloud Platforms &amp; Tools</h3>
+          <div class="skill-icons">
+            <div class="skill-icon">
+              <img class="mono" src="assets/aws.png" alt="AWS logo" />
+              <span>AWS</span>
+            </div>
+            <div class="skill-icon">
+              <img src="assets/gcp.png" alt="GCP logo" />
+              <span>GCP</span>
+            </div>
+            <div class="skill-icon">
+              <img src="assets/azure.png" alt="Azure logo" />
+              <span>Azure</span>
+            </div>
+            <div class="skill-icon">
+              <img class="mono" src="assets/fastapi.png" alt="FastAPI logo" />
+              <span>FastAPI</span>
+            </div>
+            <div class="skill-icon">
+              <img src="assets/git.png" alt="Git logo" />
+              <span>Git</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="container">
+      <h2>Education</h2>
+
+      <div class="edu-grid">
+        <article class="card edu-card">
+          <div class="edu-head">
+            <div class="edu-head-left">
+              <img src="assets/buffs.png" alt="CU Boulder Logo" class="edu-logo" />
+              <div class="edu-head-text">
+                <div class="edu-school">University of Colorado Boulder</div>
+                <div class="edu-date">Aug 2023 – Dec 2025</div>
+              </div>
+            </div>
+          </div>
+
+          <p class="edu-meta"><strong>Master of Science in Data Science</strong></p>
+          <div class="edu-spacer" aria-hidden="true"></div>
+          <p class="edu-meta"><span class="edu-label">GPA:</span> <strong>3.96 / 4.0</strong></p>
+
+          <p class="edu-meta"><span class="edu-label">Relevant Coursework:</span></p>
+          <ul class="edu-list">
+            <li>Machine Learning</li>
+            <li>Statistical Methods &amp; Applications</li>
+            <li>Deep &amp; Reinforcement Learning</li>
+          </ul>
+        </article>
+
+        <article class="card edu-card">
+          <div class="edu-head">
+            <div class="edu-head-left">
+              <img src="assets/MU.png" alt="Mahindra University Logo" class="edu-logo edu-logo--rounded" />
+              <div class="edu-head-text">
+                <div class="edu-school">Mahindra University</div>
+                <div class="edu-date">Aug 2019 – May 2023</div>
+              </div>
+            </div>
+          </div>
+
+          <p class="edu-meta"><strong>Bachelor of Technology in Electrical and Electronics Engineering</strong></p>
+          <div class="edu-spacer" aria-hidden="true"></div>
+          <p class="edu-meta"><span class="edu-label">GPA:</span> <strong>3.54 / 4.0</strong></p>
+
+          <p class="edu-meta"><span class="edu-label">Relevant Coursework:</span></p>
+          <ul class="edu-list">
+            <li>Data Structures</li>
+            <li>Computer Architecture and Design</li>
+            <li>Computer &amp; Communication Networks</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="container">
+      <h2>Experience</h2>
+
+      <article class="experience-card card" tabindex="0">
+        <div class="exp-header">
+          <img src="assets/goodiebag.png" alt="Goodie Bag Logo" class="company-logo" />
+          <div class="exp-title-wrap">
+            <h3 class="exp-title">
+              <span class="role">Data Intern</span>
+              <span class="company"> @ Goodie Bag Food Co.</span>
+            </h3>
+            <span class="date">Jan 2026 – Present</span>
           </div>
         </div>
-        <div class="contact-arrow">→</div>
-      </a>
 
-      <!-- GitHub -->
-      <a class="contact-item" href="https://github.com/Sruthijha" target="_blank" rel="noopener noreferrer">
-        <div class="contact-left">
-          <div class="contact-ico">
-            <img src="assets/github.svg" alt="GitHub icon" />
-          </div>
-          <div class="contact-text">
-            <p class="contact-kicker">GitHub</p>
-            <p class="contact-main">View my code</p>
+        <ul class="exp-points">
+          <li>Analyzed marketplace and customer data to support neighborhood-level acquisition strategy for Goodie Bag’s NYC launch.</li>
+          <li>Built clean, analysis-ready datasets by integrating external data sources (demographics, geography, local supply) with internal product data.</li>
+          <li>Conducted exploratory data analysis to identify high-potential neighborhoods, customer density trends, and market saturation risks.</li>
+          <li>Translated insights into clear recommendations on where and when to focus marketing efforts, directly informing go-to-market decisions.</li>
+        </ul>
+      </article>
+
+      <article class="experience-card card" tabindex="0">
+        <div class="exp-header">
+          <img src="assets/intech.png" alt="Intech Logo" class="company-logo" />
+          <div class="exp-title-wrap">
+            <h3 class="exp-title">
+              <span class="role">Data Science Intern</span>
+              <span class="company"> @ Intech Insurance Surveyors &amp; Loss Assessors Pvt. Ltd</span>
+            </h3>
+            <span class="date">Jan 2023 – Jun 2023</span>
           </div>
         </div>
-        <div class="contact-arrow">→</div>
-      </a>
 
-      <!-- Medium -->
-      <a class="contact-item" href="https://medium.com/@sruthijha" target="_blank" rel="noopener noreferrer">
-        <div class="contact-left">
-          <div class="contact-ico">
-            <img src="assets/medium.png" alt="Medium icon" />
-          </div>
-          <div class="contact-text">
-            <p class="contact-kicker">Medium</p>
-            <p class="contact-main">Read my writing</p>
+        <ul class="exp-points">
+          <li>Analyzed insurance claim data using SQL and Python to uncover patterns associated with high-risk, suspicious, or inconsistent claims across 15 branch offices.</li>
+          <li>Designed structured, analysis-ready datasets by joining policy details, incident records, and assessment reports, improving cross-branch visibility.</li>
+          <li>Developed risk indicators and anomaly rules based on claim amount, frequency, geography, and loss type to support fraud identification and investigation.</li>
+          <li>Generated branch-level summaries and dashboards that helped teams prioritize claim reviews and reduce investigation turnaround time.</li>
+        </ul>
+      </article>
+
+      <article class="experience-card card" tabindex="0">
+        <div class="exp-header">
+          <img src="assets/MU.png" alt="Mahindra University Logo" class="company-logo" />
+          <div class="exp-title-wrap">
+            <h3 class="exp-title">
+              <span class="role">Placement Student Coordinator</span>
+              <span class="company"> @ Mahindra University</span>
+            </h3>
+            <span class="date">Apr 2022 – May 2023</span>
           </div>
         </div>
-        <div class="contact-arrow">→</div>
-      </a>
+
+        <ul class="exp-points">
+          <li>Collected and maintained structured data on recruiting companies, roles, hiring timelines, and student outcomes across multiple placement cycles.</li>
+          <li>Analyzed historical placement trends to identify which companies converted offers more reliably and which roles aligned best with student skill profiles.</li>
+          <li>Created summaries and trackers for the placement office to support company prioritization, scheduling, and outreach planning.</li>
+          <li>Worked closely with placement officers and recruiters to translate data insights into more targeted student shortlists and improved placement outcomes.</li>
+        </ul>
+      </article>
+
+      <article class="experience-card card" tabindex="0">
+        <div class="exp-header">
+          <img src="assets/M&M.png" alt="Mahindra &amp; Mahindra Logo" class="company-logo" />
+          <div class="exp-title-wrap">
+            <h3 class="exp-title">
+              <span class="role">Data Analyst Intern</span>
+              <span class="company"> @ Mahindra &amp; Mahindra Ltd</span>
+            </h3>
+            <span class="date">Jun 2022 – Aug 2022</span>
+          </div>
+        </div>
+
+        <ul class="exp-points">
+          <li>Worked on-site at Mahindra’s tractor manufacturing plant during my 3-2 semester, gaining hands-on exposure to large-scale manufacturing workflows and operational systems.</li>
+          <li>Delivered two project-based analytics initiatives, analyzing production and operational data using Python and Excel to identify inefficiencies, bottlenecks, and downtime patterns.</li>
+          <li>Built automated reports and lightweight dashboards to track key metrics such as production throughput, defect trends, and line-level performance.</li>
+          <li>Collaborated closely with plant engineers and operations teams to validate findings and translate insights into practical, data-backed process improvements.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="container">
+      <h2>Projects</h2>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <img src="assets/minutes.jpg" alt="Minutes Maker banner" />
+          <div class="content">
+            <h3>Minutes Maker – Video Transcription &amp; Summarization</h3>
+            <p>Built an asynchronous AWS serverless pipeline that transcribes meetings with Whisper and generates structured minutes using FLAN-T5.</p>
+            <div class="pills">
+              <span class="pill">AWS Lambda</span><span class="pill">Docker</span><span class="pill">SQS</span>
+              <span class="pill">Hugging Face</span><span class="pill">Terraform</span><span class="pill">Python</span>
+            </div>
+            <div class="links">
+              <a href="https://github.com/Sruthijha/Minutes-Maker" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="assets/Airline.png" alt="Airline Delay Prediction banner" />
+          <div class="content">
+            <h3>Airline Delay Prediction System</h3>
+            <p>Predicted airline delays from multi-year flight data, achieving 97% accuracy through robust feature engineering and model evaluation.</p>
+            <div class="pills">
+              <span class="pill">Python</span><span class="pill">Scikit-learn</span><span class="pill">XGBoost</span>
+              <span class="pill">Random Forest</span><span class="pill">Pandas</span><span class="pill">Feature Engineering</span>
+            </div>
+            <div class="links">
+              <a href="https://sites.google.com/view/shvdm/home" target="_blank" rel="noopener noreferrer">Website</a>
+              <a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System/blob/main/Final%20Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="assets/DL.png" alt="Real-time Emotion Recognition banner" />
+          <div class="content">
+            <h3>Real-time Emotion Recognition from Speech</h3>
+            <p>Built a real-time speech emotion classifier with 95% accuracy using a CNN-LSTM model and engineered audio features with augmentation.</p>
+            <div class="pills">
+              <span class="pill">Python</span><span class="pill">TensorFlow</span><span class="pill">CNN-LSTM</span>
+              <span class="pill">MFCCs</span><span class="pill">Audio Processing</span><span class="pill">Data Augmentation</span>
+            </div>
+            <div class="links">
+              <a href="https://github.com/Sruthijha/Real-Time-Emotion-Recognition-from-Speech-/tree/main" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://github.com/Sruthijha/Real-Time-Emotion-Recognition-from-Speech-/blob/main/Project%20Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="assets/movie.jpg" alt="Movie Recommendation System banner" />
+          <div class="content">
+            <h3>Movie Recommendation System</h3>
+            <p>Developed a personalized recommender using collaborative filtering and similarity scoring, deployed as an interactive Streamlit app.</p>
+            <div class="pills">
+              <span class="pill">Python</span><span class="pill">Scikit-learn</span><span class="pill">Content-Based Filtering</span>
+              <span class="pill">Cosine Similarity</span><span class="pill">NLP</span><span class="pill">Streamlit</span>
+            </div>
+            <div class="links">
+              <a href="https://github.com/Sruthijha/Movie-Recommendation-System" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="assets/msr.png" alt="MSR 2024 Mining Challenge banner" />
+          <div class="content">
+            <h3>MSR 2024 Mining Challenge</h3>
+            <p>Analyzed software-engineering dialogues to model conversation dynamics, sentiment, and failure points to better understand AI-assisted coding interactions.</p>
+            <div class="pills">
+              <span class="pill">Python</span><span class="pill">NLP</span><span class="pill">Sentiment Analysis</span>
+              <span class="pill">Data Mining</span><span class="pill">Scikit-learn</span><span class="pill">Conversation Analysis</span>
+            </div>
+            <div class="links">
+              <a href="https://conf.researchr.org/home/msr-2024" target="_blank" rel="noopener noreferrer">Challenge</a>
+              <a href="https://github.com/Sruthijha/SE_Mining-Challenge" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://github.com/Sruthijha/SE_Mining-Challenge/blob/master/SE%20Project%20Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="assets/stat.png" alt="Crime Data Analysis banner" />
+          <div class="content">
+            <h3>Crime Data Analysis</h3>
+            <p>Analyzed U.S. crime trends (1979–2023) using statistical modeling to identify regional patterns, anomalies, and drivers across decades.</p>
+            <div class="pills">
+              <span class="pill">R</span><span class="pill">Statistical Analysis</span><span class="pill">Hypothesis Testing</span>
+              <span class="pill">Data Visualization</span><span class="pill">Bootstrapping</span><span class="pill">Regression</span>
+            </div>
+            <div class="links">
+              <a href="https://github.com/Sruthijha/CrimeDataAnalysis" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://github.com/Sruthijha/CrimeDataAnalysis/blob/main/Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" class="container">
+      <h2>Achievements</h2>
+
+      <div class="achievements-grid">
+        <article class="card achievement-card">
+          <ul class="achievement-list">
+            <li>Recipient of the <span class="accent">Institute Merit Scholarship</span> at <span class="accent">Mahindra University</span> (<span class="accent">2019–2023</span>), awarded <strong>₹100,000 per semester</strong> for academic excellence.</li>
+            <li>Earned a <span class="accent">Licentiate Certification in Insurance</span> from the <span class="accent">Insurance Institute of India (III)</span>.</li>
+            <li>Achieved <strong>95th percentile</strong> in <span class="accent">JEE Main</span> and secured <strong>All India Rank 4,000</strong> in <span class="accent">EAMCET Telangana</span>.</li>
+            <li>Awarded a <strong>₹175,000</strong> <span class="accent">FIITJEE Talent Reward Scholarship</span> for scoring <strong>100%</strong> in FTRE (<span class="accent">FIITJEE Talent Reward Exam</span>).</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section id="leadership" class="container">
+      <h2>Leadership &amp; Engagement</h2>
+
+      <div class="achievements-grid">
+        <article class="card achievement-card">
+          <ul class="achievement-list">
+            <li>
+              Volunteered as a
+              <a href="https://www.colorado.edu/graduateschool/services-resources/mentoring/graduate-students/graduate-peer-mentoring-program"
+                 target="_blank" rel="noopener noreferrer" class="accent">
+                Graduate Peer Mentor
+              </a>
+              at the <span class="accent">University of Colorado Boulder</span>, supporting incoming graduate students with academic transition and campus resources.
+            </li>
+            <li>Participated in <span class="accent">Model United Nations (MUN)</span> conferences, gaining experience in diplomacy, public speaking, and structured debate.</li>
+            <li>
+              Volunteered in
+              <a href="https://www.mahindrauniversity.edu.in/events/mahindra-universitys-cleanliness-drive/"
+                 target="_blank" rel="noopener noreferrer" class="accent">
+                Mahindra University’s Cleanliness Drive
+              </a>,
+              contributing to campus-wide community service initiatives.
+            </li>
+            <li>Active member of student organizations including the <span class="accent">Football Club</span>, <span class="accent">Anime Club</span>, and <span class="accent">Artfelt Club</span>.</li>
+            <li>Supported <span class="accent">logistics and coordination</span> for academic activities, assisting with test organization and on-ground execution.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="foot-links">
+          <span>© <span id="year"></span> Sruthijha Pagolu</span>
+          <a href="#about" title="Back to top">Back to top ↑</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- FLOATING CONTACT BUTTON -->
+    <button
+      id="contact-fab"
+      class="contact-fab"
+      type="button"
+      aria-label="Open contact menu"
+      aria-haspopup="dialog"
+      aria-controls="contact-overlay"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+      </svg>
+    </button>
+
+    <!-- CONTACT MODAL OVERLAY -->
+    <div
+      id="contact-overlay"
+      class="contact-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contact-title"
+    >
+      <div class="contact-modal" role="document">
+        <div class="contact-modal-head">
+          <h3 id="contact-title" class="contact-modal-title">Get In Touch</h3>
+          <button id="contact-close" class="contact-close" type="button" aria-label="Close">×</button>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Email -->
+          <a class="contact-item email-item" href="mailto:sruthipagolu@gmail.com">
+            <div class="contact-left">
+              <div class="contact-ico"><img src="assets/gmail.png" alt="Email icon" /></div>
+              <div class="contact-text">
+                <div class="contact-toprow">
+                  <p class="contact-kicker">Email</p>
+                  <span class="copy-hint">Copy</span>
+                </div>
+                <p class="contact-main">sruthipagolu@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-arrow">→</div>
+          </a>
+
+          <!-- LinkedIn -->
+          <a class="contact-item" href="https://www.linkedin.com/in/sruthijha" target="_blank" rel="noopener noreferrer">
+            <div class="contact-left">
+              <div class="contact-ico"><img src="assets/linkedin.png" alt="LinkedIn icon" /></div>
+              <div class="contact-text">
+                <p class="contact-kicker">LinkedIn</p>
+                <p class="contact-main">Connect with me</p>
+              </div>
+            </div>
+            <div class="contact-arrow">→</div>
+          </a>
+
+          <!-- GitHub -->
+          <a class="contact-item" href="https://github.com/Sruthijha" target="_blank" rel="noopener noreferrer">
+            <div class="contact-left">
+              <div class="contact-ico"><img src="assets/github.svg" alt="GitHub icon" /></div>
+              <div class="contact-text">
+                <p class="contact-kicker">GitHub</p>
+                <p class="contact-main">View my code</p>
+              </div>
+            </div>
+            <div class="contact-arrow">→</div>
+          </a>
+
+          <!-- Medium -->
+          <a class="contact-item" href="https://medium.com/@sruthijha" target="_blank" rel="noopener noreferrer">
+            <div class="contact-left">
+              <div class="contact-ico"><img src="assets/medium.png" alt="Medium icon" /></div>
+              <div class="contact-text">
+                <p class="contact-kicker">Medium</p>
+                <p class="contact-main">Read my writing</p>
+              </div>
+            </div>
+            <div class="contact-arrow">→</div>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </main>
 
+  <!-- SCRIPTS -->
+  <script>
+    // =========================
+    // Mobile nav toggle
+    // =========================
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('site-nav');
 
-
-<!-- SCRIPTS -->
-<script>
-  // =========================
-  // Mobile nav toggle
-  // =========================
-  const toggle = document.getElementById('nav-toggle');
-  const nav = document.getElementById('site-nav');
-  toggle?.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(open));
-  });
-
-  // =========================
-  // Smooth anchor scroll
-  // =========================
-  document.querySelectorAll('nav a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const id = a.getAttribute('href');
-      const el = document.querySelector(id);
-      if (!el) return;
-      e.preventDefault();
-
-      if (nav?.classList.contains('open')) {
-        nav.classList.remove('open');
-        toggle?.setAttribute('aria-expanded', 'false');
-      }
-
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      history.pushState(null, '', id);
-    });
-  });
-
-  // =========================
-  // Scroll spy (center-based)
-  // =========================
-  const HEADER_H = parseInt(
-    getComputedStyle(document.documentElement).getPropertyValue('--header-h')
-  ) || 64;
-
-  const navLinksArr = [...document.querySelectorAll('nav a[href^="#"]')];
-  const sectionIds = navLinksArr
-    .map(a => a.getAttribute('href'))
-    .filter(h => h && h.startsWith('#'))
-    .map(h => h.slice(1));
-  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-  const hero = document.getElementById('hero');
-
-  const linkFor = id => navLinksArr.find(a => a.getAttribute('href') === `#${id}`);
-  const clearActive = () => navLinksArr.forEach(a => a.classList.remove('active'));
-
-  function visibleRatio(rect) {
-    const vh = window.innerHeight;
-    const visible = Math.max(0, Math.min(rect.bottom, vh) - Math.max(rect.top, 0));
-    return visible / Math.min(vh, Math.max(1, rect.height));
-  }
-
-  function chooseActiveSection() {
-    if (hero) {
-      const r = hero.getBoundingClientRect();
-      if (visibleRatio(r) >= 0.5) {
-        clearActive();
-        return;
-      }
-    }
-
-    const targetY = HEADER_H + (window.innerHeight - HEADER_H) / 2;
-
-    let best = null;
-    let bestDist = Infinity;
-
-    for (const sec of sections) {
-      const rect = sec.getBoundingClientRect();
-      const center = rect.top + rect.height / 2;
-      const dist = Math.abs(center - targetY);
-      if (dist < bestDist) {
-        best = sec; bestDist = dist;
-      }
-    }
-
-    clearActive();
-    if (best) {
-      const link = linkFor(best.id);
-      if (link) link.classList.add('active');
-    }
-  }
-
-  let ticking = false;
-  function onScroll() {
-    if (!ticking) {
-      requestAnimationFrame(() => { chooseActiveSection(); ticking = false; });
-      ticking = true;
-    }
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', chooseActiveSection);
-  window.addEventListener('hashchange', chooseActiveSection);
-  document.addEventListener('DOMContentLoaded', chooseActiveSection);
-
-  // =========================
-  // Footer year
-  // =========================
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  // =========================
-  // Contact FAB modal
-  // =========================
-  const contactFab = document.getElementById('contact-fab');
-  const contactOverlay = document.getElementById('contact-overlay');
-  const contactClose = document.getElementById('contact-close');
-
-  function openContact(){
-    if (!contactOverlay) return;
-    contactOverlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    contactClose?.focus();
-  }
-
-  function closeContact(){
-    if (!contactOverlay) return;
-    contactOverlay.classList.remove('open');
-    document.body.style.overflow = '';
-    contactFab?.focus();
-  }
-
-  contactFab?.addEventListener('click', openContact);
-  contactClose?.addEventListener('click', closeContact);
-
-  contactOverlay?.addEventListener('click', (e) => {
-    if (e.target === contactOverlay) closeContact();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && contactOverlay?.classList.contains('open')) closeContact();
-  });
-
-  // =========================
-  // HERO NAME TYPEWRITER (types once, keeps Pagolu blue, then hides caret)
-  // =========================
-(function(){
-  const wrap = document.getElementById("greetWrap");
-  const out  = document.getElementById("greetType");
-  if(!wrap || !out) return;
-
-  out.innerHTML = "";
-
-  // Nodes
-  const small = document.createElement("span");
-  small.className = "greet-small";
-
-  const nameLine = document.createElement("span");
-  nameLine.className = "greet-name";
-  nameLine.style.display = "block";
-
-const first = document.createElement("span"); // Sruthijha
-first.textContent = ""; // IMPORTANT: start empty
-
-const last = document.createElement("span"); // Pagolu
-last.textContent = "";  // IMPORTANT: start empty
-last.classList.add("text-accent");
-
-
-  nameLine.appendChild(first);
-  nameLine.appendChild(last);
-
-  const wave = document.createElement("span");
-  wave.className = "wave";
-  wave.setAttribute("aria-hidden", "true");
-  wave.textContent = "👋";
-
-  out.appendChild(small);
-
-  // ✅ SPEED CONTROLS (make it slower here)
-  const SPEED_SMALL = 70;   // Hello line speed
-  const SPEED_NAME  = 95;   // <-- name speed (SLOWER)
-  const PAUSE_STEP  = 260;  // pause between chunks
-
-  const steps = [
-    { kind: "type", node: small, text: "Hello " , ms: SPEED_SMALL },
-    { kind: "insert", node: small, el: wave },
-    { kind: "type", node: small, text: " I am", ms: SPEED_SMALL },
-    { kind: "insert", node: out, el: document.createElement("br") },
-    { kind: "insert", node: out, el: nameLine },
-    { kind: "type", node: first, text: "Sruthijha ", ms: SPEED_NAME },
-    { kind: "type", node: last,  text: "Pagolu",    ms: SPEED_NAME }
-  ];
-
-  let s = 0, i = 0;
-
-  function tick(){
-    if(s >= steps.length){
-      wrap.classList.add("type-done"); // hides cursor
-      return;
-    }
-
-    const cur = steps[s];
-
-    if(cur.kind === "insert"){
-      cur.node.appendChild(cur.el);
-      s++; i = 0;
-      setTimeout(tick, PAUSE_STEP);
-      return;
-    }
-
-    // type
-    cur.node.append(cur.text.charAt(i));
-    i++;
-
-    if(i < cur.text.length){
-      setTimeout(tick, cur.ms);
-    }else{
-      s++; i = 0;
-      setTimeout(tick, PAUSE_STEP);
-    }
-  }
-
-  tick();
-})();
-  const emailItem = document.querySelector(".email-item");
-
-if (emailItem){
-  emailItem.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    const email = "sruthipagolu@gmail.com";
-    navigator.clipboard.writeText(email);
-
-    emailItem.classList.add("copied");
-
-    const hint = emailItem.querySelector(".copy-hint");
-    hint.textContent = "Copied";
-
-    setTimeout(() => {
-      emailItem.classList.remove("copied");
-      hint.textContent = "Copy";
-    }, 1500);
-  });
-}
-  // EXPERIENCE: click to glow, remove when scrolled away
-// =========================
-(function(){
-  const cards = Array.from(document.querySelectorAll('#experience .experience-card'));
-  if (!cards.length) return;
-
-  const clearActive = () => cards.forEach(c => c.classList.remove('is-active'));
-
-  // Click (or keyboard) activates
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      clearActive();
-      card.classList.add('is-active');
+    toggle?.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
     });
 
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
+    // =========================
+    // Smooth anchor scroll
+    // =========================
+    document.querySelectorAll('nav a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if (!el) return;
+
         e.preventDefault();
-        clearActive();
-        card.classList.add('is-active');
+
+        if (nav?.classList.contains('open')) {
+          nav.classList.remove('open');
+          toggle?.setAttribute('aria-expanded', 'false');
+        }
+
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, '', id);
+      });
+    });
+
+    // =========================
+    // Scroll spy (center-based)
+    // =========================
+    const HEADER_H = parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue('--header-h')
+    ) || 64;
+
+    const navLinksArr = [...document.querySelectorAll('nav a[href^="#"]')];
+    const sectionIds = navLinksArr
+      .map(a => a.getAttribute('href'))
+      .filter(h => h && h.startsWith('#'))
+      .map(h => h.slice(1));
+
+    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+    const hero = document.getElementById('hero');
+
+    const linkFor = id => navLinksArr.find(a => a.getAttribute('href') === `#${id}`);
+    const clearActive = () => navLinksArr.forEach(a => a.classList.remove('active'));
+
+    function visibleRatio(rect) {
+      const vh = window.innerHeight;
+      const visible = Math.max(0, Math.min(rect.bottom, vh) - Math.max(rect.top, 0));
+      return visible / Math.min(vh, Math.max(1, rect.height));
+    }
+
+    function chooseActiveSection() {
+      if (hero) {
+        const r = hero.getBoundingClientRect();
+        if (visibleRatio(r) >= 0.5) {
+          clearActive();
+          return;
+        }
       }
+
+      const targetY = HEADER_H + (window.innerHeight - HEADER_H) / 2;
+
+      let best = null;
+      let bestDist = Infinity;
+
+      for (const sec of sections) {
+        const rect = sec.getBoundingClientRect();
+        const center = rect.top + rect.height / 2;
+        const dist = Math.abs(center - targetY);
+        if (dist < bestDist) {
+          best = sec;
+          bestDist = dist;
+        }
+      }
+
+      clearActive();
+      if (best) {
+        const link = linkFor(best.id);
+        if (link) link.classList.add('active');
+      }
+    }
+
+    let ticking = false;
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(() => { chooseActiveSection(); ticking = false; });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', chooseActiveSection);
+    window.addEventListener('hashchange', chooseActiveSection);
+    document.addEventListener('DOMContentLoaded', chooseActiveSection);
+
+    // =========================
+    // Footer year
+    // =========================
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // =========================
+    // Contact FAB modal
+    // =========================
+    const contactFab = document.getElementById('contact-fab');
+    const contactOverlay = document.getElementById('contact-overlay');
+    const contactClose = document.getElementById('contact-close');
+
+    function openContact(){
+      if (!contactOverlay) return;
+      contactOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      contactClose?.focus();
+    }
+
+    function closeContact(){
+      if (!contactOverlay) return;
+      contactOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+      contactFab?.focus();
+    }
+
+    contactFab?.addEventListener('click', openContact);
+    contactClose?.addEventListener('click', closeContact);
+
+    contactOverlay?.addEventListener('click', (e) => {
+      if (e.target === contactOverlay) closeContact();
     });
-  });
 
-  // Remove active when card is not visible
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) entry.target.classList.remove('is-active');
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && contactOverlay?.classList.contains('open')) closeContact();
     });
-  }, { threshold: 0.15 });
 
-  cards.forEach(c => obs.observe(c));
-})();
+    // =========================
+    // HERO NAME TYPEWRITER (types once, keeps Pagolu blue, then hides caret)
+    // =========================
+    (function(){
+      const wrap = document.getElementById("greetWrap");
+      const out  = document.getElementById("greetType");
+      if(!wrap || !out) return;
 
-</script>
+      out.innerHTML = "";
 
+      const small = document.createElement("span");
+      small.className = "greet-small";
+
+      const nameLine = document.createElement("span");
+      nameLine.className = "greet-name";
+      nameLine.style.display = "block";
+
+      const first = document.createElement("span");
+      first.textContent = "";
+
+      const last = document.createElement("span");
+      last.textContent = "";
+      last.classList.add("text-accent");
+
+      nameLine.appendChild(first);
+      nameLine.appendChild(last);
+
+      const wave = document.createElement("span");
+      wave.className = "wave";
+      wave.setAttribute("aria-hidden", "true");
+      wave.textContent = "👋";
+
+      out.appendChild(small);
+
+      const SPEED_SMALL = 70;
+      const SPEED_NAME  = 95;
+      const PAUSE_STEP  = 260;
+
+      const steps = [
+        { kind: "type", node: small, text: "Hello ", ms: SPEED_SMALL },
+        { kind: "insert", node: small, el: wave },
+        { kind: "type", node: small, text: " I am", ms: SPEED_SMALL },
+        { kind: "insert", node: out, el: document.createElement("br") },
+        { kind: "insert", node: out, el: nameLine },
+        { kind: "type", node: first, text: "Sruthijha ", ms: SPEED_NAME },
+        { kind: "type", node: last,  text: "Pagolu", ms: SPEED_NAME }
+      ];
+
+      let s = 0, i = 0;
+
+      function tick(){
+        if(s >= steps.length){
+          wrap.classList.add("type-done");
+          return;
+        }
+
+        const cur = steps[s];
+
+        if(cur.kind === "insert"){
+          cur.node.appendChild(cur.el);
+          s++; i = 0;
+          setTimeout(tick, PAUSE_STEP);
+          return;
+        }
+
+        cur.node.append(cur.text.charAt(i));
+        i++;
+
+        if(i < cur.text.length) setTimeout(tick, cur.ms);
+        else { s++; i = 0; setTimeout(tick, PAUSE_STEP); }
+      }
+
+      tick();
+    })();
+
+    // =========================
+    // Email copy (no underline, clean)
+    // =========================
+    const emailItem = document.querySelector(".email-item");
+    if (emailItem){
+      emailItem.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const email = "sruthipagolu@gmail.com";
+        navigator.clipboard.writeText(email);
+
+        emailItem.classList.add("copied");
+        const hint = emailItem.querySelector(".copy-hint");
+        if (hint) hint.textContent = "Copied";
+
+        setTimeout(() => {
+          emailItem.classList.remove("copied");
+          if (hint) hint.textContent = "Copy";
+        }, 1500);
+      });
+    }
+
+    // =========================
+    // Experience: click to glow, remove when scrolled away
+    // =========================
+    (function(){
+      const cards = Array.from(document.querySelectorAll('#experience .experience-card'));
+      if (!cards.length) return;
+
+      const clearActive = () => cards.forEach(c => c.classList.remove('is-active'));
+
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          clearActive();
+          card.classList.add('is-active');
+        });
+
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            clearActive();
+            card.classList.add('is-active');
+          }
+        });
+      });
+
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) entry.target.classList.remove('is-active');
+        });
+      }, { threshold: 0.15 });
+
+      cards.forEach(c => obs.observe(c));
+    })();
+  </script>
 </body>
 </html>
