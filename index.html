@@ -716,74 +716,40 @@ section > :last-child{ margin-bottom: 0; }
   line-height: 1.4;
 }
 
-/* =========================================================
-   EXPERIENCE
-   ========================================================= */
+// =========================
+// EXPERIENCE: click to glow, remove when scrolled away
+// =========================
+(function(){
+  const cards = Array.from(document.querySelectorAll('#experience .experience-card'));
+  if (!cards.length) return;
 
-#experience{ max-width: 980px; margin: auto; }
+  const clearActive = () => cards.forEach(c => c.classList.remove('is-active'));
 
-.experience-card{ display: flex; gap: 1rem; align-items: flex-start; }
+  // Click (or keyboard) activates
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      clearActive();
+      card.classList.add('is-active');
+    });
 
-.company-logo{
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  border-radius: 12px;
-  flex-shrink: 0;
-  background: rgba(255,255,255,.03);
-  border: 1px solid var(--line);
-  padding: 6px;
-}
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        clearActive();
+        card.classList.add('is-active');
+      }
+    });
+  });
 
-.exp-body{ flex: 1; min-width: 250px; }
+  // Remove active when card is not visible
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) entry.target.classList.remove('is-active');
+    });
+  }, { threshold: 0.15 });
 
-.exp-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: .75rem;
-  flex-wrap: wrap;
-  margin-bottom: .5rem;
-}
-
-.exp-title{ margin: 0; font-size: 1.1rem; line-height: 1.35; }
-.role{ font-weight: 900; color: var(--accent); }
-.company{ font-weight: 700; color: rgba(229,231,235,.78); }
-.date{ color: var(--muted); font-size: .95rem; white-space: nowrap; }
-
-.exp-points{ margin: .25rem 0 0; padding: 0; list-style: none; }
-
-.exp-points li{
-  display: flex;
-  gap: 10px;
-  margin: 0 0 .6em;
-  line-height: 1.6;
-  color: rgba(229,231,235,.92);
-}
-
-.exp-points li::before{
-  content: "▶";
-  color: var(--good);
-  margin-top: 2px;
-}
-
-/* subtle card hover only where wanted */
-#experience .card,
-#about .card{
-  transition: box-shadow .2s, transform .2s;
-  will-change: transform;
-}
-
-#experience .card:hover,
-#about .card:hover{
-  box-shadow: var(--shadow-2);
-  transform: translateY(-2px);
-}
-
-#experience .card:active,
-#about .card:active{
-  transform: translateY(-1px) scale(0.997);
-}
+  cards.forEach(c => obs.observe(c));
+})();
 
 /* =========================================================
    PROJECTS
@@ -1542,83 +1508,159 @@ width: min(760px, 92vw);
 </section>
 
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="container">
-      <h2>Experience</h2>
+<!-- EXPERIENCE -->
+<section id="experience" class="container">
+  <h2>Experience</h2>
 
-      <div class="experience-card card">
-        <img src="assets/goodiebag.png" alt="GoodieBag Logo" class="company-logo">
-        <div class="exp-body">
-          <div class="exp-header">
-            <h3 class="exp-title">
-              <span class="role">Data Intern</span>
-              <span class="company"> @ GoodieBag Food Co. </span>
-            </h3>
-            <span class="date">Jan 2026 - Present</span>
-          </div>
-          <ul class="exp-points">
-            <li>Developed a fraud detection model that improved high-risk claim identification by 25%, strengthening fraud control measures.</li>
-            <li>Automated reporting workflows across 15 branches using Python &amp; Excel, reducing manual effort by 90% and saving 20+ hours monthly.</li>
-            <li>Structured and cleaned raw insurance claim data into analysis-ready datasets, enhancing audit readiness and faster decision-making.</li>
-          </ul>
+  <!-- Goodie Bag -->
+  <article class="experience-card card" tabindex="0">
+    <img src="assets/goodiebag.png" alt="Goodie Bag Logo" class="company-logo" />
+    <div class="exp-body">
+      <div class="exp-header">
+        <div class="exp-title-wrap">
+          <h3 class="exp-title">
+            <span class="role">Data Intern</span>
+            <span class="company"> @ Goodie Bag Food Co.</span>
+          </h3>
+          <span class="date">Jan 2026 – Present</span>
         </div>
       </div>
 
-      <div class="experience-card card">
-        <img src="assets/intech.png" alt="Intech Logo" class="company-logo">
-        <div class="exp-body">
-          <div class="exp-header">
-            <h3 class="exp-title">
-              <span class="role">Data Science Intern</span>
-              <span class="company"> @ Intech Insurance Surveyors &amp; Loss Assessors Pvt. Ltd</span>
-            </h3>
-            <span class="date">Jan 2023 – Jun 2023</span>
-          </div>
-          <ul class="exp-points">
-            <li>Developed a fraud detection model that improved high-risk claim identification by 25%, strengthening fraud control measures.</li>
-            <li>Automated reporting workflows across 15 branches using Python &amp; Excel, reducing manual effort by 90% and saving 20+ hours monthly.</li>
-            <li>Structured and cleaned raw insurance claim data into analysis-ready datasets, enhancing audit readiness and faster decision-making.</li>
-          </ul>
+      <ul class="exp-points">
+        <li>
+          Analyzed marketplace and customer data to support
+          <strong>neighborhood-level acquisition strategy</strong>
+          for Goodie Bag’s NYC launch.
+        </li>
+        <li>
+          Built clean, analysis-ready datasets by integrating
+          external data sources (demographics, geography, local supply)
+          with internal product data.
+        </li>
+        <li>
+          Conducted exploratory data analysis to identify
+          <strong>high-potential neighborhoods</strong>,
+          customer density trends, and market saturation risks.
+        </li>
+        <li>
+          Translated insights into clear recommendations on
+          <strong>where and when to focus marketing efforts</strong>,
+          directly informing go-to-market decisions.
+        </li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- Intech Insurance -->
+  <article class="experience-card card" tabindex="0">
+    <img src="assets/intech.png" alt="Intech Logo" class="company-logo" />
+    <div class="exp-body">
+      <div class="exp-header">
+        <div class="exp-title-wrap">
+          <h3 class="exp-title">
+            <span class="role">Data Science Intern</span>
+            <span class="company"> @ Intech Insurance Surveyors &amp; Loss Assessors Pvt. Ltd</span>
+          </h3>
+          <span class="date">Jan – Jun 2023</span>
         </div>
       </div>
 
-      <div class="experience-card card">
-        <img src="assets/MU.png" alt="Mahindra University Logo" class="company-logo">
-        <div class="exp-body">
-          <div class="exp-header">
-            <h3 class="exp-title">
-              <span class="role">Placement Insights Coordinator</span>
-              <span class="company"> @ Mahindra University</span>
-            </h3>
-            <span class="date">Apr 2022 – May 2023</span>
-          </div>
-          <ul class="exp-points">
-            <li>Boosted placement outcomes by 15% through analysis of hiring trends and targeted outreach to top recruiters.</li>
-            <li>Designed interactive dashboards in Tableau &amp; Excel to visualize recruiter engagement, seasonal hiring patterns, and conversion rates.</li>
-            <li>Coordinated with recruiters and student teams to streamline placement processes and strengthen industry connections.</li>
-          </ul>
+      <ul class="exp-points">
+        <li>
+          Developed a fraud detection model that improved
+          high-risk claim identification by <strong>25%</strong>,
+          strengthening fraud control measures.
+        </li>
+        <li>
+          Automated reporting workflows across <strong>15 branches</strong>
+          using Python &amp; Excel, reducing manual effort by
+          <strong>90%</strong> and saving <strong>20+ hours/month</strong>.
+        </li>
+        <li>
+          Structured and cleaned raw insurance-claim data into
+          analysis-ready datasets, improving audit readiness
+          and decision turnaround time.
+        </li>
+        <li>
+          Built KPI-style summaries for claim trends and outliers
+          to support faster investigation prioritization and reporting.
+        </li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- Mahindra University -->
+  <article class="experience-card card" tabindex="0">
+    <img src="assets/MU.png" alt="Mahindra University Logo" class="company-logo" />
+    <div class="exp-body">
+      <div class="exp-header">
+        <div class="exp-title-wrap">
+          <h3 class="exp-title">
+            <span class="role">Data Analyst (Recruitment Insights)</span>
+            <span class="company"> @ Mahindra University</span>
+          </h3>
+          <span class="date">Apr 2022 – May 2023</span>
         </div>
       </div>
 
-      <div class="experience-card card">
-        <img src="assets/M&M.png" alt="Mahindra Logo" class="company-logo">
-        <div class="exp-body">
-          <div class="exp-header">
-            <h3 class="exp-title">
-              <span class="role">Data Analyst Intern</span>
-              <span class="company"> @ Mahindra &amp; Mahindra Ltd</span>
-            </h3>
-            <span class="date">Jun 2022 – Aug 2022</span>
-          </div>
-          <ul class="exp-points">
-            <li>Analyzed production datasets to uncover inefficiencies and proposed workflow improvements at the manufacturing plant.</li>
-            <li>Built Python &amp; SQL pipelines and dashboards that accelerated operational reporting and improved process visibility.</li>
-            <li>Collaborated with plant engineers to translate data insights into practical changes that enhanced efficiency on the shop floor.</li>
-          </ul>
+      <ul class="exp-points">
+        <li>
+          Improved placement outcomes by <strong>15%</strong>
+          through analysis of recruiter hiring trends and conversion data.
+        </li>
+        <li>
+          Designed interactive dashboards in Tableau &amp; Excel
+          to visualize recruiter engagement, seasonal hiring,
+          and placement funnels.
+        </li>
+        <li>
+          Standardized student and recruiter datasets to reduce
+          duplicates and improve reporting accuracy.
+        </li>
+        <li>
+          Partnered with placement teams to translate insights into
+          targeted outreach and recruiter prioritization strategies.
+        </li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- Mahindra & Mahindra -->
+  <article class="experience-card card" tabindex="0">
+    <img src="assets/M&M.png" alt="Mahindra &amp; Mahindra Logo" class="company-logo" />
+    <div class="exp-body">
+      <div class="exp-header">
+        <div class="exp-title-wrap">
+          <h3 class="exp-title">
+            <span class="role">Data Analyst Intern</span>
+            <span class="company"> @ Mahindra &amp; Mahindra Ltd</span>
+          </h3>
+          <span class="date">Jun – Aug 2022</span>
         </div>
       </div>
-    </section>
 
+      <ul class="exp-points">
+        <li>
+          Analyzed production datasets to identify inefficiencies
+          and bottlenecks across manufacturing workflows.
+        </li>
+        <li>
+          Built Python &amp; SQL pipelines to automate recurring
+          operational reports and improve data visibility.
+        </li>
+        <li>
+          Created lightweight dashboards to track throughput,
+          downtime, and defect trends across production lines.
+        </li>
+        <li>
+          Collaborated with plant engineers to validate insights
+          and translate findings into practical process improvements.
+        </li>
+      </ul>
+    </div>
+  </article>
+
+</section>
 
 
 
