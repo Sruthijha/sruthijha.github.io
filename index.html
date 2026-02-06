@@ -716,41 +716,6 @@ section > :last-child{ margin-bottom: 0; }
   line-height: 1.4;
 }
 
-// =========================
-// EXPERIENCE: click to glow, remove when scrolled away
-// =========================
-(function(){
-  const cards = Array.from(document.querySelectorAll('#experience .experience-card'));
-  if (!cards.length) return;
-
-  const clearActive = () => cards.forEach(c => c.classList.remove('is-active'));
-
-  // Click (or keyboard) activates
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      clearActive();
-      card.classList.add('is-active');
-    });
-
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        clearActive();
-        card.classList.add('is-active');
-      }
-    });
-  });
-
-  // Remove active when card is not visible
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) entry.target.classList.remove('is-active');
-    });
-  }, { threshold: 0.15 });
-
-  cards.forEach(c => obs.observe(c));
-})();
-
 /* =========================================================
    PROJECTS
    ========================================================= */
@@ -2276,6 +2241,40 @@ if (emailItem){
     }, 1500);
   });
 }
+  // EXPERIENCE: click to glow, remove when scrolled away
+// =========================
+(function(){
+  const cards = Array.from(document.querySelectorAll('#experience .experience-card'));
+  if (!cards.length) return;
+
+  const clearActive = () => cards.forEach(c => c.classList.remove('is-active'));
+
+  // Click (or keyboard) activates
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      clearActive();
+      card.classList.add('is-active');
+    });
+
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        clearActive();
+        card.classList.add('is-active');
+      }
+    });
+  });
+
+  // Remove active when card is not visible
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) entry.target.classList.remove('is-active');
+    });
+  }, { threshold: 0.15 });
+
+  cards.forEach(c => obs.observe(c));
+})();
+
 </script>
 
 </body>
