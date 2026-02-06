@@ -1411,6 +1411,22 @@ width: min(760px, 92vw);
 #about .about-card p:last-child{
   margin-bottom: 0;
 }
+/* ABOUT ME — match other cards */
+.about-card{
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.about-card:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2);
+  border-color: rgba(96,165,250,.35);
+}
+
+  .about-card:hover{
+  box-shadow:
+    var(--shadow-2),
+    0 0 22px rgba(96,165,250,.12);
+}
 
 
 </style>
