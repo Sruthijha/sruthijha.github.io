@@ -168,7 +168,11 @@ section{
   padding: var(--section-pad) 0;
   scroll-margin-top: calc(var(--header-h) + 24px);
 }
-/* uniform spacing between sections (fixes Projects/Achievements “touching”) */
+
+/* enforce visual separation between sections */
+section + section{
+  margin-top: var(--section-pad);
+}
 
 h2{
   font-size: clamp(22px, 3vw, 28px);
@@ -202,8 +206,6 @@ section > :last-child{ margin-bottom: 0; }
 #projects .projects-grid{
   margin: 0 !important;
 }
-
-section .card:last-child{ margin-bottom: 0; }
 
 
 /* =========================================================
