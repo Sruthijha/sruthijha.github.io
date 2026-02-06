@@ -744,15 +744,16 @@ section > :last-child{ margin-bottom: 0; }
 
 /* logo */
 #experience .company-logo{
-  width: 56px;
-  height: 56px;
+  width: 48px;          /* ↓ from 56px */
+  height: 48px;
   object-fit: contain;
-  border-radius: 14px;
+  border-radius: 12px; /* proportional */
   padding: 6px;
   background: rgba(255,255,255,.03);
   border: 1px solid var(--line);
   transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
 }
+
 
 /* Active + hover glow */
 #experience .experience-card.is-active .company-logo{
