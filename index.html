@@ -48,33 +48,15 @@ html[data-theme="dark"]{
 
 html{ scroll-behavior: smooth; }
 
-
 body{
-  position: relative;
+  margin: 0;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  color: var(--text);
+  background:
+    radial-gradient(900px 420px at 20% 0%, rgba(96,165,250,.12), transparent 60%),
+    radial-gradient(1200px 600px at 80% 20%, rgba(167,139,250,.10), transparent 60%),
+    var(--bg);
 }
-
-body::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-
-  /* IMPORTANT: no background-color, no opacity */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Crect width='260' height='260' fill='none'/%3E%3Cg fill='white'%3E%3Ccircle cx='18' cy='28' r='0.7' fill-opacity='0.55'/%3E%3Ccircle cx='88' cy='46' r='0.6' fill-opacity='0.25'/%3E%3Ccircle cx='140' cy='22' r='0.8' fill-opacity='0.45'/%3E%3Ccircle cx='232' cy='34' r='0.7' fill-opacity='0.35'/%3E%3Ccircle cx='210' cy='96' r='0.6' fill-opacity='0.22'/%3E%3Ccircle cx='46' cy='122' r='0.8' fill-opacity='0.35'/%3E%3Ccircle cx='120' cy='148' r='0.6' fill-opacity='0.18'/%3E%3Ccircle cx='196' cy='164' r='0.9' fill-opacity='0.40'/%3E%3Ccircle cx='24' cy='206' r='0.6' fill-opacity='0.18'/%3E%3Ccircle cx='94' cy='218' r='0.8' fill-opacity='0.30'/%3E%3Ccircle cx='156' cy='232' r='0.6' fill-opacity='0.16'/%3E%3Ccircle cx='236' cy='226' r='0.7' fill-opacity='0.25'/%3E%3Ccircle cx='170' cy='94' r='0.7' fill-opacity='0.30'/%3E%3Ccircle cx='64' cy='78' r='0.5' fill-opacity='0.16'/%3E%3Ccircle cx='132' cy='92' r='0.5' fill-opacity='0.14'/%3E%3Ccircle cx='244' cy='140' r='0.5' fill-opacity='0.14'/%3E%3Ccircle cx='12' cy='146' r='0.5' fill-opacity='0.14'/%3E%3Ccircle cx='72' cy='170' r='0.5' fill-opacity='0.14'/%3E%3Ccircle cx='152' cy='176' r='0.5' fill-opacity='0.14'/%3E%3Ccircle cx='214' cy='188' r='0.5' fill-opacity='0.14'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 260px 260px;
-
-  /* keeps it subtle + “adds light” only */
-  mix-blend-mode: screen;
-}
-
-main, header, footer{
-  position: relative;
-  z-index: 1;
-}
-
-
 
 a{ color: var(--accent); text-decoration: none; }
 a:hover{ text-decoration: none; }
