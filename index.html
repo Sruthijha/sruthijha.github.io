@@ -169,9 +169,6 @@ section{
   scroll-margin-top: calc(var(--header-h) + 24px);
 }
 /* uniform spacing between sections (fixes Projects/Achievements “touching”) */
-section + section{
-  margin-top: var(--section-pad);
-}
 
 h2{
   font-size: clamp(22px, 3vw, 28px);
@@ -206,6 +203,9 @@ section > :last-child{ margin-bottom: 0; }
   margin: 0 !important;
 }
 
+section .card:last-child{ margin-bottom: 0; }
+
+
 /* =========================================================
    BUTTONS (GLOBAL) — fixes purple hover / visited issues
    ========================================================= */
@@ -239,6 +239,8 @@ section > :last-child{ margin-bottom: 0; }
 }
 
 .btn.primary:active{ transform: translateY(0); }
+
+section{ outline: 1px solid rgba(96,165,250,.18); }
 
 /* =========================================================
    HERO (full viewport + card container)
