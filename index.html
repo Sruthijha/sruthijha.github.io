@@ -1293,11 +1293,19 @@ width: min(760px, 92vw);
   margin: 0;
 }
 
-/* Make sure those cards take full container width */
-#achievements .achievement-card,
-#leadership .achievement-card{
-  width: 100%;
-  margin: 0;
+/* =========================================================
+   ACHIEVEMENTS & LEADERSHIP – hover consistency
+   ========================================================= */
+
+.achievement-card,
+#leadership .card{
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.achievement-card:hover,
+#leadership .card:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2);
 }
 
 </style>
