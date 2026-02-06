@@ -48,14 +48,54 @@ html[data-theme="dark"]{
 
 html{ scroll-behavior: smooth; }
 
-body{
-  margin: 0;
-  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  color: var(--text);
+/* =========================
+   COSMIC DUST (GENERATED)
+   ========================= */
+
+body{ position: relative; }
+
+/* stars */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
   background:
-    radial-gradient(900px 420px at 20% 0%, rgba(96,165,250,.12), transparent 60%),
-    radial-gradient(1200px 600px at 80% 20%, rgba(167,139,250,.10), transparent 60%),
-    var(--bg);
+    /* small stars */
+    radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,.55) 99%, transparent 100%),
+    radial-gradient(1px 1px at 28% 72%, rgba(255,255,255,.35) 99%, transparent 100%),
+    radial-gradient(1px 1px at 44% 31%, rgba(255,255,255,.45) 99%, transparent 100%),
+    radial-gradient(1px 1px at 61% 14%, rgba(255,255,255,.35) 99%, transparent 100%),
+    radial-gradient(1px 1px at 78% 66%, rgba(255,255,255,.45) 99%, transparent 100%),
+    radial-gradient(1px 1px at 90% 28%, rgba(255,255,255,.30) 99%, transparent 100%),
+
+    /* a few bigger glow stars */
+    radial-gradient(2px 2px at 18% 62%, rgba(147,197,253,.55) 40%, transparent 70%),
+    radial-gradient(2px 2px at 73% 24%, rgba(255,255,255,.55) 40%, transparent 70%),
+    radial-gradient(3px 3px at 86% 78%, rgba(96,165,250,.55) 35%, transparent 70%);
+
+  opacity: .6;
+  filter: drop-shadow(0 0 8px rgba(96,165,250,.18));
+}
+
+/* nebula dust haze */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(900px 520px at 18% 28%, rgba(96,165,250,.14), transparent 62%),
+    radial-gradient(780px 520px at 70% 20%, rgba(167,139,250,.12), transparent 60%),
+    radial-gradient(900px 600px at 62% 78%, rgba(96,165,250,.10), transparent 65%),
+    radial-gradient(700px 520px at 30% 88%, rgba(167,139,250,.09), transparent 70%),
+    rgba(11,18,32,.35);
+
+  mix-blend-mode: screen;
+  opacity: .55;
 }
 
 a{ color: var(--accent); text-decoration: none; }
