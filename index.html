@@ -48,51 +48,15 @@ html[data-theme="dark"]{
 
 html{ scroll-behavior: smooth; }
 
-html{
-  background: #0b1220; /* hard lock */
-}
-
 body{
-  background: transparent !important; /* prevents older body bg from overriding */
-  position: relative;
-  isolation: isolate; /* makes layering reliable */
-}
-
-/* Nebula glow layer */
-html::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
+  margin: 0;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  color: var(--text);
   background:
-    radial-gradient(900px 500px at 15% 20%, rgba(96,165,250,.14), transparent 65%),
-    radial-gradient(800px 520px at 75% 18%, rgba(167,139,250,.12), transparent 65%),
-    radial-gradient(900px 620px at 60% 80%, rgba(96,165,250,.10), transparent 70%),
-    #0b1220;
+    radial-gradient(900px 420px at 20% 0%, rgba(96,165,250,.12), transparent 60%),
+    radial-gradient(1200px 600px at 80% 20%, rgba(167,139,250,.10), transparent 60%),
+    var(--bg);
 }
-
-/* Star dust layer */
-html::after{
-  content:"";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  opacity: .55;
-
-  background:
-    radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,.55) 99%, transparent),
-    radial-gradient(1px 1px at 28% 72%, rgba(255,255,255,.35) 99%, transparent),
-    radial-gradient(1px 1px at 44% 31%, rgba(255,255,255,.45) 99%, transparent),
-    radial-gradient(1px 1px at 61% 14%, rgba(255,255,255,.30) 99%, transparent),
-    radial-gradient(1px 1px at 78% 66%, rgba(255,255,255,.40) 99%, transparent),
-    radial-gradient(2px 2px at 82% 28%, rgba(96,165,250,.45) 45%, transparent 75%),
-    radial-gradient(2px 2px at 18% 62%, rgba(167,139,250,.40) 45%, transparent 75%);
-}
-
-
-
 
 a{ color: var(--accent); text-decoration: none; }
 a:hover{ text-decoration: none; }
