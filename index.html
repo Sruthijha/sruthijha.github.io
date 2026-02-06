@@ -48,45 +48,50 @@ html[data-theme="dark"]{
 
 html{ scroll-behavior: smooth; }
 
-/* =========================
-   STAR DUST OVERLAY (subtle)
-   ========================= */
 body{
-  position: relative;
-}
-
-body::before{
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: .55; /* overall strength */
+  margin: 0;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  color: var(--text);
 
   background:
-    /* tiny bright stars */
-    radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,.9), transparent),
-    radial-gradient(1px 1px at 28% 62%, rgba(255,255,255,.7), transparent),
-    radial-gradient(1px 1px at 44% 35%, rgba(255,255,255,.8), transparent),
-    radial-gradient(1px 1px at 67% 22%, rgba(255,255,255,.6), transparent),
-    radial-gradient(1px 1px at 81% 71%, rgba(255,255,255,.75), transparent),
+    /* cosmic dust — subtle grain (no shapes) */
+    linear-gradient(
+      115deg,
+      rgba(255,255,255,.015) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      245deg,
+      rgba(255,255,255,.012) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      0deg,
+      rgba(255,255,255,.01) 1px,
+      transparent 1px
+    ),
 
-    /* dim stars */
-    radial-gradient(1px 1px at 15% 48%, rgba(255,255,255,.35), transparent),
-    radial-gradient(1px 1px at 33% 78%, rgba(255,255,255,.3), transparent),
-    radial-gradient(1px 1px at 59% 52%, rgba(255,255,255,.28), transparent),
-    radial-gradient(1px 1px at 76% 39%, rgba(255,255,255,.25), transparent),
-    radial-gradient(1px 1px at 90% 14%, rgba(255,255,255,.32), transparent),
+    /* nebula glow (your original intent) */
+    radial-gradient(
+      900px 420px at 20% 0%,
+      rgba(96,165,250,.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      1200px 600px at 80% 20%,
+      rgba(167,139,250,.10),
+      transparent 60%
+    ),
 
-    /* very faint dust */
-    radial-gradient(2px 2px at 40% 85%, rgba(96,165,250,.15), transparent),
-    radial-gradient(2px 2px at 72% 58%, rgba(167,139,250,.12), transparent);
-}
+    var(--bg);
 
-/* keep content above stars */
-main, header, footer{
-  position: relative;
-  z-index: 1;
+  background-size:
+    4px 4px,
+    6px 6px,
+    8px 8px,
+    auto,
+    auto,
+    auto;
 }
 
 
