@@ -173,13 +173,22 @@ main{
 /* default section spacing (inside each section) */
 /* default spacing ONLY for sections that are .container */
 main > section.container{
-  padding: var(--section-pad) 0;
+  padding: 0; /* IMPORTANT: grid gap already creates spacing */
   scroll-margin-top: calc(var(--header-h) + 24px);
 }
+main > section.container > h2{
+  margin-top: 0;
+  margin-bottom: var(--title-gap);
+}
 
-/* hero stays special */
+main > section.container > :not(h2):first-child{
+  margin-top: 0;
+}
+
+
 main > section#hero{
   padding: 0;
+  margin-bottom: 0; /* gap will come from main grid */
 }
 
 
