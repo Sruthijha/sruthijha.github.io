@@ -46,30 +46,45 @@ html[data-theme="dark"]{
    BASE
    ========================================================= */
 
-html{ scroll-behavior: smooth; }
+html{
+  scroll-behavior: smooth;
+}
 
 body{
   margin: 0;
   font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   color: var(--text);
 
+  /* existing glow background */
   background:
-    /* vignette – darkens edges */
-    radial-gradient(
-      1400px 900px at 50% 40%,
-      rgba(255,255,255,.02),
-      rgba(11,18,32,.85) 70%
-    ),
-
-    /* subtle blue lift near top */
-    linear-gradient(
-      180deg,
-      rgba(96,165,250,.08),
-      transparent 35%
-    ),
-
-    /* base */
+    radial-gradient(900px 420px at 20% 0%, rgba(96,165,250,.12), transparent 60%),
+    radial-gradient(1200px 600px at 80% 20%, rgba(167,139,250,.10), transparent 60%),
     var(--bg);
+}
+
+/* =========================================================
+   SUBTLE COSMIC DUST / STARS
+   ========================================================= */
+
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background:
+    radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,.6) 50%, transparent),
+    radial-gradient(1px 1px at 28% 72%, rgba(255,255,255,.45) 50%, transparent),
+    radial-gradient(1px 1px at 44% 31%, rgba(255,255,255,.5) 50%, transparent),
+    radial-gradient(1px 1px at 61% 14%, rgba(255,255,255,.35) 50%, transparent),
+    radial-gradient(1px 1px at 78% 66%, rgba(255,255,255,.45) 50%, transparent),
+
+    /* slightly brighter stars */
+    radial-gradient(2px 2px at 22% 24%, rgba(255,255,255,.75) 40%, transparent),
+    radial-gradient(2px 2px at 73% 58%, rgba(255,255,255,.65) 40%, transparent);
+
+  opacity: .35;
 }
 
 a{ color: var(--accent); text-decoration: none; }
