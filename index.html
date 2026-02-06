@@ -717,7 +717,7 @@ section > :last-child{ margin-bottom: 0; }
 }
 
 /* =========================================================
-   EXPERIENCE (FINAL)
+   EXPERIENCE (FINAL – CLEAN & CONSISTENT)
    ========================================================= */
 
 #experience{
@@ -743,16 +743,15 @@ section > :last-child{ margin-bottom: 0; }
 #experience .company-logo{
   width: 56px;
   height: 56px;
-  max-width: 56px;
-  max-height: 56px;
   object-fit: contain;
   border-radius: 14px;
   padding: 6px;
   background: rgba(255,255,255,.03);
   border: 1px solid var(--line);
+  transition: box-shadow .18s ease, border-color .18s ease;
 }
 
-/* active glow */
+/* glow when active */
 #experience .experience-card.is-active .company-logo{
   border-color: rgba(96,165,250,.55);
   box-shadow:
@@ -773,13 +772,13 @@ section > :last-child{ margin-bottom: 0; }
 }
 
 #experience .date{
+  display: block;
+  margin-top: 2px;
   font-size: .9rem;
   color: var(--muted);
-  margin-top: 2px;
-  display: block;
 }
 
-/* bullets — FIX GREEN DOT ALIGNMENT */
+/* bullets — SAME AS EDUCATION */
 #experience .exp-points{
   margin: .6rem 0 0;
   padding: 0;
@@ -792,16 +791,15 @@ section > :last-child{ margin-bottom: 0; }
   display: grid;
   grid-template-columns: 14px 1fr;
   column-gap: 10px;
-  line-height: 1.55;
+  line-height: 1.5;
   align-items: start;
 }
 
 #experience .exp-points li::before{
-  content: "●";
+  content: "▶";
   color: var(--good);
-  font-size: .55rem;
+  font-size: .9em;
   line-height: 1.4;
-  margin-top: .45em;
 }
 
 /* mobile */
