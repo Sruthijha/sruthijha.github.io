@@ -976,20 +976,14 @@ footer{
 }
 
 /* =========================================================
-   CONTACT FAB + MODAL (FINAL – LOCKED)
+   CONTACT FAB + MODAL (FINAL + SIMPLE)
    ========================================================= */
 
-/* IMPORTANT: fixes FAB not showing */
-body{
-  position: relative;
-}
-
-/* ---------- FAB ---------- */
 .contact-fab{
   position: fixed;
   right: 22px;
   bottom: 22px;
-  z-index: 9999;
+  z-index: 999;
   width: 62px;
   height: 62px;
   border-radius: 999px;
@@ -1014,20 +1008,30 @@ body{
     var(--shadow-2);
 }
 
+.contact-fab:active{ transform: translateY(-1px) scale(.99); }
+
 .contact-fab svg{
   width: 26px;
   height: 26px;
   fill: #fff;
+  opacity: .95;
 }
 
-/* ---------- OVERLAY ---------- */
+.contact-fab:focus-visible{
+  outline: 2px solid rgba(96,165,250,.6);
+  outline-offset: 4px;
+}
+
+/* Overlay */
 .contact-overlay{
   position: fixed;
   inset: 0;
-  z-index: 10000;
+  z-index: 1000;
   display: none;
-  background: rgba(0,0,0,.65);
+  padding: 18px;
+  background: rgba(0,0,0,.68);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .contact-overlay.open{
@@ -1035,9 +1039,12 @@ body{
   place-items: center;
 }
 
-/* ---------- MODAL ---------- */
+/* Modal (MAKE IT LESS WIDE HERE) */
+
 .contact-modal{
-  width: min(760px, 92vw);
+  position: relative;
+overflow: hidden;
+width: min(760px, 92vw);
   border-radius: 26px;
   padding: 24px 24px 28px;
   border: 1px solid rgba(148,163,184,.16);
@@ -1051,19 +1058,46 @@ body{
     0 0 40px rgba(96,165,250,.10);
 }
 
-/* ---------- HEADER ---------- */
+
 .contact-modal-head{
-  position: relative;
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
-  align-items: center;
+  gap: 12px;
   margin-bottom: 18px;
 }
 
 .contact-modal-title{
   margin: 0;
   font-size: clamp(22px, 3vw, 32px);
+  letter-spacing: -0.02em;
 }
+.contact-modal::before{
+  content:"";
+  position:absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background:
+    radial-gradient(900px 420px at 12% 0%, rgba(96,165,250,.22), transparent 60%),
+    radial-gradient(700px 380px at 88% 0%, rgba(167,139,250,.14), transparent 55%);
+  opacity: .9;
+  pointer-events:none;
+}
+
+.contact-item::after{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width: 3px;
+  background: rgba(96,165,250,.70);
+  opacity: .28;
+  transition: opacity .18s ease;
+  pointer-events:none;
+}
+
+.contact-item:hover::after{ opacity: .9; }
 
 .contact-close{
   width: 42px;
@@ -1072,21 +1106,26 @@ body{
   border: 1px solid rgba(148,163,184,.16);
   background: rgba(255,255,255,.04);
   color: var(--text);
-  font-size: 22px;
   cursor: pointer;
   display: grid;
   place-items: center;
+  font-size: 22px;
+  line-height: 1;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
 .contact-close:hover{
   border-color: rgba(96,165,250,.45);
   box-shadow: 0 0 0 2px rgba(96,165,250,.18);
+  transform: translateY(-1px);
 }
 
-/* ---------- GRID ---------- */
+.contact-close:active{ transform: translateY(0) scale(.99); }
+
+/* Grid */
 .contact-grid{
   display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -1094,7 +1133,8 @@ body{
   .contact-grid{ grid-template-columns: 1fr; }
 }
 
-/* ---------- ITEMS ---------- */
+/* Cards */
+/* Cards (one single source of truth) */
 .contact-item{
   border-radius: 18px;
   border: 1px solid rgba(148,163,184,.14);
@@ -1104,60 +1144,108 @@ body{
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  text-decoration: none;
   color: var(--text);
+  text-decoration: none;
   box-shadow: 0 10px 30px rgba(0,0,0,.18);
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
 }
 
 .contact-item:hover{
   transform: translateY(-2px);
-  border-color: rgba(96,165,250,.45);
+  background: rgba(96,165,250,.075);
+  border-color: rgba(96,165,250,.55);
   box-shadow:
     0 18px 46px rgba(0,0,0,.45),
-    0 0 22px rgba(96,165,250,.14);
+    0 0 0 1px rgba(96,165,250,.22) inset,
+    0 0 28px rgba(96,165,250,.14);
 }
+
+/* Subtle glow sweep on hover */
+.contact-item::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  background: radial-gradient(500px 220px at 10% 0%, rgba(96,165,250,.14), transparent 60%);
+  opacity: 0;
+  transition: opacity .18s ease;
+  pointer-events:none;
+}
+.contact-item{ position: relative; overflow: hidden; }
+.contact-item:hover::before{ opacity: 1; }
+
+
+.contact-item:active{ transform: scale(.985); }
 
 .contact-left{
   display: flex;
   align-items: center;
   gap: 14px;
+  min-width: 0;
 }
 
 .contact-ico{
   width: 42px;
   height: 42px;
+  border-radius: 10px;
+  background: transparent;
+  border: none;
   display: grid;
   place-items: center;
+  flex-shrink: 0;
 }
+
 
 .contact-ico img{
   width: 26px;
   height: 26px;
+  object-fit: contain;
   filter: brightness(0) invert(1);
+  opacity: .95;
+  display: block;
 }
+
+.contact-text{ min-width: 0; }
 
 .contact-kicker{
   margin: 0;
-  font-size: .95rem;
   color: var(--muted);
+  font-size: .95rem;
   font-weight: 700;
+  opacity: .78;
+  letter-spacing: .02em;
 }
 
 .contact-main{
   margin: 4px 0 0;
+  font-size: 1.02rem;
   font-weight: 900;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .contact-arrow{
   font-size: 22px;
   color: var(--muted);
+  opacity: .75;
+  flex-shrink: 0;
+  transition: transform .18s ease, color .18s ease, opacity .18s ease;
 }
 
 .contact-item:hover .contact-arrow{
-  color: var(--accent);
   transform: translateX(4px);
+  color: var(--accent);
+  opacity: 1;
 }
+.contact-item:hover .contact-ico{
+  background: rgba(96,165,250,.12);
+  box-shadow:
+    0 0 0 1px rgba(96,165,250,.35),
+    0 0 14px rgba(96,165,250,.35);
+}
+
 
 /* =========================
    COPY HINT (beside "Email")
@@ -1846,64 +1934,77 @@ body{
   </svg>
 </button>
 
-<!-- CONTACT FAB -->
-<button id="contact-fab" class="contact-fab" aria-label="Open contact">
-  <svg viewBox="0 0 24 24">
-    <path d="M20 4H4c-1.1 0-2 .9-2 2v12
-      c0 1.1.9 2 2 2h16
-      c1.1 0 2-.9 2-2V6
-      c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-  </svg>
-</button>
-
-<!-- OVERLAY -->
-<div id="contact-overlay" class="contact-overlay">
-  <div class="contact-modal">
+<!-- CONTACT MODAL OVERLAY -->
+<div
+  id="contact-overlay"
+  class="contact-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="contact-title"
+>
+  <div class="contact-modal" role="document">
     <div class="contact-modal-head">
-      <h3 class="contact-modal-title">Get In Touch</h3>
-      <button id="contact-close" class="contact-close">×</button>
+      <h3 id="contact-title" class="contact-modal-title">Get In Touch</h3>
+      <button id="contact-close" class="contact-close" type="button" aria-label="Close">×</button>
     </div>
 
     <div class="contact-grid">
-      <a class="contact-item" href="mailto:sruthipagolu@gmail.com">
+      <!-- Email -->
+      <a class="contact-item email-item" href="mailto:sruthipagolu@gmail.com">
         <div class="contact-left">
-          <div class="contact-ico"><img src="assets/gmail.png"></div>
-          <div>
-            <p class="contact-kicker">Email</p>
+          <div class="contact-ico">
+            <img src="assets/gmail.png" alt="Email icon" />
+          </div>
+
+          <div class="contact-text">
+            <div class="contact-toprow">
+              <p class="contact-kicker">Email</p>
+              <span class="copy-hint">Copy</span>
+            </div>
             <p class="contact-main">sruthipagolu@gmail.com</p>
           </div>
         </div>
+
         <div class="contact-arrow">→</div>
       </a>
 
-      <a class="contact-item" href="https://www.linkedin.com/in/sruthijha" target="_blank">
+      <!-- LinkedIn -->
+      <a class="contact-item" href="https://www.linkedin.com/in/sruthijha" target="_blank" rel="noopener noreferrer">
         <div class="contact-left">
-          <div class="contact-ico"><img src="assets/linkedin.png"></div>
-          <div>
+          <div class="contact-ico">
+            <img src="assets/linkedin.png" alt="LinkedIn icon" />
+          </div>
+          <div class="contact-text">
             <p class="contact-kicker">LinkedIn</p>
-            <p class="contact-main">Connect</p>
+            <p class="contact-main">Connect with me</p>
           </div>
         </div>
         <div class="contact-arrow">→</div>
       </a>
 
-      <a class="contact-item" href="https://github.com/Sruthijha" target="_blank">
+      <!-- GitHub -->
+      <a class="contact-item" href="https://github.com/Sruthijha" target="_blank" rel="noopener noreferrer">
         <div class="contact-left">
-          <div class="contact-ico"><img src="assets/github.svg"></div>
-          <div>
+          <div class="contact-ico">
+            <img src="assets/github.svg" alt="GitHub icon" />
+          </div>
+          <div class="contact-text">
             <p class="contact-kicker">GitHub</p>
-            <p class="contact-main">View code</p>
+            <p class="contact-main">View my code</p>
           </div>
         </div>
         <div class="contact-arrow">→</div>
       </a>
 
-      <a class="contact-item" href="https://medium.com/@sruthijha" target="_blank">
+      <!-- Medium -->
+      <a class="contact-item" href="https://medium.com/@sruthijha" target="_blank" rel="noopener noreferrer">
         <div class="contact-left">
-          <div class="contact-ico"><img src="assets/medium.png"></div>
-          <div>
+          <div class="contact-ico">
+            <img src="assets/medium.png" alt="Medium icon" />
+          </div>
+          <div class="contact-text">
             <p class="contact-kicker">Medium</p>
-            <p class="contact-main">Read writing</p>
+            <p class="contact-main">Read my writing</p>
           </div>
         </div>
         <div class="contact-arrow">→</div>
@@ -1920,7 +2021,7 @@ body{
   // Mobile nav toggle
   // =========================
   const toggle = document.getElementById('nav-toggle');
-  const nav = document.querySelector('nav');
+  const nav = document.getElementById('site-nav');
   toggle?.addEventListener('click', () => {
     const open = nav.classList.toggle('open');
     toggle.setAttribute('aria-expanded', String(open));
@@ -2153,39 +2254,6 @@ if (emailItem){
     }, 1500);
   });
 }
-  // =========================
-// CONTACT FAB — FINAL (LOCKED)
-// =========================
-const contactFab = document.getElementById('contact-fab');
-const contactOverlay = document.getElementById('contact-overlay');
-const contactClose = document.getElementById('contact-close');
-
-if (contactFab && contactOverlay && contactClose) {
-  contactFab.addEventListener('click', () => {
-    contactOverlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  });
-
-  contactClose.addEventListener('click', () => {
-    contactOverlay.classList.remove('open');
-    document.body.style.overflow = '';
-  });
-
-  contactOverlay.addEventListener('click', (e) => {
-    if (e.target === contactOverlay) {
-      contactOverlay.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && contactOverlay.classList.contains('open')) {
-      contactOverlay.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-  });
-}
-
 </script>
 
 </body>
