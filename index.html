@@ -163,34 +163,20 @@ nav a.active{
 /* =========================================================
    SECTIONS / TYPOGRAPHY / CARDS / GRIDS
    ========================================================= */
-
-/* MAIN controls spacing between sections */
-main{
-  display: grid;
-  gap: var(--section-pad);
-}
-
-/* default section spacing (inside each section) */
-/* default spacing ONLY for sections that are .container */
-main > section.container{
-  padding: 0; /* IMPORTANT: grid gap already creates spacing */
+/* sections: consistent spacing without affecting width */
+section{
   scroll-margin-top: calc(var(--header-h) + 24px);
 }
-main > section.container > h2{
-  margin-top: 0;
-  margin-bottom: var(--title-gap);
+
+/* only apply spacing to your normal sections (the ones using .container) */
+section.container{
+  padding: var(--section-pad) 0;
 }
 
-main > section.container > :not(h2):first-child{
-  margin-top: 0;
+/* hero stays special */
+#hero{
+  padding: 0 !important;
 }
-
-
-main > section#hero{
-  padding: 0;
-  margin-bottom: 0; /* gap will come from main grid */
-}
-
 
 h2{
   font-size: clamp(22px, 3vw, 28px);
