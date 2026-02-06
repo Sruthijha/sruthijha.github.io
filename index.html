@@ -54,32 +54,46 @@ body{
   color: var(--text);
 
   background:
-    /* cosmic dust – ultra subtle noise */
-    repeating-radial-gradient(
-      circle at 10% 20%,
-      rgba(255,255,255,.015) 0px,
+    /* cosmic dust — subtle grain (no shapes) */
+    linear-gradient(
+      115deg,
       rgba(255,255,255,.015) 1px,
-      transparent 2px,
-      transparent 6px
+      transparent 1px
+    ),
+    linear-gradient(
+      245deg,
+      rgba(255,255,255,.012) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      0deg,
+      rgba(255,255,255,.01) 1px,
+      transparent 1px
     ),
 
-    /* soft blue nebula */
+    /* nebula glow (your original intent) */
     radial-gradient(
       900px 420px at 20% 0%,
       rgba(96,165,250,.12),
       transparent 60%
     ),
-
-    /* faint violet nebula */
     radial-gradient(
       1200px 600px at 80% 20%,
       rgba(167,139,250,.10),
       transparent 60%
     ),
 
-    /* base */
     var(--bg);
+
+  background-size:
+    4px 4px,
+    6px 6px,
+    8px 8px,
+    auto,
+    auto,
+    auto;
 }
+
 
 a{ color: var(--accent); text-decoration: none; }
 a:hover{ text-decoration: none; }
