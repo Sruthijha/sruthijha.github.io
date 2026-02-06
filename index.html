@@ -717,6 +717,105 @@ section > :last-child{ margin-bottom: 0; }
 }
 
 /* =========================================================
+   EXPERIENCE (FINAL)
+   ========================================================= */
+
+#experience{
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+#experience .experience-card{
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 20px;
+  align-items: flex-start;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+#experience .experience-card:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2);
+}
+
+/* logo */
+#experience .company-logo{
+  width: 56px;
+  height: 56px;
+  max-width: 56px;
+  max-height: 56px;
+  object-fit: contain;
+  border-radius: 14px;
+  padding: 6px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--line);
+}
+
+/* active glow */
+#experience .experience-card.is-active .company-logo{
+  border-color: rgba(96,165,250,.55);
+  box-shadow:
+    0 0 0 2px rgba(96,165,250,.25),
+    0 0 22px rgba(96,165,250,.45);
+}
+
+/* header */
+#experience .exp-title{
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+#experience .company{
+  color: var(--muted);
+  font-weight: 600;
+}
+
+#experience .date{
+  font-size: .9rem;
+  color: var(--muted);
+  margin-top: 2px;
+  display: block;
+}
+
+/* bullets — FIX GREEN DOT ALIGNMENT */
+#experience .exp-points{
+  margin: .6rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: .45rem;
+}
+
+#experience .exp-points li{
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  column-gap: 10px;
+  line-height: 1.55;
+  align-items: start;
+}
+
+#experience .exp-points li::before{
+  content: "●";
+  color: var(--good);
+  font-size: .55rem;
+  line-height: 1.4;
+  margin-top: .45em;
+}
+
+/* mobile */
+@media (max-width: 720px){
+  #experience .experience-card{
+    grid-template-columns: 1fr;
+  }
+
+  #experience .company-logo{
+    margin-bottom: 8px;
+  }
+}
+
+/* =========================================================
    PROJECTS
    ========================================================= */
 
