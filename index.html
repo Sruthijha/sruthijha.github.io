@@ -717,7 +717,7 @@ section > :last-child{ margin-bottom: 0; }
 }
 
 /* =========================================================
-   EXPERIENCE (FINAL – CLEAN & CONSISTENT)
+   EXPERIENCE (FINAL — FIXED)
    ========================================================= */
 
 #experience{
@@ -739,6 +739,14 @@ section > :last-child{ margin-bottom: 0; }
   box-shadow: var(--shadow-2);
 }
 
+/* 🔑 CRITICAL FIX: allow text to wrap normally */
+#experience .exp-body,
+#experience .exp-points li{
+  min-width: 0;
+  white-space: normal;
+  word-break: normal;
+}
+
 /* logo */
 #experience .company-logo{
   width: 56px;
@@ -748,10 +756,9 @@ section > :last-child{ margin-bottom: 0; }
   padding: 6px;
   background: rgba(255,255,255,.03);
   border: 1px solid var(--line);
-  transition: box-shadow .18s ease, border-color .18s ease;
 }
 
-/* glow when active */
+/* active glow */
 #experience .experience-card.is-active .company-logo{
   border-color: rgba(96,165,250,.55);
   box-shadow:
@@ -759,23 +766,31 @@ section > :last-child{ margin-bottom: 0; }
     0 0 22px rgba(96,165,250,.45);
 }
 
-/* header */
+/* title */
 #experience .exp-title{
   margin: 0;
-  font-size: 1.05rem;
   font-weight: 900;
 }
 
+/* role — slightly bigger */
+#experience .role{
+  font-size: 1.08rem;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+/* company — WHITE (as requested) */
 #experience .company{
-  color: var(--muted);
+  color: var(--text);
   font-weight: 600;
 }
 
+/* date */
 #experience .date{
-  display: block;
-  margin-top: 2px;
   font-size: .9rem;
   color: var(--muted);
+  display: block;
+  margin-top: 2px;
 }
 
 /* bullets — SAME AS EDUCATION */
@@ -784,14 +799,14 @@ section > :last-child{ margin-bottom: 0; }
   padding: 0;
   list-style: none;
   display: grid;
-  gap: .45rem;
+  gap: .5rem;
 }
 
 #experience .exp-points li{
   display: grid;
   grid-template-columns: 14px 1fr;
   column-gap: 10px;
-  line-height: 1.5;
+  line-height: 1.55;
   align-items: start;
 }
 
@@ -800,30 +815,6 @@ section > :last-child{ margin-bottom: 0; }
   color: var(--good);
   font-size: .9em;
   line-height: 1.4;
-}
-
-/* role = primary (blue) */
-#experience .role{
-font-size: 1.08rem;
-  color: var(--accent);
-  font-weight: 900;
-}
-
-/* company = secondary (muted) */
-#experience .company{
-  color: var(--text);
-  font-weight: 600;
-}
-
-/* date = contextual */
-#experience .date{
-  color: var(--muted);
-  font-size: .9rem;
-}
-/* FIX broken wrapping in Experience bullets */
-#experience .exp-points strong{
-  display: inline;
-  font-weight: 800;
 }
 
 /* mobile */
@@ -836,6 +827,7 @@ font-size: 1.08rem;
     margin-bottom: 8px;
   }
 }
+
 
 /* =========================================================
    PROJECTS
