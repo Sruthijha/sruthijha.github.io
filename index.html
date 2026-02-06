@@ -715,9 +715,8 @@ section > :last-child{ margin-bottom: 0; }
   font-size: .9em;
   line-height: 1.4;
 }
-
 /* =========================================================
-   EXPERIENCE (FINAL — FIXED)
+   EXPERIENCE (FINAL — HEADER + FULL-WIDTH BULLETS)
    ========================================================= */
 
 #experience{
@@ -726,10 +725,6 @@ section > :last-child{ margin-bottom: 0; }
 }
 
 #experience .experience-card{
-  display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 20px;
-  align-items: flex-start;
   cursor: pointer;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
@@ -739,12 +734,12 @@ section > :last-child{ margin-bottom: 0; }
   box-shadow: var(--shadow-2);
 }
 
-/* 🔑 CRITICAL FIX: allow text to wrap normally */
-#experience .exp-body,
-#experience .exp-points li{
-  min-width: 0;
-  white-space: normal;
-  word-break: normal;
+/* Header row: icon + (role/company + date) */
+#experience .exp-header{
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 20px;
+  align-items: start;
 }
 
 /* logo */
@@ -756,20 +751,30 @@ section > :last-child{ margin-bottom: 0; }
   padding: 6px;
   background: rgba(255,255,255,.03);
   border: 1px solid var(--line);
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
 }
 
-/* active glow */
+/* Active + hover glow */
 #experience .experience-card.is-active .company-logo{
-  border-color: rgba(96,165,250,.55);
+  border-color: rgba(96,165,250,.85);
+  background: rgba(96,165,250,.12);
   box-shadow:
-    0 0 0 2px rgba(96,165,250,.25),
-    0 0 22px rgba(96,165,250,.45);
+    0 0 0 2px rgba(96,165,250,.35),
+    0 0 18px rgba(96,165,250,.55),
+    0 0 36px rgba(96,165,250,.35);
+}
+
+#experience .experience-card:hover .company-logo{
+  border-color: rgba(96,165,250,.45);
+  box-shadow: 0 0 14px rgba(96,165,250,.35);
 }
 
 /* title */
 #experience .exp-title{
   margin: 0;
   font-weight: 900;
+  min-width: 0;
+  white-space: normal;
 }
 
 /* role — slightly bigger */
@@ -779,7 +784,7 @@ section > :last-child{ margin-bottom: 0; }
   color: var(--accent);
 }
 
-/* company — WHITE (as requested) */
+/* company — WHITE */
 #experience .company{
   color: var(--text);
   font-weight: 600;
@@ -793,7 +798,7 @@ section > :last-child{ margin-bottom: 0; }
   margin-top: 2px;
 }
 
-/* bullets — SAME AS EDUCATION */
+/* FULL-WIDTH bullets (start next line, no left gap) */
 #experience .exp-points{
   margin: .6rem 0 0;
   padding: 0;
@@ -802,12 +807,19 @@ section > :last-child{ margin-bottom: 0; }
   gap: .5rem;
 }
 
+/* 🔑 allow wrapping */
 #experience .exp-points li{
+  min-width: 0;
+  white-space: normal;
+  word-break: normal;
+
   display: grid;
   grid-template-columns: 14px 1fr;
   column-gap: 10px;
-  line-height: 1.55;
   align-items: start;
+
+  font-size: 0.95rem;   /* keep this consistent */
+  line-height: 1.6;
 }
 
 #experience .exp-points li::before{
@@ -816,52 +828,16 @@ section > :last-child{ margin-bottom: 0; }
   font-size: .9em;
   line-height: 1.4;
 }
-/* Experience body text — match Education sizing */
-#experience .exp-points li{
-  font-size: 0.95rem;
-  line-height: 1.6;
-  display: grid;
-}
 
-/* mobile */
-@media (max-width: 720px){
-  #experience .experience-card{
-    grid-template-columns: 1fr;
-  }
-
-  #experience .company-logo{
-    margin-bottom: 8px;
-  }
-}
-
-/* EXPERIENCE — active logo glow (CLICK + KEYBOARD) */
-#experience .experience-card.is-active .company-logo{
-  border-color: rgba(96,165,250,.85);
-  background: rgba(96,165,250,.12);
-  box-shadow:
-    0 0 0 2px rgba(96,165,250,.35),
-    0 0 18px rgba(96,165,250,.55),
-    0 0 36px rgba(96,165,250,.35);
-}
-#experience .experience-card:hover .company-logo{
-  border-color: rgba(96,165,250,.45);
-  box-shadow: 0 0 14px rgba(96,165,250,.35);
-}
 /* subtle flow for role + company on active card */
 #experience .role,
 #experience .company{
-  transition:
-    transform .22s ease,
-    text-shadow .22s ease,
-    color .22s ease,
-    opacity .22s ease;
+  transition: transform .22s ease, text-shadow .22s ease, opacity .22s ease;
 }
 
-/* when card is active */
 #experience .experience-card.is-active .role{
   transform: translateY(-1px);
-  text-shadow:
-    0 0 6px rgba(96,165,250,.35);
+  text-shadow: 0 0 6px rgba(96,165,250,.35);
 }
 
 #experience .experience-card.is-active .company{
@@ -869,6 +845,16 @@ section > :last-child{ margin-bottom: 0; }
   opacity: .95;
 }
 
+/* mobile */
+@media (max-width: 720px){
+  #experience .exp-header{
+    grid-template-columns: 1fr;
+  }
+
+  #experience .company-logo{
+    margin-bottom: 8px;
+  }
+}
 
 /* =========================================================
    PROJECTS
