@@ -976,10 +976,66 @@ footer{
 }
 
 /* =========================================================
-   CONTACT FAB + MODAL (CLEAN + GLOW)
+   CONTACT FAB + MODAL (FINAL – LOCKED)
    ========================================================= */
 
-/* Modal */
+/* IMPORTANT: fixes FAB not showing */
+body{
+  position: relative;
+}
+
+/* ---------- FAB ---------- */
+.contact-fab{
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 9999;
+  width: 62px;
+  height: 62px;
+  border-radius: 999px;
+  border: 1px solid rgba(96,165,250,.45);
+  background: rgba(96,165,250,.18);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow:
+    0 0 0 6px rgba(96,165,250,.06),
+    0 0 22px rgba(96,165,250,.35),
+    var(--shadow-2);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+.contact-fab:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow:
+    0 0 0 8px rgba(96,165,250,.08),
+    0 0 28px rgba(96,165,250,.45),
+    var(--shadow-2);
+}
+
+.contact-fab svg{
+  width: 26px;
+  height: 26px;
+  fill: #fff;
+}
+
+/* ---------- OVERLAY ---------- */
+.contact-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: none;
+  background: rgba(0,0,0,.65);
+  backdrop-filter: blur(10px);
+}
+
+.contact-overlay.open{
+  display: grid;
+  place-items: center;
+}
+
+/* ---------- MODAL ---------- */
 .contact-modal{
   width: min(760px, 92vw);
   border-radius: 26px;
@@ -995,46 +1051,42 @@ footer{
     0 0 40px rgba(96,165,250,.10);
 }
 
-/* Header + close */
+/* ---------- HEADER ---------- */
 .contact-modal-head{
   position: relative;
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
-  gap: 12px;
+  align-items: center;
   margin-bottom: 18px;
 }
 
+.contact-modal-title{
+  margin: 0;
+  font-size: clamp(22px, 3vw, 32px);
+}
+
 .contact-close{
-  position: absolute;
-  top: 4px;
-  right: 4px;
   width: 42px;
   height: 42px;
   border-radius: 14px;
   border: 1px solid rgba(148,163,184,.16);
   background: rgba(255,255,255,.04);
   color: var(--text);
+  font-size: 22px;
   cursor: pointer;
   display: grid;
   place-items: center;
-  font-size: 22px;
-  line-height: 1;
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
 .contact-close:hover{
   border-color: rgba(96,165,250,.45);
   box-shadow: 0 0 0 2px rgba(96,165,250,.18);
-  transform: translateY(-1px);
 }
 
-.contact-close:active{ transform: translateY(0) scale(.99); }
-
-/* Grid */
+/* ---------- GRID ---------- */
 .contact-grid{
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0,1fr));
   gap: 18px;
 }
 
@@ -1042,7 +1094,7 @@ footer{
   .contact-grid{ grid-template-columns: 1fr; }
 }
 
-/* Cards */
+/* ---------- ITEMS ---------- */
 .contact-item{
   border-radius: 18px;
   border: 1px solid rgba(148,163,184,.14);
@@ -1052,8 +1104,8 @@ footer{
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  color: var(--text);
   text-decoration: none;
+  color: var(--text);
   box-shadow: 0 10px 30px rgba(0,0,0,.18);
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
@@ -1066,72 +1118,49 @@ footer{
     0 0 22px rgba(96,165,250,.14);
 }
 
-.contact-item:active{ transform: scale(.985); }
-
-/* Left */
 .contact-left{
   display: flex;
   align-items: center;
   gap: 14px;
-  min-width: 0;
 }
 
-/* Icon: SIMPLE (no background / no glow box) */
 .contact-ico{
   width: 42px;
   height: 42px;
   display: grid;
   place-items: center;
-  flex-shrink: 0;
 }
 
 .contact-ico img{
   width: 26px;
   height: 26px;
-  object-fit: contain;
   filter: brightness(0) invert(1);
-  opacity: .95;
-  display: block;
 }
-
-.contact-text{ min-width: 0; }
 
 .contact-kicker{
   margin: 0;
-  color: var(--muted);
   font-size: .95rem;
+  color: var(--muted);
   font-weight: 700;
-  opacity: .78;
-  letter-spacing: .02em;
 }
 
 .contact-main{
   margin: 4px 0 0;
-  font-size: 1.02rem;
   font-weight: 900;
-  color: var(--text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-/* Arrow */
 .contact-arrow{
   font-size: 22px;
   color: var(--muted);
-  opacity: .75;
-  flex-shrink: 0;
-  transition: transform .18s ease, color .18s ease, opacity .18s ease;
 }
 
 .contact-item:hover .contact-arrow{
-  transform: translateX(4px);
   color: var(--accent);
-  opacity: 1;
+  transform: translateX(4px);
 }
 
 /* =========================
-   COPY HINT
+   COPY HINT (beside "Email")
    ========================= */
 
 .contact-toprow{
@@ -1817,77 +1846,64 @@ footer{
   </svg>
 </button>
 
-<!-- CONTACT MODAL OVERLAY -->
-<div
-  id="contact-overlay"
-  class="contact-overlay"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="contact-title"
->
-  <div class="contact-modal" role="document">
+<!-- CONTACT FAB -->
+<button id="contact-fab" class="contact-fab" aria-label="Open contact">
+  <svg viewBox="0 0 24 24">
+    <path d="M20 4H4c-1.1 0-2 .9-2 2v12
+      c0 1.1.9 2 2 2h16
+      c1.1 0 2-.9 2-2V6
+      c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+  </svg>
+</button>
+
+<!-- OVERLAY -->
+<div id="contact-overlay" class="contact-overlay">
+  <div class="contact-modal">
     <div class="contact-modal-head">
-      <h3 id="contact-title" class="contact-modal-title">Get In Touch</h3>
-      <button id="contact-close" class="contact-close" type="button" aria-label="Close">×</button>
+      <h3 class="contact-modal-title">Get In Touch</h3>
+      <button id="contact-close" class="contact-close">×</button>
     </div>
 
     <div class="contact-grid">
-      <!-- Email -->
-      <a class="contact-item email-item" href="mailto:sruthipagolu@gmail.com">
+      <a class="contact-item" href="mailto:sruthipagolu@gmail.com">
         <div class="contact-left">
-          <div class="contact-ico">
-            <img src="assets/gmail.png" alt="Email icon" />
-          </div>
-
-          <div class="contact-text">
-            <div class="contact-toprow">
-              <p class="contact-kicker">Email</p>
-              <span class="copy-hint">Copy</span>
-            </div>
+          <div class="contact-ico"><img src="assets/gmail.png"></div>
+          <div>
+            <p class="contact-kicker">Email</p>
             <p class="contact-main">sruthipagolu@gmail.com</p>
           </div>
         </div>
-
         <div class="contact-arrow">→</div>
       </a>
 
-      <!-- LinkedIn -->
-      <a class="contact-item" href="https://www.linkedin.com/in/sruthijha" target="_blank" rel="noopener noreferrer">
+      <a class="contact-item" href="https://www.linkedin.com/in/sruthijha" target="_blank">
         <div class="contact-left">
-          <div class="contact-ico">
-            <img src="assets/linkedin.png" alt="LinkedIn icon" />
-          </div>
-          <div class="contact-text">
+          <div class="contact-ico"><img src="assets/linkedin.png"></div>
+          <div>
             <p class="contact-kicker">LinkedIn</p>
-            <p class="contact-main">Connect with me</p>
+            <p class="contact-main">Connect</p>
           </div>
         </div>
         <div class="contact-arrow">→</div>
       </a>
 
-      <!-- GitHub -->
-      <a class="contact-item" href="https://github.com/Sruthijha" target="_blank" rel="noopener noreferrer">
+      <a class="contact-item" href="https://github.com/Sruthijha" target="_blank">
         <div class="contact-left">
-          <div class="contact-ico">
-            <img src="assets/github.svg" alt="GitHub icon" />
-          </div>
-          <div class="contact-text">
+          <div class="contact-ico"><img src="assets/github.svg"></div>
+          <div>
             <p class="contact-kicker">GitHub</p>
-            <p class="contact-main">View my code</p>
+            <p class="contact-main">View code</p>
           </div>
         </div>
         <div class="contact-arrow">→</div>
       </a>
 
-      <!-- Medium -->
-      <a class="contact-item" href="https://medium.com/@sruthijha" target="_blank" rel="noopener noreferrer">
+      <a class="contact-item" href="https://medium.com/@sruthijha" target="_blank">
         <div class="contact-left">
-          <div class="contact-ico">
-            <img src="assets/medium.png" alt="Medium icon" />
-          </div>
-          <div class="contact-text">
+          <div class="contact-ico"><img src="assets/medium.png"></div>
+          <div>
             <p class="contact-kicker">Medium</p>
-            <p class="contact-main">Read my writing</p>
+            <p class="contact-main">Read writing</p>
           </div>
         </div>
         <div class="contact-arrow">→</div>
