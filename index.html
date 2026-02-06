@@ -1283,7 +1283,22 @@ box-shadow: 0 0 0 6px rgba(96,165,250,.06);
 
 @media (max-width: 640px){
   :root{ --section-pad: 44px; }
+
 }
+  /* Achievements + Leadership should behave like Skills/Education */
+.achievements-grid{
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+}
+
+/* Make sure those cards take full container width */
+#achievements .achievement-card,
+#leadership .achievement-card{
+  width: 100%;
+  margin: 0;
+}
+
 </style>
 
 </head>
