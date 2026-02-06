@@ -52,23 +52,9 @@ body{
   margin: 0;
   font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   color: var(--text);
-
   background:
-    /* vignette – darkens edges */
-    radial-gradient(
-      1400px 900px at 50% 40%,
-      rgba(255,255,255,.02),
-      rgba(11,18,32,.85) 70%
-    ),
-
-    /* subtle blue lift near top */
-    linear-gradient(
-      180deg,
-      rgba(96,165,250,.08),
-      transparent 35%
-    ),
-
-    /* base */
+    radial-gradient(900px 420px at 20% 0%, rgba(96,165,250,.12), transparent 60%),
+    radial-gradient(1200px 600px at 80% 20%, rgba(167,139,250,.10), transparent 60%),
     var(--bg);
 }
 
