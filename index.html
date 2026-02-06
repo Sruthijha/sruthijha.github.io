@@ -164,14 +164,22 @@ nav a.active{
    SECTIONS / TYPOGRAPHY / CARDS / GRIDS
    ========================================================= */
 
+/* MAIN controls spacing between sections */
+main{
+  display: grid;
+  gap: var(--section-pad);
+}
+
+/* default section spacing (inside each section) */
 main > section{
   padding: var(--section-pad) 0;
   scroll-margin-top: calc(var(--header-h) + 24px);
 }
 
-/* hero owns the viewport; don’t give it section padding */
-#hero{ padding: 0; }
-
+/* hero stays special */
+main > section#hero{
+  padding: 0;
+}
 
 h2{
   font-size: clamp(22px, 3vw, 28px);
