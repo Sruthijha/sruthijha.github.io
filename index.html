@@ -1285,21 +1285,6 @@ width: min(760px, 92vw);
     0 0 14px rgba(96,165,250,.35);
 }
 
-/* Contact modal — accent titles only */
-.contact-item .label{
-  color: var(--accent);
-  font-weight: 600;
-}
-
-/* keep descriptions neutral */
-.contact-item .value{
-  color: var(--text);
-}
-
-/* optional: slightly brighter on hover (still subtle) */
-.contact-item:hover .label{
-  text-shadow: 0 0 6px rgba(96,165,250,.35);
-}
 
 /* =========================
    COPY HINT (beside "Email")
@@ -1361,12 +1346,16 @@ width: min(760px, 92vw);
   transform: translateY(-2px);
   box-shadow: var(--shadow-2);
 }
-
-/* Contact modal — accent ONLY the titles */
-.contact-item > div > span:first-child,
-.contact-item .contact-label{
+/* CONTACT MODAL — accent ONLY the titles (Email / LinkedIn / GitHub / Medium) */
+.contact-item .contact-kicker{
   color: var(--accent);
-  font-weight: 600;
+  font-weight: 800;
+  opacity: 1;
+}
+
+/* subtle glow on hover only */
+.contact-item:hover .contact-kicker{
+  text-shadow: 0 0 6px rgba(96,165,250,.35);
 }
 
 </style>
