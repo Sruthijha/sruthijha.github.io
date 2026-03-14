@@ -1327,6 +1327,52 @@ footer{
 @media (max-width: 640px){
   :root{ --section-pad: 38px; }
 }
+
+
+
+ .timeline {
+  position: relative;
+  margin-left: 20px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  opacity: 0.4;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 28px;
+  margin-top: 28px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2px;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.timeline-content .role {
+  font-weight: 600;
+}
+
+.timeline-content .date {
+  display: block;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
   </style>
 </head>
 
@@ -1616,41 +1662,54 @@ footer{
   </ul>
 </article>
 
-     <article class="experience-card card" tabindex="0">
+    <article class="experience-card card" tabindex="0">
   <div class="exp-header">
     <img src="assets/intech.png" alt="Intech Logo" class="company-logo" />
     <div class="exp-title-wrap">
       <h3 class="exp-title">
         Intech Insurance Surveyors &amp; Loss Assessors Pvt Ltd
       </h3>
-      <span class="date">August 2022 – June 2023 · 11 mos</span>
+      <span class="date">August 2022 – June 2023 · 11 months</span>
     </div>
   </div>
 
-  <div class="role-block">
-    <h4 class="role">Data Analyst</h4>
-    <span class="role-date">January 2023 – June 2023</span>
+  <div class="timeline">
 
-    <ul class="exp-points">
-      <li>Analyzed insurance claims and loss assessment datasets using SQL and Python to identify patterns linked to high-risk or inconsistent claims across 15 branch offices.</li>
-      <li>Built structured datasets by integrating policy records, incident reports, and survey assessments to improve cross-branch visibility.</li>
-      <li>Developed rule-based risk indicators based on claim amount, geography, and incident type to support fraud investigation.</li>
-      <li>Generated branch-level summaries and dashboards to support internal reporting and investigation workflows.</li>
-    </ul>
-  </div>
+    <!-- DATA ANALYST -->
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
 
-  <div class="role-block">
-    <h4 class="role">Software Engineer Intern</h4>
-    <span class="role-date">August 2022 – December 2022</span>
+      <div class="timeline-content">
+        <h4 class="role">Data Analyst (Full-time) @ Intech Insurance Surveyors &amp; Loss Assessors Pvt Ltd</h4>
+        <span class="date">January 2023 – June 2023</span>
 
-    <ul class="exp-points">
-      <li>Built small Python utilities to clean and organize insurance survey datasets used in internal reporting workflows.</li>
-      <li>Assisted in structuring policy, incident, and claims data to support data analysis and reporting.</li>
-      <li>Improved data validation checks and preprocessing scripts used for operational records.</li>
-    </ul>
+        <ul class="exp-points">
+          <li>Analyzed insurance claims and loss assessment records using SQL and Python to identify patterns linked to high-risk or inconsistent claims across multiple branch offices.</li>
+          <li>Built structured datasets by integrating policy details, incident reports, and surveyor assessment records to improve internal visibility across claims investigations.</li>
+          <li>Developed rule-based indicators based on claim value, geography, and incident type to support preliminary fraud screening and investigation workflows.</li>
+          <li>Generated internal summaries and reporting dashboards that helped teams prioritize claim reviews and monitor investigation timelines.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SOFTWARE ENGINEER INTERN -->
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+
+      <div class="timeline-content">
+        <h4 class="role">Software Engineer Intern @ Intech Insurance Surveyors &amp; Loss Assessors Pvt Ltd</h4>
+        <span class="date">August 2022 – December 2022</span>
+
+        <ul class="exp-points">
+          <li>Developed small Python utilities to clean and organize insurance survey and claims datasets used in internal reporting workflows.</li>
+          <li>Assisted in structuring policy, incident, and loss assessment data to support downstream analysis and reporting.</li>
+          <li>Improved preprocessing and validation checks used to prepare operational records for analysis and documentation.</li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </article>
-
       <article class="experience-card card" tabindex="0">
         <div class="exp-header">
           <img src="assets/MU.png" alt="Mahindra University Logo" class="company-logo" />
