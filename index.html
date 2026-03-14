@@ -1380,6 +1380,27 @@ footer{
   opacity: 0.8;
   font-size: 0.9rem;
 }
+
+
+.timeline-item {
+  position: relative;
+  padding-left: 28px;
+  margin-top: 24px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.timeline-item:hover {
+  transform: translateX(4px);
+}
+
+    .timeline-item:hover .timeline-dot {
+  box-shadow: 0 0 8px var(--accent);
+}
+    .exp-points li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
   </style>
 </head>
 
