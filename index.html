@@ -110,7 +110,7 @@ body::before{
 }
 
 /* =========================================================
-   HEADER / NAV (styles kept; header markup not included below)
+   HEADER / NAV
    ========================================================= */
 
 header{
@@ -129,7 +129,22 @@ header{
   align-items: center;
   height: var(--header-h);
   gap: 12px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
+
+.nav-logo{
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+}
+
+.nav-logo span{ color: var(--accent); }
 
 nav ul{
   list-style: none;
@@ -137,37 +152,47 @@ nav ul{
   padding: 0;
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: .25rem;
 }
 
 nav a{
   display: inline-block;
-  padding: .5rem .6rem;
+  padding: .45rem .6rem;
   border-radius: 10px;
-  color: var(--text);
+  color: var(--muted);
   font-weight: 600;
+  font-size: .88rem;
+  transition: color .15s ease, background .15s ease, border-color .15s ease;
+  border: 1px solid transparent;
+}
+
+nav a:hover{
+  color: var(--text);
+  background: rgba(255,255,255,.04);
 }
 
 nav a.active{
   color: var(--accent);
   background: rgba(96,165,250,.12);
-  border: 1px solid rgba(96,165,250,.18);
+  border-color: rgba(96,165,250,.18);
 }
 
-#nav-toggle{ display: none; }
+#nav-toggle{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border-radius: 12px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
 
 @media (max-width: 820px){
-  #nav-toggle{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--line);
-    background: var(--btn-bg);
-    color: var(--btn-text);
-    border-radius: 12px;
-  }
+  #nav-toggle{ display: inline-flex; }
 
   nav{
     position: absolute;
@@ -185,9 +210,14 @@ nav a.active{
   nav ul{
     flex-direction: column;
     padding: .5rem;
+    gap: .15rem;
   }
 
-  nav a{ padding: .75rem; }
+  nav a{
+    display: block;
+    padding: .75rem 1rem;
+    font-size: .95rem;
+  }
 }
 
 /* =========================================================
@@ -242,7 +272,7 @@ section > :last-child{ margin-bottom: 0; }
   .grid.cols-2{ grid-template-columns: 1fr 1fr; }
 }
 
-/* Prevent “random big gaps” caused by grid wrappers */
+/* Prevent "random big gaps" caused by grid wrappers */
 .grid,
 .skills-grid,
 #education .edu-grid,
@@ -756,7 +786,6 @@ section > :last-child{ margin-bottom: 0; }
   transition: border-color .18s ease, box-shadow .18s ease, background .18s ease, transform .18s ease;
 }
 
-/* Active + hover glow (matched to Education) */
 #experience .experience-card.is-active .company-logo{
   transform: translateY(-1px);
   border-color: rgba(96,165,250,.65);
@@ -1025,7 +1054,6 @@ a.accent:focus-visible{
   outline: none;
 }
 
-/* Hover consistency for achievements + leadership */
 .achievement-card,
 #leadership .card{
   transition: transform .18s ease, box-shadow .18s ease;
@@ -1038,7 +1066,7 @@ a.accent:focus-visible{
 }
 
 /* =========================================================
-   ABOUT ME — spacing + hover
+   ABOUT ME
    ========================================================= */
 
 #about .about-card{ line-height: 1.85; }
@@ -1295,7 +1323,6 @@ footer{
     0 0 14px rgba(96,165,250,.35);
 }
 
-/* Email copy hint */
 .contact-toprow{
   display: flex;
   align-items: baseline;
@@ -1323,21 +1350,21 @@ footer{
   color: var(--good);
 }
 
-/* Responsive section spacing */
 @media (max-width: 640px){
   :root{ --section-pad: 38px; }
 }
 
+/* =========================================================
+   TIMELINE (Experience sub-roles)
+   ========================================================= */
 
-
-.timeline {
+.timeline{
   position: relative;
   margin-left: 28px;
   padding-top: 10px;
 }
 
-/* vertical line */
-.timeline::before {
+.timeline::before{
   content: "";
   position: absolute;
   left: 0;
@@ -1348,15 +1375,14 @@ footer{
   opacity: 0.4;
 }
 
-/* each role block */
-.timeline-item {
+.timeline-item{
   position: relative;
   padding-left: 28px;
   margin-top: 24px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-/* circle dot */
-.timeline-dot {
+.timeline-dot{
   position: absolute;
   left: -6px;
   top: 6px;
@@ -1367,13 +1393,9 @@ footer{
   box-shadow: 0 0 0 3px rgba(255,255,255,0.05);
 }
 
-/* role title */
-.timeline-content .role {
-  font-weight: 600;
-}
+.timeline-content .role{ font-weight: 600; }
 
-/* date style */
-.timeline-content .date {
+.timeline-content .date{
   display: block;
   margin-top: 4px;
   margin-bottom: 12px;
@@ -1381,28 +1403,49 @@ footer{
   font-size: 0.9rem;
 }
 
-
-.timeline-item {
-  position: relative;
-  padding-left: 28px;
-  margin-top: 24px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-    .exp-points li {
+.exp-points li{
   margin-bottom: 8px;
   line-height: 1.5;
   opacity: 0.9;
 }
 
-    .timeline-item:hover .timeline-dot {
+.timeline-item:hover .timeline-dot{
   box-shadow: 0 0 8px var(--accent);
 }
   </style>
 </head>
 
 <body>
-  <a href="#about" class="skip">Skip to content</a>
+  <a href="#hero" class="skip">Skip to content</a>
+
+  <!-- ===================== HEADER ===================== -->
+  <header>
+    <div class="nav-wrap">
+      <a href="#hero" class="nav-logo">Sruthijha <span>Pagolu</span></a>
+
+      <button
+        id="nav-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav id="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#leadership">Leadership</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <main>
     <!-- HERO -->
@@ -1458,7 +1501,7 @@ footer{
 
       <div class="card about-card">
         <p>
-          I see data as more than just numbers on a screen - it’s one of the closest things we have
+          I see data as more than just numbers on a screen - it's one of the closest things we have
           to a record of how people think, decide, and build systems. I enjoy
           <span class="accent">studying complex problems</span>, working with
           <span class="accent">messy data</span>, and turning ambiguity into insights that genuinely
@@ -1468,17 +1511,17 @@ footer{
         <p>
           I recently graduated from the
           <span class="accent">University of Colorado Boulder</span> with a
-          <span class="accent">Master’s in Data Science</span>, and I’m currently working as a
+          <span class="accent">Master's in Data Science</span>, and I'm currently working as a
           <span class="accent">Data Intern at Goodie Bag</span>, where I support data-driven decisions
           around <span class="accent">customer acquisition</span> and
-          <span class="accent">marketplace growth</span>. I’m especially interested in work where
+          <span class="accent">marketplace growth</span>. I'm especially interested in work where
           analysis connects directly to the real world - not just dashboards, but outcomes that
           actually matter.
         </p>
 
         <p>
-          Outside of work, I’m deeply curious and creative by nature. I genuinely enjoy
-          <span class="accent">studying and learning new things</span>, whether it’s a technical
+          Outside of work, I'm deeply curious and creative by nature. I genuinely enjoy
+          <span class="accent">studying and learning new things</span>, whether it's a technical
           concept or an unfamiliar idea. I grew up watching
           <span class="accent">Naruto</span>, later developed a love for stories like
           <span class="accent">Percy Jackson</span>, and often spend my time
@@ -1487,7 +1530,7 @@ footer{
         </p>
 
         <p>
-          I’m most excited by work that blends
+          I'm most excited by work that blends
           <span class="accent">thoughtful analysis</span> with
           <span class="accent">real-world impact</span> - where data is used not just to describe
           what happened, but to help shape what comes next.
@@ -1660,85 +1703,73 @@ footer{
         </div>
 
         <ul class="exp-points">
-  <li>Built a neighborhood-level acquisition dataset for Goodie Bag's NYC launch by integrating Google Places API data, demographic indicators, and transit/density proxies across Brooklyn and Manhattan.</li>
-  <li>Developed a Customer Quality Score ranking neighborhoods by repeat-use potential using apartment density, student population, gym/coworking presence, and subway access.</li>
-  <li>Evaluating walkable food shop supply and competitive saturation (Too Good To Go, DoorDash, UberEats) to flag neighborhoods with high demand but weak or risky supply conditions.</li>
-  <li>Developing a marketing readiness framework assigning Full/Light/Hold activation status per neighborhood to support go-to-market prioritization for the March launch.</li>
-</ul>
+          <li>Built a neighborhood-level acquisition dataset for Goodie Bag's NYC launch by integrating Google Places API data, demographic indicators, and transit/density proxies across Brooklyn and Manhattan.</li>
+          <li>Developed a Customer Quality Score ranking neighborhoods by repeat-use potential using apartment density, student population, gym/coworking presence, and subway access.</li>
+          <li>Evaluating walkable food shop supply and competitive saturation (Too Good To Go, DoorDash, UberEats) to flag neighborhoods with high demand but weak or risky supply conditions.</li>
+          <li>Developing a marketing readiness framework assigning Full/Light/Hold activation status per neighborhood to support go-to-market prioritization for the March launch.</li>
+        </ul>
       </article>
 
       <article class="experience-card card" tabindex="0">
-  <div class="exp-header">
-    <img src="assets/pragmatic.png" alt="Pragmatic Logo" class="company-logo" />
-    <div class="exp-title-wrap">
-      <h3 class="exp-title">
-        <span class="role">Data Analyst Intern</span>
-        <span class="company"> @ Pragmatic Insurance Broking Services Pvt Ltd</span>
-      </h3>
-      <span class="date">June 2025 – August 2025</span>
-    </div>
-  </div>
+        <div class="exp-header">
+          <img src="assets/pragmatic.png" alt="Pragmatic Logo" class="company-logo" />
+          <div class="exp-title-wrap">
+            <h3 class="exp-title">
+              <span class="role">Data Analyst Intern</span>
+              <span class="company"> @ Pragmatic Insurance Broking Services Pvt Ltd</span>
+            </h3>
+            <span class="date">June 2025 – August 2025</span>
+          </div>
+        </div>
 
-  <ul class="exp-points">
-    <li>Maintained policy renewal trackers and operational datasets to monitor upcoming expirations and support timely renewals.</li>
-    <li>Built comparative quotation sheets in Excel to evaluate premiums, deductibles, and coverage terms across insurers such as UIIC, ICICI Lombard, and HDFC Ergo.</li>
-    <li>Generated weekly MIS-style reports summarizing Gross Written Premium (GWP), policy issuance timelines, and renewal activity.</li>
-    <li>Tracked claim statuses and documentation requirements through internal claims logs, supporting faster follow-ups and resolution.</li>
-  </ul>
-</article>
+        <ul class="exp-points">
+          <li>Maintained policy renewal trackers and operational datasets to monitor upcoming expirations and support timely renewals.</li>
+          <li>Built comparative quotation sheets in Excel to evaluate premiums, deductibles, and coverage terms across insurers such as UIIC, ICICI Lombard, and HDFC Ergo.</li>
+          <li>Generated weekly MIS-style reports summarizing Gross Written Premium (GWP), policy issuance timelines, and renewal activity.</li>
+          <li>Tracked claim statuses and documentation requirements through internal claims logs, supporting faster follow-ups and resolution.</li>
+        </ul>
+      </article>
 
-    <article class="experience-card card" tabindex="0">
-  <div class="exp-header">
-    <img src="assets/intech.png" alt="Intech Logo" class="company-logo" />
-    <div class="exp-title-wrap">
-      <h3 class="exp-title">
-        Intech Insurance Surveyors &amp; Loss Assessors Pvt Ltd
-      </h3>
-      <span class="date">August 2022 – June 2023 · 11 months</span>
-    </div>
-  </div>
+      <article class="experience-card card" tabindex="0">
+        <div class="exp-header">
+          <img src="assets/intech.png" alt="Intech Logo" class="company-logo" />
+          <div class="exp-title-wrap">
+            <h3 class="exp-title">
+              Intech Insurance Surveyors &amp; Loss Assessors Pvt Ltd
+            </h3>
+            <span class="date">August 2022 – June 2023 · 11 months</span>
+          </div>
+        </div>
 
-  <div class="timeline">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h4 class="role">Data Scientist (Full-time)</h4>
+              <span class="date">January 2023 – June 2023</span>
+              <ul class="exp-points">
+                <li>Analyzed large-scale insurance claims and loss assessment datasets using SQL and Python to identify patterns linked to high-risk or inconsistent claims across multiple branch offices.</li>
+                <li>Built structured analytical datasets by integrating policy records, incident reports, and surveyor assessments, improving internal visibility and traceability across claims investigations.</li>
+                <li>Designed rule-based risk indicators using claim value, geographic patterns, and incident categories to support early-stage fraud screening and investigation workflows.</li>
+                <li>Developed internal reporting summaries and data dashboards that enabled teams to prioritize claim reviews, monitor investigation timelines, and improve operational decision-making.</li>
+              </ul>
+            </div>
+          </div>
 
-<!-- DATA ANALYST -->
-<div class="timeline-item">
-  <div class="timeline-dot"></div>
-
-  <div class="timeline-content">
-    <h4 class="role">Data Scientist (Full-time)</h4>
-    <span class="date">January 2023 – June 2023</span>
-
-    <ul class="exp-points">
-      <li>Analyzed large-scale insurance claims and loss assessment datasets using SQL and Python to identify patterns linked to high-risk or inconsistent claims across multiple branch offices.</li>
-
-      <li>Built structured analytical datasets by integrating policy records, incident reports, and surveyor assessments, improving internal visibility and traceability across claims investigations.</li>
-
-      <li>Designed rule-based risk indicators using claim value, geographic patterns, and incident categories to support early-stage fraud screening and investigation workflows.</li>
-
-      <li>Developed internal reporting summaries and data dashboards that enabled teams to prioritize claim reviews, monitor investigation timelines, and improve operational decision-making.</li>
-    </ul>
-  </div>
-</div>
-
-
-<!-- SOFTWARE ENGINEER INTERN -->
-<div class="timeline-item">
-  <div class="timeline-dot"></div>
-
-  <div class="timeline-content">
-    <h4 class="role">Software Engineer Intern</h4>
-    <span class="date">August 2022 – December 2022</span>
-
-    <ul class="exp-points">
-      <li>Developed Python-based data processing utilities to clean, transform, and organize insurance survey and claims datasets used in internal reporting workflows.</li>
-
-      <li>Assisted in structuring policy, incident, and loss assessment datasets to enable downstream analytics, reporting, and operational insights.</li>
-
-      <li>Enhanced preprocessing pipelines by implementing validation checks and data quality controls to ensure reliable records for analysis and documentation.</li>
-    </ul>
-  </div>
-</div>
- </article>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h4 class="role">Software Engineer Intern</h4>
+              <span class="date">August 2022 – December 2022</span>
+              <ul class="exp-points">
+                <li>Developed Python-based data processing utilities to clean, transform, and organize insurance survey and claims datasets used in internal reporting workflows.</li>
+                <li>Assisted in structuring policy, incident, and loss assessment datasets to enable downstream analytics, reporting, and operational insights.</li>
+                <li>Enhanced preprocessing pipelines by implementing validation checks and data quality controls to ensure reliable records for analysis and documentation.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
 
       <article class="experience-card card" tabindex="0">
         <div class="exp-header">
@@ -1753,11 +1784,11 @@ footer{
         </div>
 
         <ul class="exp-points">
-  <li>Coordinated end-to-end campus recruitment activities between students, placement officers, and company recruiters across multiple hiring cycles.</li>
-  <li>Maintained student eligibility and participation records tracking CGPA criteria, branch requirements, and registration status for recruiting companies.</li>
-  <li>Supported recruiter scheduling, pre-placement talk (PPT) coordination, and interview logistics for on-campus and virtual recruitment drives.</li>
-  <li>Facilitated communication of recruiter requirements, deadlines, and process updates to ensure smooth participation in placement activities.</li>
-</ul>
+          <li>Coordinated end-to-end campus recruitment activities between students, placement officers, and company recruiters across multiple hiring cycles.</li>
+          <li>Maintained student eligibility and participation records tracking CGPA criteria, branch requirements, and registration status for recruiting companies.</li>
+          <li>Supported recruiter scheduling, pre-placement talk (PPT) coordination, and interview logistics for on-campus and virtual recruitment drives.</li>
+          <li>Facilitated communication of recruiter requirements, deadlines, and process updates to ensure smooth participation in placement activities.</li>
+        </ul>
       </article>
 
       <article class="experience-card card" tabindex="0">
@@ -1777,7 +1808,7 @@ footer{
           <li>Proposed replacing MS pipes with CPVC or stainless steel alternatives, performing cost–feasibility analysis (~₹5,450–₹5,950 per bed) to improve heat exchanger performance and extend filter life.</li>
           <li>Diagnosed high MTTR in tractor assembly cleaning machines caused by VFD failures, estimating ~₹60 lakh loss per incident due to halted tractor output.</li>
           <li>Designed a VFD bypass contingency using a 2-way selector switch, reducing machine downtime from ~45 minutes to under 2 minutes during failure events.</li>
-</ul>
+        </ul>
       </article>
     </section>
 
@@ -1910,18 +1941,14 @@ footer{
             <li>
               Volunteered as a
               <a href="https://www.colorado.edu/graduateschool/services-resources/mentoring/graduate-students/graduate-peer-mentoring-program"
-                 target="_blank" rel="noopener noreferrer" class="accent">
-                Graduate Peer Mentor
-              </a>
+                 target="_blank" rel="noopener noreferrer" class="accent">Graduate Peer Mentor</a>
               at the <span class="accent">University of Colorado Boulder</span>, supporting incoming graduate students with academic transition and campus resources.
             </li>
             <li>Participated in <span class="accent">Model United Nations (MUN)</span> conferences, gaining experience in diplomacy, public speaking, and structured debate.</li>
             <li>
               Volunteered in
               <a href="https://www.mahindrauniversity.edu.in/events/mahindra-universitys-cleanliness-drive/"
-                 target="_blank" rel="noopener noreferrer" class="accent">
-                Mahindra University’s Cleanliness Drive
-              </a>,
+                 target="_blank" rel="noopener noreferrer" class="accent">Mahindra University's Cleanliness Drive</a>,
               contributing to campus-wide community service initiatives.
             </li>
             <li>Active member of student organizations including the <span class="accent">Football Club</span>, <span class="accent">Anime Club</span>, and <span class="accent">Artfelt Club</span>.</li>
@@ -1936,7 +1963,7 @@ footer{
       <div class="container">
         <div class="foot-links">
           <span>© <span id="year"></span> Sruthijha Pagolu</span>
-          <a href="#about" title="Back to top">Back to top ↑</a>
+          <a href="#hero" title="Back to top">Back to top ↑</a>
         </div>
       </div>
     </footer>
@@ -1970,7 +1997,6 @@ footer{
         </div>
 
         <div class="contact-grid">
-          <!-- Email -->
           <a class="contact-item email-item" href="mailto:sruthipagolu@gmail.com">
             <div class="contact-left">
               <div class="contact-ico"><img src="assets/gmail.png" alt="Email icon" /></div>
@@ -1985,7 +2011,6 @@ footer{
             <div class="contact-arrow">→</div>
           </a>
 
-          <!-- LinkedIn -->
           <a class="contact-item" href="https://www.linkedin.com/in/sruthijha" target="_blank" rel="noopener noreferrer">
             <div class="contact-left">
               <div class="contact-ico"><img src="assets/linkedin.png" alt="LinkedIn icon" /></div>
@@ -1997,7 +2022,6 @@ footer{
             <div class="contact-arrow">→</div>
           </a>
 
-          <!-- GitHub -->
           <a class="contact-item" href="https://github.com/Sruthijha" target="_blank" rel="noopener noreferrer">
             <div class="contact-left">
               <div class="contact-ico"><img src="assets/github.svg" alt="GitHub icon" /></div>
@@ -2009,7 +2033,6 @@ footer{
             <div class="contact-arrow">→</div>
           </a>
 
-          <!-- Medium -->
           <a class="contact-item" href="https://medium.com/@sruthijha" target="_blank" rel="noopener noreferrer">
             <div class="contact-left">
               <div class="contact-ico"><img src="assets/medium.png" alt="Medium icon" /></div>
@@ -2038,29 +2061,30 @@ footer{
       toggle.setAttribute('aria-expanded', String(open));
     });
 
+    // Close mobile nav when a link is clicked
+    nav?.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle?.setAttribute('aria-expanded', 'false');
+      });
+    });
+
     // =========================
     // Smooth anchor scroll
     // =========================
-    document.querySelectorAll('nav a[href^="#"]').forEach(a => {
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', (e) => {
         const id = a.getAttribute('href');
         const el = document.querySelector(id);
         if (!el) return;
-
         e.preventDefault();
-
-        if (nav?.classList.contains('open')) {
-          nav.classList.remove('open');
-          toggle?.setAttribute('aria-expanded', 'false');
-        }
-
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         history.pushState(null, '', id);
       });
     });
 
     // =========================
-    // Scroll spy (center-based)
+    // Scroll spy
     // =========================
     const HEADER_H = parseInt(
       getComputedStyle(document.documentElement).getPropertyValue('--header-h')
@@ -2087,32 +2111,21 @@ footer{
     function chooseActiveSection() {
       if (hero) {
         const r = hero.getBoundingClientRect();
-        if (visibleRatio(r) >= 0.5) {
-          clearActive();
-          return;
-        }
+        if (visibleRatio(r) >= 0.5) { clearActive(); return; }
       }
 
       const targetY = HEADER_H + (window.innerHeight - HEADER_H) / 2;
-
-      let best = null;
-      let bestDist = Infinity;
+      let best = null, bestDist = Infinity;
 
       for (const sec of sections) {
         const rect = sec.getBoundingClientRect();
         const center = rect.top + rect.height / 2;
         const dist = Math.abs(center - targetY);
-        if (dist < bestDist) {
-          best = sec;
-          bestDist = dist;
-        }
+        if (dist < bestDist) { best = sec; bestDist = dist; }
       }
 
       clearActive();
-      if (best) {
-        const link = linkFor(best.id);
-        if (link) link.classList.add('active');
-      }
+      if (best) { const link = linkFor(best.id); if (link) link.classList.add('active'); }
     }
 
     let ticking = false;
@@ -2141,33 +2154,16 @@ footer{
     const contactOverlay = document.getElementById('contact-overlay');
     const contactClose = document.getElementById('contact-close');
 
-    function openContact(){
-      if (!contactOverlay) return;
-      contactOverlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      contactClose?.focus();
-    }
-
-    function closeContact(){
-      if (!contactOverlay) return;
-      contactOverlay.classList.remove('open');
-      document.body.style.overflow = '';
-      contactFab?.focus();
-    }
+    function openContact(){ if (!contactOverlay) return; contactOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; contactClose?.focus(); }
+    function closeContact(){ if (!contactOverlay) return; contactOverlay.classList.remove('open'); document.body.style.overflow = ''; contactFab?.focus(); }
 
     contactFab?.addEventListener('click', openContact);
     contactClose?.addEventListener('click', closeContact);
-
-    contactOverlay?.addEventListener('click', (e) => {
-      if (e.target === contactOverlay) closeContact();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && contactOverlay?.classList.contains('open')) closeContact();
-    });
+    contactOverlay?.addEventListener('click', (e) => { if (e.target === contactOverlay) closeContact(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && contactOverlay?.classList.contains('open')) closeContact(); });
 
     // =========================
-    // HERO NAME TYPEWRITER (types once, keeps Pagolu blue, then hides caret)
+    // Hero typewriter
     // =========================
     (function(){
       const wrap = document.getElementById("greetWrap");
@@ -2185,11 +2181,9 @@ footer{
 
       const first = document.createElement("span");
       first.textContent = "";
-
       const last = document.createElement("span");
       last.textContent = "";
       last.classList.add("text-accent");
-
       nameLine.appendChild(first);
       nameLine.appendChild(last);
 
@@ -2200,9 +2194,7 @@ footer{
 
       out.appendChild(small);
 
-      const SPEED_SMALL = 70;
-      const SPEED_NAME  = 95;
-      const PAUSE_STEP  = 260;
+      const SPEED_SMALL = 70, SPEED_NAME = 95, PAUSE_STEP = 260;
 
       const steps = [
         { kind: "type", node: small, text: "Hello ", ms: SPEED_SMALL },
@@ -2217,23 +2209,11 @@ footer{
       let s = 0, i = 0;
 
       function tick(){
-        if(s >= steps.length){
-          wrap.classList.add("type-done");
-          return;
-        }
-
+        if(s >= steps.length){ wrap.classList.add("type-done"); return; }
         const cur = steps[s];
-
-        if(cur.kind === "insert"){
-          cur.node.appendChild(cur.el);
-          s++; i = 0;
-          setTimeout(tick, PAUSE_STEP);
-          return;
-        }
-
+        if(cur.kind === "insert"){ cur.node.appendChild(cur.el); s++; i = 0; setTimeout(tick, PAUSE_STEP); return; }
         cur.node.append(cur.text.charAt(i));
         i++;
-
         if(i < cur.text.length) setTimeout(tick, cur.ms);
         else { s++; i = 0; setTimeout(tick, PAUSE_STEP); }
       }
@@ -2242,57 +2222,32 @@ footer{
     })();
 
     // =========================
-    // Email copy (no underline, clean)
+    // Email copy
     // =========================
     const emailItem = document.querySelector(".email-item");
     if (emailItem){
       emailItem.addEventListener("click", (e) => {
         e.preventDefault();
-
-        const email = "sruthipagolu@gmail.com";
-        navigator.clipboard.writeText(email);
-
+        navigator.clipboard.writeText("sruthipagolu@gmail.com");
         emailItem.classList.add("copied");
         const hint = emailItem.querySelector(".copy-hint");
         if (hint) hint.textContent = "Copied";
-
-        setTimeout(() => {
-          emailItem.classList.remove("copied");
-          if (hint) hint.textContent = "Copy";
-        }, 1500);
+        setTimeout(() => { emailItem.classList.remove("copied"); if (hint) hint.textContent = "Copy"; }, 1500);
       });
     }
 
     // =========================
-    // Experience: click to glow, remove when scrolled away
+    // Experience card active glow
     // =========================
     (function(){
       const cards = Array.from(document.querySelectorAll('#experience .experience-card'));
       if (!cards.length) return;
-
       const clearActive = () => cards.forEach(c => c.classList.remove('is-active'));
-
       cards.forEach(card => {
-        card.addEventListener('click', () => {
-          clearActive();
-          card.classList.add('is-active');
-        });
-
-        card.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            clearActive();
-            card.classList.add('is-active');
-          }
-        });
+        card.addEventListener('click', () => { clearActive(); card.classList.add('is-active'); });
+        card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); clearActive(); card.classList.add('is-active'); } });
       });
-
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) entry.target.classList.remove('is-active');
-        });
-      }, { threshold: 0.15 });
-
+      const obs = new IntersectionObserver((entries) => { entries.forEach(entry => { if (!entry.isIntersecting) entry.target.classList.remove('is-active'); }); }, { threshold: 0.15 });
       cards.forEach(c => obs.observe(c));
     })();
   </script>
