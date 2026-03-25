@@ -1813,107 +1813,120 @@ footer{
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="container">
-      <h2>Projects</h2>
+<section id="projects" class="container">
+  <h2>Projects</h2>
 
-      <div class="projects-grid">
-        <article class="project-card">
-          <img src="assets/minutes.jpg" alt="Minutes Maker banner" />
-          <div class="content">
-            <h3>Minutes Maker – Video Transcription &amp; Summarization</h3>
-            <p>Built an asynchronous AWS serverless pipeline that transcribes meetings with Whisper and generates structured minutes using FLAN-T5.</p>
-            <div class="pills">
-              <span class="pill">AWS Lambda</span><span class="pill">Docker</span><span class="pill">SQS</span>
-              <span class="pill">Hugging Face</span><span class="pill">Terraform</span><span class="pill">Python</span>
-            </div>
-            <div class="links">
-              <a href="https://github.com/Sruthijha/Minutes-Maker" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </div>
-          </div>
-        </article>
+  <div class="projects-grid">
 
-        <article class="project-card">
-          <img src="assets/Airline.png" alt="Airline Delay Prediction banner" />
-          <div class="content">
-            <h3>Airline Delay Prediction System</h3>
-            <p>Predicted airline delays from multi-year flight data, achieving 97% accuracy through robust feature engineering and model evaluation.</p>
-            <div class="pills">
-              <span class="pill">Python</span><span class="pill">Scikit-learn</span><span class="pill">XGBoost</span>
-              <span class="pill">Random Forest</span><span class="pill">Pandas</span><span class="pill">Feature Engineering</span>
-            </div>
-            <div class="links">
-              <a href="https://sites.google.com/view/shvdm/home" target="_blank" rel="noopener noreferrer">Website</a>
-              <a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System/blob/main/Final%20Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <img src="assets/DL.png" alt="Real-time Emotion Recognition banner" />
-          <div class="content">
-            <h3>Real-time Emotion Recognition from Speech</h3>
-            <p>Built a real-time speech emotion classifier with 95% accuracy using a CNN-LSTM model and engineered audio features with augmentation.</p>
-            <div class="pills">
-              <span class="pill">Python</span><span class="pill">TensorFlow</span><span class="pill">CNN-LSTM</span>
-              <span class="pill">MFCCs</span><span class="pill">Audio Processing</span><span class="pill">Data Augmentation</span>
-            </div>
-            <div class="links">
-              <a href="https://github.com/Sruthijha/Real-Time-Emotion-Recognition-from-Speech-/tree/main" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a href="https://github.com/Sruthijha/Real-Time-Emotion-Recognition-from-Speech-/blob/main/Project%20Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <img src="assets/movie.jpg" alt="Movie Recommendation System banner" />
-          <div class="content">
-            <h3>Movie Recommendation System</h3>
-            <p>Developed a personalized recommender using collaborative filtering and similarity scoring, deployed as an interactive Streamlit app.</p>
-            <div class="pills">
-              <span class="pill">Python</span><span class="pill">Scikit-learn</span><span class="pill">Content-Based Filtering</span>
-              <span class="pill">Cosine Similarity</span><span class="pill">NLP</span><span class="pill">Streamlit</span>
-            </div>
-            <div class="links">
-              <a href="https://github.com/Sruthijha/Movie-Recommendation-System" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <img src="assets/msr.png" alt="MSR 2024 Mining Challenge banner" />
-          <div class="content">
-            <h3>MSR 2024 Mining Challenge</h3>
-            <p>Analyzed software-engineering dialogues to model conversation dynamics, sentiment, and failure points to better understand AI-assisted coding interactions.</p>
-            <div class="pills">
-              <span class="pill">Python</span><span class="pill">NLP</span><span class="pill">Sentiment Analysis</span>
-              <span class="pill">Data Mining</span><span class="pill">Scikit-learn</span><span class="pill">Conversation Analysis</span>
-            </div>
-            <div class="links">
-              <a href="https://conf.researchr.org/home/msr-2024" target="_blank" rel="noopener noreferrer">Challenge</a>
-              <a href="https://github.com/Sruthijha/SE_Mining-Challenge" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a href="https://github.com/Sruthijha/SE_Mining-Challenge/blob/master/SE%20Project%20Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <img src="assets/stat.png" alt="Crime Data Analysis banner" />
-          <div class="content">
-            <h3>Crime Data Analysis</h3>
-            <p>Analyzed U.S. crime trends (1979–2023) using statistical modeling to identify regional patterns, anomalies, and drivers across decades.</p>
-            <div class="pills">
-              <span class="pill">R</span><span class="pill">Statistical Analysis</span><span class="pill">Hypothesis Testing</span>
-              <span class="pill">Data Visualization</span><span class="pill">Bootstrapping</span><span class="pill">Regression</span>
-            </div>
-            <div class="links">
-              <a href="https://github.com/Sruthijha/CrimeDataAnalysis" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a href="https://github.com/Sruthijha/CrimeDataAnalysis/blob/main/Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
-            </div>
-          </div>
-        </article>
+    <!-- 1. Minutes Maker -->
+    <article class="project-card">
+      <img src="assets/minutes.jpg" alt="Minutes Maker banner" />
+      <div class="content">
+        <h3>Minutes Maker – Serverless Meeting Intelligence Pipeline</h3>
+        <p>Architected and shipped a production-grade AWS serverless pipeline that processes meeting videos end-to-end: FFMPEG extracts audio, Faster-Whisper transcribes it, and FLAN-T5 generates structured minutes-of-meeting. Built with SQS for async decoupling, ECR + Lambda for containerized inference, S3 and DynamoDB for storage, Terraform for IaC, and GitHub Actions for CI/CD. Delivered in a 6-person Agile team using Shortcut, with a live Streamlit deployment.</p>
+        <div class="pills">
+          <span class="pill">AWS Lambda</span><span class="pill">SQS</span><span class="pill">S3</span>
+          <span class="pill">DynamoDB</span><span class="pill">ECR</span><span class="pill">Docker</span>
+          <span class="pill">Terraform</span><span class="pill">Faster-Whisper</span><span class="pill">FLAN-T5</span>
+          <span class="pill">GitHub Actions</span><span class="pill">Python</span>
+        </div>
+        <div class="links">
+          <a href="https://github.com/Sruthijha/Minutes-Maker" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://minutes-maker.streamlit.app" target="_blank" rel="noopener noreferrer">Live Demo</a>
+        </div>
       </div>
-    </section>
+    </article>
+
+    <!-- 2. Tokyo Olympics Azure Pipeline -->
+    <article class="project-card">
+      <img src="assets/azure.png" alt="Tokyo Olympics Azure Data Engineering banner" />
+      <div class="content">
+        <h3>Tokyo Olympics – End-to-End Azure Data Engineering Pipeline</h3>
+        <p>Built a complete cloud data engineering pipeline on Azure from ingestion to insight. Orchestrated data ingestion from source using Azure Data Factory into a hierarchical Azure Data Lake Storage Gen2. Performed schema inspection, column renaming, and type casting transformations using Apache Spark on Azure Databricks. Loaded clean data back into the lake and surfaced analytics via SQL queries in Azure Synapse Analytics, with results visualized in Power BI — covering athlete counts, medal distributions, and gender entries by discipline.</p>
+        <div class="pills">
+          <span class="pill">Azure Data Factory</span><span class="pill">ADLS Gen2</span><span class="pill">Azure Databricks</span>
+          <span class="pill">Apache Spark</span><span class="pill">Synapse Analytics</span><span class="pill">Power BI</span><span class="pill">SQL</span>
+        </div>
+        <div class="links">
+          <a href="https://github.com/Sruthijha/Tokyo-Olympics-Analytics" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3. Research Paper Assistant -->
+    <article class="project-card">
+      <img src="assets/research.png" alt="Research Paper Assistant banner" />
+      <div class="content">
+        <h3>Research Paper Assistant – RAG-Powered Q&amp;A System</h3>
+        <p>Designed and built a full-stack AI research tool that ingests any research PDF and produces a structured 10-section summary using GPT-4.1-mini. Implements a complete RAG pipeline from scratch: PDFs are extracted with PyMuPDF, chunked at 1,000 characters with 200-character overlap, embedded using OpenAI's text-embedding-3-small, and retrieved via cosine similarity. Answers are grounded in the paper with page-level citations, and full chat history is preserved across the session.</p>
+        <div class="pills">
+          <span class="pill">Python</span><span class="pill">Streamlit</span><span class="pill">OpenAI GPT-4.1-mini</span>
+          <span class="pill">RAG</span><span class="pill">text-embedding-3-small</span><span class="pill">PyMuPDF</span>
+          <span class="pill">Cosine Similarity</span><span class="pill">Vector Search</span>
+        </div>
+        <div class="links">
+          <a href="https://github.com/Sruthijha/research-paper-assistant" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4. Airline Delay Prediction -->
+    <article class="project-card">
+      <img src="assets/Airline.png" alt="Airline Delay Prediction banner" />
+      <div class="content">
+        <h3>Airline Delay Prediction System</h3>
+        <p>Built and evaluated 10+ machine learning models on 3 years of US flight data (2022–2024) to predict flight delays as a binary classification task. Handled significant class imbalance, engineered temporal and carrier features, and validated all models with 5-fold cross-validation. XGBoost achieved 97% accuracy with F1 scores of 0.98/0.95 and a perfect ROC-AUC of 1.00, outperforming Random Forest, Bagging, Neural Network, KNN, and SVM. Key insight: departure delay predicts arrival delay with a correlation of 0.97.</p>
+        <div class="pills">
+          <span class="pill">Python</span><span class="pill">XGBoost</span><span class="pill">Scikit-learn</span>
+          <span class="pill">Random Forest</span><span class="pill">Neural Network</span><span class="pill">Feature Engineering</span>
+          <span class="pill">Pandas</span><span class="pill">Matplotlib</span>
+        </div>
+        <div class="links">
+          <a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System/blob/main/Final%20Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5. MSR 2024 Mining Challenge -->
+    <article class="project-card">
+      <img src="assets/msr.png" alt="MSR 2024 Mining Challenge banner" />
+      <div class="content">
+        <h3>MSR 2024 – ChatGPT Developer Interaction Analysis</h3>
+        <p>Tackled three research questions on the DevGPT dataset for the MSR 2024 Mining Challenge. Predicted conversation length using SVM (89.07%), Keras (97.42%), and LSTM (76.64%). Performed sentiment analysis with TextBlob across programming languages, finding Python most used and JavaScript highest rated. Independently designed an LLM failure detection method using standard deviation thresholds (threshold = 35) to identify ChatGPT failure points per language — a novel contribution to the challenge.</p>
+        <div class="pills">
+          <span class="pill">Python</span><span class="pill">Keras</span><span class="pill">LSTM</span>
+          <span class="pill">SVM</span><span class="pill">TextBlob</span><span class="pill">NLP</span>
+          <span class="pill">Sentiment Analysis</span><span class="pill">Data Mining</span>
+        </div>
+        <div class="links">
+          <a href="https://conf.researchr.org/home/msr-2024" target="_blank" rel="noopener noreferrer">Challenge</a>
+          <a href="https://github.com/Sruthijha/SE_Mining-Challenge" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/Sruthijha/SE_Mining-Challenge/blob/master/SE%20Project%20Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 6. Crime Data Analysis -->
+    <article class="project-card">
+      <img src="assets/stat.png" alt="Crime Data Analysis banner" />
+      <div class="content">
+        <h3>U.S. Crime Trend Forecasting – Statistical Deep Dive</h3>
+        <p>Conducted a comprehensive statistical analysis of 44 years of FBI crime data (1979–2023) across 2,295 state-level observations. Applied T-tests, Chi-square tests, Shapiro-Wilk normality checks, and Levene's variance tests for rigorous hypothesis testing. Used bootstrapping with 1,000 replicates to derive robust confidence intervals for regional crime estimates. Built a linear regression forecasting model predicting violent crime rates will decline to 285.21 per 100k population by 2033 (R² = 0.58). Uncovered regional disparities: DC and Louisiana among highest-crime states, Vermont and Maine consistently lowest.</p>
+        <div class="pills">
+          <span class="pill">Python</span><span class="pill">Pandas</span><span class="pill">SciPy</span>
+          <span class="pill">Hypothesis Testing</span><span class="pill">Bootstrapping</span>
+          <span class="pill">Linear Regression</span><span class="pill">Seaborn</span><span class="pill">Matplotlib</span>
+        </div>
+        <div class="links">
+          <a href="https://github.com/Sruthijha/CrimeDataAnalysis" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/Sruthijha/CrimeDataAnalysis/blob/main/Report.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
 
     <!-- ACHIEVEMENTS -->
     <section id="achievements" class="container">
