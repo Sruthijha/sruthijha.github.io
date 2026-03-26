@@ -1114,50 +1114,70 @@ section > :last-child{ margin-bottom: 0; }
 }
 
 /* =========================================================
-   ACHIEVEMENTS + ACCENT LINKS
+   ACHIEVEMENTS + ACCENT LINKS (FINAL)
    ========================================================= */
 
 .achievements-grid{
   display: grid;
-  gap: 1rem;
+  gap: 14px;
   margin: 0;
+  max-width: 750px;
 }
 
-/* Clean list → no default bullets */
+/* Remove list styling (we'll use cards instead) */
 .achievement-list{
   margin: 0;
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 18px;
+  gap: 14px;
 }
 
-/* Each item */
+/* Each item becomes a card */
 .achievement-list li{
-  position: relative;
-  padding-left: 22px;
-  line-height: 1.65;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+
+  padding: 14px 16px;
+  border-radius: 14px;
+
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+
+  line-height: 1.6;
   max-width: 70ch;
+
+  position: relative;
+
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
-/* Custom accent bullet */
+/* Custom accent dot */
 .achievement-list li::before{
   content: "";
-  position: absolute;
-  left: 0;
-  top: 0.55em;
+  margin-top: 8px;
 
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  min-width: 6px;
 
+  border-radius: 50%;
   background: var(--accent);
   box-shadow: 0 0 8px rgba(96,165,250,.6);
 }
 
-/* Strong text */
+/* Hover interaction */
+.achievement-list li:hover{
+  transform: translateY(-2px);
+  border-color: rgba(96,165,250,.35);
+  box-shadow: var(--shadow), 0 0 18px rgba(96,165,250,.12);
+}
+
+/* Strong highlights */
 .achievement-list strong{
   font-weight: 600;
+  color: var(--text);
 }
 
 /* Accent links */
@@ -1175,25 +1195,8 @@ a.accent:focus-visible{
   outline: none;
 }
 
-/* Card base */
-.achievement-card{
-  padding: 16px 18px;
-  border-radius: 16px;
-  background: var(--panel-2);
-  border: 1px solid var(--line);
-
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-}
-
-/* Hover interaction */
-.achievement-card:hover{
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-2), 0 0 20px rgba(96,165,250,.12);
-  border-color: rgba(96,165,250,.35);
-}
-
-/* Optional: slight entry animation */
-.achievement-card{
+/* Optional: entry animation */
+.achievement-list li{
   animation: fadeUp .4s ease both;
 }
 
@@ -2133,21 +2136,54 @@ footer{
   </div>
 </section>
 
-    <!-- ACHIEVEMENTS -->
-    <section id="achievements" class="container">
-      <h2>Achievements</h2>
+    <section class="achievements container">
+  <h2 class="section-title">Achievements</h2>
 
-      <div class="achievements-grid">
-        <article class="card achievement-card">
-          <ul class="achievement-list">
-            <li>Recipient of the <span class="accent">Institute Merit Scholarship</span> at <span class="accent">Mahindra University</span> (<span class="accent">2019–2023</span>), awarded <strong>₹100,000 per semester</strong> for academic excellence.</li>
-            <li>Earned a <span class="accent">Licentiate Certification in Insurance</span> from the <span class="accent">Insurance Institute of India (III)</span>.</li>
-            <li>Achieved <strong>95th percentile</strong> in <span class="accent">JEE Main</span> and secured <strong>All India Rank 4,000</strong> in <span class="accent">EAMCET Telangana</span>.</li>
-            <li>Awarded a <strong>₹175,000</strong> <span class="accent">FIITJEE Talent Reward Scholarship</span> for scoring <strong>100%</strong> in FTRE (<span class="accent">FIITJEE Talent Reward Exam</span>).</li>
-          </ul>
-        </article>
-      </div>
-    </section>
+  <div class="ach-grid">
+
+    <div class="ach-card">
+      <div class="ach-dot"></div>
+      <p>
+        <strong>Institute Merit Scholarship</strong> — Mahindra University (2019–2023)
+        <br>
+        ₹100,000 per semester for academic excellence
+      </p>
+    </div>
+
+    <div class="ach-card">
+      <div class="ach-dot"></div>
+      <p>
+        <strong>Licentiate Certification in Insurance</strong>
+        Insurance Institute of India (III)
+      </p>
+    </div>
+
+    <div class="ach-card">
+      <div class="ach-dot"></div>
+      <p>
+        <strong>95th Percentile</strong> in JEE Main
+        <br>
+        AIR 4,000 in EAMCET Telangana
+      </p>
+    </div>
+
+    <div class="ach-card">
+      <div class="ach-dot"></div>
+      <p>
+        <strong>FIITJEE Talent Reward Scholarship</strong>
+        ₹175,000 for scoring 100% in FTRE
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
 
    <section class="leadership container">
   <h2 class="section-title">Leadership & Engagement</h2>
