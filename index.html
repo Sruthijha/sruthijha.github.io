@@ -96,7 +96,6 @@
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   letter-spacing: -0.01em;
 }
-  }
 
   /* =========================================================
      ACCESSIBILITY
@@ -1016,7 +1015,6 @@ section > :last-child{ margin-bottom: 0; }
   cursor: default;
 }
 
-/* tech-specific glow colors */
 .pill[data-tech="aws"],
 .pill[data-tech="lambda"],
 .pill[data-tech="sqs"],
@@ -1114,70 +1112,87 @@ section > :last-child{ margin-bottom: 0; }
 }
 
 /* =========================================================
-   ACHIEVEMENTS + ACCENT LINKS (FINAL)
+   ACHIEVEMENTS + LEADERSHIP SIDE BY SIDE
    ========================================================= */
 
-.achievements-grid{
+.two-col-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.split-section {
+  min-width: 0;
+}
+
+.split-section > h2 {
+  margin: 0 0 18px !important;
+}
+
+/* Shared lead-list layout for both columns */
+.lead-list {
   display: grid;
   gap: 14px;
   margin: 0;
-  max-width: 750px;
 }
 
-/* Remove list styling (we'll use cards instead) */
-.achievement-list{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 14px;
-}
-
-/* Each item becomes a card */
-.achievement-list li{
+/* Each lead item */
+.lead-item {
   display: flex;
   gap: 12px;
   align-items: flex-start;
-
   padding: 14px 16px;
   border-radius: 14px;
-
   background: var(--panel-2);
   border: 1px solid var(--line);
-
-  line-height: 1.6;
-  max-width: 70ch;
-
-  position: relative;
-
+  max-width: 100%;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
-/* Custom accent dot */
-.achievement-list li::before{
-  content: "";
-  margin-top: 8px;
-
-  width: 6px;
-  height: 6px;
-  min-width: 6px;
-
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 8px rgba(96,165,250,.6);
-}
-
-/* Hover interaction */
-.achievement-list li:hover{
+.lead-item:hover {
   transform: translateY(-2px);
   border-color: rgba(96,165,250,.35);
   box-shadow: var(--shadow), 0 0 18px rgba(96,165,250,.12);
+  background: rgba(255,255,255,.03);
 }
 
-/* Strong highlights */
-.achievement-list strong{
-  font-weight: 600;
+/* Icon */
+.lead-icon {
+  width: 22px;
+  min-width: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 1.1rem;
+  margin-top: 2px;
+  transition: transform .18s ease;
+}
+
+.lead-item:hover .lead-icon {
+  transform: scale(1.15);
+}
+
+/* Title */
+.lead-title {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 4px;
   color: var(--text);
+  transition: color .18s ease;
+}
+
+.lead-item:hover .lead-title {
+  color: var(--accent);
+}
+
+/* Description */
+.lead-item p {
+  margin: 0;
+  color: rgba(229,231,235,.78);
+  font-size: .93rem;
+  line-height: 1.6;
 }
 
 /* Accent links */
@@ -1195,21 +1210,13 @@ a.accent:focus-visible{
   outline: none;
 }
 
-/* Optional: entry animation */
-.achievement-list li{
-  animation: fadeUp .4s ease both;
+@media (max-width: 900px) {
+  .two-col-sections {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
 }
 
-@keyframes fadeUp{
-  from{
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to{
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 /* =========================================================
    FOOTER
    ========================================================= */
@@ -1538,78 +1545,7 @@ footer{
 .timeline-item:hover .timeline-dot{
   box-shadow: 0 0 8px var(--accent);
 }
-/* =========================================================
-   LEADERSHIP — FINAL CLEAN (NO TIMELINE)
-   ========================================================= */
 
-.lead-list{
-  display: grid;
-  gap: 22px;
-  max-width: 750px;
-}
-
-/* Each item */
-.lead-item{
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-
-  padding: 12px 14px;
-  border-radius: 14px;
-
-  transition: all 0.18s ease;
-}
-
-/* Subtle hover (clean, not flashy) */
-.lead-item:hover{
-  background: var(--panel-2);
-  border: 1px solid var(--line);
-  transform: translateX(4px);
-}
-
-/* Icon */
-.lead-icon{
-  width: 28px;
-  min-width: 28px;
-  height: 28px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 1.1rem;
-  line-height: 1;
-
-  opacity: 0.9;
-  transition: transform 0.2s ease;
-}
-
-/* Icon interaction */
-.lead-item:hover .lead-icon{
-  transform: scale(1.12);
-}
-
-/* Title */
-.lead-title{
-  font-weight: 600;
-  font-size: 1.02rem;
-  margin-bottom: 4px;
-  color: var(--text);
-  transition: color 0.18s ease;
-}
-
-/* Highlight title */
-.lead-item:hover .lead-title{
-  color: var(--accent);
-}
-
-/* Description */
-.lead-item p{
-  margin: 0;
-  color: rgba(229,231,235,.7);
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
   </style>
 </head>
 
@@ -2002,234 +1938,209 @@ footer{
 
         <ul class="exp-points">
           <li>Investigated mineral scaling in Water Temperature Control (WTC) systems, identifying repeated heating of coolant in mild steel pipes as the root cause of reduced flow efficiency.</li>
-          <li>Proposed replacing MS pipes with CPVC or stainless steel alternatives, performing cost–feasibility analysis (~₹5,450–₹5,950 per bed) to improve heat exchanger performance and extend filter life.</li>
+          <li>Proposed replacing MS pipes with CPVC or stainless steel alternatives, performing cost-feasibility analysis (~₹5,450–₹5,950 per bed) to improve heat exchanger performance and extend filter life.</li>
           <li>Diagnosed high MTTR in tractor assembly cleaning machines caused by VFD failures, estimating ~₹60 lakh loss per incident due to halted tractor output.</li>
           <li>Designed a VFD bypass contingency using a 2-way selector switch, reducing machine downtime from ~45 minutes to under 2 minutes during failure events.</li>
         </ul>
       </article>
     </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="container">
-  <h2>Projects</h2>
+    <!-- PROJECTS -->
+    <section id="projects" class="container">
+      <h2>Projects</h2>
 
-  <div class="projects-grid">
+      <div class="projects-grid">
 
-    <!-- 1. Minutes Maker -->
-    <article class="project-card">
-      <img src="assets/minutes.jpg" alt="Minutes Maker banner" />
-      <div class="content">
-        <h3>Minutes Maker – Serverless Meeting Intelligence Pipeline</h3>
-        <p>Production-grade AWS serverless pipeline that converts meeting recordings into structured minutes using Faster-Whisper and FLAN-T5, with async SQS architecture, Dockerized Lambda, Terraform IaC, and CI/CD via GitHub Actions.</p>
-        <div class="pills">
-          <span class="pill" data-tech="aws">AWS Lambda</span>
-<span class="pill" data-tech="sqs">SQS</span>
-<span class="pill" data-tech="s3">S3</span>
-<span class="pill" data-tech="dynamodb">DynamoDB</span>
-<span class="pill" data-tech="ecr">ECR</span>
-<span class="pill" data-tech="docker">Docker</span>
-<span class="pill" data-tech="terraform">Terraform</span>
-<span class="pill" data-tech="docker">Faster-Whisper</span>
-<span class="pill" data-tech="docker">FLAN-T5</span>
-<span class="pill" data-tech="github-actions">GitHub Actions</span>
-<span class="pill" data-tech="python">Python</span>
+        <article class="project-card">
+          <img src="assets/minutes.jpg" alt="Minutes Maker banner" />
+          <div class="content">
+            <h3>Minutes Maker – Serverless Meeting Intelligence Pipeline</h3>
+            <p>Production-grade AWS serverless pipeline that converts meeting recordings into structured minutes using Faster-Whisper and FLAN-T5, with async SQS architecture, Dockerized Lambda, Terraform IaC, and CI/CD via GitHub Actions.</p>
+            <div class="pills">
+              <span class="pill" data-tech="aws">AWS Lambda</span>
+              <span class="pill" data-tech="sqs">SQS</span>
+              <span class="pill" data-tech="s3">S3</span>
+              <span class="pill" data-tech="dynamodb">DynamoDB</span>
+              <span class="pill" data-tech="ecr">ECR</span>
+              <span class="pill" data-tech="docker">Docker</span>
+              <span class="pill" data-tech="terraform">Terraform</span>
+              <span class="pill" data-tech="docker">Faster-Whisper</span>
+              <span class="pill" data-tech="docker">FLAN-T5</span>
+              <span class="pill" data-tech="github-actions">GitHub Actions</span>
+              <span class="pill" data-tech="python">Python</span>
+            </div>
+            <div class="links">
+              <a href="https://github.com/Sruthijha/Minutes-Maker" target="_blank">GitHub</a>
+              <a href="https://minutes-maker.streamlit.app" target="_blank">Live Demo</a>
+            </div>
+          </div>
+        </article>
 
-        </div>
-        <div class="links">
-          <a href="https://github.com/Sruthijha/Minutes-Maker" target="_blank">GitHub</a>
-          <a href="https://minutes-maker.streamlit.app" target="_blank">Live Demo</a>
+        <article class="project-card">
+          <img src="assets/tokyo.png" alt="Azure Data Engineering banner" />
+          <div class="content">
+            <h3>Tokyo Olympics – End-to-End Azure Data Engineering Pipeline</h3>
+            <p>End-to-end Azure data pipeline that ingests Olympic datasets via Data Factory, transforms them with Databricks and PySpark across a layered architecture, and surfaces insights through Synapse Analytics and Power BI.</p>
+            <div class="pills">
+              <span class="pill">Azure Data Factory</span><span class="pill">ADLS Gen2</span>
+              <span class="pill">Azure Databricks</span><span class="pill">Apache Spark</span>
+              <span class="pill">Synapse</span><span class="pill">Power BI</span><span class="pill">SQL</span>
+            </div>
+            <div class="links">
+              <a href="https://github.com/Sruthijha/Tokyo-Olympics-Analytics" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="assets/research.png" alt="RAG Assistant banner" />
+          <div class="content">
+            <h3>Research Paper Assistant – RAG-Powered Q&amp;A System</h3>
+            <p>RAG-based research assistant that ingests any PDF, generates structured summaries, and answers questions with grounded page-level citations using OpenAI embeddings and cosine similarity retrieval.</p>
+            <div class="pills">
+              <span class="pill">Python</span><span class="pill">Streamlit</span>
+              <span class="pill">OpenAI GPT-4.1-mini</span><span class="pill">RAG</span>
+              <span class="pill">Embeddings</span><span class="pill">Vector Search</span>
+              <span class="pill">PyMuPDF</span>
+            </div>
+            <div class="links">
+              <a href="https://github.com/Sruthijha/research-paper-assistant" target="_blank">GitHub</a>
+              <a href="https://research-paper-analysiz.streamlit.app" target="_blank">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="assets/Airline.png" alt="Airline banner" />
+          <div class="content">
+            <h3>Airline Delay Prediction System</h3>
+            <p>Trained and benchmarked 10+ ML models on multi-year US flight data to predict delays, with XGBoost reaching 97% accuracy and uncovering that departure delay predicts arrival delay at corr = 0.97.</p>
+            <div class="pills">
+              <span class="pill">Python</span><span class="pill">XGBoost</span>
+              <span class="pill">Scikit-learn</span><span class="pill">Feature Engineering</span>
+              <span class="pill">Pandas</span>
+            </div>
+            <div class="links">
+              <a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System" target="_blank">GitHub</a>
+              <a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System/blob/main/Final%20Report.pdf" target="_blank">Report</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="assets/msr.png" alt="MSR banner" />
+          <div class="content">
+            <h3>MSR 2024 – ChatGPT Developer Interaction Analysis</h3>
+            <p>Mined ChatGPT-developer dialogues to predict conversation length, assess language-specific sentiment, and detect LLM failure points using a custom standard deviation threshold method.</p>
+            <div class="pills">
+              <span class="pill">Python</span><span class="pill">Keras</span>
+              <span class="pill">LSTM</span><span class="pill">SVM</span>
+              <span class="pill">NLP</span><span class="pill">TextBlob</span>
+            </div>
+            <div class="links">
+              <a href="https://conf.researchr.org/home/msr-2024" target="_blank">Challenge</a>
+              <a href="https://github.com/Sruthijha/SE_Mining-Challenge" target="_blank">GitHub</a>
+              <a href="https://github.com/Sruthijha/SE_Mining-Challenge/blob/master/SE%20Project%20Report.pdf" target="_blank">Report</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="assets/stat.png" alt="Crime banner" />
+          <div class="content">
+            <h3>U.S. Crime Trend Analysis - Statistical Modeling</h3>
+            <p>Analyzed 44 years of FBI crime data using hypothesis testing, bootstrapping, and regression to uncover long-term trends, regional disparities, and forecast violent crime rates through 2033.</p>
+            <div class="pills">
+              <span class="pill">Python</span><span class="pill">Pandas</span>
+              <span class="pill">SciPy</span><span class="pill">Hypothesis Testing</span>
+              <span class="pill">Bootstrapping</span><span class="pill">Regression</span>
+            </div>
+            <div class="links">
+              <a href="https://github.com/Sruthijha/CrimeDataAnalysis" target="_blank">GitHub</a>
+              <a href="https://github.com/Sruthijha/CrimeDataAnalysis/blob/main/Report.pdf" target="_blank">Report</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS + LEADERSHIP SIDE BY SIDE -->
+    <section id="highlights" class="container two-col-sections">
+
+      <!-- ACHIEVEMENTS -->
+      <div class="split-section" id="achievements">
+        <h2>Achievements</h2>
+        <div class="lead-list">
+
+          <div class="lead-item">
+            <div class="lead-icon">🏅</div>
+            <div>
+              <div class="lead-title">Institute Merit Scholarship, Mahindra University (2019-2023)</div>
+              <p>Awarded ₹100,000 (~$1,200) per semester for sustained academic excellence throughout undergraduate study.</p>
+            </div>
+          </div>
+
+          <div class="lead-item">
+            <div class="lead-icon">📜</div>
+            <div>
+              <div class="lead-title">Licentiate Certification in Insurance, Insurance Institute of India (III)</div>
+              <p>Professional certification in insurance principles and practice, issued by India's apex insurance education body.</p>
+            </div>
+          </div>
+
+          <div class="lead-item">
+            <div class="lead-icon">🎯</div>
+            <div>
+              <div class="lead-title">95th Percentile, JEE Main</div>
+              <p>Scored in the 95th percentile on India's national engineering entrance exam, taken by over 1 million candidates annually. Ranked AIR 4,000 in EAMCET Telangana.</p>
+            </div>
+          </div>
+
+          <div class="lead-item">
+            <div class="lead-icon">💡</div>
+            <div>
+              <div class="lead-title">FIITJEE Talent Reward Scholarship</div>
+              <p>Awarded ₹175,000 (~$2,100) for scoring 100% in FIITJEE's national talent recognition exam (FTRE), a competitive merit-based test for high school students across India.</p>
+            </div>
+          </div>
+
         </div>
       </div>
-    </article>
 
-    <!-- 2. Azure Pipeline -->
-    <article class="project-card">
-      <img src="assets/tokyo.png" alt="Azure Data Engineering banner" />
-      <div class="content">
-        <h3>Tokyo Olympics – End-to-End Azure Data Engineering Pipeline</h3>
-        <p>End-to-end Azure data pipeline that ingests Olympic datasets via Data Factory, transforms them with Databricks and PySpark across a layered architecture, and surfaces insights through Synapse Analytics and Power BI.</p>
-        <div class="pills">
-          <span class="pill">Azure Data Factory</span><span class="pill">ADLS Gen2</span>
-          <span class="pill">Azure Databricks</span><span class="pill">Apache Spark</span>
-          <span class="pill">Synapse</span><span class="pill">Power BI</span><span class="pill">SQL</span>
-        </div>
-        <div class="links">
-          <a href="https://github.com/Sruthijha/Tokyo-Olympics-Analytics" target="_blank">GitHub</a>
-        </div>
-      </div>
-    </article>
+      <!-- LEADERSHIP -->
+      <div class="split-section" id="leadership">
+        <h2>Leadership &amp; Community</h2>
+        <div class="lead-list">
 
-    <!-- 3. RAG Assistant -->
-    <article class="project-card">
-      <img src="assets/research.png" alt="RAG Assistant banner" />
-      <div class="content">
-        <h3>Research Paper Assistant – RAG-Powered Q&A System</h3>
-        <p>RAG-based research assistant that ingests any PDF, generates structured summaries, and answers questions with grounded page-level citations using OpenAI embeddings and cosine similarity retrieval.</p>
-        <div class="pills">
-          <span class="pill">Python</span><span class="pill">Streamlit</span>
-          <span class="pill">OpenAI GPT-4.1-mini</span><span class="pill">RAG</span>
-          <span class="pill">Embeddings</span><span class="pill">Vector Search</span>
-          <span class="pill">PyMuPDF</span>
-        </div>
-        <div class="links">
-  <a href="https://github.com/Sruthijha/research-paper-assistant" target="_blank">GitHub</a>
-  <a href="https://research-paper-analysiz.streamlit.app" target="_blank">Live Demo</a>
-</div>
-      </div>
-    </article>
+          <div class="lead-item">
+            <div class="lead-icon"><i class="fa-solid fa-user-graduate"></i></div>
+            <div>
+              <div class="lead-title">Graduate Peer Mentor, CU Boulder</div>
+              <p>Mentored incoming graduate students through the CU Boulder Graduate School's peer mentoring program, providing guidance on academic adjustment, work-life balance, and campus resources across disciplinary boundaries.</p>
+            </div>
+          </div>
 
-    <!-- 4. Airline -->
-    <article class="project-card">
-      <img src="assets/Airline.png" alt="Airline banner" />
-      <div class="content">
-        <h3>Airline Delay Prediction System</h3>
-        <p>Trained and benchmarked 10+ ML models on multi-year US flight data to predict delays, with XGBoost reaching 97% accuracy and uncovering that departure delay predicts arrival delay at corr ≈ 0.97.</p>
-        <div class="pills">
-          <span class="pill">Python</span><span class="pill">XGBoost</span>
-          <span class="pill">Scikit-learn</span><span class="pill">Feature Engineering</span>
-          <span class="pill">Pandas</span>
-        </div>
-        <div class="links">
-          <a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System" target="_blank">GitHub</a>
-          <a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System/blob/main/Final%20Report.pdf" target="_blank">Report</a>
+          <div class="lead-item">
+            <div class="lead-icon"><i class="fa-solid fa-globe"></i></div>
+            <div>
+              <div class="lead-title">Model United Nations</div>
+              <p>Represented assigned nations in structured debate across multiple conferences, building diplomacy, research-driven argumentation, and competitive public speaking skills.</p>
+            </div>
+          </div>
+
+          <div class="lead-item">
+            <div class="lead-icon"><i class="fa-solid fa-people-group"></i></div>
+            <div>
+              <div class="lead-title">Community Service &amp; Event Operations, Mahindra University</div>
+              <p>Coordinated campus-wide sustainability initiatives and managed logistics and on-ground execution for large-scale student fests (Aether, Kalakrithi).</p>
+            </div>
+          </div>
+
         </div>
       </div>
-    </article>
 
-    <!-- 5. MSR -->
-    <article class="project-card">
-      <img src="assets/msr.png" alt="MSR banner" />
-      <div class="content">
-        <h3>MSR 2024 – ChatGPT Developer Interaction Analysis</h3>
-        <p>Mined ChatGPT-developer dialogues to predict conversation length, assess language-specific sentiment, and detect LLM failure points using a custom standard deviation threshold method.</p>
-        <div class="pills">
-          <span class="pill">Python</span><span class="pill">Keras</span>
-          <span class="pill">LSTM</span><span class="pill">SVM</span>
-          <span class="pill">NLP</span><span class="pill">TextBlob</span>
-        </div>
-        <div class="links">
-          <a href="https://conf.researchr.org/home/msr-2024" target="_blank">Challenge</a>
-          <a href="https://github.com/Sruthijha/SE_Mining-Challenge" target="_blank">GitHub</a>
-          <a href="https://github.com/Sruthijha/SE_Mining-Challenge/blob/master/SE%20Project%20Report.pdf" target="_blank">Report</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 6. Crime -->
-    <article class="project-card">
-      <img src="assets/stat.png" alt="Crime banner" />
-      <div class="content">
-        <h3>U.S. Crime Trend Analysis - Statistical Modeling</h3>
-        <p>Analyzed 44 years of FBI crime data using hypothesis testing, bootstrapping, and regression to uncover long-term trends, regional disparities, and forecast violent crime rates through 2033.</p>
-        <div class="pills">
-          <span class="pill">Python</span><span class="pill">Pandas</span>
-          <span class="pill">SciPy</span><span class="pill">Hypothesis Testing</span>
-          <span class="pill">Bootstrapping</span><span class="pill">Regression</span>
-        </div>
-        <div class="links">
-          <a href="https://github.com/Sruthijha/CrimeDataAnalysis" target="_blank">GitHub</a>
-          <a href="https://github.com/Sruthijha/CrimeDataAnalysis/blob/main/Report.pdf" target="_blank">Report</a>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-
-
-
-
-<section id="achievements" class="container">
-  <h2>Achievements</h2>
-
-  <div class="lead-list">
-
-    <div class="lead-item">
-      <div class="lead-icon">🏅</div>
-      <div>
-        <div class="lead-title">Institute Merit Scholarship, Mahindra University (2019-2023)</div>
-        <p>Awarded ₹100,000 (~$1,200) per semester for sustained academic excellence throughout undergraduate study.</p>
-      </div>
-    </div>
-
-    <div class="lead-item">
-      <div class="lead-icon">📜</div>
-      <div>
-        <div class="lead-title">Licentiate Certification in Insurance, Insurance Institute of India (III)</div>
-        <p>Professional certification in insurance principles and practice, issued by India's apex insurance education body.</p>
-      </div>
-    </div>
-
-    <div class="lead-item">
-      <div class="lead-icon">🎯</div>
-      <div>
-        <div class="lead-title">95th Percentile, JEE Main</div>
-        <p>Scored in the 95th percentile on India's national engineering entrance exam, taken by over 1 million candidates annually. Ranked AIR 4,000 in EAMCET Telangana.</p>
-      </div>
-    </div>
-
-    <div class="lead-item">
-      <div class="lead-icon">💡</div>
-      <div>
-        <div class="lead-title">FIITJEE Talent Reward Scholarship</div>
-        <p>Awarded ₹175,000 (~$2,100) for scoring 100% in FIITJEE's national talent recognition exam (FTRE), a competitive merit-based test for high school students across India.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-
-
-
-
-<section id="leadership" class="container">
-  <h2 class="section-title">Leadership & Community</h2>
-
-  <div class="lead-list">
-
-    <div class="lead-item">
-      <div class="lead-icon">🎓</div>
-      <div>
-        <div class="lead-title">
-          Graduate Peer Mentor, CU Boulder (MS Data Science)
-        </div>
-        <p>
-          Mentored incoming graduate students through the CU Boulder Graduate School's peer mentoring program, providing guidance on academic adjustment, work-life balance, and campus resources across disciplinary boundaries.
-        </p>
-      </div>
-    </div>
-
-    <div class="lead-item">
-      <div class="lead-icon">🌍</div>
-      <div>
-        <div class="lead-title">
-          Model United Nations
-        </div>
-        <p>
-          Represented assigned nations in structured debate across multiple conferences, building diplomacy, research-driven argumentation, and high-pressure public speaking.
-        </p>
-      </div>
-    </div>
-
-    <div class="lead-item">
-      <div class="lead-icon">🌱</div>
-      <div>
-        <div class="lead-title">
-          Community Service & Event Operations, Mahindra University
-        </div>
-        <p>
-          Coordinated and contributed to campus-wide sustainability initiatives, and managed logistics and on-ground execution for large-scale student fests (Aether, Kalakrithi).
-        </p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
+    </section>
 
     <!-- FOOTER -->
     <footer>
@@ -2323,9 +2234,6 @@ footer{
 
   <!-- SCRIPTS -->
   <script>
-    // =========================
-    // Mobile nav toggle
-    // =========================
     const toggle = document.getElementById('nav-toggle');
     const nav = document.getElementById('site-nav');
 
@@ -2334,7 +2242,6 @@ footer{
       toggle.setAttribute('aria-expanded', String(open));
     });
 
-    // Close mobile nav when a link is clicked
     nav?.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         nav.classList.remove('open');
@@ -2342,9 +2249,6 @@ footer{
       });
     });
 
-    // =========================
-    // Smooth anchor scroll
-    // =========================
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', (e) => {
         const id = a.getAttribute('href');
@@ -2356,9 +2260,6 @@ footer{
       });
     });
 
-    // =========================
-    // Scroll spy
-    // =========================
     const HEADER_H = parseInt(
       getComputedStyle(document.documentElement).getPropertyValue('--header-h')
     ) || 64;
@@ -2414,15 +2315,9 @@ footer{
     window.addEventListener('hashchange', chooseActiveSection);
     document.addEventListener('DOMContentLoaded', chooseActiveSection);
 
-    // =========================
-    // Footer year
-    // =========================
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // =========================
-    // Contact FAB modal
-    // =========================
     const contactFab = document.getElementById('contact-fab');
     const contactOverlay = document.getElementById('contact-overlay');
     const contactClose = document.getElementById('contact-close');
@@ -2435,9 +2330,6 @@ footer{
     contactOverlay?.addEventListener('click', (e) => { if (e.target === contactOverlay) closeContact(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && contactOverlay?.classList.contains('open')) closeContact(); });
 
-    // =========================
-    // Hero typewriter
-    // =========================
     (function(){
       const wrap = document.getElementById("greetWrap");
       const out  = document.getElementById("greetType");
@@ -2494,9 +2386,6 @@ footer{
       tick();
     })();
 
-    // =========================
-    // Email copy
-    // =========================
     const emailItem = document.querySelector(".email-item");
     if (emailItem){
       emailItem.addEventListener("click", (e) => {
@@ -2509,9 +2398,6 @@ footer{
       });
     }
 
-    // =========================
-    // Experience card active glow
-    // =========================
     (function(){
       const cards = Array.from(document.querySelectorAll('#experience .experience-card'));
       if (!cards.length) return;
