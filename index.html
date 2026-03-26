@@ -1123,23 +1123,44 @@ section > :last-child{ margin-bottom: 0; }
   margin: 0;
 }
 
+/* Clean list → no default bullets */
 .achievement-list{
   margin: 0;
-  padding-left: 1.2rem;
-  list-style: disc;
-  list-style-position: outside;
+  padding: 0;
+  list-style: none;
   display: grid;
-  gap: 14px;
+  gap: 18px;
 }
 
+/* Each item */
 .achievement-list li{
+  position: relative;
+  padding-left: 22px;
   line-height: 1.65;
-  max-width: 100ch;
+  max-width: 70ch;
 }
 
-.achievement-list li::marker{ color: rgba(96,165,250,.85); }
-.achievement-list strong{ font-weight: 600; }
+/* Custom accent bullet */
+.achievement-list li::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
 
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(96,165,250,.6);
+}
+
+/* Strong text */
+.achievement-list strong{
+  font-weight: 600;
+}
+
+/* Accent links */
 .accent,
 .accent:visited{
   color: var(--accent);
@@ -1150,42 +1171,42 @@ section > :last-child{ margin-bottom: 0; }
 a.accent:hover,
 a.accent:focus-visible{
   color: #93c5fd;
-  text-shadow:
-    0 0 8px rgba(96,165,250,.6),
-    0 0 16px rgba(96,165,250,.35);
+  text-shadow: 0 0 6px rgba(96,165,250,.4);
   outline: none;
 }
 
-.achievement-card,
-#leadership .card{
-  transition: transform .18s ease, box-shadow .18s ease;
-}
+/* Card base */
+.achievement-card{
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
 
-.achievement-card:hover,
-#leadership .card:hover{
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-2);
-}
-
-/* =========================================================
-   ABOUT ME
-   ========================================================= */
-
-#about .about-card{ line-height: 1.85; }
-
-#about .about-card p{ margin: 0 0 16px; }
-#about .about-card p:last-child{ margin-bottom: 0; }
-
-.about-card{
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
-.about-card:hover{
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-2), 0 0 22px rgba(96,165,250,.12);
+/* Hover interaction */
+.achievement-card:hover{
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-2), 0 0 20px rgba(96,165,250,.12);
   border-color: rgba(96,165,250,.35);
 }
 
+/* Optional: slight entry animation */
+.achievement-card{
+  animation: fadeUp .4s ease both;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /* =========================================================
    FOOTER
    ========================================================= */
@@ -2056,33 +2077,63 @@ footer{
       </div>
     </section>
 
-    <!-- LEADERSHIP -->
-    <section id="leadership" class="container">
-      <h2>Leadership &amp; Engagement</h2>
+    <section class="leadership container">
+  <h2 class="section-title">Leadership & Engagement</h2>
 
-      <div class="achievements-grid">
-        <article class="card achievement-card">
-          <ul class="achievement-list">
-            <li>
-              Volunteered as a
-              <a href="https://www.colorado.edu/graduateschool/services-resources/mentoring/graduate-students/graduate-peer-mentoring-program"
-                 target="_blank" rel="noopener noreferrer" class="accent">Graduate Peer Mentor</a>
-              at the <span class="accent">University of Colorado Boulder</span>, supporting incoming graduate students with academic transition and campus resources.
-            </li>
-            <li>Participated in <span class="accent">Model United Nations (MUN)</span> conferences, gaining experience in diplomacy, public speaking, and structured debate.</li>
-            <li>
-              Volunteered in
-              <a href="https://www.mahindrauniversity.edu.in/events/mahindra-universitys-cleanliness-drive/"
-                 target="_blank" rel="noopener noreferrer" class="accent">Mahindra University's Cleanliness Drive</a>,
-              contributing to campus-wide community service initiatives.
-            </li>
-            <li>Active member of student organizations including the <span class="accent">Football Club</span>, <span class="accent">Anime Club</span>, and <span class="accent">Artfelt Club</span>.</li>
-            <li>Supported <span class="accent">logistics and coordination</span> for academic activities, assisting with test organization and on-ground execution.</li>
-          </ul>
-        </article>
+  <div class="lead-grid">
+
+    <div class="lead-card">
+      <div class="lead-icon">🎓</div>
+      <div>
+        <div class="lead-title">Graduate Peer Mentor</div>
+        <p class="lead-desc">
+          Supported incoming graduate students with academic transition and campus resources.
+        </p>
       </div>
-    </section>
+    </div>
 
+    <div class="lead-card">
+      <div class="lead-icon">🌍</div>
+      <div>
+        <div class="lead-title">Model United Nations</div>
+        <p class="lead-desc">
+          Developed diplomacy, public speaking, and structured debate skills through conferences.
+        </p>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-icon">🌱</div>
+      <div>
+        <div class="lead-title">Community Service</div>
+        <p class="lead-desc">
+          Contributed to campus-wide cleanliness initiatives at Mahindra University.
+        </p>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-icon">⚽</div>
+      <div>
+        <div class="lead-title">Student Involvement</div>
+        <p class="lead-desc">
+          Active member of Football Club, Anime Club, and Artfelt Club.
+        </p>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-icon">⚙️</div>
+      <div>
+        <div class="lead-title">Operations & Coordination</div>
+        <p class="lead-desc">
+          Assisted in logistics, test organization, and on-ground execution of academic activities.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
     <!-- FOOTER -->
     <footer>
       <div class="container">
