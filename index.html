@@ -1218,6 +1218,96 @@ a.accent:focus-visible{
 }
 
 /* =========================================================
+   SHOWCASE SECTIONS (Leadership + Awards)
+   ========================================================= */
+
+.showcase-section {
+  padding-top: var(--section-pad);
+  padding-bottom: var(--section-pad);
+}
+
+.showcase-heading {
+  text-align: center;
+  font-size: clamp(22px, 3vw, 28px);
+  margin: 0 0 32px !important;
+  letter-spacing: -0.01em;
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .showcase-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.showcase-card {
+  background: linear-gradient(180deg, rgba(15,23,42,.92), rgba(11,15,23,.88));
+  border: 1px solid rgba(148,163,184,.18);
+  border-radius: 20px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  box-shadow:
+    0 18px 50px rgba(0,0,0,.40),
+    0 0 0 1px rgba(255,255,255,.03) inset;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.showcase-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(96,165,250,.35);
+  box-shadow:
+    0 22px 60px rgba(0,0,0,.50),
+    0 0 28px rgba(96,165,250,.15);
+}
+
+.showcase-icon {
+  font-size: 1.6rem;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 4px;
+  transition: transform .18s ease;
+}
+
+.showcase-card:hover .showcase-icon {
+  transform: scale(1.1);
+}
+
+.showcase-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.3;
+  transition: color .18s ease;
+}
+
+.showcase-card:hover .showcase-title {
+  color: var(--accent);
+}
+
+.showcase-sub {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--muted);
+  opacity: .8;
+  margin-top: -4px;
+}
+
+.showcase-card p {
+  margin: 4px 0 0;
+  font-size: .92rem;
+  color: rgba(229,231,235,.75);
+  line-height: 1.65;
+}
+
+/* =========================================================
    FOOTER
    ========================================================= */
 
@@ -1573,8 +1663,8 @@ footer{
           <li><a href="#education">Education</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#achievements">Achievements</a></li>
           <li><a href="#leadership">Leadership</a></li>
+          <li><a href="#achievements">Awards</a></li>
         </ul>
       </nav>
     </div>
@@ -2065,74 +2155,65 @@ footer{
       </div>
     </section>
 
-    <!-- ACHIEVEMENTS + LEADERSHIP SIDE BY SIDE -->
-    <section id="highlights" class="container two-col-sections">
+    <!-- LEADERSHIP + AWARDS STACKED SHOWCASE -->
+    <section id="leadership" class="container showcase-section">
+      <h2 class="showcase-heading">Leadership &amp; Community</h2>
+      <div class="showcase-grid">
 
-      <!-- ACHIEVEMENTS -->
-      <div class="split-section" id="achievements">
-        <h2>Achievements</h2>
-        <div class="lead-list">
-
-          <div class="lead-item">
-            <div class="lead-icon">🏅</div>
-            <div>
-              <div class="lead-title">Institute Merit Scholarship, Mahindra University (2019-2023)</div>
-              <p>Awarded ₹100,000 (~$1,200) per semester for sustained academic excellence throughout undergraduate study.</p>
-            </div>
-          </div>
-
-          <div class="lead-item">
-            <div class="lead-icon">🎯</div>
-            <div>
-              <div class="lead-title">95th Percentile, JEE Main</div>
-              <p>Scored in the 95th percentile on India's national engineering entrance exam, taken by over 1 million candidates annually. Ranked AIR 4,000 in EAMCET Telangana.</p>
-            </div>
-          </div>
-
-          <div class="lead-item">
-            <div class="lead-icon">💡</div>
-            <div>
-              <div class="lead-title">FIITJEE Talent Reward Scholarship</div>
-              <p>Awarded ₹175,000 (~$2,100) for scoring 100% in FIITJEE's national talent recognition exam (FTRE), a competitive merit-based test for high school students across India.</p>
-            </div>
-          </div>
-
+        <div class="showcase-card">
+          <div class="showcase-icon"><i class="fa-solid fa-user-graduate"></i></div>
+          <div class="showcase-title">Graduate Peer Mentor</div>
+          <div class="showcase-sub">CU Boulder, MS Data Science</div>
+          <p>Mentored incoming graduate students through the CU Boulder Graduate School's peer mentoring program, providing guidance on academic adjustment, work-life balance, and campus resources across disciplinary boundaries.</p>
         </div>
-      </div>
 
-      <!-- LEADERSHIP -->
-      <div class="split-section" id="leadership">
-        <h2>Leadership &amp; Community</h2>
-        <div class="lead-list">
-
-          <div class="lead-item">
-            <div class="lead-icon"><i class="fa-solid fa-user-graduate"></i></div>
-            <div>
-              <div class="lead-title">Graduate Peer Mentor, CU Boulder</div>
-              <p>Mentored incoming graduate students through the CU Boulder Graduate School's peer mentoring program, providing guidance on academic adjustment, work-life balance, and campus resources across disciplinary boundaries.</p>
-            </div>
-          </div>
-
-          <div class="lead-item">
-            <div class="lead-icon"><i class="fa-solid fa-globe"></i></div>
-            <div>
-              <div class="lead-title">Model United Nations</div>
-              <p>Represented assigned nations in structured debate across multiple conferences, building diplomacy, research-driven argumentation, and competitive public speaking skills.</p>
-            </div>
-          </div>
-
-          <div class="lead-item">
-            <div class="lead-icon"><i class="fa-solid fa-people-group"></i></div>
-            <div>
-              <div class="lead-title">Community Service &amp; Event Operations, Mahindra University</div>
-              <p>Coordinated campus-wide sustainability initiatives and managed logistics and on-ground execution for large-scale student fests (Aether, Kalakrithi).</p>
-            </div>
-          </div>
-
+        <div class="showcase-card">
+          <div class="showcase-icon"><i class="fa-solid fa-globe"></i></div>
+          <div class="showcase-title">Model United Nations</div>
+          <div class="showcase-sub">Multiple Conferences</div>
+          <p>Represented assigned nations in structured debate, building diplomacy, research-driven argumentation, and competitive public speaking skills.</p>
         </div>
-      </div>
 
+        <div class="showcase-card">
+          <div class="showcase-icon"><i class="fa-solid fa-people-group"></i></div>
+          <div class="showcase-title">Community Service &amp; Event Operations</div>
+          <div class="showcase-sub">Mahindra University</div>
+          <p>Coordinated campus-wide sustainability initiatives and managed logistics and on-ground execution for large-scale student fests (Aether, Kalakrithi).</p>
+        </div>
+
+      </div>
     </section>
+
+    <!-- AWARDS & RECOGNITION -->
+    <section id="achievements" class="container showcase-section">
+      <h2 class="showcase-heading">Awards &amp; Recognition</h2>
+      <div class="showcase-grid">
+
+        <div class="showcase-card">
+          <div class="showcase-icon">🏅</div>
+          <div class="showcase-title">Institute Merit Scholarship</div>
+          <div class="showcase-sub">Mahindra University, 2019-2023</div>
+          <p>Awarded ₹100,000 (~$1,200) per semester for sustained academic excellence throughout undergraduate study.</p>
+        </div>
+
+        <div class="showcase-card">
+          <div class="showcase-icon">🎯</div>
+          <div class="showcase-title">95th Percentile, JEE Main</div>
+          <div class="showcase-sub">AIR 4,000 in EAMCET Telangana</div>
+          <p>Scored in the 95th percentile on India's national engineering entrance exam, taken by over 1 million candidates annually.</p>
+        </div>
+
+        <div class="showcase-card">
+          <div class="showcase-icon">💡</div>
+          <div class="showcase-title">FIITJEE Talent Reward Scholarship</div>
+          <div class="showcase-sub">100% in FTRE</div>
+          <p>Awarded ₹175,000 (~$2,100) for scoring 100% in FIITJEE's national talent recognition exam, a competitive merit-based test for high school students across India.</p>
+        </div>
+
+      </div>
+    </section>
+
+
 
     <!-- FOOTER -->
     <footer>
