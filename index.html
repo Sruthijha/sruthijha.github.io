@@ -1307,6 +1307,54 @@ a.accent:focus-visible{
   line-height: 1.65;
 }
 
+/* Contact grid is always 4 cols */
+.contact-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-card {
+  text-decoration: none;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-card .showcase-icon {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+  width: 100%;
+  justify-content: center;
+}
+
+.contact-card .showcase-title {
+  text-align: center;
+  font-size: 1.05rem;
+}
+
+.contact-card p {
+  text-align: center;
+  font-size: .88rem;
+  color: var(--muted);
+  margin: 4px 0 0;
+  word-break: break-all;
+}
+
+.contact-card:hover p {
+  color: var(--accent);
+}
+
 /* =========================================================
    FOOTER
    ========================================================= */
@@ -1664,7 +1712,7 @@ footer{
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#leadership">Leadership</a></li>
-          <li><a href="#achievements">Awards</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -2212,6 +2260,38 @@ footer{
 
 
 
+    <!-- CONTACT -->
+    <section id="contact" class="container showcase-section">
+      <h2 class="showcase-heading">Contact</h2>
+      <div class="showcase-grid contact-grid">
+
+        <a class="showcase-card contact-card" href="mailto:sruthipagolu@gmail.com">
+          <div class="showcase-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div class="showcase-title">Email</div>
+          <p>sruthipagolu@gmail.com</p>
+        </a>
+
+        <a class="showcase-card contact-card" href="https://www.linkedin.com/in/sruthijha" target="_blank" rel="noopener">
+          <div class="showcase-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+          <div class="showcase-title">LinkedIn</div>
+          <p>linkedin.com/in/sruthijha</p>
+        </a>
+
+        <a class="showcase-card contact-card" href="https://github.com/Sruthijha" target="_blank" rel="noopener">
+          <div class="showcase-icon"><i class="fa-brands fa-github"></i></div>
+          <div class="showcase-title">GitHub</div>
+          <p>github.com/Sruthijha</p>
+        </a>
+
+        <a class="showcase-card contact-card" href="https://dev.to/sruthijha" target="_blank" rel="noopener">
+          <div class="showcase-icon"><i class="fa-brands fa-dev"></i></div>
+          <div class="showcase-title">Dev.to</div>
+          <p>dev.to/sruthijha</p>
+        </a>
+
+      </div>
+    </section>
+
     <!-- FOOTER -->
     <footer>
       <div class="container">
@@ -2222,84 +2302,6 @@ footer{
       </div>
     </footer>
 
-    <!-- FLOATING CONTACT BUTTON -->
-    <button
-      id="contact-fab"
-      class="contact-fab"
-      type="button"
-      aria-label="Open contact menu"
-      aria-haspopup="dialog"
-      aria-controls="contact-overlay"
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
-      </svg>
-    </button>
-
-    <!-- CONTACT MODAL OVERLAY -->
-    <div
-      id="contact-overlay"
-      class="contact-overlay"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="contact-title"
-    >
-      <div class="contact-modal" role="document">
-        <div class="contact-modal-head">
-          <h3 id="contact-title" class="contact-modal-title">Get In Touch</h3>
-          <button id="contact-close" class="contact-close" type="button" aria-label="Close">×</button>
-        </div>
-
-        <div class="contact-grid">
-          <a class="contact-item email-item" href="mailto:sruthipagolu@gmail.com">
-            <div class="contact-left">
-              <div class="contact-ico"><img src="assets/gmail.png" alt="Email icon" /></div>
-              <div class="contact-text">
-                <div class="contact-toprow">
-                  <p class="contact-kicker">Email</p>
-                  <span class="copy-hint">Copy</span>
-                </div>
-                <p class="contact-main">sruthipagolu@gmail.com</p>
-              </div>
-            </div>
-            <div class="contact-arrow">→</div>
-          </a>
-
-          <a class="contact-item" href="https://www.linkedin.com/in/sruthijha" target="_blank" rel="noopener noreferrer">
-            <div class="contact-left">
-              <div class="contact-ico"><img src="assets/linkedin.png" alt="LinkedIn icon" /></div>
-              <div class="contact-text">
-                <p class="contact-kicker">LinkedIn</p>
-                <p class="contact-main">Connect with me</p>
-              </div>
-            </div>
-            <div class="contact-arrow">→</div>
-          </a>
-
-          <a class="contact-item" href="https://github.com/Sruthijha" target="_blank" rel="noopener noreferrer">
-            <div class="contact-left">
-              <div class="contact-ico"><img src="assets/github.svg" alt="GitHub icon" /></div>
-              <div class="contact-text">
-                <p class="contact-kicker">GitHub</p>
-                <p class="contact-main">View my code</p>
-              </div>
-            </div>
-            <div class="contact-arrow">→</div>
-          </a>
-
-          <a class="contact-item" href="https://medium.com/@sruthijha" target="_blank" rel="noopener noreferrer">
-            <div class="contact-left">
-              <div class="contact-ico"><img src="assets/medium.png" alt="Medium icon" /></div>
-              <div class="contact-text">
-                <p class="contact-kicker">Medium</p>
-                <p class="contact-main">Read my writing</p>
-              </div>
-            </div>
-            <div class="contact-arrow">→</div>
-          </a>
-        </div>
-      </div>
-    </div>
   </main>
 
   <!-- SCRIPTS -->
@@ -2388,18 +2390,6 @@ footer{
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    const contactFab = document.getElementById('contact-fab');
-    const contactOverlay = document.getElementById('contact-overlay');
-    const contactClose = document.getElementById('contact-close');
-
-    function openContact(){ if (!contactOverlay) return; contactOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; contactClose?.focus(); }
-    function closeContact(){ if (!contactOverlay) return; contactOverlay.classList.remove('open'); document.body.style.overflow = ''; contactFab?.focus(); }
-
-    contactFab?.addEventListener('click', openContact);
-    contactClose?.addEventListener('click', closeContact);
-    contactOverlay?.addEventListener('click', (e) => { if (e.target === contactOverlay) closeContact(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && contactOverlay?.classList.contains('open')) closeContact(); });
-
     (function(){
       const wrap = document.getElementById("greetWrap");
       const out  = document.getElementById("greetType");
@@ -2455,18 +2445,6 @@ footer{
 
       tick();
     })();
-
-    const emailItem = document.querySelector(".email-item");
-    if (emailItem){
-      emailItem.addEventListener("click", (e) => {
-        e.preventDefault();
-        navigator.clipboard.writeText("sruthipagolu@gmail.com");
-        emailItem.classList.add("copied");
-        const hint = emailItem.querySelector(".copy-hint");
-        if (hint) hint.textContent = "Copied";
-        setTimeout(() => { emailItem.classList.remove("copied"); if (hint) hint.textContent = "Copy"; }, 1500);
-      });
-    }
 
     (function(){
       const cards = Array.from(document.querySelectorAll('#experience .experience-card'));
