@@ -193,7 +193,15 @@
     border-radius: 20px;
     overflow: hidden;
     background: linear-gradient(180deg, rgba(15,23,42,.85), rgba(11,15,23,.80));
-    box-shadow: 0 18px 50px rgba(0,0,0,.40);
+    box-shadow: 0 20px 60px rgba(0,0,0,.45);
+    transition: border-color .18s ease, box-shadow .18s ease;
+  }
+
+  .skills-table:hover{
+    border-color: rgba(96,165,250,.45);
+    box-shadow:
+      0 22px 60px rgba(0,0,0,.55),
+      0 0 32px rgba(96,165,250,.20);
   }
 
   .skills-row{
@@ -484,20 +492,17 @@
           <div class="skills-tags">
             <span class="stag">TensorFlow</span>
             <span class="stag">PyTorch</span>
-            <span class="stag">Keras</span>
-            <span class="stag">HuggingFace</span>
             <span class="stag">Scikit-learn</span>
             <span class="stag">XGBoost</span>
-            <span class="stag">Random Forest</span>
-            <span class="stag">LSTM</span>
-            <span class="stag">SVM</span>
+            <span class="stag">Keras</span>
+            <span class="stag">HuggingFace</span>
             <span class="stag">Hyperparameter Tuning</span>
             <span class="stag">Model Evaluation</span>
           </div>
         </div>
 
         <div class="skills-row">
-          <div class="skills-label">LLM & Gen AI</div>
+          <div class="skills-label">LLM & Generative AI</div>
           <div class="skills-tags">
             <span class="stag">OpenAI</span>
             <span class="stag">LangChain</span>
