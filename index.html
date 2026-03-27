@@ -102,7 +102,15 @@
   letter-spacing: -0.01em;
 }
 
-.about-coase {
+#about p, #about .about-coase {
+  max-width: 72ch;
+  line-height: 1.8;
+  color: rgba(229,231,235,.88);
+}
+
+#about .about-quote {
+  max-width: 72ch;
+}
   font-style: italic;
   color: var(--muted);
   font-size: .95rem;
@@ -1859,7 +1867,6 @@ footer{
     <section id="about" class="container">
       <h2>About Me</h2>
 
-      <div class="card about-card">
         <blockquote class="about-quote">"It's simple, do it better than anyone else."</blockquote>
 
         <p>
@@ -1881,7 +1888,7 @@ footer{
         <p>
           Outside of work, I'm naturally curious and enjoy learning new things, whether it's a technical concept or an unfamiliar idea. I grew up watching Naruto, and that mindset, persistence and long-term thinking, is what brought me from an engineering student in Hyderabad to building data systems in the US, and what continues to drive me forward.
         </p>
-      </div>
+
     </section>
 
     <!-- SKILLS -->
