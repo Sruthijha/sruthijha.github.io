@@ -71,8 +71,8 @@
   text-rendering: optimizeLegibility;
 
   background:
-    radial-gradient(900px 420px at 20% 0%, rgba(96,165,250,.12), transparent 60%),
-    radial-gradient(1200px 600px at 80% 20%, rgba(167,139,250,.10), transparent 60%),
+    radial-gradient(900px 420px at 20% 0%, rgba(96,165,250,.06), transparent 60%),
+    radial-gradient(1200px 600px at 80% 20%, rgba(167,139,250,.05), transparent 60%),
     var(--bg);
 }
 
@@ -91,7 +91,16 @@
     padding: 0 1rem;
   }
 
-  /* Optional mono utility */
+  .about-quote {
+  margin: 0 0 1.25rem;
+  padding: 0 0 1.25rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
 .mono{
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   letter-spacing: -0.01em;
@@ -1842,40 +1851,18 @@ footer{
       <h2>About Me</h2>
 
       <div class="card about-card">
+        <blockquote class="about-quote">"It's simple, do it better than anyone else."</blockquote>
+
         <p>
-          I see data as more than just numbers on a screen - it's one of the closest things we have
-          to a record of how people think, decide, and build systems. I enjoy
-          <span class="accent">studying complex problems</span>, working with
-          <span class="accent">messy data</span>, and turning ambiguity into insights that genuinely
-          influence real decisions.
+          Data is only as powerful as the questions you ask of it. I've always been drawn to the hard questions, the ones without obvious answers, where you have to dig through the noise to find something that actually changes how someone thinks or acts.
         </p>
 
         <p>
-          I recently graduated from the
-          <span class="accent">University of Colorado Boulder</span> with a
-          <span class="accent">Master's in Data Science</span>, and I'm currently working as a
-          <span class="accent">Data Intern at Goodie Bag</span>, where I support data-driven decisions
-          around <span class="accent">customer acquisition</span> and
-          <span class="accent">marketplace growth</span>. I'm especially interested in work where
-          analysis connects directly to the real world - not just dashboards, but outcomes that
-          actually matter.
+          I recently graduated from the University of Colorado Boulder with a Master's in Data Science, and I'm currently working as a Data Intern at Goodie Bag, supporting data-driven decisions around customer acquisition and marketplace growth. I'm especially drawn to work where analysis connects directly to the real world, not just dashboards, but outcomes that actually matter.
         </p>
 
         <p>
-          Outside of work, I'm deeply curious and creative by nature. I genuinely enjoy
-          <span class="accent">studying and learning new things</span>, whether it's a technical
-          concept or an unfamiliar idea. I grew up watching
-          <span class="accent">Naruto</span>, later developed a love for stories like
-          <span class="accent">Percy Jackson</span>, and often spend my time
-          <span class="accent">sketching</span>, <span class="accent">listening to music</span>, or
-          exploring questions that sit at the intersection of creativity and logic.
-        </p>
-
-        <p>
-          I'm most excited by work that blends
-          <span class="accent">thoughtful analysis</span> with
-          <span class="accent">real-world impact</span> - where data is used not just to describe
-          what happened, but to help shape what comes next.
+          Outside of work, I'm deeply curious by nature. I enjoy picking up new things, whether it's a technical concept, a new framework, or just an idea I hadn't encountered before. I grew up watching Naruto, and if there's one thing it taught me, it's to never give up on your dreams no matter how far they seem. That belief is what brought me from an engineering student in Hyderabad to a data scientist building real systems in the US, and it's what keeps me going every day.
         </p>
       </div>
     </section>
