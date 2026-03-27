@@ -964,7 +964,7 @@ section > :last-child{ margin-bottom: 0; }
   display: flex;
   flex-direction: column;
   padding: 0 !important;
-  transition: transform .18s ease, box-shadow .18s ease;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
   will-change: transform;
   box-shadow: var(--shadow);
 }
@@ -981,8 +981,11 @@ section > :last-child{ margin-bottom: 0; }
 
 .project-card:hover,
 .project-card:focus-within{
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-2);
+  transform: translateY(-4px);
+  border-color: rgba(96,165,250,.45);
+  box-shadow:
+    0 22px 60px rgba(0,0,0,.55),
+    0 0 32px rgba(96,165,250,.20);
 }
 
 .project-card:hover > img,
@@ -1018,6 +1021,8 @@ section > :last-child{ margin-bottom: 0; }
   flex-wrap: wrap;
   gap: .5rem;
   margin-bottom: .9rem;
+  min-height: 96px;
+  align-content: flex-start;
 }
 
 .pill{
@@ -1127,6 +1132,19 @@ section > :last-child{ margin-bottom: 0; }
 @media (prefers-reduced-motion: reduce){
   .project-card,
   .project-card > img{ transition: none !important; }
+}
+
+.project-stack {
+  margin: 0 0 .9rem 0;
+  font-size: .88rem;
+  color: rgba(229,231,235,.7);
+  line-height: 1.5;
+}
+
+.stack-label {
+  font-weight: 700;
+  color: var(--accent);
+  margin-right: 4px;
 }
 
 .projects-footer {
@@ -2088,15 +2106,7 @@ footer{
           <div class="content">
             <h3>Minutes Maker – Serverless Meeting Intelligence Pipeline</h3>
             <p>Production-grade AWS serverless pipeline that converts meeting recordings into structured minutes using Faster-Whisper and FLAN-T5, built with async SQS processing and containerized Lambda.</p>
-            <div class="pills">
-              <span class="pill" data-tech="aws">AWS Lambda</span>
-              <span class="pill" data-tech="sqs">SQS</span>
-              <span class="pill" data-tech="s3">S3</span>
-              <span class="pill" data-tech="dynamodb">DynamoDB</span>
-              <span class="pill" data-tech="docker">Docker</span>
-              <span class="pill" data-tech="terraform">Terraform</span>
-              <span class="pill" data-tech="python">Python</span>
-            </div>
+            <p class="project-stack"><span class="stack-label">Stack:</span> AWS Lambda, SQS, S3, DynamoDB, Docker, Terraform, Python</p>
             <div class="links">
               <a href="https://github.com/Sruthijha/Minutes-Maker" target="_blank">GitHub</a>
               <a href="https://minutes-maker.streamlit.app" target="_blank">Live Demo</a>
@@ -2108,15 +2118,7 @@ footer{
           <div class="content">
             <h3>Tokyo Olympics – End-to-End Azure Data Engineering Pipeline</h3>
             <p>Designed and built an end-to-end Azure data pipeline ingesting Olympic datasets via Data Factory, transforming them with Databricks and PySpark, and delivering analytics through Synapse and Power BI.</p>
-            <div class="pills">
-              <span class="pill">Azure Data Factory</span>
-              <span class="pill">ADLS Gen2</span>
-              <span class="pill">Azure Databricks</span>
-              <span class="pill">Apache Spark</span>
-              <span class="pill">Synapse</span>
-              <span class="pill">Power BI</span>
-              <span class="pill">SQL</span>
-            </div>
+            <p class="project-stack"><span class="stack-label">Stack:</span> Azure Data Factory, ADLS Gen2, Databricks, Apache Spark, Synapse, Power BI, SQL</p>
             <div class="links">
               <a href="https://github.com/Sruthijha/Tokyo-Olympics-Analytics" target="_blank">GitHub</a>
             </div>
@@ -2127,15 +2129,7 @@ footer{
           <div class="content">
             <h3>Research Paper Assistant – RAG-Powered Q&amp;A System</h3>
             <p>RAG-based research assistant that ingests PDFs, generates structured summaries, and answers questions with grounded page-level citations for reliable document understanding.</p>
-            <div class="pills">
-              <span class="pill">Python</span>
-              <span class="pill">Streamlit</span>
-              <span class="pill">OpenAI GPT-4.1-mini</span>
-              <span class="pill">RAG</span>
-              <span class="pill">Embeddings</span>
-              <span class="pill">Vector Search</span>
-              <span class="pill">PyMuPDF</span>
-            </div>
+            <p class="project-stack"><span class="stack-label">Stack:</span> Python, Streamlit, OpenAI GPT-4.1-mini, RAG, Embeddings, Vector Search, PyMuPDF</p>
             <div class="links">
               <a href="https://github.com/Sruthijha/research-paper-assistant" target="_blank">GitHub</a>
               <a href="https://research-paper-analysiz.streamlit.app" target="_blank">Live Demo</a>
@@ -2147,15 +2141,7 @@ footer{
           <div class="content">
             <h3>Airline Delay Prediction System</h3>
             <p>Trained and benchmarked 10+ ML models on multi-year US flight data to predict delays, with XGBoost reaching 97% accuracy and uncovering that departure delay predicts arrival delay at corr = 0.97.</p>
-            <div class="pills">
-              <span class="pill">Python</span>
-              <span class="pill">XGBoost</span>
-              <span class="pill">Scikit-learn</span>
-              <span class="pill">Feature Engineering</span>
-              <span class="pill">Pandas</span>
-              <span class="pill">Random Forest</span>
-              <span class="pill">EDA</span>
-            </div>
+            <p class="project-stack"><span class="stack-label">Stack:</span> Python, XGBoost, Scikit-learn, Pandas, Random Forest, Feature Engineering, EDA</p>
             <div class="links">
               <a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System" target="_blank">GitHub</a>
               <a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System/blob/main/Final%20Report.pdf" target="_blank">Report</a>
@@ -2167,15 +2153,7 @@ footer{
           <div class="content">
             <h3>MSR 2024 – ChatGPT Developer Interaction Analysis</h3>
             <p>Mined ChatGPT-developer dialogues to predict conversation length, assess language-specific sentiment, and detect LLM failure points using a custom standard deviation threshold method.</p>
-            <div class="pills">
-              <span class="pill">Python</span>
-              <span class="pill">Keras</span>
-              <span class="pill">LSTM</span>
-              <span class="pill">SVM</span>
-              <span class="pill">NLP</span>
-              <span class="pill">TextBlob</span>
-              <span class="pill">Pandas</span>
-            </div>
+            <p class="project-stack"><span class="stack-label">Stack:</span> Python, Keras, LSTM, SVM, NLP, TextBlob, Pandas</p>
             <div class="links">
               <a href="https://conf.researchr.org/home/msr-2024" target="_blank">Challenge</a>
               <a href="https://github.com/Sruthijha/SE_Mining-Challenge" target="_blank">GitHub</a>
@@ -2188,15 +2166,7 @@ footer{
           <div class="content">
             <h3>U.S. Crime Trend Analysis – Statistical Modeling</h3>
             <p>Analyzed 44 years of FBI crime data using hypothesis testing, bootstrapping, and regression to uncover long-term trends, regional disparities, and forecast violent crime rates through 2033.</p>
-            <div class="pills">
-              <span class="pill">Python</span>
-              <span class="pill">Pandas</span>
-              <span class="pill">SciPy</span>
-              <span class="pill">Hypothesis Testing</span>
-              <span class="pill">Bootstrapping</span>
-              <span class="pill">Regression</span>
-              <span class="pill">Matplotlib</span>
-            </div>
+            <p class="project-stack"><span class="stack-label">Stack:</span> Python, Pandas, SciPy, Hypothesis Testing, Bootstrapping, Regression, Matplotlib</p>
             <div class="links">
               <a href="https://github.com/Sruthijha/CrimeDataAnalysis" target="_blank">GitHub</a>
               <a href="https://github.com/Sruthijha/CrimeDataAnalysis/blob/main/Report.pdf" target="_blank">Report</a>
