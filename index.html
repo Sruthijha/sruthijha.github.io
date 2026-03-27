@@ -1269,7 +1269,6 @@ a.accent:focus-visible{
   padding: 28px 24px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 10px;
   box-shadow:
     0 18px 50px rgba(0,0,0,.40),
@@ -1285,11 +1284,17 @@ a.accent:focus-visible{
     0 0 28px rgba(96,165,250,.15);
 }
 
+.showcase-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .showcase-icon {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: var(--accent);
   line-height: 1;
-  margin-bottom: 4px;
+  flex-shrink: 0;
   transition: transform .18s ease;
 }
 
@@ -1314,11 +1319,11 @@ a.accent:focus-visible{
   font-weight: 600;
   color: var(--muted);
   opacity: .8;
-  margin-top: -4px;
+  padding-left: 0;
 }
 
 .showcase-card p {
-  margin: 4px 0 0;
+  margin: 0;
   font-size: .92rem;
   color: rgba(229,231,235,.75);
   line-height: 1.65;
@@ -2216,23 +2221,35 @@ footer{
       <div class="showcase-grid">
 
         <div class="showcase-card">
-          <div class="showcase-icon"><i class="fa-solid fa-user-graduate"></i></div>
-          <div class="showcase-title">Graduate Peer Mentor</div>
-          <div class="showcase-sub">CU Boulder, MS Data Science</div>
+          <div class="showcase-card-header">
+            <div class="showcase-icon"><i class="fa-solid fa-user-graduate"></i></div>
+            <div>
+              <div class="showcase-title">Graduate Peer Mentor</div>
+              <div class="showcase-sub">CU Boulder, MS Data Science</div>
+            </div>
+          </div>
           <p>Mentored incoming MS Data Science students at CU Boulder, helping them navigate academic transition, course planning, and campus resources.</p>
         </div>
 
         <div class="showcase-card">
-          <div class="showcase-icon"><i class="fa-solid fa-globe"></i></div>
-          <div class="showcase-title">Model United Nations</div>
-          <div class="showcase-sub">Multiple Conferences</div>
+          <div class="showcase-card-header">
+            <div class="showcase-icon"><i class="fa-solid fa-globe"></i></div>
+            <div>
+              <div class="showcase-title">Model United Nations</div>
+              <div class="showcase-sub">Multiple Conferences</div>
+            </div>
+          </div>
           <p>Represented assigned nations across multiple conferences, developing skills in diplomacy, structured argumentation, and high-pressure public speaking.</p>
         </div>
 
         <div class="showcase-card">
-          <div class="showcase-icon"><i class="fa-solid fa-calendar-check"></i></div>
-          <div class="showcase-title">Event Operations</div>
-          <div class="showcase-sub">Mahindra University</div>
+          <div class="showcase-card-header">
+            <div class="showcase-icon"><i class="fa-solid fa-calendar-check"></i></div>
+            <div>
+              <div class="showcase-title">Event Operations</div>
+              <div class="showcase-sub">Mahindra University</div>
+            </div>
+          </div>
           <p>Supported end-to-end logistics and on-ground coordination for Aether and Kalakrithi, two large-scale annual student fests at Mahindra University.</p>
         </div>
 
@@ -2245,20 +2262,26 @@ footer{
       <div class="showcase-grid">
 
         <div class="showcase-card">
-          <div class="showcase-icon">🏅</div>
-          <div class="showcase-title">Institute Merit Scholarship</div>
+          <div class="showcase-card-header">
+            <div class="showcase-icon">🏅</div>
+            <div class="showcase-title">Institute Merit Scholarship</div>
+          </div>
           <p>Awarded ₹100,000 (~$1,200) per semester by Mahindra University (2019-2023) for sustained academic excellence across four years of undergraduate study.</p>
         </div>
 
         <div class="showcase-card">
-          <div class="showcase-icon">🎯</div>
-          <div class="showcase-title">95th Percentile, JEE Main</div>
+          <div class="showcase-card-header">
+            <div class="showcase-icon">🎯</div>
+            <div class="showcase-title">95th Percentile, JEE Main</div>
+          </div>
           <p>Scored in the 95th percentile on India's national engineering entrance exam, with AIR 4,000 in EAMCET Telangana, among over 1 million candidates.</p>
         </div>
 
         <div class="showcase-card">
-          <div class="showcase-icon">💡</div>
-          <div class="showcase-title">FTRE Scholarship</div>
+          <div class="showcase-card-header">
+            <div class="showcase-icon">💡</div>
+            <div class="showcase-title">FTRE Scholarship</div>
+          </div>
           <p>Awarded ₹175,000 (~$2,100) by FIITJEE for scoring 100% in their national talent recognition exam, open to high school students across India.</p>
         </div>
 
