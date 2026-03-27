@@ -70,10 +70,7 @@
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 
-  background:
-    radial-gradient(900px 420px at 20% 0%, rgba(96,165,250,.06), transparent 60%),
-    radial-gradient(1200px 600px at 80% 20%, rgba(167,139,250,.05), transparent 60%),
-    var(--bg);
+  background: var(--bg);
 }
 
   a{
@@ -676,19 +673,14 @@ section > :last-child{ margin-bottom: 0; }
 
 .skill-icon:hover img{
   transform: translateY(-1px);
-  filter: drop-shadow(0 0 10px rgba(96,165,250,.7)) drop-shadow(0 0 22px rgba(96,165,250,.45));
 }
 
 .skill-icon:hover img.mono{
-  filter:
-    brightness(0) invert(1)
-    drop-shadow(0 0 10px rgba(96,165,250,.7))
-    drop-shadow(0 0 22px rgba(96,165,250,.45));
+  filter: brightness(0) invert(1);
 }
 
 .skill-icon:hover span{
   color: var(--accent);
-  text-shadow: 0 0 10px rgba(96,165,250,.55);
 }
 
 /* =========================================================
