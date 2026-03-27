@@ -1000,7 +1000,7 @@ section > :last-child{ margin-bottom: 0; }
 }
 
 .project-card h3{
-  margin: 0 0 .6rem;
+  margin: 0 0 .25rem;
   color: var(--accent);
   font-size: 1.02rem;
   font-weight: 900;
@@ -1008,15 +1008,19 @@ section > :last-child{ margin-bottom: 0; }
   text-align: left;
 }
 
+.project-card .project-sub {
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--muted);
+  opacity: .8;
+  margin: 0 0 .75rem;
+}
+
 .project-card p{
   margin: 0 0 .9rem 0;
   color: rgba(229,231,235,.9);
   line-height: 1.6;
   font-size: .91rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .project-card .pills{
@@ -2107,7 +2111,8 @@ footer{
 
         <article class="project-card">
           <div class="content">
-            <h3>Minutes Maker – Serverless Meeting Intelligence Pipeline</h3>
+            <h3>Minutes Maker</h3>
+            <p class="project-sub">Serverless Meeting Intelligence</p>
             <p>Production-grade AWS pipeline that transcribes meeting recordings and generates structured minutes using Faster-Whisper and FLAN-T5, deployed on containerized Lambda with async SQS processing.</p>
             <div class="pills">
               <span class="pill" data-tech="aws">AWS Lambda</span>
@@ -2116,6 +2121,7 @@ footer{
               <span class="pill" data-tech="docker">Docker</span>
               <span class="pill" data-tech="terraform">Terraform</span>
               <span class="pill" data-tech="python">Python</span>
+              <span class="pill" data-tech="github-actions">GitHub Actions</span>
             </div>
             <div class="links">
               <a href="https://github.com/Sruthijha/Minutes-Maker" target="_blank">GitHub</a>
@@ -2126,7 +2132,8 @@ footer{
 
         <article class="project-card">
           <div class="content">
-            <h3>Tokyo Olympics – End-to-End Azure Data Engineering Pipeline</h3>
+            <h3>Tokyo Olympics Analytics</h3>
+            <p class="project-sub">Azure Data Engineering Pipeline</p>
             <p>Designed and built a full Azure data pipeline ingesting Olympic datasets via Data Factory, transforming with Databricks and PySpark, and surfacing insights through Synapse and Power BI.</p>
             <div class="pills">
               <span class="pill" data-tech="azure">Data Factory</span>
@@ -2135,6 +2142,7 @@ footer{
               <span class="pill" data-tech="spark">Apache Spark</span>
               <span class="pill" data-tech="synapse">Synapse</span>
               <span class="pill" data-tech="sql">SQL</span>
+              <span class="pill" data-tech="power-bi">Power BI</span>
             </div>
             <div class="links">
               <a href="https://github.com/Sruthijha/Tokyo-Olympics-Analytics" target="_blank">GitHub</a>
@@ -2144,7 +2152,8 @@ footer{
 
         <article class="project-card">
           <div class="content">
-            <h3>Research Paper Assistant – RAG-Powered Q&amp;A System</h3>
+            <h3>Research Paper Assistant</h3>
+            <p class="project-sub">RAG-Powered Q&amp;A System</p>
             <p>RAG pipeline that ingests any PDF, generates 10-section structured summaries, and answers questions with grounded page-level citations using OpenAI embeddings and cosine similarity retrieval.</p>
             <div class="pills">
               <span class="pill" data-tech="openai">OpenAI</span>
@@ -2153,6 +2162,8 @@ footer{
               <span class="pill" data-tech="vector-search">Vector Search</span>
               <span class="pill" data-tech="streamlit">Streamlit</span>
               <span class="pill" data-tech="pymupdf">PyMuPDF</span>
+              <span class="pill" data-tech="python">Python</span>
+              <span class="pill" data-tech="python">Cosine Similarity</span>
             </div>
             <div class="links">
               <a href="https://github.com/Sruthijha/research-paper-assistant" target="_blank">GitHub</a>
@@ -2163,7 +2174,7 @@ footer{
 
         <article class="project-card">
           <div class="content">
-            <h3>Airline Delay Prediction System</h3>
+            <h3>Airline Delay Prediction</h3>
             <p>Benchmarked 10+ ML models on multi-year US flight data — XGBoost hit 97% accuracy, revealing departure delay as a near-perfect predictor of arrival delay at corr = 0.97.</p>
             <div class="pills">
               <span class="pill" data-tech="python">Python</span>
@@ -2171,6 +2182,7 @@ footer{
               <span class="pill" data-tech="scikit-learn">Scikit-learn</span>
               <span class="pill" data-tech="feature-engineering">Feature Engineering</span>
               <span class="pill" data-tech="pandas">Pandas</span>
+              <span class="pill" data-tech="python">Random Forest</span>
               <span class="pill" data-tech="python">EDA</span>
             </div>
             <div class="links">
@@ -2182,7 +2194,8 @@ footer{
 
         <article class="project-card">
           <div class="content">
-            <h3>MSR 2024 – ChatGPT Developer Interaction Analysis</h3>
+            <h3>ChatGPT Developer Analysis</h3>
+            <p class="project-sub">MSR 2024 Mining Challenge</p>
             <p>Mined ChatGPT-developer dialogues to predict conversation length, score sentiment by language, and pinpoint LLM failure thresholds using a custom standard deviation method.</p>
             <div class="pills">
               <span class="pill" data-tech="keras">Keras</span>
@@ -2191,6 +2204,10 @@ footer{
               <span class="pill" data-tech="nlp">NLP</span>
               <span class="pill" data-tech="textblob">TextBlob</span>
               <span class="pill" data-tech="python">Python</span>
+              <span class="pill" data-tech="pandas">Pandas</span>
+              <span class="pill" data-tech="python">PowerShell</span>
+              <span class="pill" data-tech="python">JSON Parsing</span>
+              <span class="pill" data-tech="python">Sentiment Analysis</span>
             </div>
             <div class="links">
               <a href="https://conf.researchr.org/home/msr-2024" target="_blank">Challenge</a>
@@ -2202,7 +2219,8 @@ footer{
 
         <article class="project-card">
           <div class="content">
-            <h3>U.S. Crime Trend Analysis – Statistical Modeling</h3>
+            <h3>U.S. Crime Trend Forecasting</h3>
+            <p class="project-sub">Statistical Modeling</p>
             <p>Analyzed 44 years of FBI crime data using hypothesis testing, bootstrapping, and regression — forecasting violent crime rates through 2033 and uncovering sharp regional disparities.</p>
             <div class="pills">
               <span class="pill" data-tech="python">Python</span>
