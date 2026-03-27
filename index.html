@@ -1235,11 +1235,17 @@ a.accent:focus-visible{
 
 .showcase-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
+  .showcase-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
   .showcase-grid {
     grid-template-columns: 1fr;
   }
@@ -2164,21 +2170,28 @@ footer{
           <div class="showcase-icon"><i class="fa-solid fa-user-graduate"></i></div>
           <div class="showcase-title">Graduate Peer Mentor</div>
           <div class="showcase-sub">CU Boulder, MS Data Science</div>
-          <p>Served as a peer mentor for incoming graduate students at CU Boulder, offering support on academic transition, course planning, and navigating campus life.</p>
+          <p>Mentored incoming MS students at CU Boulder on academic transition, course planning, and campus navigation.</p>
         </div>
 
         <div class="showcase-card">
           <div class="showcase-icon"><i class="fa-solid fa-globe"></i></div>
           <div class="showcase-title">Model United Nations</div>
           <div class="showcase-sub">Multiple Conferences</div>
-          <p>Represented assigned nations in structured debate, building diplomacy, research-driven argumentation, and competitive public speaking skills.</p>
+          <p>Represented assigned nations in structured debate, building diplomacy, argumentation, and public speaking skills.</p>
         </div>
 
         <div class="showcase-card">
-          <div class="showcase-icon"><i class="fa-solid fa-people-group"></i></div>
-          <div class="showcase-title">Community Service &amp; Event Operations</div>
+          <div class="showcase-icon"><i class="fa-solid fa-leaf"></i></div>
+          <div class="showcase-title">Community Service</div>
           <div class="showcase-sub">Mahindra University</div>
-          <p>Participated in campus-wide cleanliness drives at Mahindra University and supported logistics and on-ground operations for student fests (Aether, Kalakrithi).</p>
+          <p>Participated in campus-wide cleanliness drives, contributing to a greener and more sustainable campus environment.</p>
+        </div>
+
+        <div class="showcase-card">
+          <div class="showcase-icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <div class="showcase-title">Event Operations</div>
+          <div class="showcase-sub">Mahindra University</div>
+          <p>Supported on-ground logistics and coordination for large-scale student fests Aether and Kalakrithi.</p>
         </div>
 
       </div>
