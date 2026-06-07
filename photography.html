@@ -47,8 +47,9 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,247,237,0.8);backdrop-
 .page-head h1{font-family:var(--font-d);font-size:3.4rem;font-weight:600;letter-spacing:-0.02em;line-height:1}
 .page-head p{color:var(--muted);max-width:54ch;margin:18px auto 0;font-family:var(--font);font-weight:500;font-size:0.92rem;letter-spacing:0.01em;line-height:1.6}
 
-.gallery{column-count:3;column-gap:18px;padding:34px 0 20px}
-.shot{break-inside:avoid;margin-bottom:18px;background:var(--surface);border:1.5px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px -8px rgba(58,36,16,0.18);transition:transform .15s ease,box-shadow .15s ease}
+.gallery{display:flex;gap:18px;padding:34px 0 20px;align-items:flex-start}
+.gcol{flex:1;display:flex;flex-direction:column;gap:18px;min-width:0}
+.shot{background:var(--surface);border:1.5px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px -8px rgba(58,36,16,0.18);transition:transform .15s ease,box-shadow .15s ease}
 .shot:hover{transform:translateY(-3px);box-shadow:0 12px 28px -8px rgba(58,36,16,0.26)}
 .shot img{width:100%;height:auto;display:block}
 
@@ -58,7 +59,7 @@ footer{padding:38px 0;border-top:2px dashed var(--line);text-align:center;color:
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
 .reveal.in{opacity:1;transform:none}
 
-@media(max-width:980px){.gallery{column-count:2}}
+@media(max-width:980px){.gallery{gap:14px}.gcol{gap:14px}}
 @media(max-width:860px){
   .page-head h1{font-size:2.4rem}
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:3px;background:var(--bg);border-bottom:2px solid var(--line);padding:14px 32px 22px}
@@ -66,7 +67,7 @@ footer{padding:38px 0;border-top:2px dashed var(--line);text-align:center;color:
   .status{margin:0 0 8px;justify-content:center}
   .hamburger{display:block}
 }
-@media(max-width:560px){.gallery{grid-template-columns:1fr}}
+@media(max-width:560px){.gallery{flex-direction:column}}
 </style>
 </head>
 <body>
@@ -99,36 +100,40 @@ footer{padding:38px 0;border-top:2px dashed var(--line);text-align:center;color:
   </div>
 
   <div class="gallery">
-
-    <div class="shot reveal"><img src="photos/IMG_9560.jpg" alt="Pink and green aurora over a dark hilly horizon" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_8814.jpg" alt="Airplane wing over a fiery orange horizon and city lights at night" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_5867.jpg" alt="Crescent moon over a glowing sunset gradient above mountain silhouettes" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/img_3344.jpg" alt="Fiery orange sky over a snow-capped mountain peak at sunset" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/img_1115.jpg" alt="Crescent moon among deep blue dusk clouds" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_1304.jpg" alt="Purple aurora glowing above a silhouetted ridge" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_0205.jpg" alt="Palm trees fading into thick morning fog along a seaside path" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_2411.jpg" alt="Wispy cloud curling over a white domed building" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_6540.jpg" alt="Golden tree lit at night beside a crescent moon" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_1302.jpg" alt="Starry night sky in deep purple over a dark horizon" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_5778.jpg" alt="Pastel sunset sky over a snowy mountain road" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/img_2215.jpg" alt="Pink and orange sunset clouds over a treeline" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_6960.jpg" alt="Sun breaking through a large tree over a green park at dusk" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_7273.jpg" alt="Soft pink and blue clouds at sunset above a treeline" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_7505.jpg" alt="Snow falling on branches lit against the night" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_2686.jpg" alt="Palm tree silhouetted against a dusk sky" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_2580.jpg" alt="Faint rainbow over open prairie and a wooden fence" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_6481.jpg" alt="Snow-dusted pine against deep blue sky and distant peaks" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_0378.jpg" alt="Sunrise over the ocean with layered clouds and breaking waves" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_1995.jpg" alt="Bare winter trees in bright sun over fresh snow" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_6504.jpg" alt="Tire tracks winding through fresh snow under clear blue sky" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_6129.jpg" alt="Parasailer over the sea at golden hour" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/IMG_2433.jpg" alt="Blue sky and soft clouds above a rolling sea" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/img_3285.jpg" alt="Snow-dusted mountain peak wrapped in mist" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/img_3534.jpg" alt="A single cloud lit by sunset against a blue sky" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/img_4562.jpg" alt="A tall sunset-lit cloud drifting in a clear blue sky" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/img_5852.jpg" alt="Pink dusk clouds over the Broadway bridge and foothills" loading="lazy"></div>
-    <div class="shot reveal"><img src="photos/img_8637.jpg" alt="Snowy forested mountain pass along a winding highway" loading="lazy"></div>
-
+    <div class="gcol">
+      <div class="shot reveal"><img src="photos/IMG_9560.jpg" alt="Pink and green aurora over a dark hilly horizon" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/IMG_6960.jpg" alt="Sun breaking through a large tree over a green park at dusk" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/IMG_2433.jpg" alt="Blue sky and soft clouds above a rolling sea" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/img_1115.jpg" alt="Crescent moon among deep blue dusk clouds" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/IMG_1304.jpg" alt="Purple aurora glowing above a silhouetted ridge" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/IMG_1302.jpg" alt="Starry night sky in deep purple over a dark horizon" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/IMG_2580.jpg" alt="Faint rainbow over open prairie and a wooden fence" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/IMG_6504.jpg" alt="Tire tracks winding through fresh snow under clear blue sky" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/img_3534.jpg" alt="A single cloud lit by sunset against a blue sky" loading="lazy"></div>
+    </div>
+    <div class="gcol">
+      <div class="shot reveal"><img src="photos/IMG_8814.jpg" alt="Airplane wing over a fiery orange horizon and city lights at night" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/IMG_5778.jpg" alt="Pastel sunset sky over a snowy mountain road" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/IMG_6129.jpg" alt="Parasailer over the sea at golden hour" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/IMG_1995.jpg" alt="Bare winter trees in bright sun over fresh snow" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/img_2215.jpg" alt="Pink and orange sunset clouds over a treeline" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/IMG_7505.jpg" alt="Snow falling on branches lit against the night" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/IMG_0378.jpg" alt="Sunrise over the ocean with layered clouds and breaking waves" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/img_3344.jpg" alt="Fiery orange sky over a snow-capped mountain peak at sunset" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/img_8637.jpg" alt="Snowy forested mountain pass along a winding highway" loading="lazy"></div>
+    </div>
+    <div class="gcol">
+      <div class="shot reveal"><img src="photos/IMG_5867.jpg" alt="Crescent moon over a glowing sunset gradient above mountain silhouettes" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/IMG_2411.jpg" alt="Wispy cloud curling over a white domed building" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/IMG_2686.jpg" alt="Palm tree silhouetted against a dusk sky" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/IMG_0205.jpg" alt="Palm trees fading into thick morning fog along a seaside path" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/IMG_6540.jpg" alt="Golden tree lit at night beside a crescent moon" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/IMG_7273.jpg" alt="Soft pink and blue clouds at sunset above a treeline" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/IMG_6481.jpg" alt="Snow-dusted pine against deep blue sky and distant peaks" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/img_3285.jpg" alt="Snow-dusted mountain peak wrapped in mist" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/img_5852.jpg" alt="Pink dusk clouds over the Broadway bridge and foothills" loading="lazy"></div>
+      <div class="shot reveal"><img src="photos/img_4562.jpg" alt="A tall sunset-lit cloud drifting in a clear blue sky" loading="lazy"></div>
+    </div>
   </div>
 
   <p class="note reveal">More to come, whenever the sky cooperates.</p>
