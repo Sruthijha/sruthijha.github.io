@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience · Sruthijha Pagolu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff7ed;--bg-2:#ffeede;--surface:#ffffff;--cream:#fdf3e7;
+  --ink:#3a2410;--ink-soft:#6b4a2a;--muted:#a98a6a;
+  --accent:#ea6f1e;--accent-2:#f59e3c;--berry:#e0457a;--teal:#1ba39c;
+  --line:#f1ddc6;
+  --font:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-d:'Fraunces',Georgia,serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px;position:relative;z-index:1}
+.blob{position:fixed;border-radius:50%;filter:blur(60px);z-index:0;pointer-events:none}
+.blob-1{background:#ffd8a8;width:380px;height:380px;top:-100px;right:-60px;opacity:0.55}
+.blob-2{background:#ffc9de;width:300px;height:300px;top:60vh;left:-120px;opacity:0.4}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(255,247,237,0.8);backdrop-filter:blur(12px);border-bottom:2px solid var(--line)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:15px 32px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:1.1rem;letter-spacing:-0.01em;text-decoration:none;color:var(--ink)}
+.spark{color:var(--accent);font-size:1.3rem;line-height:1;animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.nav-links{display:flex;align-items:center;gap:3px;list-style:none}
+.nav-links a{color:var(--ink-soft);text-decoration:none;font-size:0.92rem;font-weight:600;padding:8px 15px;border-radius:999px;transition:all .2s}
+.nav-links a:hover{background:var(--bg-2);color:var(--accent)}
+.nav-links a.active{background:var(--accent);color:#fff}
+.nav-links a.contact-cta{background:var(--ink);color:#fff}
+.nav-links a.contact-cta:hover{background:var(--accent)}
+.status{display:flex;align-items:center;gap:7px;font-size:0.8rem;color:var(--ink-soft);font-weight:500;margin-right:8px;background:#e7f8ed;padding:5px 12px;border-radius:999px}
+.dot{width:8px;height:8px;border-radius:50%;background:#2bb673;box-shadow:0 0 0 0 rgba(43,182,115,0.5);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(43,182,115,0.5)}70%{box-shadow:0 0 0 7px rgba(43,182,115,0)}100%{box-shadow:0 0 0 0 rgba(43,182,115,0)}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;font-size:1.5rem;color:var(--ink)}
+
+.page-head{padding:72px 0 30px;text-align:center}
+.page-head .kicker{font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:10px}
+.page-head h1{font-family:var(--font-d);font-size:3.4rem;font-weight:600;letter-spacing:-0.02em;line-height:1}
+.page-head p{color:var(--ink-soft);max-width:54ch;margin:16px auto 0}
+
+/* TIMELINE - B1 header cards */
+.timeline{position:relative;padding:46px 0 70px;max-width:760px;margin:0 auto}
+.timeline::before{content:"";position:absolute;left:18px;top:53px;bottom:70px;width:2px;transform:translateX(-50%);background:repeating-linear-gradient(rgba(234,111,30,0.5) 0 5px,transparent 5px 11px)}
+.tl-item{position:relative;padding-left:56px;margin-bottom:28px}
+.tl-item:last-child{margin-bottom:0}
+.tl-node{position:absolute;left:18px;top:53px;width:18px;height:18px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);box-sizing:border-box;z-index:2;transform:translate(-50%,-50%)}
+.tl-item.tl-current .tl-node{width:20px;height:20px;background:var(--accent);box-shadow:0 0 0 5px rgba(234,111,30,0.18)}
+
+.tl-card{background:var(--surface);border:1.5px solid var(--line);border-radius:18px;padding:28px 32px;box-shadow:0 6px 20px -8px rgba(58,36,16,0.18);transition:transform .15s ease,box-shadow .15s ease}
+.tl-card:hover{transform:translateY(-2px);box-shadow:0 10px 26px -8px rgba(58,36,16,0.24)}
+.tl-head{display:flex;align-items:center;gap:14px;margin-bottom:13px}
+.tl-logo{width:50px;height:50px;border-radius:14px;background:#fff;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:1.45rem;box-shadow:0 3px 10px -3px rgba(58,36,16,0.18);flex-shrink:0;overflow:hidden}
+.tl-logo img{width:100%;height:100%;object-fit:contain}
+.tl-headtext{flex:1;min-width:0}
+.tl-co{color:var(--accent);font-weight:700;font-size:0.85rem;margin-bottom:1px}
+.tl-co .tl-loc{color:var(--muted);font-weight:600}
+.tl-role{font-family:var(--font-d);font-size:1.3rem;font-weight:600;line-height:1.12}
+.tl-badge{display:inline-flex;align-items:center;gap:5px;font-size:0.68rem;font-weight:700;color:#1a7a4f;background:#e7f8ed;padding:3px 10px;border-radius:999px;margin-left:6px;vertical-align:middle}
+.tl-date{flex-shrink:0;font-size:0.74rem;font-weight:600;color:var(--ink-soft);background:var(--bg-2);padding:6px 13px;border-radius:999px;white-space:nowrap;align-self:flex-start}
+.tl-body{color:var(--ink-soft);font-size:0.96rem;line-height:1.75;border-top:1.5px solid var(--line);padding-top:18px}
+
+footer{padding:38px 0;border-top:2px dashed var(--line);text-align:center;color:var(--muted);font-size:0.85rem;font-weight:500;position:relative;z-index:1}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:860px){
+  .page-head h1{font-size:2.4rem}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:3px;background:var(--bg);border-bottom:2px solid var(--line);padding:14px 32px 22px}
+  .nav-links.open{display:flex}
+  .status{margin:0 0 8px;justify-content:center}
+  .hamburger{display:block}
+  .tl-head{flex-wrap:wrap}
+  .tl-date{order:3;margin-top:2px}
+  .tl-card{padding:22px 20px}
+}
+</style>
+</head>
+<body>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><span class="spark">✦</span> Sruthijha Pagolu</a>
+    <button class="hamburger" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="experience.html" class="active">Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="credentials.html">Credentials</a></li>
+      <li><a href="photography.html">Photography</a></li>
+      <li><a href="index.html#contact" class="contact-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="page-head">
+    <div class="kicker reveal">Where I've been</div>
+    <h1 class="reveal">Experience</h1>
+    <p class="reveal">From a tractor plant in Zaheerabad to AI pipelines at Pfizer. Each stop taught me a different kind of problem.</p>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item tl-current reveal">
+      <span class="tl-node"></span>
+      <div class="tl-card">
+        <div class="tl-head">
+          <div class="tl-logo"><img src="assets/extern.png" alt="Extern"></div>
+          <div class="tl-headtext">
+            <div class="tl-co">Pfizer <span class="tl-loc">· via Extern</span></div>
+            <div class="tl-role">AI Extern</div>
+          </div>
+          <span class="tl-date">Jun 2026 – Present</span>
+        </div>
+        <p class="tl-body">Pharmaceutical documents weren't written for machines. Scanned PDFs, inconsistent layouts, no structure. I'm building an AI pipeline that reads them anyway. OCR, RAG with open-source LLMs, end-to-end evaluation, and a demo UI. The goal is to make thousands of pages searchable and useful through a single interface. Still in it.</p>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <span class="tl-node"></span>
+      <div class="tl-card">
+        <div class="tl-head">
+          <div class="tl-logo"><img src="assets/goodiebag.png" alt="Goodie Bag Food Co."></div>
+          <div class="tl-headtext">
+            <div class="tl-co">Goodie Bag Food Co. <span class="tl-loc">· Remote</span></div>
+            <div class="tl-role">Data Intern</div>
+          </div>
+          <span class="tl-date">Jan – Apr 2026</span>
+        </div>
+        <p class="tl-body">Goodie Bag, a Boulder startup fighting food waste, was expanding into NYC and needed to know where to launch. I led the market intelligence behind that call, scoring all 86 neighborhoods on demand, supply, and competition across 4,141 shops, then turning it into a clear, ranked launch plan the team could act on. Worked directly with the COO.</p>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <span class="tl-node"></span>
+      <div class="tl-card">
+        <div class="tl-head">
+          <div class="tl-logo"><img src="assets/pragmatic.png" alt="Pragmatic Insurance Broking"></div>
+          <div class="tl-headtext">
+            <div class="tl-co">Pragmatic Insurance Broking Services <span class="tl-loc">· Remote</span></div>
+            <div class="tl-role">Operations Analyst Intern</div>
+          </div>
+          <span class="tl-date">Jun – Aug 2024</span>
+        </div>
+        <p class="tl-body">At Pragmatic, a small insurance brokerage, the operational backbone ran on manual spreadsheets, renewal trackers, quotation sheets, weekly MIS reports, all maintained by hand. I structured that data and streamlined the reporting, cutting the time it took to produce the weekly reports and easing the manual comparison brokers did every day. Watching them work taught me what structured data actually enables when you get it right.</p>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <span class="tl-node"></span>
+      <div class="tl-card">
+        <div class="tl-head">
+          <div class="tl-logo"><img src="assets/intech.png" alt="Intech Insurance Surveyors"></div>
+          <div class="tl-headtext">
+            <div class="tl-co">Intech Insurance Surveyors <span class="tl-loc">· Hyderabad</span></div>
+            <div class="tl-role">SDE Intern → Data Scientist</div>
+          </div>
+          <span class="tl-date">Aug 2022 – Jun 2023</span>
+        </div>
+        <p class="tl-body">Insurance fraud isn't obvious. That's the problem. Intech's investigators were buried, hundreds of claims, no way to know which ones needed attention first. I helped build a prioritization layer that scored and surfaced high-risk claims from a pool of 5,000+ records. Supervisors stopped guessing and started triaging. The system didn't catch fraud on its own. It made sure the right people looked at the right claims first.</p>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <span class="tl-node"></span>
+      <div class="tl-card">
+        <div class="tl-head">
+          <div class="tl-logo"><img src="assets/mahindra.png" alt="Mahindra"></div>
+          <div class="tl-headtext">
+            <div class="tl-co">Mahindra &amp; Mahindra <span class="tl-loc">· Zaheerabad</span></div>
+            <div class="tl-role">Project Intern</div>
+          </div>
+          <span class="tl-date">Jun – Jul 2022</span>
+        </div>
+        <p class="tl-body">My first job was inside Asia's largest tractor plant. 181 tractors a day, exports to 65 countries, and me, a third year EEE student trying to figure out why machines kept breaking down. I researched the root causes, tested solutions, and found the fix. It cost Rs 5,450. It saved the plant Rs 60 lakh every time a machine failed. Somewhere in Zaheerabad, that machine is still running.</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>⚡ If you're reading this, the deployment worked. · © 2026 Sruthijha Pagolu</footer>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%2*0.06)+'s';io.observe(el)});
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
+</script>
+
+</body>
+</html>

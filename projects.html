@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects · Sruthijha Pagolu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff7ed;--bg-2:#ffeede;--surface:#ffffff;--cream:#fdf3e7;
+  --ink:#3a2410;--ink-soft:#6b4a2a;--muted:#a98a6a;
+  --accent:#ea6f1e;--accent-2:#f59e3c;--berry:#e0457a;--teal:#1ba39c;
+  --line:#f1ddc6;
+  --font:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-d:'Fraunces',Georgia,serif;
+  --font-m:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1100px;margin:0 auto;padding:0 32px;position:relative;z-index:1}
+.blob{position:fixed;border-radius:50%;filter:blur(60px);z-index:0;pointer-events:none}
+.blob-1{background:#ffd8a8;width:380px;height:380px;top:-100px;right:-60px;opacity:0.55}
+.blob-2{background:#ffc9de;width:300px;height:300px;top:55vh;left:-120px;opacity:0.4}
+.blob-3{background:#b2f2e5;width:260px;height:260px;bottom:-80px;right:10vw;opacity:0.35}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(255,247,237,0.8);backdrop-filter:blur(12px);border-bottom:2px solid var(--line)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:15px 32px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:1.1rem;letter-spacing:-0.01em;text-decoration:none;color:var(--ink)}
+.spark{color:var(--accent);font-size:1.3rem;line-height:1;animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.nav-links{display:flex;align-items:center;gap:3px;list-style:none}
+.nav-links a{color:var(--ink-soft);text-decoration:none;font-size:0.92rem;font-weight:600;padding:8px 15px;border-radius:999px;transition:all .2s}
+.nav-links a:hover{background:var(--bg-2);color:var(--accent)}
+.nav-links a.active{background:var(--accent);color:#fff}
+.nav-links a.contact-cta{background:var(--ink);color:#fff}
+.nav-links a.contact-cta:hover{background:var(--accent)}
+.status{display:flex;align-items:center;gap:7px;font-size:0.8rem;color:var(--ink-soft);font-weight:500;margin-right:8px;background:#e7f8ed;padding:5px 12px;border-radius:999px}
+.dot{width:8px;height:8px;border-radius:50%;background:#2bb673;box-shadow:0 0 0 0 rgba(43,182,115,0.5);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(43,182,115,0.5)}70%{box-shadow:0 0 0 7px rgba(43,182,115,0)}100%{box-shadow:0 0 0 0 rgba(43,182,115,0)}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;font-size:1.5rem;color:var(--ink)}
+
+.page-head{padding:72px 0 26px;text-align:center}
+.page-head .kicker{font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:10px}
+.page-head h1{font-family:var(--font-d);font-size:3.4rem;font-weight:600;letter-spacing:-0.02em;line-height:1}
+.page-head p{color:var(--ink-soft);max-width:54ch;margin:16px auto 0;font-style:italic;font-family:var(--font-d);font-size:1.15rem}
+
+/* FILTERS */
+.filters{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:30px 0 36px;position:sticky;top:70px;z-index:50;padding:8px 0}
+.filter{font-family:var(--font);font-weight:600;font-size:0.88rem;color:var(--ink-soft);background:var(--surface);border:1.5px solid #f0a868;border-radius:999px;padding:8px 18px;cursor:pointer;box-shadow:0 2px 8px -3px rgba(58,36,16,0.14);transition:transform .12s ease,box-shadow .12s ease,background .15s,color .15s,border-color .15s}
+.filter:hover{transform:translateY(-1px);border-color:var(--accent);color:var(--accent)}
+.filter:not(.active)[data-filter="genai"]:hover{border-color:#7c3aed;color:#7c3aed}
+.filter:not(.active)[data-filter="ml"]:hover{border-color:var(--berry);color:var(--berry)}
+.filter:not(.active)[data-filter="engineering"]:hover{border-color:var(--teal);color:var(--teal)}
+.filter:not(.active)[data-filter="analytics"]:hover{border-color:#2563eb;color:#2563eb}
+.filter.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.filter.active[data-filter="genai"]{background:#7c3aed;border-color:#7c3aed}
+.filter.active[data-filter="ml"]{background:var(--berry);border-color:var(--berry)}
+.filter.active[data-filter="engineering"]{background:var(--teal);border-color:var(--teal)}
+.filter.active[data-filter="analytics"]{background:#2563eb;border-color:#2563eb}
+.filter .count{opacity:0.6;font-size:0.78rem;margin-left:3px}
+
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-bottom:20px}
+.proj{background:var(--surface);border:1.5px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 6px 20px -8px rgba(58,36,16,0.18);transition:transform .15s ease,box-shadow .15s ease;display:flex;flex-direction:column}
+.proj:hover{transform:translateY(-3px);box-shadow:0 12px 28px -8px rgba(58,36,16,0.26)}
+.proj-shot{aspect-ratio:16/9;background:var(--cream);border-bottom:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.75rem;font-family:var(--font-m);overflow:hidden;position:relative}
+.proj-shot img{width:100%;height:100%;object-fit:cover}
+.proj-cat{position:absolute;top:10px;left:10px;color:#fff;font-size:0.66rem;font-weight:700;padding:4px 10px;border-radius:999px;box-shadow:0 2px 6px -1px rgba(58,36,16,0.3);text-transform:uppercase;letter-spacing:0.04em}
+.cat-genai{background:#7c3aed}
+.cat-ml{background:var(--berry)}
+.cat-engineering{background:var(--teal)}
+.cat-analytics{background:#2563eb}
+.proj-body{padding:18px 20px;display:flex;flex-direction:column;flex:1}
+.proj-title{font-family:var(--font-d);font-size:1.25rem;font-weight:600;line-height:1.1;margin-bottom:8px}
+.proj-title a{color:var(--ink);text-decoration:none;display:inline-flex;align-items:baseline;gap:8px;transition:color .14s}
+.proj-title a .gh{width:15px;height:15px;flex-shrink:0;align-self:center;color:var(--muted);transition:color .14s}
+.proj-title a:hover{color:var(--accent);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px}
+.proj-title a:hover .gh{color:var(--accent)}
+.proj-desc{color:var(--ink-soft);font-size:0.9rem;line-height:1.55;margin-bottom:14px;flex:1}
+.proj-tech{display:flex;flex-wrap:wrap;gap:6px}
+.more-gh{text-align:center;margin-top:36px;font-size:0.98rem;color:var(--ink-soft)}
+.more-gh a{color:var(--accent);font-weight:600;text-decoration:none;display:inline-flex;align-items:baseline;gap:7px}
+.more-gh a .gh{width:15px;height:15px;align-self:center}
+.more-gh a:hover{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px}
+.tech{font-family:var(--font-m);font-size:0.7rem;background:var(--bg-2);color:var(--ink-soft);padding:3px 9px;border-radius:6px;font-weight:500}
+
+
+.proj.hidden{display:none}
+
+footer{padding:38px 0;border-top:2px dashed var(--line);text-align:center;color:var(--muted);font-size:0.85rem;font-weight:500;position:relative;z-index:1;margin-top:40px}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:980px){.proj-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:860px){
+  .page-head h1{font-size:2.4rem}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:3px;background:var(--bg);border-bottom:2px solid var(--line);padding:14px 32px 22px}
+  .nav-links.open{display:flex}
+  .status{margin:0 0 8px;justify-content:center}
+  .hamburger{display:block}
+  .filters{position:static}
+}
+@media(max-width:600px){.proj-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="gh-icon" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol></svg>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><span class="spark">✦</span> Sruthijha Pagolu</a>
+    <button class="hamburger" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="credentials.html">Credentials</a></li>
+      <li><a href="photography.html">Photography</a></li>
+      <li><a href="index.html#contact" class="contact-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="page-head">
+    <div class="kicker reveal">Things I've built</div>
+    <h1 class="reveal">Projects</h1>
+    <p class="reveal">Where curiosity meets a commit history.</p>
+  </div>
+
+  <div class="filters reveal">
+    <button class="filter active" data-filter="all">All <span class="count">9</span></button>
+    <button class="filter" data-filter="genai">GenAI <span class="count">3</span></button>
+    <button class="filter" data-filter="ml">ML <span class="count">2</span></button>
+    <button class="filter" data-filter="engineering">Engineering <span class="count">2</span></button>
+    <button class="filter" data-filter="analytics">Analytics <span class="count">2</span></button>
+  </div>
+
+  <div class="proj-grid" id="grid">
+
+    <div class="proj reveal" data-cat="genai">
+      <div class="proj-shot"><span class="proj-cat cat-genai">GenAI</span><img src="assets/research.png" alt="Research Paper Assistant"></div>
+      <div class="proj-body">
+        <div class="proj-title"><a href="https://github.com/Sruthijha/research-paper-assistant" target="_blank" rel="noopener">Research Paper Assistant<svg class="gh" aria-hidden="true"><use href="#gh-icon"/></svg></a></div>
+        <p class="proj-desc">Upload any PDF, get a structured 10-point summary and a chat interface that answers questions with page-level citations. Built the full RAG pipeline from scratch.</p>
+        <div class="proj-tech"><span class="tech">RAG</span><span class="tech">LangChain</span><span class="tech">OpenAI</span><span class="tech">PyMuPDF</span><span class="tech">Streamlit</span><span class="tech">Python</span></div>
+      </div>
+    </div>
+
+    <div class="proj reveal" data-cat="genai">
+      <div class="proj-shot"><span class="proj-cat cat-genai">GenAI</span><img src="assets/ainews.png" alt="AI News Agent"></div>
+      <div class="proj-body">
+        <div class="proj-title"><a href="https://github.com/Sruthijha/ai-news-agent" target="_blank" rel="noopener">AI News Agent<svg class="gh" aria-hidden="true"><use href="#gh-icon"/></svg></a></div>
+        <p class="proj-desc">Pulls AI news from 5 sources twice a day, summarizes with GPT, scores by relevance, and delivers a formatted digest to Slack automatically. Zero manual effort after deployment.</p>
+        <div class="proj-tech"><span class="tech">n8n</span><span class="tech">OpenAI</span><span class="tech">PostgreSQL</span><span class="tech">Docker</span><span class="tech">Slack API</span></div>
+      </div>
+    </div>
+
+    <div class="proj reveal" data-cat="genai">
+      <div class="proj-shot"><span class="proj-cat cat-genai">GenAI</span><img src="assets/msr.png" alt="ChatGPT Performance Research"></div>
+      <div class="proj-body">
+        <div class="proj-title"><a href="https://github.com/Sruthijha/SE_Mining-Challenge24" target="_blank" rel="noopener">ChatGPT Performance Research<svg class="gh" aria-hidden="true"><use href="#gh-icon"/></svg></a></div>
+        <p class="proj-desc">Analyzed 2,372 real ChatGPT programming conversations to predict conversation length, measure developer satisfaction by language, and identify where LLMs start failing.</p>
+        <div class="proj-tech"><span class="tech">NLP</span><span class="tech">Keras</span><span class="tech">LSTM</span><span class="tech">TextBlob</span><span class="tech">Python</span></div>
+      </div>
+    </div>
+
+    <div class="proj reveal" data-cat="ml">
+      <div class="proj-shot"><span class="proj-cat cat-ml">ML</span><img src="assets/emotion.jpg" alt="Real-Time Emotion Recognition"></div>
+      <div class="proj-body">
+        <div class="proj-title"><a href="https://github.com/Sruthijha/Real-Time-Emotion-Recognition-from-Speech-" target="_blank" rel="noopener">Real-Time Emotion Recognition<svg class="gh" aria-hidden="true"><use href="#gh-icon"/></svg></a></div>
+        <p class="proj-desc">CNN and LSTM hybrid that classifies 8 emotions from speech in real-time. Trained on RAVDESS with audio augmentation. 95% accuracy.</p>
+        <div class="proj-tech"><span class="tech">CNN</span><span class="tech">LSTM</span><span class="tech">Keras</span><span class="tech">librosa</span><span class="tech">Python</span></div>
+      </div>
+    </div>
+
+    <div class="proj reveal" data-cat="ml">
+      <div class="proj-shot"><span class="proj-cat cat-ml">ML</span><img src="assets/airline.png" alt="Airline Delay Prediction"></div>
+      <div class="proj-body">
+        <div class="proj-title"><a href="https://github.com/Sruthijha/Airline-Delay-Prediction-System" target="_blank" rel="noopener">Airline Delay Prediction<svg class="gh" aria-hidden="true"><use href="#gh-icon"/></svg></a></div>
+        <p class="proj-desc">Benchmarked 10+ ML models on US flight data to predict delays before departure. XGBoost won with 97% accuracy.</p>
+        <div class="proj-tech"><span class="tech">XGBoost</span><span class="tech">scikit-learn</span><span class="tech">Python</span><span class="tech">EDA</span></div>
+      </div>
+    </div>
+
+    <div class="proj reveal" data-cat="engineering">
+      <div class="proj-shot"><span class="proj-cat cat-engineering">Engineering</span><img src="assets/minutes.jpg" alt="Minutes Maker"></div>
+      <div class="proj-body">
+        <div class="proj-title"><a href="https://github.com/Sruthijha/Minutes-Maker" target="_blank" rel="noopener">Minutes Maker<svg class="gh" aria-hidden="true"><use href="#gh-icon"/></svg></a></div>
+        <p class="proj-desc">Built a production serverless pipeline on AWS that takes a meeting recording and outputs structured minutes. Docker, Terraform, GitHub Actions, live demo deployed.</p>
+        <div class="proj-tech"><span class="tech">AWS Lambda</span><span class="tech">S3</span><span class="tech">SQS</span><span class="tech">DynamoDB</span><span class="tech">Docker</span><span class="tech">Terraform</span><span class="tech">LLM</span></div>
+      </div>
+    </div>
+
+    <div class="proj reveal" data-cat="engineering">
+      <div class="proj-shot"><span class="proj-cat cat-engineering">Engineering</span><img src="assets/bandu.jpg" alt="Band-U"></div>
+      <div class="proj-body">
+        <div class="proj-title"><a href="https://github.com/Sruthijha/Band-U" target="_blank" rel="noopener">Band-U<svg class="gh" aria-hidden="true"><use href="#gh-icon"/></svg></a></div>
+        <p class="proj-desc">Full-stack iOS and Android app that matches people through music taste. Spotify integration, Tinder-style swiping, in-app chat. Designed end to end in Figma.</p>
+        <div class="proj-tech"><span class="tech">Flutter</span><span class="tech">Dart</span><span class="tech">Firebase</span><span class="tech">Spotify API</span><span class="tech">Figma</span></div>
+      </div>
+    </div>
+
+    <div class="proj reveal" data-cat="analytics">
+      <div class="proj-shot"><span class="proj-cat cat-analytics">Analytics</span><img src="assets/tokyo.png" alt="Tokyo Olympics Analytics"></div>
+      <div class="proj-body">
+        <div class="proj-title"><a href="https://github.com/Sruthijha/Tokyo-Olympics-Analytics" target="_blank" rel="noopener">Tokyo Olympics Analytics<svg class="gh" aria-hidden="true"><use href="#gh-icon"/></svg></a></div>
+        <p class="proj-desc">Built a full Azure data pipeline that ingests Olympic datasets, transforms with PySpark, and surfaces insights through Power BI. End to end cloud data engineering.</p>
+        <div class="proj-tech"><span class="tech">Azure Data Factory</span><span class="tech">Databricks</span><span class="tech">PySpark</span><span class="tech">Synapse</span><span class="tech">Power BI</span></div>
+      </div>
+    </div>
+
+    <div class="proj reveal" data-cat="analytics">
+      <div class="proj-shot"><span class="proj-cat cat-analytics">Analytics</span><img src="assets/stat.png" alt="U.S. Crime Trend Forecasting"></div>
+      <div class="proj-body">
+        <div class="proj-title"><a href="https://github.com/Sruthijha/CrimeDataAnalysis" target="_blank" rel="noopener">U.S. Crime Trend Forecasting<svg class="gh" aria-hidden="true"><use href="#gh-icon"/></svg></a></div>
+        <p class="proj-desc">44 years of FBI data, ARIMA models, hypothesis testing. Forecasted violent crime trends through 2033 and mapped regional disparities for policymakers.</p>
+        <div class="proj-tech"><span class="tech">ARIMA</span><span class="tech">Time Series</span><span class="tech">Python</span><span class="tech">EDA</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="more-gh">These are the highlights. <a href="https://github.com/Sruthijha" target="_blank" rel="noopener">See the rest on GitHub<svg class="gh" aria-hidden="true"><use href="#gh-icon"/></svg></a></p>
+
+</div>
+
+<footer>⚡ If you're reading this, the deployment worked. · © 2026 Sruthijha Pagolu</footer>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*0.05)+'s';io.observe(el)});
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
+
+const filters=document.querySelectorAll('.filter');
+const projs=document.querySelectorAll('.proj');
+filters.forEach(f=>f.addEventListener('click',()=>{
+  filters.forEach(x=>x.classList.remove('active'));
+  f.classList.add('active');
+  const sel=f.dataset.filter;
+  projs.forEach(p=>{
+    p.classList.toggle('hidden', !(sel==='all'||p.dataset.cat===sel));
+  });
+}));
+</script>
+
+</body>
+</html>
